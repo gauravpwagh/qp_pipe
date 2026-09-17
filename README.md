@@ -56,7 +56,10 @@ In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
 questions, a reconstructed List I/List II + Code-answer table (middle), and
 a rich-text explanation editor (bold/italic/underline/color/font) plus tags
-(right). Answers, explanations, and tags autosave as you go.
+(right). The stem, directions, passage text, and each option are directly
+editable in place (click in and type - useful for fixing the occasional OCR
+mistake). Answers, explanations, edited text, and tags all autosave as you
+go.
 
 Each processed job's data lives at `output/<paper_id>/`:
 `paper.json` (schema below), the per-question cropped `images/`, the full
