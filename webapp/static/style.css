@@ -164,6 +164,16 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .option-card.selected { border-color: var(--accent); background: var(--accent-bg); }
 .option-letter { font-weight: 700; width: 18px; flex-shrink: 0; }
 
+.clear-answer-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: none;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  font-size: 12px;
+}
+.clear-answer-btn:hover { color: var(--danger); border-color: var(--danger); opacity: 1; }
+
 .table-block table { border-collapse: collapse; width: 100%; margin-bottom: 14px; font-size: 13px; }
 .table-block th, .table-block td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
 .table-block th { background: #f0f2f5; }

@@ -317,12 +317,21 @@ function renderQuestion(qNumber) {
     }
   }
 
+  document.getElementById("clear-answer-btn").hidden = !currentQuestion.user_answer;
+
   const editor = getQuillInstance();
   editor.setContents(editor.clipboard.convert(currentQuestion.explanation_html || ""));
   setSaveIndicator("");
 
   renderTags();
 }
+
+function clearAnswer() {
+  currentQuestion.user_answer = null;
+  renderQuestion(currentQuestion.q_number);
+  saveQuestionField(currentQuestion.q_number, { user_answer: null });
+}
+document.getElementById("clear-answer-btn").addEventListener("click", clearAnswer);
 
 function renderMatchListTable(table) {
   const list1 = table.list1 || [];
@@ -349,10 +358,11 @@ function renderMatchListTable(table) {
 }
 
 function selectAnswer(letter) {
-  currentQuestion.user_answer = letter;
-  document.querySelectorAll(".option-card").forEach((el) => el.classList.remove("selected"));
+  // Clicking the already-selected option again clears it, rather than
+  // being stuck once any option is picked.
+  currentQuestion.user_answer = currentQuestion.user_answer === letter ? null : letter;
   renderQuestion(currentQuestion.q_number);
-  saveQuestionField(currentQuestion.q_number, { user_answer: letter });
+  saveQuestionField(currentQuestion.q_number, { user_answer: currentQuestion.user_answer });
 }
 
 // Tags and topics are the same chip-list-with-suggestions widget, just two
