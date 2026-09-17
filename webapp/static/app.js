@@ -252,7 +252,9 @@ function renderQuestion(qNumber) {
   const img = document.getElementById("question-image");
   img.src = currentQuestion.image ? `/api/papers/${currentPaper.paper_id}/${currentQuestion.image}` : "";
 
-  document.getElementById("section-directions").innerHTML = currentQuestion.section_directions_html || "";
+  const directionsEl = document.getElementById("section-directions");
+  directionsEl.hidden = !currentQuestion.section_directions_html;
+  directionsEl.innerHTML = currentQuestion.section_directions_html || "";
 
   const passageBlock = document.getElementById("passage-block");
   if (currentQuestion.passage_text_html) {
