@@ -215,23 +215,12 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .pane-notes h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
 
-/* Topics/Tags keep their natural height; Explanation takes whatever
-   vertical space is left in the pane, and its own editor scrolls
-   internally rather than growing the whole pane. */
-.pane-notes {
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 160px);
-  max-height: calc(100vh - 160px);
-  overflow: hidden;
-}
-.notes-topics-tags { flex: 0 0 auto; }
-.notes-explanation { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; margin-top: 4px; }
-.notes-explanation h4 { flex: 0 0 auto; }
-#editor-toolbar { flex: 0 0 auto; }
-#editor { flex: 1 1 auto; min-height: 120px; margin-bottom: 12px; background: white; overflow-y: auto; }
+/* The pane itself scrolls (inherits max-height/overflow-y from the shared
+   .pane rule) - Explanation just grows to fit its content instead of being
+   boxed into a fixed height with its own internal scrollbar. */
+.notes-explanation { margin-top: 4px; }
+#editor { min-height: 160px; height: auto; margin-bottom: 12px; background: white; }
 #editor .ql-formula .katex-display { margin: 0.4em 0; }
-#save-indicator { flex: 0 0 auto; }
 
 #tag-input-row, #topic-input-row { margin-bottom: 8px; }
 #tag-input, #topic-input { width: 100%; padding: 7px; border: 1px solid var(--border); border-radius: 6px; }
