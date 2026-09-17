@@ -1,0 +1,6 @@
+pypdfium2>=5.0
+easyocr>=1.7
+pillow>=10.0
+numpy>=1.26
+opencv-python>=4.9
+pandas>=2.0
