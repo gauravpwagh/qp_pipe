@@ -584,10 +584,21 @@ function initLatexScratchpad() {
   const copyBtn = document.getElementById("latex-copy-btn");
   const copyStatusEl = document.getElementById("latex-copy-status");
 
+  const stitchBtn = document.getElementById("latex-stitch-btn");
+  const stitchStatusEl = document.getElementById("latex-stitch-status");
+  const stitchErrorEl = document.getElementById("latex-stitch-error");
+  const stitchLinesEl = document.getElementById("latex-stitch-lines");
+  const stitchPreviewWrapEl = document.getElementById("latex-stitch-preview-wrap");
+  const stitchPreviewEl = document.getElementById("latex-stitch-preview");
+  const stitchOutputEl = document.getElementById("latex-stitch-output");
+  const stitchCopyBtn = document.getElementById("latex-stitch-copy-btn");
+  const stitchCopyStatusEl = document.getElementById("latex-stitch-copy-status");
+
   let sourceImage = null; // HTMLImageElement, the full pasted/dropped image
   let displayScale = 1; // canvas pixels per source-image pixel
   let cropRect = null; // {x, y, w, h} in SOURCE-image pixel coordinates
   let dragStart = null; // {x, y} in canvas pixel coordinates
+  let stitchLines = []; // [{kind: "text"|"formula", text, latex?, bbox}], SOURCE-image pixel coords
 
   function setImage(blob) {
     const img = new Image();
@@ -611,6 +622,11 @@ function initLatexScratchpad() {
       previewEl.innerHTML = "";
       copyBtn.disabled = true;
       copyStatusEl.textContent = "";
+      stitchBtn.disabled = false;
+      stitchErrorEl.hidden = true;
+      stitchLines = [];
+      stitchLinesEl.innerHTML = "";
+      stitchPreviewWrapEl.hidden = true;
     };
     img.src = URL.createObjectURL(blob);
   }
@@ -776,6 +792,163 @@ function initLatexScratchpad() {
     copyBtn.disabled = !outputEl.value.trim();
     clearTimeout(editRenderTimer);
     editRenderTimer = setTimeout(() => renderLatexPreview(outputEl.value), 300);
+  });
+
+  // ---- Auto-detect & Stitch (whole screenshot) ----
+  // Splits the FULL pasted image (not the crop selection above - this mode
+  // is for when you don't want to crop) into text/formula lines server-side
+  // (heuristic, see the hint text) and stitches them into one HTML block,
+  // same ql-formula span format the explanation editor already understands.
+  function sourceImageToBlob() {
+    const c = document.createElement("canvas");
+    c.width = sourceImage.naturalWidth;
+    c.height = sourceImage.naturalHeight;
+    c.getContext("2d").drawImage(sourceImage, 0, 0);
+    return new Promise((resolve) => c.toBlob(resolve, "image/png"));
+  }
+
+  function cropSourceImageToBlob(bbox) {
+    const [x0, y0, x1, y1] = bbox;
+    const w = Math.max(1, Math.round(x1 - x0));
+    const h = Math.max(1, Math.round(y1 - y0));
+    const c = document.createElement("canvas");
+    c.width = w;
+    c.height = h;
+    c.getContext("2d").drawImage(sourceImage, x0, y0, w, h, 0, 0, w, h);
+    return new Promise((resolve) => c.toBlob(resolve, "image/png"));
+  }
+
+  function buildStitchHtml() {
+    return stitchLines
+      .map((line) =>
+        line.kind === "formula" && line.latex
+          ? `<p><span class="ql-formula" data-value="${escapeHtml(line.latex)}"> </span></p>`
+          : `<p>${escapeHtml(line.text)}</p>`
+      )
+      .join("");
+  }
+
+  function renderStitchPreview(html) {
+    stitchPreviewEl.innerHTML = html;
+    stitchPreviewEl.querySelectorAll(".ql-formula[data-value]").forEach((span) => {
+      try {
+        katex.render(span.getAttribute("data-value"), span, { throwOnError: false, displayMode: true });
+      } catch (err) {
+        // leave the raw span text as a fallback
+      }
+    });
+  }
+
+  function refreshStitchOutput() {
+    const html = buildStitchHtml();
+    stitchOutputEl.value = html;
+    renderStitchPreview(html);
+    stitchCopyBtn.disabled = !html.trim();
+    stitchPreviewWrapEl.hidden = false;
+  }
+
+  function renderStitchLines() {
+    stitchLinesEl.innerHTML = "";
+    stitchLines.forEach((line, i) => {
+      const row = document.createElement("div");
+      row.className = "latex-stitch-line";
+
+      const badge = document.createElement("span");
+      badge.className = `latex-stitch-badge ${line.kind}`;
+      badge.textContent = line.kind === "formula" ? "Formula" : "Text";
+
+      const content = document.createElement("span");
+      content.className = "latex-stitch-line-content";
+      content.textContent = line.kind === "formula" ? line.latex || line.text : line.text;
+
+      const toggleBtn = document.createElement("button");
+      toggleBtn.type = "button";
+      toggleBtn.className = "latex-stitch-toggle";
+      toggleBtn.textContent = line.kind === "formula" ? "Mark as text" : "Mark as formula";
+      toggleBtn.addEventListener("click", () => toggleStitchLine(i, toggleBtn));
+
+      row.append(badge, content, toggleBtn);
+      stitchLinesEl.appendChild(row);
+    });
+    refreshStitchOutput();
+  }
+
+  async function toggleStitchLine(index, toggleBtn) {
+    const line = stitchLines[index];
+    if (line.kind === "formula") {
+      // Falling back to text just reuses the OCR text already fetched -
+      // no re-conversion needed.
+      line.kind = "text";
+      renderStitchLines();
+      return;
+    }
+    if (line.latex) {
+      line.kind = "formula";
+      renderStitchLines();
+      return;
+    }
+    // Forcing text -> formula for a line that's never been converted needs
+    // an on-demand pix2tex call, cropped to just that line's region.
+    toggleBtn.disabled = true;
+    toggleBtn.textContent = "Converting...";
+    try {
+      const blob = await cropSourceImageToBlob(line.bbox);
+      const form = new FormData();
+      form.append("image", blob, "line.png");
+      const res = await fetch("/api/latex/convert", { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "conversion failed");
+      line.latex = data.latex;
+      line.kind = "formula";
+      renderStitchLines();
+    } catch (err) {
+      alert(err.message);
+      toggleBtn.disabled = false;
+      toggleBtn.textContent = "Mark as formula";
+    }
+  }
+
+  stitchBtn.addEventListener("click", async () => {
+    if (!sourceImage) return;
+    stitchBtn.disabled = true;
+    stitchStatusEl.hidden = false;
+    stitchErrorEl.hidden = true;
+    try {
+      const blob = await sourceImageToBlob();
+      const form = new FormData();
+      form.append("image", blob, "screenshot.png");
+      const res = await fetch("/api/latex/analyze_screenshot", { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "analysis failed");
+      stitchLines = data.lines;
+      renderStitchLines();
+    } catch (err) {
+      stitchErrorEl.textContent = err.message;
+      stitchErrorEl.hidden = false;
+    } finally {
+      stitchStatusEl.hidden = true;
+      stitchBtn.disabled = false;
+    }
+  });
+
+  let stitchEditTimer = null;
+  stitchOutputEl.addEventListener("input", () => {
+    stitchCopyBtn.disabled = !stitchOutputEl.value.trim();
+    clearTimeout(stitchEditTimer);
+    stitchEditTimer = setTimeout(() => renderStitchPreview(stitchOutputEl.value), 300);
+  });
+
+  stitchCopyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(stitchOutputEl.value);
+      stitchCopyStatusEl.textContent = "Copied";
+      setTimeout(() => (stitchCopyStatusEl.textContent = ""), 1500);
+    } catch (err) {
+      stitchOutputEl.select();
+      document.execCommand("copy");
+      stitchCopyStatusEl.textContent = "Copied";
+      setTimeout(() => (stitchCopyStatusEl.textContent = ""), 1500);
+    }
   });
 }
 

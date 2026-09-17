@@ -95,6 +95,22 @@ OCR, it's reliable on clean typeset formulas and can misread messy or
 low-resolution ones - always check the rendered preview before trusting
 it.
 
+Don't want to crop at all? **Auto-detect & Stitch** (section 3, same
+pasted image) splits the whole screenshot into lines via OCR, guesses
+which ones are a formula (has "=" and a lot of math/digit characters) vs.
+plain prose, converts only the formula-looking ones via pix2tex, and
+stitches everything back into one HTML block - text and rendered
+formulas both. This is a heuristic, not a trained layout-detection model,
+so check the line list it shows you: click **Mark as formula** /
+**Mark as text** to fix a misclassified line (forcing a line to formula
+runs the conversion on demand). It works well when a formula sits on one
+line (e.g. `UR = 50-45/50 x 100 = 10%`); a stacked fraction spanning two
+visual rows gets split into separate text lines instead, since each
+fragment alone doesn't look like a formula - use the crop tool (section
+1/2) for those instead. The stitched HTML textarea is editable and
+re-renders live, same as the single-formula result - **Copy HTML** when
+it looks right, and paste it into an explanation.
+
 Each processed job's data lives at `output/<paper_id>/`:
 `paper.json` (schema below), the per-question cropped `images/`, the full
 rendered `page_images/`, and a `source.pdf` copy of exactly what was

@@ -17,7 +17,7 @@ from werkzeug.utils import secure_filename
 
 from . import jobs
 from .variants import VARIANTS
-from src import latex_ocr
+from src import latex_ocr, screenshot_stitch
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -236,6 +236,34 @@ def api_latex_convert():
         return jsonify({"error": f"conversion failed: {e}"}), 500
 
     return jsonify({"latex": latex})
+
+
+@app.route("/api/latex/analyze_screenshot", methods=["POST"])
+def api_latex_analyze_screenshot():
+    """LaTeX Scratchpad's "Auto-detect & Stitch" mode: split a whole pasted
+    screenshot into text/formula lines (heuristic, not a trained
+    layout-detection model - see README) and return each one top-to-bottom
+    so the web app can stitch and let the user correct misclassified
+    lines."""
+    file = request.files.get("image")
+    if file is None or not file.filename:
+        return jsonify({"error": "no image uploaded"}), 400
+    from PIL import Image
+    import io
+
+    try:
+        image = Image.open(io.BytesIO(file.read())).convert("RGB")
+    except Exception:
+        return jsonify({"error": "could not read the uploaded image"}), 400
+
+    try:
+        lines = screenshot_stitch.analyze_screenshot(image)
+        return jsonify({"lines": lines})
+    except Exception as e:
+        # Covers a jsonify() serialization failure too, not just analysis
+        # itself - either way the caller should get JSON back, not Flask's
+        # default HTML error page.
+        return jsonify({"error": f"analysis failed: {e}"}), 500
 
 
 @app.route("/api/variants/<variant_id>/vocab")
