@@ -21,6 +21,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
 OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
+# Per-variant vocabulary of every tag/topic ever entered, so the UI can
+# suggest previously-used ones while typing a new one. Lives in its own
+# subfolder (name starts with "_", so it never collides with a paper_id,
+# which always starts with a variant id like "cds_english_v1-...").
+VOCAB_DIR = OUTPUT_DIR / "_vocab"
+VOCAB_DIR.mkdir(parents=True, exist_ok=True)
+
 app = Flask(__name__, static_folder="static", static_url_path="")
 
 _write_lock = threading.Lock()
@@ -54,6 +61,55 @@ def _write_paper_atomic(paper_id: str, paper: dict) -> None:
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
+
+
+def _vocab_path(variant_id: str) -> Path:
+    return VOCAB_DIR / f"{_slugify(variant_id)}.json"
+
+
+def _read_vocab(variant_id: str) -> dict:
+    path = _vocab_path(variant_id)
+    if not path.exists():
+        return {"tags": [], "topics": []}
+    with open(path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+    return {"tags": data.get("tags", []), "topics": data.get("topics", [])}
+
+
+def _write_vocab_atomic(variant_id: str, vocab: dict) -> None:
+    path = _vocab_path(variant_id)
+    fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix=".tmp")
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            json.dump(vocab, f, indent=2, ensure_ascii=False)
+        os.replace(tmp_path, path)
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
+
+def _remember_vocab(variant_id: str, tags: list | None, topics: list | None) -> None:
+    """Merge any new tags/topics into this variant's suggestion vocabulary
+    (dedup, case-insensitively, keeping first-seen casing) - called after a
+    question's tags/topics are saved."""
+    if not tags and not topics:
+        return
+    vocab = _read_vocab(variant_id)
+    changed = False
+    for key, incoming in (("tags", tags), ("topics", topics)):
+        if not incoming:
+            continue
+        existing_lower = {v.lower() for v in vocab[key]}
+        for v in incoming:
+            v = (v or "").strip()
+            if v and v.lower() not in existing_lower:
+                vocab[key].append(v)
+                existing_lower.add(v.lower())
+                changed = True
+    if changed:
+        vocab["tags"].sort(key=str.lower)
+        vocab["topics"].sort(key=str.lower)
+        _write_vocab_atomic(variant_id, vocab)
 
 
 @app.route("/")
@@ -142,16 +198,25 @@ def api_paper_source_pdf(paper_id):
     return send_from_directory(_paper_dir(paper_id), "source.pdf")
 
 
+@app.route("/api/variants/<variant_id>/vocab")
+def api_variant_vocab(variant_id):
+    """Every tag/topic ever entered for this variant, for autocomplete
+    suggestions while typing a new one on any paper of this variant."""
+    return jsonify(_read_vocab(variant_id))
+
+
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>", methods=["PATCH"])
 def api_update_question(paper_id, q_number):
     body = request.get_json(force=True, silent=True) or {}
-    # user_answer/explanation_html/tags: the review workflow's own fields.
-    # question_stem_html/section_directions_html/passage_text_html/options:
-    # lets the user correct OCR mistakes directly in the question body.
+    # user_answer/explanation_html/tags/topics: the review workflow's own
+    # fields. question_stem_html/section_directions_html/passage_text_html/
+    # options: lets the user correct OCR mistakes directly in the question
+    # body.
     allowed_flat = {
         "user_answer",
         "explanation_html",
         "tags",
+        "topics",
         "question_stem_html",
         "section_directions_html",
         "passage_text_html",
@@ -176,6 +241,8 @@ def api_update_question(paper_id, q_number):
                 {k: v for k, v in options_update.items() if k in ("a", "b", "c", "d")}
             )
         _write_paper_atomic(paper_id, paper)
+        if "tags" in updates or "topics" in updates:
+            _remember_vocab(paper.get("variant", paper_id), updates.get("tags"), updates.get("topics"))
 
     return jsonify(question)
 

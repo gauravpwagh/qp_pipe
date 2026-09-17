@@ -147,6 +147,7 @@ async function loadPaper(paperId) {
   if (!paperId) return;
   const res = await fetch(`/api/papers/${paperId}`);
   currentPaper = await res.json();
+  await loadVocabSuggestions(currentPaper.variant);
 
   const qSelect = document.getElementById("question-select");
   qSelect.innerHTML = "";
@@ -159,6 +160,41 @@ async function loadPaper(paperId) {
   document.getElementById("review-empty").hidden = true;
   document.getElementById("review-body").hidden = false;
   renderQuestion(currentPaper.questions[0].q_number);
+}
+
+// Every tag/topic ever entered for this paper's variant, so typing a new
+// one on any question of any paper of the same variant suggests ones
+// already used elsewhere - shared vocabulary across papers of one variant.
+async function loadVocabSuggestions(variantId) {
+  if (!variantId) return;
+  try {
+    const res = await fetch(`/api/variants/${variantId}/vocab`);
+    const vocab = await res.json();
+    fillDatalist("tag-suggestions", vocab.tags || []);
+    fillDatalist("topic-suggestions", vocab.topics || []);
+  } catch (err) {
+    // suggestions are a nicety, not critical - fail quietly
+  }
+}
+
+function fillDatalist(id, values) {
+  const list = document.getElementById(id);
+  list.innerHTML = "";
+  for (const v of values) {
+    const opt = document.createElement("option");
+    opt.value = v;
+    list.appendChild(opt);
+  }
+}
+
+function rememberSuggestion(datalistId, value) {
+  const list = document.getElementById(datalistId);
+  const exists = Array.from(list.options).some((o) => o.value.toLowerCase() === value.toLowerCase());
+  if (!exists) {
+    const opt = document.createElement("option");
+    opt.value = value;
+    list.appendChild(opt);
+  }
 }
 
 document.getElementById("question-select").addEventListener("change", (e) => renderQuestion(Number(e.target.value)));
@@ -309,16 +345,30 @@ function selectAnswer(letter) {
   saveQuestionField(currentQuestion.q_number, { user_answer: letter });
 }
 
-function renderTags() {
-  const list = document.getElementById("tag-list");
+// Tags and topics are the same chip-list-with-suggestions widget, just two
+// separate fields/vocabularies - a single set of functions parameterized
+// by which one, rather than duplicating each for "topic".
+const CHIP_FIELDS = {
+  tags: { listEl: "tag-list", inputEl: "tag-input", datalistEl: "tag-suggestions" },
+  topics: { listEl: "topic-list", inputEl: "topic-input", datalistEl: "topic-suggestions" },
+};
+
+function renderChips(field) {
+  const { listEl } = CHIP_FIELDS[field];
+  const list = document.getElementById(listEl);
   list.innerHTML = "";
-  for (const tag of currentQuestion.tags || []) {
+  for (const value of currentQuestion[field] || []) {
     const chip = document.createElement("span");
     chip.className = "tag-chip";
-    chip.innerHTML = `${escapeHtml(tag)} <button title="remove">×</button>`;
-    chip.querySelector("button").addEventListener("click", () => removeTag(tag));
+    chip.innerHTML = `${escapeHtml(value)} <button title="remove">×</button>`;
+    chip.querySelector("button").addEventListener("click", () => removeChip(field, value));
     list.appendChild(chip);
   }
+}
+
+function renderTags() {
+  renderChips("tags");
+  renderChips("topics");
 }
 
 function escapeHtml(s) {
@@ -327,28 +377,31 @@ function escapeHtml(s) {
   return d.innerHTML;
 }
 
-document.getElementById("tag-input").addEventListener("keydown", (e) => {
-  if (e.key === "Enter") {
-    e.preventDefault();
-    const value = e.target.value.trim();
-    if (!value) return;
-    e.target.value = "";
-    addTag(value);
-  }
-});
-
-function addTag(tag) {
-  if (!currentQuestion.tags) currentQuestion.tags = [];
-  if (currentQuestion.tags.includes(tag)) return;
-  currentQuestion.tags.push(tag);
-  renderTags();
-  saveQuestionField(currentQuestion.q_number, { tags: currentQuestion.tags });
+for (const [field, { inputEl, datalistEl }] of Object.entries(CHIP_FIELDS)) {
+  document.getElementById(inputEl).addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const value = e.target.value.trim();
+      if (!value) return;
+      e.target.value = "";
+      addChip(field, value);
+      rememberSuggestion(datalistEl, value);
+    }
+  });
 }
 
-function removeTag(tag) {
-  currentQuestion.tags = (currentQuestion.tags || []).filter((t) => t !== tag);
-  renderTags();
-  saveQuestionField(currentQuestion.q_number, { tags: currentQuestion.tags });
+function addChip(field, value) {
+  if (!currentQuestion[field]) currentQuestion[field] = [];
+  if (currentQuestion[field].some((v) => v.toLowerCase() === value.toLowerCase())) return;
+  currentQuestion[field].push(value);
+  renderChips(field);
+  saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
+}
+
+function removeChip(field, value) {
+  currentQuestion[field] = (currentQuestion[field] || []).filter((v) => v !== value);
+  renderChips(field);
+  saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
 }
 
 async function saveQuestionField(qNumber, updates) {

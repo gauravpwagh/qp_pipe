@@ -216,6 +216,7 @@ def run_pipeline_json(
                 "user_answer": None,
                 "explanation_html": "",
                 "tags": [],
+                "topics": [],
             }
         )
 

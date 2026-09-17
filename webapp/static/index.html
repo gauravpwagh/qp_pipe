@@ -84,9 +84,17 @@
           <div id="editor-toolbar"></div>
           <div id="editor"></div>
 
+          <h4>Topics</h4>
+          <div id="topic-input-row">
+            <input type="text" id="topic-input" list="topic-suggestions" placeholder="Add a topic and press Enter">
+            <datalist id="topic-suggestions"></datalist>
+          </div>
+          <div id="topic-list" class="tag-list"></div>
+
           <h4>Tags</h4>
           <div id="tag-input-row">
-            <input type="text" id="tag-input" placeholder="Add a tag and press Enter">
+            <input type="text" id="tag-input" list="tag-suggestions" placeholder="Add a tag and press Enter">
+            <datalist id="tag-suggestions"></datalist>
           </div>
           <div id="tag-list" class="tag-list"></div>
 
