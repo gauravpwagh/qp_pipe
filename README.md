@@ -5,9 +5,24 @@ two-column layout, no text layer) into structured questions, then lets you
 review them in a browser: see each question's source-image crop, pick an
 answer, and write a rich-text (HTML) explanation with tags.
 
-Built and validated against `QP-CDSE-II-26-ENGLISH-140926.pdf` (CDS
-Examination (II), 2026, English test booklet, 120 questions across 32
-scanned pages).
+Built and validated against two CDS Examination (II) 2026 booklets:
+
+- `QP-CDSE-II-26-ENGLISH-140926.pdf` - English, 120 questions / 32 pages.
+- `QP-CDSE-II-26-GENERAL-KNOWLEDGE-140926.pdf` - bilingual (every item
+  printed in Hindi then English), 120 questions / 56 pages. Our OCR reader
+  is English-only, so this variant skips OCR on the Hindi pages entirely
+  (see `src/variant_gk.py`) rather than just discarding garbled output -
+  correctly *and* roughly halving processing time.
+
+## Variants
+
+A "variant" is a layout profile registered in `webapp/variants.py`, each
+pointing at its own `run_*_json` function. `cds_english_v1` (plain
+single-language) and `cds_gk_v1` (bilingual, English-only extraction) both
+reuse the same core pipeline (`src/pipeline.py`'s `run_pipeline_json`) -
+a new variant is usually just a different page classifier / OCR-skip rule
+passed into it, not new parsing logic. See `src/variant_gk.py` for the
+bilingual pattern to copy from.
 
 ## Setup
 
@@ -27,11 +42,11 @@ python -m flask --app webapp.app run --port 5050
 ```
 
 Open `http://localhost:5050`. **Process** tab: upload a PDF, pick a variant
-(only "CDS Exam - English" exists today - see `webapp/variants.py` to add
-more), click Process. This runs as a background job (OCR takes ~5-6 minutes
-for a 32-page booklet on CPU); the page polls and shows progress, then
-switches you to **Review** with the new paper pre-selected. The Review tab
-also lets you pick any previously-processed paper.
+(see Variants above), click Process. This runs as a background job (OCR
+takes ~5-6 minutes for the English booklet, ~3 minutes for the GK booklet
+since half its pages are skipped, both on CPU); the page polls and shows
+progress, then switches you to **Review** with the new paper pre-selected.
+The Review tab also lets you pick any previously-processed paper.
 
 In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
@@ -107,10 +122,22 @@ Each question in the `questions` array:
 5. `parse_questions.py` - walks the linear line stream with a small state
    machine to find question/option/Directions/Passage boundaries via
    regex, with a recovery path for when OCR drops a question-number token
-   or option-marker glyph outright (see Known Limitations).
-6. `bbox.py` - computes each question's pixel bounding box (its own start
-   position down to the next question's, within its column) - used to crop
-   its review-UI image and to scope `match_list.py`'s box search.
+   or option-marker glyph outright (see Known Limitations). Directions/
+   Passage headers are only matched on `FULL`-width lines - a normal
+   sentence can word-wrap so an ordinary printed line starts with the word
+   "directions" (e.g. "...shall extend to the giving of / directions to
+   the States...", seen in the GK booklet), and without that guard such a
+   line reads as a false section-header and corrupts every question after
+   it.
+6. `bbox.py` - computes each question's pixel bounding region(s), directly
+   from the bounding rects of the OCR lines that actually became that
+   question's text (`Question.regions`, grouped by page+column in
+   `parse_questions.py`) - used to crop its review-UI image and to scope
+   `match_list.py`'s box search. Normally one region; on a dense layout a
+   question's content can overflow from the bottom of one column to the
+   top of the next on the same page, giving two - both get cropped and
+   stacked into one image (`pipeline.py::_crop_question_image`) rather than
+   silently showing only the first.
 7. `match_list.py` - for `match_the_list` questions, re-parses the raw OCR
    boxes in that question's bbox into a structured List I / List II / Code
    answer-table, with position-based recovery when a label glyph or answer

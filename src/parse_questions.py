@@ -43,16 +43,35 @@ class Question:
     raw_lines: list[str] = field(default_factory=list)
     start_y: float = 0.0
     start_kind: str = ""  # "LEFT" / "RIGHT" / "FULL" - the column the question's first line was in
+    regions: list[dict] = field(default_factory=list)  # [{"page","kind","x0","y0","x1","y1"}, ...] -
+    # usually one, but a question's content can overflow from the bottom of
+    # one column to the top of the next on the same page, giving two.
 
 
 class Fragment:
-    __slots__ = ("text", "y0", "conf", "underlined_words")
+    __slots__ = ("text", "y0", "y1", "conf", "underlined_words", "x0", "x1", "page", "kind")
 
-    def __init__(self, text: str, y0: float, conf: float, underlined_words: frozenset = frozenset()):
+    def __init__(
+        self,
+        text: str,
+        y0: float,
+        conf: float,
+        underlined_words: frozenset = frozenset(),
+        x0: float = 0.0,
+        x1: float = 0.0,
+        y1: float = 0.0,
+        page: int = 0,
+        kind: str = "",
+    ):
         self.text = text
         self.y0 = y0
+        self.y1 = y1 or y0
         self.conf = conf
         self.underlined_words = underlined_words
+        self.x0 = x0
+        self.x1 = x1
+        self.page = page
+        self.kind = kind
 
 
 class Builder:
@@ -75,12 +94,40 @@ class Builder:
         self.start_y = 0.0
         self.start_kind = ""
 
-    def add(self, field_name: str, text: str, y0: float, conf: float, underlined_words: frozenset = frozenset()):
+    def add(self, field_name: str, text: str, line: Line):
         self.active = field_name
-        self.fields[field_name].append(Fragment(text, y0, conf, underlined_words))
+        self.fields[field_name].append(
+            Fragment(text, line.y0, line.conf, line.underlined_words, line.x0, line.x1, line.y1, line.page, line.kind)
+        )
 
-    def append_active(self, text: str, y0: float, conf: float, underlined_words: frozenset = frozenset()):
-        self.fields[self.active].append(Fragment(text, y0, conf, underlined_words))
+    def append_active(self, text: str, line: Line):
+        self.fields[self.active].append(
+            Fragment(text, line.y0, line.conf, line.underlined_words, line.x0, line.x1, line.y1, line.page, line.kind)
+        )
+
+    def compute_regions(self) -> list[dict]:
+        """Union the bounding rects of every fragment that went into this
+        question, grouped by (page, kind) - almost always one region, but a
+        question whose content overflows from the bottom of one column to
+        the top of the next (same page) produces two, and the caller (image
+        cropping) can render both instead of silently cutting one off."""
+        groups: dict[tuple[int, str], list[Fragment]] = {}
+        for frags in self.fields.values():
+            for f in frags:
+                groups.setdefault((f.page, f.kind), []).append(f)
+        regions = []
+        for (page, kind), frags in groups.items():
+            regions.append(
+                {
+                    "page": page,
+                    "kind": kind,
+                    "x0": min(f.x0 for f in frags),
+                    "y0": min(f.y0 for f in frags),
+                    "x1": max(f.x1 for f in frags),
+                    "y1": max(f.y1 for f in frags),
+                }
+            )
+        return regions
 
     def is_field_set(self, field_name: str) -> bool:
         return len(self.fields[field_name]) > 0
@@ -125,6 +172,7 @@ class Builder:
             raw_lines=self.raw_lines,
             start_y=self.start_y,
             start_kind=self.start_kind,
+            regions=self.compute_regions(),
         )
         if self.forced_review_reason:
             q.needs_review = True
@@ -171,14 +219,14 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             questions.append(builder.to_question())
             builder = None
 
-    def start_new_question(page_num: int, stem_prefix: str, y0: float, conf: float, kind: str = "", inferred: bool = False, underlined_words: frozenset = frozenset()):
+    def start_new_question(page_num: int, stem_prefix: str, line: Line, inferred: bool = False):
         nonlocal builder, expected_num
         finalize_current()
         builder = Builder(expected_num, page_num, current_directions, current_passage_label, current_passage_text)
-        builder.start_y = y0
-        builder.start_kind = kind
+        builder.start_y = line.y0
+        builder.start_kind = line.kind
         if stem_prefix:
-            builder.add("stem", stem_prefix.strip(), y0=y0, conf=conf, underlined_words=underlined_words)
+            builder.add("stem", stem_prefix.strip(), line)
         if inferred:
             builder.forced_review_reason = "question number not detected by OCR; number inferred from sequence"
         expected_num += 1
@@ -196,19 +244,27 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             if q_match and int(q_match.group(1)) == expected_num:
                 stem_prefix = (pending_stem + " " + q_match.group(2)).strip()
                 pending_stem = ""
-                start_new_question(page_num, stem_prefix, line.y0, line.conf, kind=line.kind, underlined_words=line.underlined_words)
+                start_new_question(page_num, stem_prefix, line)
                 builder.raw_lines.append(text)
                 collecting = None
                 continue
 
-            dir_match = DIRECTIONS_RE.match(text)
+            # Real "Directions :" / "PASSAGE" headings are always standalone
+            # full-width lines in this exam format. Gate on line.kind=="FULL"
+            # too, not just the regex - otherwise a normal sentence that
+            # happens to word-wrap with "directions" starting a new printed
+            # line (e.g. "...shall extend to the giving of / directions to
+            # the States...") gets misread as a new section header, since
+            # each printed line is checked independently. Same risk applies
+            # to "passage" as an ordinary word.
+            dir_match = DIRECTIONS_RE.match(text) if line.kind == "FULL" else None
             if dir_match:
                 finalize_current()
                 current_directions = dir_match.group(1)
                 collecting = "directions"
                 continue
 
-            pas_match = PASSAGE_RE.match(text)
+            pas_match = PASSAGE_RE.match(text) if line.kind == "FULL" else None
             if pas_match and len(text) < 40:
                 finalize_current()
                 current_passage_label = text
@@ -227,15 +283,15 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                     # is currently active (almost always the trailing option), and use
                     # everything after that gap as the new question's stem.
                     recovered_stem = builder.split_active_on_largest_gap()
-                    start_new_question(page_num, recovered_stem, line.y0, line.conf, kind=line.kind, inferred=True)
-                builder.add(letter, opt_match.group(2), line.y0, line.conf, line.underlined_words)
+                    start_new_question(page_num, recovered_stem, line, inferred=True)
+                builder.add(letter, opt_match.group(2), line)
                 builder.raw_lines.append(text)
                 continue
 
             # continuation line
             if builder is not None:
                 builder.raw_lines.append(text)
-                builder.append_active(text, line.y0, line.conf, line.underlined_words)
+                builder.append_active(text, line)
             elif collecting == "directions":
                 current_directions = (current_directions + " " + text).strip()
             elif collecting == "passage":

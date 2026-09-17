@@ -107,6 +107,11 @@ def _extract_items(boxes: list[Box], item_re: re.Pattern, labels_order: list[str
 
     items: list[dict] = []
     label_ptr = 0
+    inferrable_budget = missing_count  # only ever infer as many labels as are
+    # actually missing - otherwise a genuinely unlabeled leading segment
+    # (e.g. an intro sentence like "Match List I with List II..." sitting
+    # above the real column headers, when all 4 real items already OCR'd
+    # fine) would get wrongly consumed as a fake extra item.
     for seg in segments:
         text = " ".join(t for t, _ in seg["rows"]).strip()
         if not text:
@@ -115,12 +120,13 @@ def _extract_items(boxes: list[Box], item_re: re.Pattern, labels_order: list[str
             items.append({"label": seg["label"], "text": text})
             if seg["label"] in labels_order:
                 label_ptr = labels_order.index(seg["label"]) + 1
-        elif label_ptr < len(labels_order):
+        elif label_ptr < len(labels_order) and inferrable_budget > 0:
             items.append({"label": labels_order[label_ptr], "text": text})
             notes.append(f"item {labels_order[label_ptr]!r} label not detected by OCR - inferred from position, verify text")
             label_ptr += 1
+            inferrable_budget -= 1
         else:
-            notes.append(f"unexpected extra text after all {len(labels_order)} items: {text!r}")
+            notes.append(f"discarded unlabeled text (not a missing item): {text!r}")
 
     return items, notes
 

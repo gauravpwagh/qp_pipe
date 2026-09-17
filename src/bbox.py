@@ -6,7 +6,7 @@ per question, and to hand match_list.py just the boxes for one question.
 from dataclasses import dataclass
 
 from .ocr import Box
-from .parse_questions import FOOTER_Y_FRAC, Question
+from .parse_questions import Question
 from .reading_order import LEFT_EDGE_FRAC, RIGHT_EDGE_FRAC
 
 PAD = 6  # px of breathing room around the tightest box union
@@ -33,41 +33,35 @@ def compute_bboxes(
     questions: list[Question],
     page_boxes: dict[int, list[Box]],
     page_dims: dict[int, tuple[float, float]],
-) -> dict[int, BBox]:
-    """Returns {q_number: BBox}. Each question's vertical extent runs from its
-    own start_y down to the next question's start_y *in the same column on the
-    same page* (or the page's footer margin if it's the last one there)."""
-    groups: dict[tuple[int, str], list[Question]] = {}
+) -> dict[int, list[BBox]]:
+    """Returns {q_number: [BBox, ...]} - built directly from the bounding
+    rects of the OCR lines that actually became this question's text
+    (Question.regions, computed in parse_questions.py), grouped by (page,
+    kind). Normally one region; a question whose content overflows from the
+    bottom of one column to the top of the next on the same page (seen in
+    practice on a dense 2-column layout) yields two - callers should render
+    /search across all of them rather than just the first, or a chunk of
+    that question's own text and image would silently go missing."""
+    bboxes: dict[int, list[BBox]] = {}
     for q in questions:
-        groups.setdefault((q.page, q.start_kind), []).append(q)
-
-    end_y_by_qnum: dict[int, float] = {}
-    for (page, _kind), qs in groups.items():
-        qs.sort(key=lambda q: q.start_y)
-        _, h = page_dims.get(page, (0, 0))
-        bottom = FOOTER_Y_FRAC * h
-        for i, q in enumerate(qs):
-            end_y_by_qnum[q.q_number] = qs[i + 1].start_y if i + 1 < len(qs) else bottom
-
-    bboxes: dict[int, BBox] = {}
-    for q in questions:
-        w, h = page_dims.get(q.page, (0, 0))
-        col_x0, col_x1 = _column_x_range(q.start_kind, w)
-        y0 = max(0.0, q.start_y - PAD)
-        y1 = min(h, end_y_by_qnum.get(q.q_number, h) + PAD)
-
-        boxes = page_boxes.get(q.page, [])
-        relevant = [
-            b
-            for b in boxes
-            if col_x0 - PAD <= (b.x0 + b.x1) / 2 <= col_x1 + PAD and y0 <= (b.y0 + b.y1) / 2 <= y1
-        ]
-        if relevant:
-            bx0 = max(0.0, min(b.x0 for b in relevant) - PAD)
-            bx1 = min(w, max(b.x1 for b in relevant) + PAD)
-            by0 = max(0.0, min(b.y0 for b in relevant) - PAD)
-            by1 = min(h, max(b.y1 for b in relevant) + PAD)
-            bboxes[q.q_number] = BBox(q.page, bx0, by0, bx1, by1)
-        else:
-            bboxes[q.q_number] = BBox(q.page, col_x0, y0, col_x1, y1)
+        regions = []
+        for r in q.regions:
+            w, h = page_dims.get(r["page"], (0, 0))
+            x0 = max(0.0, r["x0"] - PAD)
+            y0 = max(0.0, r["y0"] - PAD)
+            x1 = min(w, r["x1"] + PAD) if w else r["x1"] + PAD
+            y1 = min(h, r["y1"] + PAD) if h else r["y1"] + PAD
+            regions.append(BBox(r["page"], x0, y0, x1, y1))
+        if not regions:
+            # defensive fallback - shouldn't happen (every question has at
+            # least a stem fragment) but don't leave a question imageless.
+            w, h = page_dims.get(q.page, (0, 0))
+            col_x0, col_x1 = _column_x_range(q.start_kind, w)
+            regions = [BBox(q.page, col_x0, max(0.0, q.start_y - PAD), col_x1, h)]
+        # Deliberately NOT sorted by y0: q.regions is already in true reading
+        # order (fragments were grouped in the order first encountered while
+        # walking the parsed text stream), and a bottom-of-left-column ->
+        # top-of-right-column overflow has a LATER region with a SMALLER y0
+        # than the first - sorting by y0 would silently reverse it.
+        bboxes[q.q_number] = regions
     return bboxes

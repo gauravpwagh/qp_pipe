@@ -108,12 +108,22 @@ def run_pipeline_json(
     source_filename: str | None = None,
     image_dir: str | None = None,
     progress_cb: Callable[[int, int], None] | None = None,
+    should_ocr_page: Callable[[int, int], bool] | None = None,
+    classify_page_fn: Callable[[int, str], str] | None = None,
 ) -> dict:
     """Like run_pipeline, but produces the web review UI's paper.json plus
     a cropped image per question, instead of CSVs. Reuses the same
     OCR/reading-order/parsing pipeline; the only new work here is keeping
     the raw per-page boxes around for bbox computation and match-the-list
     table reconstruction, and serializing everything to JSON.
+
+    `should_ocr_page(page_num, total_pages)`, if given, lets a variant skip
+    OCR entirely on pages it already knows aren't wanted (e.g. a bilingual
+    booklet's non-English pages, which our English-only OCR reader can't
+    usefully read anyway) - skipped pages are recorded as "skipped" and
+    never enter parsing. `classify_page_fn(page_num, all_text)`, if given,
+    overrides the default instructions/rough_work/content classification
+    for pages that ARE ocr'd (e.g. to also key off page position).
     """
     paper_dir_p = Path(paper_dir)
     img_dir = paper_dir_p / "page_images"
@@ -133,12 +143,19 @@ def run_pipeline_json(
 
     for path in image_paths:
         page_num = int(path.stem.split("_")[1])
+
+        if should_ocr_page and not should_ocr_page(page_num, total_pages):
+            page_kinds[page_num] = "skipped"
+            if progress_cb:
+                progress_cb(page_num, total_pages)
+            continue
+
         pil_img = Image.open(path).convert("L")
         gray = np.array(pil_img)
 
         boxes = ocr_image(gray)
         all_text = " ".join(b.text for b in boxes)
-        kind = classify_page(all_text)
+        kind = classify_page_fn(page_num, all_text) if classify_page_fn else classify_page(all_text)
         page_kinds[page_num] = kind
         page_dims[page_num] = (gray.shape[1], gray.shape[0])
 
@@ -163,13 +180,14 @@ def run_pipeline_json(
     page_images_by_num = {int(p.stem.split("_")[1]): p for p in image_paths}
     question_dicts = []
     for q in sorted(questions, key=lambda x: x.q_number):
-        bb = bboxes.get(q.q_number)
-        image_rel = _crop_question_image(q, bb, page_images_by_num, crops_dir)
+        bb_list = bboxes.get(q.q_number) or []
+        image_rel = _crop_question_image(q, bb_list, page_images_by_num, crops_dir)
 
         table = None
-        if q.question_type == "match_the_list" and bb is not None:
+        if q.question_type == "match_the_list" and bb_list:
             region_boxes = [
                 b
+                for bb in bb_list
                 for b in page_boxes.get(bb.page, [])
                 if bb.x0 <= (b.x0 + b.x1) / 2 <= bb.x1 and bb.y0 <= (b.y0 + b.y1) / 2 <= bb.y1
             ]
@@ -222,17 +240,39 @@ def run_pipeline_json(
     return paper
 
 
-def _crop_question_image(q: Question, bb, page_images_by_num: dict, crops_dir: Path) -> str | None:
-    if bb is None or bb.page not in page_images_by_num:
+def _crop_question_image(q: Question, bb_list: list, page_images_by_num: dict, crops_dir: Path) -> str | None:
+    """Crop and save this question's source-image thumbnail. Usually one
+    region; when a question's content overflows from the bottom of one
+    column to the top of the next (same page), bb_list has two - both are
+    cropped and stacked vertically (with a thin separator) into one image,
+    rather than silently showing only the first and losing the rest."""
+    crops = []
+    for bb in bb_list:
+        if bb.page not in page_images_by_num:
+            continue
+        try:
+            with Image.open(page_images_by_num[bb.page]) as page_img:
+                crops.append(page_img.crop((bb.x0, bb.y0, bb.x1, bb.y1)).copy())
+        except Exception:
+            continue
+    if not crops:
         return None
-    try:
-        with Image.open(page_images_by_num[bb.page]) as page_img:
-            crop = page_img.crop((bb.x0, bb.y0, bb.x1, bb.y1))
-            rel_name = f"q_{q.q_number:04d}.png"
-            crop.save(crops_dir / rel_name)
-            return f"images/{rel_name}"
-    except Exception:
-        return None
+
+    if len(crops) == 1:
+        combined = crops[0]
+    else:
+        gap = 10
+        width = max(c.width for c in crops)
+        height = sum(c.height for c in crops) + gap * (len(crops) - 1)
+        combined = Image.new("L", (width, height), color=255)
+        y = 0
+        for c in crops:
+            combined.paste(c, (0, y))
+            y += c.height + gap
+
+    rel_name = f"q_{q.q_number:04d}.png"
+    combined.save(crops_dir / rel_name)
+    return f"images/{rel_name}"
 
 
 def write_questions_csv(questions: list[Question], path: Path) -> None:
