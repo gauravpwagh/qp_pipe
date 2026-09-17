@@ -3,8 +3,32 @@ let quill = null;
 let currentPaper = null; // full paper JSON
 let currentQuestion = null; // current question object (reference into currentPaper.questions)
 let pendingSelectPaperId = null; // set right after a process job finishes
-let saveTimer = null;
 let jobPollTimer = null;
+
+// Independently-debounced saves per editable field (stem, directions,
+// passage, explanation, each option) - a question can have several fields
+// mid-edit at once, each needs its own timer, and switching questions must
+// flush every pending one (not just whichever was last touched).
+const pendingSaves = new Map(); // fieldKey -> {timer, flush}
+
+function scheduleFieldSave(fieldKey, flushFn) {
+  const existing = pendingSaves.get(fieldKey);
+  if (existing) clearTimeout(existing.timer);
+  setSaveIndicator("saving");
+  const timer = setTimeout(() => {
+    pendingSaves.delete(fieldKey);
+    flushFn();
+  }, 600);
+  pendingSaves.set(fieldKey, { timer, flush: flushFn });
+}
+
+function flushAllPendingSaves() {
+  for (const { timer, flush } of pendingSaves.values()) {
+    clearTimeout(timer);
+    flush();
+  }
+  pendingSaves.clear();
+}
 
 // ---- tab switching ----
 document.querySelectorAll(".tab-btn").forEach((btn) => {
@@ -167,29 +191,16 @@ function getQuillInstance() {
     });
     quill.on("text-change", (delta, oldDelta, source) => {
       if (!currentQuestion || source !== "user") return;
-      clearTimeout(saveTimer);
-      setSaveIndicator("saving");
-      saveTimer = setTimeout(() => {
-        const html = quill.root.innerHTML;
-        saveQuestionField(currentQuestion.q_number, { explanation_html: html });
-      }, 600);
+      scheduleFieldSave("explanation", () =>
+        saveQuestionField(currentQuestion.q_number, { explanation_html: quill.root.innerHTML })
+      );
     });
   }
   return quill;
 }
 
-function flushPendingSave() {
-  if (saveTimer) {
-    clearTimeout(saveTimer);
-    saveTimer = null;
-    if (currentQuestion && quill) {
-      saveQuestionField(currentQuestion.q_number, { explanation_html: quill.root.innerHTML });
-    }
-  }
-}
-
 function renderQuestion(qNumber) {
-  flushPendingSave();
+  flushAllPendingSaves();
   currentQuestion = currentPaper.questions.find((q) => q.q_number === qNumber);
   if (!currentQuestion) return;
   document.getElementById("question-select").value = String(qNumber);
@@ -234,7 +245,27 @@ function renderQuestion(qNumber) {
     for (const letter of ["a", "b", "c", "d"]) {
       const card = document.createElement("div");
       card.className = "option-card" + (currentQuestion.user_answer === letter ? " selected" : "");
-      card.innerHTML = `<span class="option-letter">(${letter})</span><span class="option-text">${currentQuestion.options[letter] || ""}</span>`;
+
+      const letterSpan = document.createElement("span");
+      letterSpan.className = "option-letter";
+      letterSpan.textContent = `(${letter})`;
+
+      const textSpan = document.createElement("span");
+      textSpan.className = "option-text";
+      textSpan.contentEditable = "true";
+      textSpan.innerHTML = currentQuestion.options[letter] || "";
+      // Editing the text shouldn't also register a click-to-select on the
+      // card it lives inside.
+      textSpan.addEventListener("mousedown", (e) => e.stopPropagation());
+      textSpan.addEventListener("click", (e) => e.stopPropagation());
+      textSpan.addEventListener("input", () => {
+        scheduleFieldSave(`option_${letter}`, () =>
+          saveQuestionField(currentQuestion.q_number, { options: { [letter]: textSpan.innerHTML } })
+        );
+      });
+
+      card.appendChild(letterSpan);
+      card.appendChild(textSpan);
       card.addEventListener("click", () => selectAnswer(letter));
       optionsBlock.appendChild(card);
     }
@@ -351,5 +382,26 @@ function setSaveIndicator(state) {
   }
 }
 
+// ---- editable question body (stem / directions / passage) ----
+// One-time setup: these elements persist across renderQuestion() calls
+// (only their innerHTML is replaced), so the listeners only need attaching
+// once, not per-render.
+function initEditableFields() {
+  const bindings = [
+    { id: "question-stem", field: "question_stem_html", key: "stem" },
+    { id: "section-directions", field: "section_directions_html", key: "directions" },
+    { id: "passage-text", field: "passage_text_html", key: "passage" },
+  ];
+  for (const { id, field, key } of bindings) {
+    const el = document.getElementById(id);
+    el.contentEditable = "true";
+    el.addEventListener("input", () => {
+      if (!currentQuestion) return;
+      scheduleFieldSave(key, () => saveQuestionField(currentQuestion.q_number, { [field]: el.innerHTML }));
+    });
+  }
+}
+
 // ---- init ----
 loadVariants();
+initEditableFields();

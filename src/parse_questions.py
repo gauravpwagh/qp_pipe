@@ -19,6 +19,25 @@ PASSAGE_RE = re.compile(r"^passage\b\s*(.*)$", re.IGNORECASE)
 FOOTER_Y_FRAC = 0.90  # lines starting below this fraction of page height are header/footer noise
 PURE_NUMBER_RE = re.compile(r"^\d{1,4}$")
 
+# A stem often embeds its own numbered/lettered sub-statements (plain "1. ...",
+# para-jumble "S1: ..." fixed sentences, "P : ..." code-labelled sentences) and
+# always ends with one of a small fixed set of trailer phrases. Each of these
+# starts its own printed line in the source - when we display the stem we want
+# to preserve that, not flatten everything into one run-on paragraph.
+_NEW_LINE_TRIGGERS = [
+    re.compile(r"^\d{1,2}\s*[\.\-_]\s*\S"),  # "1. ...", "2_ ...", "3- ..."
+    re.compile(r"^S\d\s*[:.]\s*\S", re.IGNORECASE),  # "S1: ...", "S6. ..."
+    re.compile(r"^[PQRS]\s*:\s*\S"),  # "P : ...", "Q : ..." (para-jumble labels)
+    re.compile(
+        r"^(select the answer|which of the (?:above\s+)?statements?|how many of the above|which of the above)",
+        re.IGNORECASE,
+    ),
+]
+
+
+def _starts_new_line(text: str) -> bool:
+    return any(p.match(text) for p in _NEW_LINE_TRIGGERS)
+
 TOTAL_QUESTIONS = 120
 FIELD_NAMES = ("stem", "a", "b", "c", "d")
 
@@ -156,6 +175,24 @@ class Builder:
     def _join_field(frags: list[Fragment]) -> str:
         return " ".join(mark_underlines_in_text(f.text, f.underlined_words) for f in frags).strip()
 
+    @staticmethod
+    def _join_field_with_breaks(frags: list[Fragment]) -> str:
+        """Like _join_field, but a fragment whose original line starts a new
+        numbered/lettered sub-statement or a trailer phrase (see
+        _NEW_LINE_TRIGGERS) begins a new displayed line instead of being
+        run into the previous one - options stay single-paragraph (they
+        don't have this structure), only the stem uses this."""
+        parts: list[str] = []
+        for i, f in enumerate(frags):
+            marked = mark_underlines_in_text(f.text, f.underlined_words)
+            if i == 0:
+                parts.append(marked)
+            elif _starts_new_line(f.text):
+                parts.append("<br><br>" + marked)
+            else:
+                parts.append(" " + marked)
+        return "".join(parts).strip()
+
     def to_question(self) -> Question:
         q = Question(
             q_number=self.q_number,
@@ -163,7 +200,7 @@ class Builder:
             section_directions=self.directions,
             passage_label=self.passage_label,
             passage_text=self.passage_text,
-            question_stem=self._join_field(self.fields["stem"]),
+            question_stem=self._join_field_with_breaks(self.fields["stem"]),
             option_a=self._join_field(self.fields["a"]),
             option_b=self._join_field(self.fields["b"]),
             option_c=self._join_field(self.fields["c"]),

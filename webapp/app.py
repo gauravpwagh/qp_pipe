@@ -145,9 +145,22 @@ def api_paper_source_pdf(paper_id):
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>", methods=["PATCH"])
 def api_update_question(paper_id, q_number):
     body = request.get_json(force=True, silent=True) or {}
-    allowed = {"user_answer", "explanation_html", "tags"}
-    updates = {k: v for k, v in body.items() if k in allowed}
-    if not updates:
+    # user_answer/explanation_html/tags: the review workflow's own fields.
+    # question_stem_html/section_directions_html/passage_text_html/options:
+    # lets the user correct OCR mistakes directly in the question body.
+    allowed_flat = {
+        "user_answer",
+        "explanation_html",
+        "tags",
+        "question_stem_html",
+        "section_directions_html",
+        "passage_text_html",
+    }
+    updates = {k: v for k, v in body.items() if k in allowed_flat}
+    options_update = body.get("options")
+    if not isinstance(options_update, dict):
+        options_update = None
+    if not updates and not options_update:
         return jsonify({"error": "no recognized fields in body"}), 400
 
     with _write_lock:
@@ -158,6 +171,10 @@ def api_update_question(paper_id, q_number):
         if question is None:
             return jsonify({"error": "question not found"}), 404
         question.update(updates)
+        if options_update:
+            question.setdefault("options", {}).update(
+                {k: v for k, v in options_update.items() if k in ("a", "b", "c", "d")}
+            )
         _write_paper_atomic(paper_id, paper)
 
     return jsonify(question)
