@@ -532,18 +532,24 @@ function initEditableFields() {
 }
 
 // ---- LaTeX Scratchpad tab ----
-// Paste/drop/choose a formula image on the left, convert it (server-side,
-// via pix2tex) to LaTeX, check the rendered result on the right, copy it
-// into an explanation. The image never gets attached to any question -
-// this tab is just a one-off conversion scratchpad.
-let latexImageBlob = null;
+// Paste/drop/choose a formula image on the left, optionally crop it down
+// to just the formula (a full screenshot - headings, bullet text, "Final
+// Answer" lines - confuses the converter, which expects one isolated
+// expression), convert it (server-side, via pix2tex) to LaTeX, check the
+// rendered result on the right, copy it into an explanation. The image
+// never gets attached to any question - this tab is just a one-off
+// conversion scratchpad.
+const MAX_CROP_CANVAS_WIDTH = 560;
 
 function initLatexScratchpad() {
   const dropzone = document.getElementById("latex-dropzone");
-  const previewImg = document.getElementById("latex-preview-img");
+  const canvas = document.getElementById("latex-crop-canvas");
+  const ctx = canvas.getContext("2d");
   const hint = document.getElementById("latex-dropzone-hint");
+  const cropHint = document.getElementById("latex-crop-hint");
   const fileInput = document.getElementById("latex-file-input");
   const chooseBtn = document.getElementById("latex-choose-btn");
+  const resetCropBtn = document.getElementById("latex-reset-crop-btn");
   const convertBtn = document.getElementById("latex-convert-btn");
   const statusEl = document.getElementById("latex-convert-status");
   const errorEl = document.getElementById("latex-convert-error");
@@ -552,18 +558,108 @@ function initLatexScratchpad() {
   const copyBtn = document.getElementById("latex-copy-btn");
   const copyStatusEl = document.getElementById("latex-copy-status");
 
+  let sourceImage = null; // HTMLImageElement, the full pasted/dropped image
+  let displayScale = 1; // canvas pixels per source-image pixel
+  let cropRect = null; // {x, y, w, h} in SOURCE-image pixel coordinates
+  let dragStart = null; // {x, y} in canvas pixel coordinates
+
   function setImage(blob) {
-    latexImageBlob = blob;
-    previewImg.src = URL.createObjectURL(blob);
-    previewImg.hidden = false;
-    hint.hidden = true;
-    convertBtn.disabled = false;
-    errorEl.hidden = true;
-    outputEl.value = "";
-    previewEl.innerHTML = "";
-    copyBtn.disabled = true;
-    copyStatusEl.textContent = "";
+    const img = new Image();
+    img.onload = () => {
+      sourceImage = img;
+      displayScale = Math.min(1, MAX_CROP_CANVAS_WIDTH / img.naturalWidth);
+      canvas.width = Math.round(img.naturalWidth * displayScale);
+      canvas.height = Math.round(img.naturalHeight * displayScale);
+      canvas.hidden = false;
+      hint.hidden = true;
+      cropHint.hidden = false;
+      resetCropBtn.hidden = false;
+      // Default selection is the whole image, so Convert works immediately
+      // even if the user never bothers to crop (e.g. it was already a
+      // tight formula crop coming in).
+      cropRect = { x: 0, y: 0, w: img.naturalWidth, h: img.naturalHeight };
+      redrawCanvas();
+      convertBtn.disabled = false;
+      errorEl.hidden = true;
+      outputEl.value = "";
+      previewEl.innerHTML = "";
+      copyBtn.disabled = true;
+      copyStatusEl.textContent = "";
+    };
+    img.src = URL.createObjectURL(blob);
   }
+
+  function redrawCanvas() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(sourceImage, 0, 0, canvas.width, canvas.height);
+    if (!cropRect) return;
+    const rx = cropRect.x * displayScale;
+    const ry = cropRect.y * displayScale;
+    const rw = cropRect.w * displayScale;
+    const rh = cropRect.h * displayScale;
+    const isFullImage = rx === 0 && ry === 0 && rw === canvas.width && rh === canvas.height;
+    if (!isFullImage) {
+      // Dim everything outside the selection so it's obvious what will
+      // actually get sent to the converter.
+      ctx.fillStyle = "rgba(0,0,0,0.45)";
+      ctx.fillRect(0, 0, canvas.width, ry);
+      ctx.fillRect(0, ry + rh, canvas.width, canvas.height - (ry + rh));
+      ctx.fillRect(0, ry, rx, rh);
+      ctx.fillRect(rx + rw, ry, canvas.width - (rx + rw), rh);
+    }
+    ctx.strokeStyle = "#2563eb";
+    ctx.lineWidth = 2;
+    ctx.strokeRect(rx, ry, rw, rh);
+  }
+
+  function canvasPoint(e) {
+    const rect = canvas.getBoundingClientRect();
+    // getBoundingClientRect() reflects any CSS scaling (e.g. max-width:
+    // 100% shrinking the canvas on a narrow pane) - map back to the
+    // canvas's own pixel coordinate space, not just the CSS pixel offset.
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: Math.max(0, Math.min(canvas.width, (e.clientX - rect.left) * scaleX)),
+      y: Math.max(0, Math.min(canvas.height, (e.clientY - rect.top) * scaleY)),
+    };
+  }
+
+  canvas.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    dragStart = canvasPoint(e);
+  });
+  canvas.addEventListener("mousemove", (e) => {
+    if (!dragStart || !sourceImage) return;
+    const cur = canvasPoint(e);
+    const x0 = Math.min(dragStart.x, cur.x);
+    const y0 = Math.min(dragStart.y, cur.y);
+    const x1 = Math.max(dragStart.x, cur.x);
+    const y1 = Math.max(dragStart.y, cur.y);
+    cropRect = {
+      x: x0 / displayScale,
+      y: y0 / displayScale,
+      w: (x1 - x0) / displayScale,
+      h: (y1 - y0) / displayScale,
+    };
+    redrawCanvas();
+  });
+  window.addEventListener("mouseup", () => {
+    if (!dragStart) return;
+    dragStart = null;
+    // A near-zero-size drag (or a plain click) isn't a real selection -
+    // fall back to the whole image rather than sending pix2tex a sliver.
+    if (cropRect && (cropRect.w * displayScale < 8 || cropRect.h * displayScale < 8) && sourceImage) {
+      cropRect = { x: 0, y: 0, w: sourceImage.naturalWidth, h: sourceImage.naturalHeight };
+      redrawCanvas();
+    }
+  });
+
+  resetCropBtn.addEventListener("click", () => {
+    if (!sourceImage) return;
+    cropRect = { x: 0, y: 0, w: sourceImage.naturalWidth, h: sourceImage.naturalHeight };
+    redrawCanvas();
+  });
 
   dropzone.addEventListener("click", () => dropzone.focus());
 
@@ -595,13 +691,20 @@ function initLatexScratchpad() {
   });
 
   convertBtn.addEventListener("click", async () => {
-    if (!latexImageBlob) return;
+    if (!sourceImage || !cropRect) return;
     convertBtn.disabled = true;
     statusEl.hidden = false;
     errorEl.hidden = true;
-    const form = new FormData();
-    form.append("image", latexImageBlob, "formula.png");
+    const cropCanvas = document.createElement("canvas");
+    cropCanvas.width = Math.round(cropRect.w);
+    cropCanvas.height = Math.round(cropRect.h);
+    cropCanvas
+      .getContext("2d")
+      .drawImage(sourceImage, cropRect.x, cropRect.y, cropRect.w, cropRect.h, 0, 0, cropCanvas.width, cropCanvas.height);
     try {
+      const blob = await new Promise((resolve) => cropCanvas.toBlob(resolve, "image/png"));
+      const form = new FormData();
+      form.append("image", blob, "formula.png");
       const res = await fetch("/api/latex/convert", { method: "POST", body: form });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "conversion failed");

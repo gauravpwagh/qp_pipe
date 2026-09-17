@@ -232,9 +232,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 }
 .latex-dropzone:hover, .latex-dropzone:focus { border-color: var(--accent); outline: none; }
 .latex-dropzone.dragover { border-color: var(--accent); background: var(--accent-bg); }
-.latex-dropzone img { max-width: 100%; max-height: 280px; display: block; }
+.latex-dropzone canvas { max-width: 100%; display: block; cursor: crosshair; user-select: none; }
 
-.latex-actions { display: flex; gap: 10px; margin-top: 12px; }
+.latex-crop-hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
+
+.latex-actions { display: flex; gap: 10px; margin-top: 12px; flex-wrap: wrap; }
+#latex-reset-crop-btn { background: none; color: var(--muted); border: 1px solid var(--border); }
+#latex-reset-crop-btn:hover { color: var(--text); opacity: 1; }
 
 .latex-render {
   min-height: 60px;

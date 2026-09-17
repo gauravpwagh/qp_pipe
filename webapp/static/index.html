@@ -112,12 +112,14 @@
         <div class="pane latex-pane">
           <h4>1. Get a formula image in</h4>
           <div id="latex-dropzone" class="latex-dropzone" tabindex="0">
-            <img id="latex-preview-img" alt="Pasted formula" hidden>
+            <canvas id="latex-crop-canvas" hidden></canvas>
             <span id="latex-dropzone-hint">Click here, then paste (Ctrl+V) a copied formula image - or drag and drop one</span>
           </div>
+          <div id="latex-crop-hint" class="latex-crop-hint" hidden>Drag on the image above to select just the formula (recommended - a full screenshot confuses the converter), then Convert.</div>
           <input type="file" id="latex-file-input" accept="image/*" hidden>
           <div class="latex-actions">
             <button type="button" id="latex-choose-btn">Choose image file...</button>
+            <button type="button" id="latex-reset-crop-btn" hidden>Reset selection</button>
             <button type="button" id="latex-convert-btn" disabled>Convert to LaTeX</button>
           </div>
           <div id="latex-convert-status" class="status" hidden>

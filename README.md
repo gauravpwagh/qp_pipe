@@ -79,7 +79,13 @@ picture or, worse, its rendered text flattened into one line - useless for
 getting a real stacked fraction back. This tab converts a **formula
 image** to LaTeX so you can drop the result straight into an explanation:
 click the left pane and paste (Ctrl+V) a copied formula image, or drag-drop
-/ choose an image file, then **Convert to LaTeX**. It runs
+/ choose an image file. pix2tex expects one isolated expression, not a
+whole screenshot with surrounding headings/bullets/answer text (that
+confuses it into hallucinating unrelated LaTeX) - so once an image loads,
+**drag on it to crop down to just the formula** before converting; the
+selection defaults to the whole image if you skip this, and **Reset
+selection** clears a crop back to the full image. Then **Convert to
+LaTeX**. It runs
 [pix2tex](https://github.com/lukas-blecher/LaTeX-OCR) locally (no external
 API - same offline approach as the EasyOCR pipeline; its model weights,
 ~115MB, download automatically on first use and are cached after that).
