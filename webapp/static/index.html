@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Question Paper Review</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.snow.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,6 +13,7 @@
     <nav class="tabs">
       <button class="tab-btn active" data-tab="process">Process</button>
       <button class="tab-btn" data-tab="review">Review</button>
+      <button class="tab-btn" data-tab="latex">LaTeX Scratchpad</button>
     </nav>
   </header>
 
@@ -104,8 +106,39 @@
         </div>
       </div>
     </section>
+
+    <section id="tab-latex" class="tab-panel">
+      <div class="latex-grid">
+        <div class="pane latex-pane">
+          <h4>1. Get a formula image in</h4>
+          <div id="latex-dropzone" class="latex-dropzone" tabindex="0">
+            <img id="latex-preview-img" alt="Pasted formula" hidden>
+            <span id="latex-dropzone-hint">Click here, then paste (Ctrl+V) a copied formula image - or drag and drop one</span>
+          </div>
+          <input type="file" id="latex-file-input" accept="image/*" hidden>
+          <div class="latex-actions">
+            <button type="button" id="latex-choose-btn">Choose image file...</button>
+            <button type="button" id="latex-convert-btn" disabled>Convert to LaTeX</button>
+          </div>
+          <div id="latex-convert-status" class="status" hidden>
+            <div class="spinner"></div>
+            <span>Converting - first run downloads the model, can take a minute...</span>
+          </div>
+          <div id="latex-convert-error" class="error" hidden></div>
+        </div>
+
+        <div class="pane latex-pane">
+          <h4>2. Check the result</h4>
+          <div id="latex-preview" class="latex-render"></div>
+          <textarea id="latex-output" class="latex-textarea" readonly placeholder="Converted LaTeX source will appear here"></textarea>
+          <button type="button" id="latex-copy-btn" disabled>Copy LaTeX</button>
+          <span id="latex-copy-status" class="save-indicator"></span>
+        </div>
+      </div>
+    </section>
   </main>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
   <script src="app.js"></script>
 </body>

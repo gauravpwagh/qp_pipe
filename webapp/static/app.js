@@ -250,6 +250,7 @@ function getQuillInstance() {
           [{ color: [] }],
           [{ size: ["small", false, "large", "huge"] }],
           [{ font: [] }],
+          ["formula", "image"],
           ["clean"],
         ],
       },
@@ -263,6 +264,25 @@ function getQuillInstance() {
       scheduleFieldSave("explanation", () =>
         saveQuestionField(currentQuestion.q_number, { explanation_html: quill.root.innerHTML })
       );
+    });
+    // The toolbar's own "image" button only opens a file picker - also
+    // accept an image pasted straight from the clipboard (e.g. copied out
+    // of the LaTeX Scratchpad's source image, or from anywhere else),
+    // embedding it as a base64 data URL like the toolbar path does.
+    quill.root.addEventListener("paste", (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      if (!items) return;
+      const imageItem = Array.from(items).find((item) => item.type && item.type.startsWith("image/"));
+      if (!imageItem) return;
+      e.preventDefault();
+      const file = imageItem.getAsFile();
+      const reader = new FileReader();
+      reader.onload = () => {
+        const range = quill.getSelection(true) || { index: quill.getLength() };
+        quill.insertEmbed(range.index, "image", reader.result, "user");
+        quill.setSelection(range.index + 1);
+      };
+      reader.readAsDataURL(file);
     });
   }
   return quill;
@@ -511,6 +531,115 @@ function initEditableFields() {
   }
 }
 
+// ---- LaTeX Scratchpad tab ----
+// Paste/drop/choose a formula image on the left, convert it (server-side,
+// via pix2tex) to LaTeX, check the rendered result on the right, copy it
+// into an explanation. The image never gets attached to any question -
+// this tab is just a one-off conversion scratchpad.
+let latexImageBlob = null;
+
+function initLatexScratchpad() {
+  const dropzone = document.getElementById("latex-dropzone");
+  const previewImg = document.getElementById("latex-preview-img");
+  const hint = document.getElementById("latex-dropzone-hint");
+  const fileInput = document.getElementById("latex-file-input");
+  const chooseBtn = document.getElementById("latex-choose-btn");
+  const convertBtn = document.getElementById("latex-convert-btn");
+  const statusEl = document.getElementById("latex-convert-status");
+  const errorEl = document.getElementById("latex-convert-error");
+  const previewEl = document.getElementById("latex-preview");
+  const outputEl = document.getElementById("latex-output");
+  const copyBtn = document.getElementById("latex-copy-btn");
+  const copyStatusEl = document.getElementById("latex-copy-status");
+
+  function setImage(blob) {
+    latexImageBlob = blob;
+    previewImg.src = URL.createObjectURL(blob);
+    previewImg.hidden = false;
+    hint.hidden = true;
+    convertBtn.disabled = false;
+    errorEl.hidden = true;
+    outputEl.value = "";
+    previewEl.innerHTML = "";
+    copyBtn.disabled = true;
+    copyStatusEl.textContent = "";
+  }
+
+  dropzone.addEventListener("click", () => dropzone.focus());
+
+  dropzone.addEventListener("paste", (e) => {
+    const items = e.clipboardData && e.clipboardData.items;
+    if (!items) return;
+    const imageItem = Array.from(items).find((item) => item.type && item.type.startsWith("image/"));
+    if (!imageItem) return;
+    e.preventDefault();
+    setImage(imageItem.getAsFile());
+  });
+
+  dropzone.addEventListener("dragover", (e) => {
+    e.preventDefault();
+    dropzone.classList.add("dragover");
+  });
+  dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
+  dropzone.addEventListener("drop", (e) => {
+    e.preventDefault();
+    dropzone.classList.remove("dragover");
+    const file = e.dataTransfer.files && e.dataTransfer.files[0];
+    if (file && file.type.startsWith("image/")) setImage(file);
+  });
+
+  chooseBtn.addEventListener("click", () => fileInput.click());
+  fileInput.addEventListener("change", () => {
+    if (fileInput.files[0]) setImage(fileInput.files[0]);
+    fileInput.value = "";
+  });
+
+  convertBtn.addEventListener("click", async () => {
+    if (!latexImageBlob) return;
+    convertBtn.disabled = true;
+    statusEl.hidden = false;
+    errorEl.hidden = true;
+    const form = new FormData();
+    form.append("image", latexImageBlob, "formula.png");
+    try {
+      const res = await fetch("/api/latex/convert", { method: "POST", body: form });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "conversion failed");
+      outputEl.value = data.latex;
+      copyBtn.disabled = false;
+      renderLatexPreview(data.latex);
+    } catch (err) {
+      errorEl.textContent = err.message;
+      errorEl.hidden = false;
+    } finally {
+      statusEl.hidden = true;
+      convertBtn.disabled = false;
+    }
+  });
+
+  function renderLatexPreview(latex) {
+    try {
+      katex.render(latex, previewEl, { throwOnError: true, displayMode: true });
+    } catch (err) {
+      previewEl.innerHTML = `<span class="katex-error">Could not render: ${escapeHtml(err.message)}</span>`;
+    }
+  }
+
+  copyBtn.addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(outputEl.value);
+      copyStatusEl.textContent = "Copied";
+      setTimeout(() => (copyStatusEl.textContent = ""), 1500);
+    } catch (err) {
+      outputEl.select();
+      document.execCommand("copy");
+      copyStatusEl.textContent = "Copied";
+      setTimeout(() => (copyStatusEl.textContent = ""), 1500);
+    }
+  });
+}
+
 // ---- init ----
 loadVariants();
 initEditableFields();
+initLatexScratchpad();

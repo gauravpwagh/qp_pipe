@@ -17,6 +17,7 @@ from werkzeug.utils import secure_filename
 
 from . import jobs
 from .variants import VARIANTS
+from src import latex_ocr
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -211,6 +212,30 @@ def api_paper_source_pdf(paper_id):
     if not path.exists():
         return jsonify({"error": "no stored source PDF for this paper"}), 404
     return send_from_directory(_paper_dir(paper_id), "source.pdf")
+
+
+@app.route("/api/latex/convert", methods=["POST"])
+def api_latex_convert():
+    """LaTeX Scratchpad tab: image -> LaTeX via pix2tex, running locally.
+    The model download/load on first call can take a while; later calls
+    reuse the cached model."""
+    file = request.files.get("image")
+    if file is None or not file.filename:
+        return jsonify({"error": "no image uploaded"}), 400
+    from PIL import Image
+    import io
+
+    try:
+        image = Image.open(io.BytesIO(file.read())).convert("RGB")
+    except Exception:
+        return jsonify({"error": "could not read the uploaded image"}), 400
+
+    try:
+        latex = latex_ocr.image_to_latex(image)
+    except Exception as e:
+        return jsonify({"error": f"conversion failed: {e}"}), 500
+
+    return jsonify({"latex": latex})
 
 
 @app.route("/api/variants/<variant_id>/vocab")

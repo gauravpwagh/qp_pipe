@@ -209,3 +209,48 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   display: inline-block; background: #fef3c7; color: #92400e;
   font-size: 11px; padding: 2px 8px; border-radius: 999px; margin-bottom: 8px;
 }
+
+.latex-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: start;
+  max-width: 1000px;
+}
+.latex-pane h4 { margin: 0 0 10px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+
+.latex-dropzone {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: 160px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 13px;
+  background: #fafbfc;
+}
+.latex-dropzone:hover, .latex-dropzone:focus { border-color: var(--accent); outline: none; }
+.latex-dropzone.dragover { border-color: var(--accent); background: var(--accent-bg); }
+.latex-dropzone img { max-width: 100%; max-height: 280px; display: block; }
+
+.latex-actions { display: flex; gap: 10px; margin-top: 12px; }
+
+.latex-render {
+  min-height: 60px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  margin-bottom: 10px;
+  overflow-x: auto;
+  background: #fafbfc;
+}
+.latex-render .katex-error { color: var(--danger); font-size: 13px; }
+
+.latex-textarea {
+  width: 100%; min-height: 90px; padding: 8px;
+  border: 1px solid var(--border); border-radius: 6px;
+  font-family: "Consolas", "SFMono-Regular", monospace; font-size: 13px;
+  resize: vertical; margin-bottom: 10px;
+  background: var(--card-bg); color: var(--text);
+}

@@ -66,6 +66,29 @@ remembered per variant (`output/_vocab/<variant_id>.json`) and suggested
 back via autocomplete on any question of any paper of that same variant -
 so a topic scheme you build up on one paper carries over to the next.
 
+The explanation editor's toolbar has a **formula** button (type/paste raw
+LaTeX, renders inline via KaTeX) and an **image** button, and also accepts
+a directly pasted image (e.g. copied from the LaTeX Scratchpad tab below,
+or anywhere else) - so an explanation can mix normal text, LaTeX math, and
+images freely.
+
+### LaTeX Scratchpad tab
+
+A formula copied off a website or a PDF usually comes through as either a
+picture or, worse, its rendered text flattened into one line - useless for
+getting a real stacked fraction back. This tab converts a **formula
+image** to LaTeX so you can drop the result straight into an explanation:
+click the left pane and paste (Ctrl+V) a copied formula image, or drag-drop
+/ choose an image file, then **Convert to LaTeX**. It runs
+[pix2tex](https://github.com/lukas-blecher/LaTeX-OCR) locally (no external
+API - same offline approach as the EasyOCR pipeline; its model weights,
+~115MB, download automatically on first use and are cached after that).
+Check the rendered preview and the raw LaTeX source on the right, then
+**Copy LaTeX** and paste it into an explanation's formula field. Like any
+OCR, it's reliable on clean typeset formulas and can misread messy or
+low-resolution ones - always check the rendered preview before trusting
+it.
+
 Each processed job's data lives at `output/<paper_id>/`:
 `paper.json` (schema below), the per-question cropped `images/`, the full
 rendered `page_images/`, and a `source.pdf` copy of exactly what was

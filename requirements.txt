@@ -5,3 +5,4 @@ numpy>=1.26
 opencv-python>=4.9
 pandas>=2.0
 flask>=3.0
+pix2tex>=0.1.4
