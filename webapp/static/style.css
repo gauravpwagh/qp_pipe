@@ -190,6 +190,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .pane-notes h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
 #editor { height: 160px; margin-bottom: 16px; background: white; }
+#editor .ql-formula .katex-display { margin: 0.4em 0; }
 
 #tag-input-row, #topic-input-row { margin-bottom: 8px; }
 #tag-input, #topic-input { width: 100%; padding: 7px; border: 1px solid var(--border); border-radius: 6px; }

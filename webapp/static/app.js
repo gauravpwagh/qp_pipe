@@ -240,8 +240,34 @@ function stepQuestion(delta) {
   }
 }
 
+// Quill's built-in "formula" blot renders KaTeX inline (compact, small) -
+// override it to render in KaTeX's display mode instead, so a formula
+// pasted into an explanation looks exactly like its Scratchpad preview
+// (which also renders in display mode), not visibly different/smaller.
+function registerDisplayModeFormula() {
+  const Embed = Quill.import("blots/embed");
+  class DisplayFormula extends Embed {
+    static create(value) {
+      const node = super.create(value);
+      if (typeof value === "string") {
+        katex.render(value, node, { throwOnError: false, displayMode: true });
+        node.setAttribute("data-value", value);
+      }
+      return node;
+    }
+    static value(domNode) {
+      return domNode.getAttribute("data-value");
+    }
+  }
+  DisplayFormula.blotName = "formula";
+  DisplayFormula.className = "ql-formula";
+  DisplayFormula.tagName = "SPAN";
+  Quill.register(DisplayFormula, true);
+}
+
 function getQuillInstance() {
   if (!quill) {
+    registerDisplayModeFormula();
     quill = new Quill("#editor", {
       theme: "snow",
       modules: {
