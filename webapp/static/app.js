@@ -35,11 +35,13 @@ document.getElementById("process-form").addEventListener("submit", async (e) => 
   e.preventDefault();
   const fileInput = document.getElementById("pdf-input");
   const variantId = document.getElementById("variant-select").value;
+  const jobName = document.getElementById("job-name-input").value.trim();
   if (!fileInput.files.length) return;
 
   const form = new FormData();
   form.append("pdf", fileInput.files[0]);
   form.append("variant_id", variantId);
+  if (jobName) form.append("job_name", jobName);
 
   document.getElementById("process-btn").disabled = true;
   document.getElementById("process-error").hidden = true;

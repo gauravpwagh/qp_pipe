@@ -106,6 +106,7 @@ def run_pipeline_json(
     paper_dir: str,
     variant_id: str,
     source_filename: str | None = None,
+    job_name: str | None = None,
     image_dir: str | None = None,
     progress_cb: Callable[[int, int], None] | None = None,
     should_ocr_page: Callable[[int, int], bool] | None = None,
@@ -220,10 +221,16 @@ def run_pipeline_json(
 
     needs_review_count = sum(1 for q in questions if q.needs_review)
     paper_id = paper_dir_p.name
+    resolved_source_filename = source_filename or Path(pdf_path).name
     paper = {
         "paper_id": paper_id,
         "variant": variant_id,
-        "source_filename": source_filename or Path(pdf_path).name,
+        "job_name": job_name or resolved_source_filename,
+        "source_filename": resolved_source_filename,
+        # if the caller copied the upload into paper_dir/source.pdf (the web
+        # app does this so a job never depends on the original upload path
+        # sticking around), record it so the UI can offer it back.
+        "source_pdf": "source.pdf" if (paper_dir_p / "source.pdf").exists() else None,
         "processed_at": datetime.now(timezone.utc).isoformat(),
         "total_questions": len(questions),
         "qa": {

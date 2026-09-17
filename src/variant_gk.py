@@ -41,6 +41,7 @@ def run_pipeline_json_gk(
     paper_dir: str,
     variant_id: str,
     source_filename: str | None = None,
+    job_name: str | None = None,
     image_dir: str | None = None,
     progress_cb=None,
 ) -> dict:
@@ -49,6 +50,7 @@ def run_pipeline_json_gk(
         paper_dir,
         variant_id,
         source_filename=source_filename,
+        job_name=job_name,
         image_dir=image_dir,
         progress_cb=progress_cb,
         should_ocr_page=_should_ocr_page,

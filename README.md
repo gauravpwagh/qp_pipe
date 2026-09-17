@@ -41,12 +41,16 @@ first run.
 python -m flask --app webapp.app run --port 5050
 ```
 
-Open `http://localhost:5050`. **Process** tab: upload a PDF, pick a variant
-(see Variants above), click Process. This runs as a background job (OCR
-takes ~5-6 minutes for the English booklet, ~3 minutes for the GK booklet
-since half its pages are skipped, both on CPU); the page polls and shows
-progress, then switches you to **Review** with the new paper pre-selected.
-The Review tab also lets you pick any previously-processed paper.
+Open `http://localhost:5050`. **Process** tab: upload a PDF, optionally give
+it a job name (defaults to the PDF's filename - this becomes the label
+you'll pick it out by later), pick a variant (see Variants above), click
+Process. This runs as a background job (OCR takes ~5-6 minutes for the
+English booklet, ~3 minutes for the GK booklet since half its pages are
+skipped, both on CPU); the page polls and shows progress, then switches you
+to **Review** with the new paper pre-selected. The Review tab's paper
+picker also lists every previously-processed job by its name, newest first
+- come back anytime and pick up where you left off, no need to re-upload
+or re-process anything.
 
 In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
@@ -54,9 +58,11 @@ questions, a reconstructed List I/List II + Code-answer table (middle), and
 a rich-text explanation editor (bold/italic/underline/color/font) plus tags
 (right). Answers, explanations, and tags autosave as you go.
 
-Each processed paper's data lives at `data/papers/<paper_id>/paper.json`
-plus its cropped question images - this is the JSON schema described below,
-with `user_answer`/`explanation_html`/`tags` filled in as you review.
+Each processed job's data lives at `output/<paper_id>/`:
+`paper.json` (schema below), the per-question cropped `images/`, the full
+rendered `page_images/`, and a `source.pdf` copy of exactly what was
+uploaded - the job never depends on the original upload path again, so
+it's safe to delete/move the PDF you uploaded from afterward.
 
 ## CLI (CSV output)
 
@@ -81,6 +87,13 @@ instead of re-rendering the PDF (useful when iterating).
 ## `paper.json` schema
 
 Each question in the `questions` array:
+
+Top-level fields: `paper_id`, `variant`, `job_name` (the label shown in the
+Review picker - user-chosen at upload time, falls back to the filename),
+`source_filename` (the original uploaded filename), `source_pdf` (relative
+path to the stored copy, normally `"source.pdf"`), `processed_at`,
+`total_questions`, `qa` (`sequence_ok`/`warnings`/`needs_review_count`),
+and `questions`. Each question in that array:
 
 | field | meaning |
 |---|---|

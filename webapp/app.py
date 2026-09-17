@@ -18,10 +18,8 @@ from . import jobs
 from .variants import VARIANTS
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR / "data" / "papers"
-UPLOAD_DIR = BASE_DIR / "data" / "uploads"
-DATA_DIR.mkdir(parents=True, exist_ok=True)
-UPLOAD_DIR.mkdir(parents=True, exist_ok=True)
+OUTPUT_DIR = BASE_DIR / "output"
+OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
 
 app = Flask(__name__, static_folder="static", static_url_path="")
 
@@ -35,7 +33,7 @@ def _slugify(name: str) -> str:
 
 
 def _paper_dir(paper_id: str) -> Path:
-    return DATA_DIR / paper_id
+    return OUTPUT_DIR / paper_id
 
 
 def _read_paper(paper_id: str) -> dict | None:
@@ -78,15 +76,19 @@ def api_process():
         return jsonify({"error": "no pdf file uploaded"}), 400
 
     source_filename = secure_filename(file.filename)
+    job_name = (request.form.get("job_name") or "").strip() or Path(source_filename).stem
     timestamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
-    paper_id = f"{variant_id}-{_slugify(source_filename)}-{timestamp}"
+    paper_id = f"{variant_id}-{_slugify(job_name)}-{timestamp}"
     paper_dir = _paper_dir(paper_id)
     paper_dir.mkdir(parents=True, exist_ok=True)
 
-    upload_path = UPLOAD_DIR / f"{paper_id}.pdf"
-    file.save(upload_path)
+    # Keep a copy of the uploaded PDF inside the job's own folder, so this
+    # job never depends on the original upload (which the browser only sent
+    # once) or a shared uploads dir still existing later.
+    source_pdf_path = paper_dir / "source.pdf"
+    file.save(source_pdf_path)
 
-    job_id = jobs.start_job(str(upload_path), variant_id, paper_dir, source_filename)
+    job_id = jobs.start_job(str(source_pdf_path), variant_id, paper_dir, source_filename, job_name=job_name)
     return jsonify({"job_id": job_id, "paper_id": paper_id})
 
 
@@ -101,14 +103,15 @@ def api_job_status(job_id):
 @app.route("/api/papers")
 def api_papers():
     summaries = []
-    for child in sorted(DATA_DIR.iterdir(), reverse=True):
+    for child in sorted(OUTPUT_DIR.iterdir(), reverse=True):
         paper = _read_paper(child.name)
         if paper is None:
             continue
         summaries.append(
             {
                 "paper_id": paper["paper_id"],
-                "label": paper.get("source_filename", paper["paper_id"]),
+                "label": paper.get("job_name") or paper.get("source_filename", paper["paper_id"]),
+                "job_name": paper.get("job_name"),
                 "source_filename": paper.get("source_filename"),
                 "processed_at": paper.get("processed_at"),
                 "total_questions": paper.get("total_questions"),
@@ -129,6 +132,14 @@ def api_paper_detail(paper_id):
 @app.route("/api/papers/<paper_id>/images/<path:filename>")
 def api_paper_image(paper_id, filename):
     return send_from_directory(_paper_dir(paper_id) / "images", filename)
+
+
+@app.route("/api/papers/<paper_id>/source.pdf")
+def api_paper_source_pdf(paper_id):
+    path = _paper_dir(paper_id) / "source.pdf"
+    if not path.exists():
+        return jsonify({"error": "no stored source PDF for this paper"}), 404
+    return send_from_directory(_paper_dir(paper_id), "source.pdf")
 
 
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>", methods=["PATCH"])
