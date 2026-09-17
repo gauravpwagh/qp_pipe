@@ -766,6 +766,17 @@ function initLatexScratchpad() {
       setTimeout(() => (copyStatusEl.textContent = ""), 1500);
     }
   });
+
+  // The conversion isn't always valid LaTeX as-is (pix2tex can emit
+  // unbalanced braces/\left-\right on complex expressions) - let the user
+  // hand-fix the source here and see it re-render live, rather than only
+  // being able to copy out a broken result.
+  let editRenderTimer = null;
+  outputEl.addEventListener("input", () => {
+    copyBtn.disabled = !outputEl.value.trim();
+    clearTimeout(editRenderTimer);
+    editRenderTimer = setTimeout(() => renderLatexPreview(outputEl.value), 300);
+  });
 }
 
 // ---- init ----
