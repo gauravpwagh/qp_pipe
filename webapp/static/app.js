@@ -227,6 +227,10 @@ function getQuillInstance() {
     });
     quill.on("text-change", (delta, oldDelta, source) => {
       if (!currentQuestion || source !== "user") return;
+      // Same reason as the other editable fields: keep local state in sync
+      // immediately so a re-render before the debounced save lands doesn't
+      // redraw the editor from a stale value.
+      currentQuestion.explanation_html = quill.root.innerHTML;
       scheduleFieldSave("explanation", () =>
         saveQuestionField(currentQuestion.q_number, { explanation_html: quill.root.innerHTML })
       );
@@ -295,6 +299,12 @@ function renderQuestion(qNumber) {
       textSpan.addEventListener("mousedown", (e) => e.stopPropagation());
       textSpan.addEventListener("click", (e) => e.stopPropagation());
       textSpan.addEventListener("input", () => {
+        // Keep local state in sync immediately, not just the server - a
+        // re-render before the debounced save lands (switching questions
+        // and back, or clicking the card to select it as the answer) would
+        // otherwise redraw from the stale pre-edit value and the edit
+        // would visually vanish, even though it saved fine.
+        currentQuestion.options[letter] = textSpan.innerHTML;
         scheduleFieldSave(`option_${letter}`, () =>
           saveQuestionField(currentQuestion.q_number, { options: { [letter]: textSpan.innerHTML } })
         );
@@ -450,6 +460,11 @@ function initEditableFields() {
     el.contentEditable = "true";
     el.addEventListener("input", () => {
       if (!currentQuestion) return;
+      // Keep local state in sync immediately, not just the server - a
+      // re-render before the debounced save lands (switching questions and
+      // back) would otherwise redraw from the stale pre-edit value and the
+      // edit would visually vanish, even though it saved fine.
+      currentQuestion[field] = el.innerHTML;
       scheduleFieldSave(key, () => saveQuestionField(currentQuestion.q_number, { [field]: el.innerHTML }));
     });
   }
