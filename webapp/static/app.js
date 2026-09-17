@@ -952,7 +952,23 @@ function initLatexScratchpad() {
   });
 }
 
+// ---- collapsible Image/Question panes (Review tab) ----
+// Lets the Explanation pane get more room on demand - collapsing a pane
+// just shrinks it to a narrow strip; the other panes' flex-grow ratios
+// reclaim the freed width automatically, no layout math needed here.
+function initPaneCollapse() {
+  document.querySelectorAll(".pane-collapse-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const pane = document.getElementById(btn.dataset.pane);
+      const collapsed = pane.classList.toggle("collapsed");
+      btn.innerHTML = collapsed ? "&plus;" : "&minus;";
+      btn.title = collapsed ? "Expand" : "Collapse";
+    });
+  });
+}
+
 // ---- init ----
 loadVariants();
 initEditableFields();
 initLatexScratchpad();
+initPaneCollapse();

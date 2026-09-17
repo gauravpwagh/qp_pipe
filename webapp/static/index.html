@@ -66,41 +66,57 @@
       <div id="review-empty" class="empty-state">No paper selected yet - process one, or pick an existing paper above.</div>
 
       <div id="review-body" class="review-grid" hidden>
-        <div class="pane pane-image">
-          <img id="question-image" alt="Question image">
+        <div class="pane pane-image" id="pane-image">
+          <div class="pane-header">
+            <span class="pane-header-label">Image</span>
+            <button type="button" class="pane-collapse-btn" data-pane="pane-image" title="Collapse">&minus;</button>
+          </div>
+          <div class="pane-body">
+            <img id="question-image" alt="Question image">
+          </div>
         </div>
 
-        <div class="pane pane-question">
-          <div class="section-directions" id="section-directions"></div>
-          <div class="passage" id="passage-block" hidden>
-            <h4 id="passage-label"></h4>
-            <div id="passage-text"></div>
+        <div class="pane pane-question" id="pane-question">
+          <div class="pane-header">
+            <span class="pane-header-label">Question</span>
+            <button type="button" class="pane-collapse-btn" data-pane="pane-question" title="Collapse">&minus;</button>
           </div>
-          <div id="question-stem" class="question-stem"></div>
+          <div class="pane-body">
+            <div class="section-directions" id="section-directions"></div>
+            <div class="passage" id="passage-block" hidden>
+              <h4 id="passage-label"></h4>
+              <div id="passage-text"></div>
+            </div>
+            <div id="question-stem" class="question-stem"></div>
 
-          <div id="options-block" class="options-block"></div>
-          <div id="table-block" class="table-block" hidden></div>
-          <button type="button" id="clear-answer-btn" class="clear-answer-btn" hidden>Clear selected answer</button>
+            <div id="options-block" class="options-block"></div>
+            <div id="table-block" class="table-block" hidden></div>
+            <button type="button" id="clear-answer-btn" class="clear-answer-btn" hidden>Clear selected answer</button>
+          </div>
         </div>
 
         <div class="pane pane-notes">
-          <h4>Explanation</h4>
-          <div id="editor-toolbar"></div>
-          <div id="editor"></div>
+          <div class="notes-topics-tags">
+            <h4>Topics</h4>
+            <div id="topic-input-row">
+              <input type="text" id="topic-input" list="topic-suggestions" placeholder="Add a topic and press Enter">
+              <datalist id="topic-suggestions"></datalist>
+            </div>
+            <div id="topic-list" class="tag-list"></div>
 
-          <h4>Topics</h4>
-          <div id="topic-input-row">
-            <input type="text" id="topic-input" list="topic-suggestions" placeholder="Add a topic and press Enter">
-            <datalist id="topic-suggestions"></datalist>
+            <h4>Tags</h4>
+            <div id="tag-input-row">
+              <input type="text" id="tag-input" list="tag-suggestions" placeholder="Add a tag and press Enter">
+              <datalist id="tag-suggestions"></datalist>
+            </div>
+            <div id="tag-list" class="tag-list"></div>
           </div>
-          <div id="topic-list" class="tag-list"></div>
 
-          <h4>Tags</h4>
-          <div id="tag-input-row">
-            <input type="text" id="tag-input" list="tag-suggestions" placeholder="Add a tag and press Enter">
-            <datalist id="tag-suggestions"></datalist>
+          <div class="notes-explanation">
+            <h4>Explanation</h4>
+            <div id="editor-toolbar"></div>
+            <div id="editor"></div>
           </div>
-          <div id="tag-list" class="tag-list"></div>
 
           <div id="save-indicator" class="save-indicator"></div>
         </div>

@@ -105,10 +105,9 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .empty-state { color: var(--muted); padding: 40px; text-align: center; }
 
 .review-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 1.3fr 1fr;
+  display: flex;
   gap: 16px;
-  align-items: start;
+  align-items: stretch;
 }
 
 .pane {
@@ -118,9 +117,35 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   padding: 16px;
   max-height: calc(100vh - 160px);
   overflow-y: auto;
+  min-width: 0;
 }
 
-.pane-image img { max-width: 100%; display: block; border: 1px solid var(--border); border-radius: 4px; }
+/* Question narrower, Explanation/Topics/Tags noticeably wider - the
+   explanation is what gets written/read the most. */
+.pane-image { flex: 0.8 1 0%; }
+.pane-question { flex: 0.9 1 0%; }
+.pane-notes { flex: 1.6 1 0%; }
+
+.pane-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin: -16px -16px 12px; padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.pane-header-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.pane-collapse-btn {
+  padding: 2px 9px; font-size: 15px; line-height: 1.4;
+  background: none; color: var(--muted); border: 1px solid var(--border);
+}
+.pane-collapse-btn:hover { color: var(--text); opacity: 1; }
+
+/* A collapsed pane shrinks to a narrow strip - the other panes' flex-grow
+   ratios automatically reclaim the freed width, no layout math needed. */
+.pane.collapsed { flex: 0 0 44px; padding: 16px 4px; overflow: hidden; }
+.pane.collapsed .pane-header { margin: -16px -4px 0; padding: 10px 4px; border-bottom: none; justify-content: center; flex-direction: column; gap: 8px; }
+.pane.collapsed .pane-header-label { writing-mode: vertical-rl; text-orientation: mixed; }
+.pane.collapsed .pane-body { display: none; }
+
+.pane-image .pane-body img { max-width: 100%; display: block; border: 1px solid var(--border); border-radius: 4px; }
 
 .section-directions { font-style: italic; color: var(--muted); font-size: 13px; margin-bottom: 10px; }
 .passage { background: #fafbfc; border: 1px solid var(--border); border-radius: 6px; padding: 10px; margin-bottom: 12px; font-size: 13px; }
@@ -189,8 +214,24 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .table-block h4 { margin: 12px 0 6px; }
 
 .pane-notes h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
-#editor { height: 160px; margin-bottom: 16px; background: white; }
+
+/* Topics/Tags keep their natural height; Explanation takes whatever
+   vertical space is left in the pane, and its own editor scrolls
+   internally rather than growing the whole pane. */
+.pane-notes {
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 160px);
+  max-height: calc(100vh - 160px);
+  overflow: hidden;
+}
+.notes-topics-tags { flex: 0 0 auto; }
+.notes-explanation { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; margin-top: 4px; }
+.notes-explanation h4 { flex: 0 0 auto; }
+#editor-toolbar { flex: 0 0 auto; }
+#editor { flex: 1 1 auto; min-height: 120px; margin-bottom: 12px; background: white; overflow-y: auto; }
 #editor .ql-formula .katex-display { margin: 0.4em 0; }
+#save-indicator { flex: 0 0 auto; }
 
 #tag-input-row, #topic-input-row { margin-bottom: 8px; }
 #tag-input, #topic-input { width: 100%; padding: 7px; border: 1px solid var(--border); border-radius: 6px; }

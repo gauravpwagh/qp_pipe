@@ -57,14 +57,23 @@ permanently, after a confirmation prompt.
 In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
 questions, a reconstructed List I/List II + Code-answer table (middle), and
-a rich-text explanation editor (bold/italic/underline/color/font) plus
-topics and tags (right). The stem, directions, passage text, and each
-option are directly editable in place (click in and type - useful for
-fixing the occasional OCR mistake). Answers, explanations, edited text,
-topics, and tags all autosave as you go. Topics and tags you type are
-remembered per variant (`output/_vocab/<variant_id>.json`) and suggested
-back via autocomplete on any question of any paper of that same variant -
-so a topic scheme you build up on one paper carries over to the next.
+topics, tags, and a rich-text explanation editor (bold/italic/underline/
+color/font) (right) - the explanation gets whatever vertical space is left
+after topics/tags, with its own internal scrollbar, so a long explanation
+doesn't push the rest of the pane around. The stem, directions, passage
+text, and each option are directly editable in place (click in and type -
+useful for fixing the occasional OCR mistake). Answers, explanations,
+edited text, topics, and tags all autosave as you go. Topics and tags you
+type are remembered per variant (`output/_vocab/<variant_id>.json`) and
+suggested back via autocomplete on any question of any paper of that same
+variant - so a topic scheme you build up on one paper carries over to the
+next.
+
+The Image and Question panes each have a -/+ button in their
+header to collapse them to a narrow strip, freeing up width for the
+explanation pane - useful when you're mostly writing and don't need the
+source image or question text on screen. The panes' widths are already
+weighted toward Explanation by default (it's the one most read/written).
 
 The explanation editor's toolbar has a **formula** button (type/paste raw
 LaTeX, renders inline via KaTeX) and an **image** button, and also accepts
