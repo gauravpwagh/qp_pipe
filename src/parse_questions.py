@@ -41,6 +41,8 @@ class Question:
     needs_review: bool = False
     review_reason: str = ""
     raw_lines: list[str] = field(default_factory=list)
+    start_y: float = 0.0
+    start_kind: str = ""  # "LEFT" / "RIGHT" / "FULL" - the column the question's first line was in
 
 
 class Fragment:
@@ -70,6 +72,8 @@ class Builder:
         self.active = "stem"
         self.raw_lines: list[str] = []
         self.forced_review_reason = ""
+        self.start_y = 0.0
+        self.start_kind = ""
 
     def add(self, field_name: str, text: str, y0: float, conf: float, underlined_words: frozenset = frozenset()):
         self.active = field_name
@@ -119,6 +123,8 @@ class Builder:
             option_d=self._join_field(self.fields["d"]),
             ocr_confidence=self.mean_conf(),
             raw_lines=self.raw_lines,
+            start_y=self.start_y,
+            start_kind=self.start_kind,
         )
         if self.forced_review_reason:
             q.needs_review = True
@@ -165,10 +171,12 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             questions.append(builder.to_question())
             builder = None
 
-    def start_new_question(page_num: int, stem_prefix: str, y0: float, conf: float, inferred: bool = False, underlined_words: frozenset = frozenset()):
+    def start_new_question(page_num: int, stem_prefix: str, y0: float, conf: float, kind: str = "", inferred: bool = False, underlined_words: frozenset = frozenset()):
         nonlocal builder, expected_num
         finalize_current()
         builder = Builder(expected_num, page_num, current_directions, current_passage_label, current_passage_text)
+        builder.start_y = y0
+        builder.start_kind = kind
         if stem_prefix:
             builder.add("stem", stem_prefix.strip(), y0=y0, conf=conf, underlined_words=underlined_words)
         if inferred:
@@ -188,7 +196,7 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             if q_match and int(q_match.group(1)) == expected_num:
                 stem_prefix = (pending_stem + " " + q_match.group(2)).strip()
                 pending_stem = ""
-                start_new_question(page_num, stem_prefix, line.y0, line.conf, underlined_words=line.underlined_words)
+                start_new_question(page_num, stem_prefix, line.y0, line.conf, kind=line.kind, underlined_words=line.underlined_words)
                 builder.raw_lines.append(text)
                 collecting = None
                 continue
@@ -219,7 +227,7 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                     # is currently active (almost always the trailing option), and use
                     # everything after that gap as the new question's stem.
                     recovered_stem = builder.split_active_on_largest_gap()
-                    start_new_question(page_num, recovered_stem, line.y0, line.conf, inferred=True)
+                    start_new_question(page_num, recovered_stem, line.y0, line.conf, kind=line.kind, inferred=True)
                 builder.add(letter, opt_match.group(2), line.y0, line.conf, line.underlined_words)
                 builder.raw_lines.append(text)
                 continue

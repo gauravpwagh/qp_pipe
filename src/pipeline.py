@@ -1,15 +1,21 @@
-"""CLI orchestrator: PDF -> questions.csv + match_the_list.csv + qa_report.txt"""
+"""CLI orchestrator: PDF -> questions.csv + match_the_list.csv + qa_report.txt
+(also: PDF -> paper.json + per-question image crops, for the web review UI)
+"""
 
 import csv
 import json
 import re
 import sys
+from datetime import datetime, timezone
 from pathlib import Path
+from typing import Callable
 
 import numpy as np
 from PIL import Image
 
-from .ocr import ocr_image
+from .bbox import compute_bboxes
+from .match_list import reconstruct as reconstruct_match_list
+from .ocr import Box, ocr_image
 from .parse_questions import parse_document, Question
 from .reading_order import order_page
 from .render import render_pdf
@@ -93,6 +99,140 @@ def run_pipeline(pdf_path: str, out_dir: str, image_dir: str | None = None, verb
         print(f"\nWrote {len(questions)} questions to {out_dir_p / 'questions.csv'}", file=sys.stderr)
         for w_ in warnings:
             print(f"WARNING: {w_}", file=sys.stderr)
+
+
+def run_pipeline_json(
+    pdf_path: str,
+    paper_dir: str,
+    variant_id: str,
+    source_filename: str | None = None,
+    image_dir: str | None = None,
+    progress_cb: Callable[[int, int], None] | None = None,
+) -> dict:
+    """Like run_pipeline, but produces the web review UI's paper.json plus
+    a cropped image per question, instead of CSVs. Reuses the same
+    OCR/reading-order/parsing pipeline; the only new work here is keeping
+    the raw per-page boxes around for bbox computation and match-the-list
+    table reconstruction, and serializing everything to JSON.
+    """
+    paper_dir_p = Path(paper_dir)
+    img_dir = paper_dir_p / "page_images"
+    crops_dir = paper_dir_p / "images"
+    crops_dir.mkdir(parents=True, exist_ok=True)
+
+    if image_dir:
+        image_paths = sorted(Path(image_dir).glob("page_*.png"))
+    else:
+        image_paths = render_pdf(pdf_path, img_dir)
+    total_pages = len(image_paths)
+
+    content_pages: dict[int, tuple[list, float]] = {}
+    page_boxes: dict[int, list[Box]] = {}
+    page_dims: dict[int, tuple[float, float]] = {}
+    page_kinds = {}
+
+    for path in image_paths:
+        page_num = int(path.stem.split("_")[1])
+        pil_img = Image.open(path).convert("L")
+        gray = np.array(pil_img)
+
+        boxes = ocr_image(gray)
+        all_text = " ".join(b.text for b in boxes)
+        kind = classify_page(all_text)
+        page_kinds[page_num] = kind
+        page_dims[page_num] = (gray.shape[1], gray.shape[0])
+
+        if kind == "content":
+            page_boxes[page_num] = boxes
+            w = gray.shape[1]
+            lines = order_page(boxes, w, page=page_num)
+            for line in lines:
+                line.underlined_words = detect_underlined_words(gray, line)
+            content_pages[page_num] = (lines, gray.shape[0])
+
+        if progress_cb:
+            progress_cb(page_num, total_pages)
+
+    questions, warnings = parse_document(content_pages)
+    for q in questions:
+        combined = q.question_stem + q.option_a + q.option_b + q.option_c + q.option_d
+        q.has_underline = "<u>" in combined
+
+    bboxes = compute_bboxes(questions, page_boxes, page_dims)
+
+    page_images_by_num = {int(p.stem.split("_")[1]): p for p in image_paths}
+    question_dicts = []
+    for q in sorted(questions, key=lambda x: x.q_number):
+        bb = bboxes.get(q.q_number)
+        image_rel = _crop_question_image(q, bb, page_images_by_num, crops_dir)
+
+        table = None
+        if q.question_type == "match_the_list" and bb is not None:
+            region_boxes = [
+                b
+                for b in page_boxes.get(bb.page, [])
+                if bb.x0 <= (b.x0 + b.x1) / 2 <= bb.x1 and bb.y0 <= (b.y0 + b.y1) / 2 <= bb.y1
+            ]
+            table, problems = reconstruct_match_list(region_boxes, q.q_number)
+            if problems:
+                q.needs_review = True
+                q.review_reason = "; ".join(filter(None, [q.review_reason] + problems))
+
+        question_dicts.append(
+            {
+                "q_number": q.q_number,
+                "page": q.page,
+                "question_type": q.question_type,
+                "image": image_rel,
+                "section_directions_html": q.section_directions,
+                "passage_label": q.passage_label,
+                "passage_text_html": q.passage_text,
+                "question_stem_html": q.question_stem,
+                "options": {"a": q.option_a, "b": q.option_b, "c": q.option_c, "d": q.option_d},
+                "table": table,
+                "has_underline": q.has_underline,
+                "ocr_confidence": round(q.ocr_confidence, 3),
+                "needs_review": q.needs_review,
+                "review_reason": q.review_reason,
+                "user_answer": None,
+                "explanation_html": "",
+                "tags": [],
+            }
+        )
+
+    needs_review_count = sum(1 for q in questions if q.needs_review)
+    paper_id = paper_dir_p.name
+    paper = {
+        "paper_id": paper_id,
+        "variant": variant_id,
+        "source_filename": source_filename or Path(pdf_path).name,
+        "processed_at": datetime.now(timezone.utc).isoformat(),
+        "total_questions": len(questions),
+        "qa": {
+            "sequence_ok": not warnings,
+            "warnings": warnings,
+            "needs_review_count": needs_review_count,
+        },
+        "questions": question_dicts,
+    }
+
+    with open(paper_dir_p / "paper.json", "w", encoding="utf-8") as f:
+        json.dump(paper, f, indent=2, ensure_ascii=False)
+
+    return paper
+
+
+def _crop_question_image(q: Question, bb, page_images_by_num: dict, crops_dir: Path) -> str | None:
+    if bb is None or bb.page not in page_images_by_num:
+        return None
+    try:
+        with Image.open(page_images_by_num[bb.page]) as page_img:
+            crop = page_img.crop((bb.x0, bb.y0, bb.x1, bb.y1))
+            rel_name = f"q_{q.q_number:04d}.png"
+            crop.save(crops_dir / rel_name)
+            return f"images/{rel_name}"
+    except Exception:
+        return None
 
 
 def write_questions_csv(questions: list[Question], path: Path) -> None:

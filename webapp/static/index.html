@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Question Paper Review</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.snow.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Question Paper Pipeline</h1>
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="process">Process</button>
+      <button class="tab-btn" data-tab="review">Review</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="tab-process" class="tab-panel active">
+      <div class="card">
+        <h2>Process a question paper</h2>
+        <form id="process-form">
+          <label>
+            PDF file
+            <input type="file" id="pdf-input" accept="application/pdf" required>
+          </label>
+          <label>
+            Variant
+            <select id="variant-select" required></select>
+          </label>
+          <button type="submit" id="process-btn">Process</button>
+        </form>
+        <div id="process-status" class="status" hidden>
+          <div class="spinner"></div>
+          <span id="process-status-text">Starting...</span>
+        </div>
+        <div id="process-error" class="error" hidden></div>
+        <div id="process-done" class="success" hidden>
+          Done - <a href="#" id="go-to-review-link">open in Review</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-review" class="tab-panel">
+      <div class="review-toolbar">
+        <label>
+          Paper
+          <select id="paper-select"></select>
+        </label>
+        <label>
+          Question
+          <select id="question-select"></select>
+        </label>
+        <button id="prev-q-btn" title="Previous question">&larr;</button>
+        <button id="next-q-btn" title="Next question">&rarr;</button>
+        <span id="review-meta" class="review-meta"></span>
+      </div>
+
+      <div id="review-empty" class="empty-state">No paper selected yet - process one, or pick an existing paper above.</div>
+
+      <div id="review-body" class="review-grid" hidden>
+        <div class="pane pane-image">
+          <img id="question-image" alt="Question image">
+        </div>
+
+        <div class="pane pane-question">
+          <div class="section-directions" id="section-directions"></div>
+          <div class="passage" id="passage-block" hidden>
+            <h4 id="passage-label"></h4>
+            <div id="passage-text"></div>
+          </div>
+          <div id="question-stem" class="question-stem"></div>
+
+          <div id="options-block" class="options-block"></div>
+          <div id="table-block" class="table-block" hidden></div>
+        </div>
+
+        <div class="pane pane-notes">
+          <h4>Explanation</h4>
+          <div id="editor-toolbar"></div>
+          <div id="editor"></div>
+
+          <h4>Tags</h4>
+          <div id="tag-input-row">
+            <input type="text" id="tag-input" placeholder="Add a tag and press Enter">
+          </div>
+          <div id="tag-list" class="tag-list"></div>
+
+          <div id="save-indicator" class="save-indicator"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

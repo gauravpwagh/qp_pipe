@@ -1,8 +1,9 @@
 # qp-pipeline
 
 Converts a scanned CDS-exam-style question paper PDF (single-column and
-two-column layout, no text layer) into a structured CSV of questions and
-options.
+two-column layout, no text layer) into structured questions, then lets you
+review them in a browser: see each question's source-image crop, pick an
+answer, and write a rich-text (HTML) explanation with tags.
 
 Built and validated against `QP-CDSE-II-26-ENGLISH-140926.pdf` (CDS
 Examination (II), 2026, English test booklet, 120 questions across 32
@@ -19,7 +20,32 @@ pip install -r requirements.txt
 EasyOCR downloads its recognition model weights (~100MB+) automatically on
 first run.
 
-## Usage
+## Web app (recommended)
+
+```bash
+python -m flask --app webapp.app run --port 5050
+```
+
+Open `http://localhost:5050`. **Process** tab: upload a PDF, pick a variant
+(only "CDS Exam - English" exists today - see `webapp/variants.py` to add
+more), click Process. This runs as a background job (OCR takes ~5-6 minutes
+for a 32-page booklet on CPU); the page polls and shows progress, then
+switches you to **Review** with the new paper pre-selected. The Review tab
+also lets you pick any previously-processed paper.
+
+In Review: pick a question number to see its source-image crop (left),
+question text with clickable answer options or, for "match the list"
+questions, a reconstructed List I/List II + Code-answer table (middle), and
+a rich-text explanation editor (bold/italic/underline/color/font) plus tags
+(right). Answers, explanations, and tags autosave as you go.
+
+Each processed paper's data lives at `data/papers/<paper_id>/paper.json`
+plus its cropped question images - this is the JSON schema described below,
+with `user_answer`/`explanation_html`/`tags` filled in as you review.
+
+## CLI (CSV output)
+
+For scripting/inspection without the web UI:
 
 ```bash
 python -m src.pipeline path\to\question_paper.pdf output\
@@ -36,6 +62,21 @@ This renders every page, OCRs it, reconstructs reading order, and writes:
 
 Pass `--image-dir <dir>` to reuse already-rendered `page_NNN.png` images
 instead of re-rendering the PDF (useful when iterating).
+
+## `paper.json` schema
+
+Each question in the `questions` array:
+
+| field | meaning |
+|---|---|
+| `q_number`, `page` | 1..N; source PDF page |
+| `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list` |
+| `image` | path (relative to the paper's folder) to the cropped question image |
+| `section_directions_html`, `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
+| `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list`) |
+| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`), else `null` |
+| `ocr_confidence`, `needs_review`, `review_reason` | as in the CSV schema below |
+| `user_answer`, `explanation_html`, `tags` | filled in by the review UI - `null`/`""`/`[]` until then |
 
 ## `questions.csv` schema
 
@@ -67,7 +108,16 @@ instead of re-rendering the PDF (useful when iterating).
    machine to find question/option/Directions/Passage boundaries via
    regex, with a recovery path for when OCR drops a question-number token
    or option-marker glyph outright (see Known Limitations).
-6. `pipeline.py` - orchestrates the above and writes the CSVs + QA report.
+6. `bbox.py` - computes each question's pixel bounding box (its own start
+   position down to the next question's, within its column) - used to crop
+   its review-UI image and to scope `match_list.py`'s box search.
+7. `match_list.py` - for `match_the_list` questions, re-parses the raw OCR
+   boxes in that question's bbox into a structured List I / List II / Code
+   answer-table, with position-based recovery when a label glyph or answer
+   digit drops out (see Known Limitations).
+8. `pipeline.py` - orchestrates the above; `run_pipeline` writes the CSVs +
+   QA report (CLI), `run_pipeline_json` writes `paper.json` + image crops
+   (web app, see `webapp/`).
 
 ## Known limitations
 
@@ -81,13 +131,17 @@ instead of re-rendering the PDF (useful when iterating).
   underlines and may occasionally mark a false one. This matters for
   question types where the answer depends on which word is underlined
   (e.g. "similar sounding words" items) - verify those manually.
-- **Match-the-list questions** (List I / List II / a Code answer-table) have
-  a genuinely nested 3-column layout within what looks like one half of the
-  page. The generic 2-column reading-order logic can't cleanly separate
-  List I terms, List II meanings, and the Code table for these, so they are
-  detected and routed to `match_the_list.csv` with their raw (possibly
-  jumbled) OCR text instead of being forced into the flat schema - expect
-  to reconstruct these by hand against the source PDF.
+- **Match-the-list questions** (List I / List II / a Code answer-table) get
+  a dedicated reconstruction pass (`match_list.py`) into a proper table
+  (see the Review UI or `table` in `paper.json`) rather than the flat
+  option schema. The small answer-grid digits are the least reliable OCR
+  spot found in this booklet - a digit or an option-letter glyph
+  occasionally drops out entirely. Where exactly one grid value is missing
+  and the other three are distinct digits 1-4, it's inferred (every row
+  observed is a permutation of 1-4) and flagged `needs_review` anyway;
+  where more is missing it's left blank (`null`/`?`) - check these against
+  the question's own image crop, shown right alongside the table. The CLI's
+  `match_the_list.csv` still carries the raw OCR text as a fallback.
 - **Spotting-errors-style questions** (a sentence divided into labelled
   segments, "No error" as a possible answer) weren't part of the original
   layout survey and aren't specially parsed - they'll come through with

@@ -5,4 +5,9 @@ output/
 .EasyOCR/
 *.egg-info/
 dev_ocr_cache/
+dev_ocr_cache_hires/
 dev_samples/
+dev_samples_hires/
+data/
+flask.log
+

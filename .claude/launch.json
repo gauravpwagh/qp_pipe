@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "webapp",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "flask", "--app", "webapp.app", "run", "--port", "5050"],
+      "port": 5050
+    }
+  ]
+}
