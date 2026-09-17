@@ -6,6 +6,7 @@ in the browser.
 import json
 import os
 import re
+import shutil
 import tempfile
 import threading
 from datetime import datetime, timezone
@@ -183,6 +184,20 @@ def api_paper_detail(paper_id):
     if paper is None:
         return jsonify({"error": "not found"}), 404
     return jsonify(paper)
+
+
+@app.route("/api/papers/<paper_id>", methods=["DELETE"])
+def api_delete_paper(paper_id):
+    paper_dir = _paper_dir(paper_id)
+    # Guard against a paper_id that escapes OUTPUT_DIR (e.g. "..") before
+    # ever touching the filesystem with a recursive delete.
+    if paper_dir.resolve().parent != OUTPUT_DIR.resolve():
+        return jsonify({"error": "invalid paper_id"}), 400
+    if not paper_dir.is_dir():
+        return jsonify({"error": "not found"}), 404
+    with _write_lock:
+        shutil.rmtree(paper_dir)
+    return jsonify({"ok": True})
 
 
 @app.route("/api/papers/<paper_id>/images/<path:filename>")

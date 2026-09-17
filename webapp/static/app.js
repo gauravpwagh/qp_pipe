@@ -138,10 +138,39 @@ async function loadPapers() {
   if (toSelect) {
     select.value = toSelect;
     await loadPaper(toSelect);
+  } else {
+    currentPaper = null;
+    currentQuestion = null;
+    document.getElementById("question-select").innerHTML = "";
+    document.getElementById("review-body").hidden = true;
+    document.getElementById("review-empty").hidden = false;
   }
 }
 
 document.getElementById("paper-select").addEventListener("change", (e) => loadPaper(e.target.value));
+
+document.getElementById("delete-paper-btn").addEventListener("click", async () => {
+  const select = document.getElementById("paper-select");
+  const paperId = select.value;
+  if (!paperId) return;
+  const label = select.options[select.selectedIndex] ? select.options[select.selectedIndex].textContent : paperId;
+  if (!confirm(`Delete this job permanently?\n\n${label}\n\nThis removes its saved answers, explanations, and images - it cannot be undone.`)) {
+    return;
+  }
+  const res = await fetch(`/api/papers/${paperId}`, { method: "DELETE" });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    alert(data.error || "failed to delete job");
+    return;
+  }
+  if (currentPaper && currentPaper.paper_id === paperId) {
+    currentPaper = null;
+    currentQuestion = null;
+  }
+  pendingSelectPaperId = null;
+  select.value = "";
+  await loadPapers();
+});
 
 async function loadPaper(paperId) {
   if (!paperId) return;

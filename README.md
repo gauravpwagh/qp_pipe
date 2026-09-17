@@ -50,7 +50,9 @@ skipped, both on CPU); the page polls and shows progress, then switches you
 to **Review** with the new paper pre-selected. The Review tab's paper
 picker also lists every previously-processed job by its name, newest first
 - come back anytime and pick up where you left off, no need to re-upload
-or re-process anything.
+or re-process anything. Don't want to keep a job? **Delete job** next to
+the picker removes it - its `paper.json`, images, and stored source PDF -
+permanently, after a confirmation prompt.
 
 In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
