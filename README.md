@@ -5,24 +5,34 @@ two-column layout, no text layer) into structured questions, then lets you
 review them in a browser: see each question's source-image crop, pick an
 answer, and write a rich-text (HTML) explanation with tags.
 
-Built and validated against two CDS Examination (II) 2026 booklets:
+Built and validated against three 2026 exam booklets:
 
-- `QP-CDSE-II-26-ENGLISH-140926.pdf` - English, 120 questions / 32 pages.
-- `QP-CDSE-II-26-GENERAL-KNOWLEDGE-140926.pdf` - bilingual (every item
-  printed in Hindi then English), 120 questions / 56 pages. Our OCR reader
-  is English-only, so this variant skips OCR on the Hindi pages entirely
-  (see `src/variant_gk.py`) rather than just discarding garbled output -
-  correctly *and* roughly halving processing time.
+- `QP-CDSE-II-26-ENGLISH-140926.pdf` - CDS English, 120 questions / 32 pages.
+- `QP-CDSE-II-26-GENERAL-KNOWLEDGE-140926.pdf` - CDS General Knowledge,
+  bilingual (every item printed in Hindi then English), 120 questions /
+  56 pages. Our OCR reader is English-only, so this variant skips OCR on
+  the Hindi pages entirely (see `src/variant_gk.py`) rather than just
+  discarding garbled output - correctly *and* roughly halving processing
+  time.
+- `QP-NDANA-II-26-GENERAL-ABILITY-TEST-140926.pdf` - NDA & NA General
+  Ability Test, 150 questions / 52 pages: an all-English "Part A"
+  (Q1-100) followed by a bilingual "Part B" (Q101-150, alternating
+  Hindi/English pages like the GK booklet). See `src/variant_ndana_gat.py`
+  and "NDA/NA GAT: Part A/Part B page numbers" below - unlike the GK
+  booklet, the bilingual split doesn't start on page 2, so the boundary
+  is entered per job rather than hardcoded.
 
 ## Variants
 
 A "variant" is a layout profile registered in `webapp/variants.py`, each
 pointing at its own `run_*_json` function. `cds_english_v1` (plain
-single-language) and `cds_gk_v1` (bilingual, English-only extraction) both
-reuse the same core pipeline (`src/pipeline.py`'s `run_pipeline_json`) -
-a new variant is usually just a different page classifier / OCR-skip rule
+single-language), `cds_gk_v1` (bilingual, English-only extraction), and
+`ndana_gat_v1` (English-only "Part A" then bilingual "Part B") all reuse
+the same core pipeline (`src/pipeline.py`'s `run_pipeline_json`) - a new
+variant is usually just a different page classifier / OCR-skip rule
 passed into it, not new parsing logic. See `src/variant_gk.py` for the
-bilingual pattern to copy from.
+bilingual pattern to copy from, or `src/variant_ndana_gat.py` for a
+variant that also needs a per-job input from the user (see below).
 
 ## Setup
 
@@ -53,6 +63,25 @@ picker also lists every previously-processed job by its name, newest first
 or re-process anything. Don't want to keep a job? **Delete job** next to
 the picker removes it - its `paper.json`, images, and stored source PDF -
 permanently, after a confirmation prompt.
+
+A variant can ask for extra input beyond the PDF/job name (registered as
+"fields" in `webapp/variants.py`) - the Process tab renders these as
+plain inputs once that variant is selected.
+
+#### NDA/NA GAT: Part A/Part B page numbers
+
+Selecting `ndana_gat_v1` adds two required number fields: **Last page of
+Part A** and **Last page of Part B**. Unlike the CDS GK booklet (bilingual
+from page 2 onward, a fixed rule), this booklet's Hindi/English split only
+starts partway through, at a page number that can shift between years'
+printings - so rather than hardcoding it (and silently mis-processing a
+differently-paginated booklet), you look it up once per PDF and enter it:
+open the PDF, find the last all-English page before the questions start
+repeating in Hindi (that's Part A's last page), then the last page before
+rough-work/back-cover pages begin (Part B's last page). Pages 1..Part A
+are always OCR'd (all-English); Part A+1..Part B alternate Hindi (skipped)
+/English (OCR'd), Hindi first; everything after Part B is always OCR'd
+too (rough-work and the English back-cover, same as any other variant).
 
 In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
@@ -220,13 +249,13 @@ Each question in the `questions` array:
 | field | meaning |
 |---|---|
 | `q_number`, `page` | 1..N; source PDF page |
-| `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list` |
+| `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list`, `paired_table` |
 | `image` | path (relative to the paper's folder) to the cropped question image |
 | `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |
 | `instruction_id` | `null`, or the `instructions` entry this question shares a Directions block with |
 | `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
 | `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list`) |
-| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`), else `null` |
+| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`); for `paired_table`: `{headers: [left, right], rows: [{label, col1, col2}, ...]}` (see `src/paired_table.py`); else `null` |
 | `ocr_confidence`, `needs_review`, `review_reason` | as in the CSV schema below |
 | `user_answer`, `explanation_html`, `tags` | filled in by the review UI - `null`/`""`/`[]` until then |
 
@@ -306,6 +335,15 @@ Each question in the `questions` array:
   where more is missing it's left blank (`null`/`?`) - check these against
   the question's own image crop, shown right alongside the table. The CLI's
   `match_the_list.csv` still carries the raw OCR text as a fallback.
+- **Paired-items questions** (`src/paired_table.py`; NDA/NA GAT, e.g. "Read
+  the following pairs: I. ... | ... II. ... | ..." then "Identify the
+  pair(s) wherein...") get a two-column table reconstructed alongside the
+  normal stem and (a)-(d) options - unlike match-the-list this doesn't
+  replace them, since the table is only part of the question, not the
+  whole of it. Detected structurally (a genuine column gap under Roman-
+  numeral row labels, not a keyword), so a plain vertical list of
+  statements ("Consider the following: I. ... II. ...") is correctly left
+  alone as a standard question.
 - **Spotting-errors-style questions** (a sentence divided into labelled
   segments, "No error" as a possible answer) weren't part of the original
   layout survey and aren't specially parsed - they'll come through with

@@ -16,6 +16,7 @@ from PIL import Image
 from .bbox import compute_bboxes
 from .instructions import extract_instructions
 from .match_list import reconstruct as reconstruct_match_list
+from .paired_table import detect as detect_paired_table, reconstruct as reconstruct_paired_table
 from .ocr import Box, ocr_image
 from .parse_questions import parse_document, Question
 from .reading_order import order_page
@@ -186,17 +187,29 @@ def run_pipeline_json(
         image_rel = _crop_question_image(q, bb_list, page_images_by_num, crops_dir)
 
         table = None
-        if q.question_type == "match_the_list" and bb_list:
+        if bb_list:
             region_boxes = [
                 b
                 for bb in bb_list
                 for b in page_boxes.get(bb.page, [])
                 if bb.x0 <= (b.x0 + b.x1) / 2 <= bb.x1 and bb.y0 <= (b.y0 + b.y1) / 2 <= bb.y1
             ]
-            table, problems = reconstruct_match_list(region_boxes, q.q_number)
-            if problems:
-                q.needs_review = True
-                q.review_reason = "; ".join(filter(None, [q.review_reason] + problems))
+            if q.question_type == "match_the_list":
+                table, problems = reconstruct_match_list(region_boxes, q.q_number)
+                if problems:
+                    q.needs_review = True
+                    q.review_reason = "; ".join(filter(None, [q.review_reason] + problems))
+            elif detect_paired_table(region_boxes):
+                # A "Read the following pairs :" style table embedded in an
+                # otherwise-standard question's stem (see src/paired_table.py)
+                # - unlike match_the_list this doesn't replace the normal
+                # stem/options, just adds a cleanly-rendered table alongside
+                # them.
+                q.question_type = "paired_table"
+                table, problems = reconstruct_paired_table(region_boxes, q.q_number)
+                if problems:
+                    q.needs_review = True
+                    q.review_reason = "; ".join(filter(None, [q.review_reason] + problems))
 
         question_dicts.append(
             {

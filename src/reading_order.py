@@ -14,6 +14,7 @@ source PDF.
 from dataclasses import dataclass, field
 
 from .ocr import Box
+from .patterns import DIRECTIONS_RE, OPTION_RE, PASSAGE_RE, QUESTION_START_LOOSE_RE, QUESTION_START_RE
 
 Y_OVERLAP_TOL = 10  # px: boxes within this y-center distance are considered the same row-band
 X_GAP_SPLIT = 45  # px: a horizontal gap bigger than this splits a row-band into separate lines
@@ -54,15 +55,65 @@ def _cluster_rows(boxes: list[Box]) -> list[list[Box]]:
     return rows
 
 
+MIN_FORCE_SPLIT_GAP = 12  # px: floor below which even a "new unit" text match doesn't force a split
+
+
+def _looks_like_new_unit(text: str) -> bool:
+    """True if `text` looks like the start of a new structural unit - a
+    question's own leading number, an (a)-(d) option marker, or a
+    Directions/Passage heading. Used (alongside a minimum gap - see
+    _split_row_into_lines) to force a line-split below the normal 45px
+    threshold: a booklet's column gutter can be narrower than that
+    (confirmed: as little as ~21px) - relying on gap size alone there let
+    a right-column question's real start get silently absorbed into the
+    previous (left-column) question's trailing text instead of ever
+    being recognized as a new question, corrupting both.
+
+    QUESTION_START_RE alone is too broad to trust on its own regardless of
+    gap - it also matches an ordinary decimal number ("0.1 N", "3.5 km"),
+    extremely common in this booklet's physics/chemistry content. The
+    minimum-gap requirement is what keeps that safe: a mid-sentence
+    decimal is preceded by normal word-spacing (a few px), while a
+    genuine new question/option/heading starting at a narrow column
+    gutter still has a real, if narrow, gap in front of it."""
+    text = text.strip()
+    return bool(QUESTION_START_RE.match(text) or OPTION_RE.match(text) or DIRECTIONS_RE.match(text) or PASSAGE_RE.match(text))
+
+
+def _looks_like_bare_question_number(text: str, next_text: str) -> bool:
+    """True if `text` is a bare 1-3 digit number (no trailing punctuation -
+    OCR sometimes drops it entirely, e.g. "54" instead of "54.") AND the
+    box immediately following it looks like the start of an ordinary
+    capitalized word (QUESTION_START_LOOSE_RE's lookahead), not a unit
+    abbreviation glued to a numeric value ("10 N", "50 kg"). Checked
+    separately from _looks_like_new_unit because a bare number alone is
+    far more ambiguous - it only earns a forced split when what follows it
+    also looks like a fresh sentence starting."""
+    if not text.isdigit() or not (1 <= len(text) <= 3):
+        return False
+    return bool(QUESTION_START_LOOSE_RE.match(f"{text} {next_text.strip()}"))
+
+
 def _split_row_into_lines(row: list[Box]) -> list[list[Box]]:
-    """Within one row-band, split into separate lines when there's a big x-gap
-    (i.e. distinct columns sharing the same vertical position)."""
+    """Within one row-band, split into separate lines when there's a big
+    x-gap (i.e. distinct columns sharing the same vertical position), OR
+    when there's at least a modest gap (MIN_FORCE_SPLIT_GAP) AND the next
+    box's text looks like the start of a new structural unit
+    (_looks_like_new_unit, or _looks_like_bare_question_number with its
+    own successor box) - catching column gutters narrower than the normal
+    45px threshold without also firing on a decimal number sitting a
+    couple pixels after the previous word in ordinary prose."""
     row = sorted(row, key=lambda b: b.x0)
     lines: list[list[Box]] = [[row[0]]]
-    for b in row[1:]:
+    for i in range(1, len(row)):
+        b = row[i]
         prev = lines[-1][-1]
         gap = b.x0 - prev.x1
-        if gap > X_GAP_SPLIT:
+        next_text = row[i + 1].text if i + 1 < len(row) else ""
+        force = gap > MIN_FORCE_SPLIT_GAP and (
+            _looks_like_new_unit(b.text) or _looks_like_bare_question_number(b.text, next_text)
+        )
+        if gap > X_GAP_SPLIT or force:
             lines.append([b])
         else:
             lines[-1].append(b)
@@ -74,15 +125,25 @@ def build_lines(boxes: list[Box], page: int = 0) -> list[Line]:
         return []
     lines = []
     for row in _cluster_rows(boxes):
+        # Shared by every segment split out of THIS row-band (rather than
+        # each segment's own min-y0), so a y0-based sort/tiebreak elsewhere
+        # (order_page's column buffers sort purely by y0, no x0 tiebreak)
+        # can't invert two segments' intended left-to-right order over a
+        # couple px of noise between their individual bounding boxes -
+        # confirmed as a real bug once _split_row_into_lines started
+        # splitting a question's own number from its immediately-following
+        # option text (e.g. "38." from "(a) The teacher...") within one
+        # row-band: their near-identical but not-quite-equal y0 values
+        # could sort the option text before the number that starts it.
+        row_y0 = min(b.y0 for b in row)
         for seg in _split_row_into_lines(row):
             seg = sorted(seg, key=lambda b: b.x0)
             x0 = min(b.x0 for b in seg)
             x1 = max(b.x1 for b in seg)
-            y0 = min(b.y0 for b in seg)
             y1 = max(b.y1 for b in seg)
             text = " ".join(b.text for b in seg)
             conf = sum(b.conf for b in seg) / len(seg)
-            lines.append(Line(x0, y0, x1, y1, text, conf, boxes=seg, page=page))
+            lines.append(Line(x0, row_y0, x1, y1, text, conf, boxes=seg, page=page))
     return sorted(lines, key=lambda l: (l.y0, l.x0))
 
 

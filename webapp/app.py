@@ -180,7 +180,7 @@ def index():
 
 @app.route("/api/variants")
 def api_variants():
-    return jsonify([{"id": k, "label": v["label"]} for k, v in VARIANTS.items()])
+    return jsonify([{"id": k, "label": v["label"], "fields": v.get("fields", [])} for k, v in VARIANTS.items()])
 
 
 @app.route("/api/process", methods=["POST"])
@@ -191,6 +191,24 @@ def api_process():
     file = request.files.get("pdf")
     if file is None or not file.filename:
         return jsonify({"error": "no pdf file uploaded"}), 400
+
+    # Extra variant-specific inputs (see webapp/variants.py's "fields") -
+    # e.g. the NDA/NA General Ability Test variant needs the Part A/Part B
+    # page boundary, which shifts from one year's booklet to the next and
+    # so isn't safe to hardcode; the user supplies it here instead.
+    variant_options = {}
+    for field in VARIANTS[variant_id].get("fields", []):
+        raw = (request.form.get(field["name"]) or "").strip()
+        if not raw:
+            if field.get("required"):
+                return jsonify({"error": f"{field['label']} is required for this variant"}), 400
+            continue
+        if field.get("type") == "number":
+            try:
+                raw = int(raw)
+            except ValueError:
+                return jsonify({"error": f"{field['label']} must be a whole number"}), 400
+        variant_options[field["name"]] = raw
 
     source_filename = secure_filename(file.filename)
     job_name = (request.form.get("job_name") or "").strip() or Path(source_filename).stem
@@ -205,7 +223,9 @@ def api_process():
     source_pdf_path = paper_dir / "source.pdf"
     file.save(source_pdf_path)
 
-    job_id = jobs.start_job(str(source_pdf_path), variant_id, paper_dir, source_filename, job_name=job_name)
+    job_id = jobs.start_job(
+        str(source_pdf_path), variant_id, paper_dir, source_filename, job_name=job_name, variant_options=variant_options
+    )
     return jsonify({"job_id": job_id, "paper_id": paper_id})
 
 

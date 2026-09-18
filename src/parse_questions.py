@@ -5,16 +5,22 @@ into structured question records.
 import re
 from dataclasses import dataclass, field
 
+from .patterns import (
+    DIRECTIONS_RE,
+    OPTION_LETTER_FIX,
+    OPTION_RE,
+    PASSAGE_RE,
+    MATCH_LIST_END_RE,
+    MATCH_LIST_START_RE,
+    QUESTION_START_LOOSE_RE,
+    QUESTION_START_RE,
+    SPOT_ERROR_INTRO_END_RE,
+    SPOT_ERROR_INTRO_RE,
+    STATEMENTS_END_RE,
+    STATEMENTS_INTRO_RE,
+)
 from .reading_order import Line
 from .underline import mark_underlines_in_text
-
-OPTION_RE = re.compile(r"^\(?\s*([abcd6])\s*\)\s*(.*)$", re.IGNORECASE)
-# OCR frequently misreads "(b)" as "(6)" in this font; normalize on match.
-OPTION_LETTER_FIX = {"6": "b"}
-
-QUESTION_START_RE = re.compile(r"^(\d{1,3})\s*[\.\-_,:]\s*(.*)$")
-DIRECTIONS_RE = re.compile(r"^directions?\s*[:.]?\s*(.*)$", re.IGNORECASE)
-PASSAGE_RE = re.compile(r"^passage\b\s*(.*)$", re.IGNORECASE)
 
 FOOTER_Y_FRAC = 0.90  # lines starting below this fraction of page height are header/footer noise
 PURE_NUMBER_RE = re.compile(r"^\d{1,4}$")
@@ -26,6 +32,7 @@ PURE_NUMBER_RE = re.compile(r"^\d{1,4}$")
 # to preserve that, not flatten everything into one run-on paragraph.
 _NEW_LINE_TRIGGERS = [
     re.compile(r"^\d{1,2}\s*[\.\-_]\s*\S"),  # "1. ...", "2_ ...", "3- ..."
+    re.compile(r"^[IVX]{1,4}\s*[\.\-_,:]\s*\S"),  # "I. ...", "II. ...", "III. ..." (roman-numeral sub-statements)
     re.compile(r"^S\d\s*[:.]\s*\S", re.IGNORECASE),  # "S1: ...", "S6. ..."
     re.compile(r"^[PQRS]\s*:\s*\S"),  # "P : ...", "Q : ..." (para-jumble labels)
     re.compile(
@@ -38,7 +45,14 @@ _NEW_LINE_TRIGGERS = [
 def _starts_new_line(text: str) -> bool:
     return any(p.match(text) for p in _NEW_LINE_TRIGGERS)
 
-TOTAL_QUESTIONS = 120
+# How many consecutive question numbers a single resync (see
+# parse_document's RESYNC comment) is allowed to jump over in one go -
+# generous enough for any realistic run of OCR misses, conservative
+# enough that a stray number elsewhere in running text (extremely
+# unlikely to land more than this far past the true expected number)
+# can't get mistaken for a legitimate new question.
+RESYNC_WINDOW = 10
+
 FIELD_NAMES = ("stem", "a", "b", "c", "d")
 
 
@@ -112,6 +126,8 @@ class Builder:
         self.forced_review_reason = ""
         self.start_y = 0.0
         self.start_kind = ""
+        self.suppress_options = False
+        self.suppress_new_question = False
 
     def add(self, field_name: str, text: str, line: Line):
         self.active = field_name
@@ -256,17 +272,23 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             questions.append(builder.to_question())
             builder = None
 
-    def start_new_question(page_num: int, stem_prefix: str, line: Line, inferred: bool = False):
+    def start_new_question(page_num: int, q_number: int, stem_prefix: str, line: Line, forced_reason: str = ""):
         nonlocal builder, expected_num
         finalize_current()
-        builder = Builder(expected_num, page_num, current_directions, current_passage_label, current_passage_text)
+        builder = Builder(q_number, page_num, current_directions, current_passage_label, current_passage_text)
         builder.start_y = line.y0
         builder.start_kind = line.kind
         if stem_prefix:
             builder.add("stem", stem_prefix.strip(), line)
-        if inferred:
-            builder.forced_review_reason = "question number not detected by OCR; number inferred from sequence"
-        expected_num += 1
+        if forced_reason:
+            builder.forced_review_reason = forced_reason
+        if SPOT_ERROR_INTRO_RE.search(stem_prefix) and not SPOT_ERROR_INTRO_END_RE.search(stem_prefix):
+            builder.suppress_options = True
+        if MATCH_LIST_START_RE.search(stem_prefix) and not MATCH_LIST_END_RE.search(stem_prefix):
+            builder.suppress_new_question = True
+        if STATEMENTS_INTRO_RE.search(stem_prefix) and not STATEMENTS_END_RE.search(stem_prefix):
+            builder.suppress_new_question = True
+        expected_num = q_number + 1
 
     for page_num in sorted(pages.keys()):
         lines, page_height = pages[page_num]
@@ -277,11 +299,55 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             if not text:
                 continue
 
-            q_match = QUESTION_START_RE.match(text)
+            # Loose fallback catches a question number OCR'd with its
+            # trailing punctuation dropped entirely (e.g. "54 Which of the
+            # following" instead of "54. Which..."); safe here because
+            # every use below also checks the detected number against
+            # expected_num/RESYNC_WINDOW, so a coincidental match against
+            # ordinary prose still can't masquerade as a real question
+            # unless its number also happens to fall in the plausible range.
+            q_match = QUESTION_START_RE.match(text) or QUESTION_START_LOOSE_RE.match(text)
+            # While the active question is inside its own List I/List II
+            # table (see MATCH_LIST_START_RE/MATCH_LIST_END_RE), a
+            # number-looking token found there is table noise, not a real
+            # question boundary - suppress both the exact-match and resync
+            # checks below until the table's "Code" header has been seen.
+            if q_match and builder is not None and builder.suppress_new_question:
+                q_match = None
             if q_match and int(q_match.group(1)) == expected_num:
                 stem_prefix = (pending_stem + " " + q_match.group(2)).strip()
                 pending_stem = ""
-                start_new_question(page_num, stem_prefix, line)
+                start_new_question(page_num, expected_num, stem_prefix, line)
+                builder.raw_lines.append(text)
+                collecting = None
+                continue
+
+            # RESYNC: this line's own stated number is HIGHER than
+            # expected, but still plausibly the next real question (within
+            # RESYNC_WINDOW) - one or more questions before it were never
+            # recognized (their own number/punctuation got dropped or
+            # merged into a neighbor's text; reading_order.py's own
+            # column-gutter handling is best-effort, not perfect). Without
+            # this, the correctly-read number would just fall through to
+            # "continuation line" below and get silently absorbed into
+            # whatever question is currently active - and every question
+            # from that point on would inherit the same drift forever,
+            # since expected_num would never again match a real printed
+            # number. Resyncing onto what this line actually says instead
+            # contains the damage to just the missed run, not the rest of
+            # the document.
+            if q_match and expected_num < int(q_match.group(1)) <= expected_num + RESYNC_WINDOW:
+                detected_num = int(q_match.group(1))
+                stem_prefix = (pending_stem + " " + q_match.group(2)).strip()
+                pending_stem = ""
+                skipped = f"{expected_num}-{detected_num - 1}" if detected_num - 1 > expected_num else str(expected_num)
+                start_new_question(
+                    page_num,
+                    detected_num,
+                    stem_prefix,
+                    line,
+                    forced_reason=f"question(s) {skipped} not detected by OCR; resynced to {detected_num}",
+                )
                 builder.raw_lines.append(text)
                 collecting = None
                 continue
@@ -309,7 +375,7 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                 collecting = "passage"
                 continue
 
-            opt_match = OPTION_RE.match(text) if builder is not None else None
+            opt_match = OPTION_RE.match(text) if (builder is not None and not builder.suppress_options) else None
             if opt_match:
                 letter = OPTION_LETTER_FIX.get(opt_match.group(1).lower(), opt_match.group(1).lower())
                 if builder.is_field_set(letter):
@@ -320,7 +386,13 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                     # is currently active (almost always the trailing option), and use
                     # everything after that gap as the new question's stem.
                     recovered_stem = builder.split_active_on_largest_gap()
-                    start_new_question(page_num, recovered_stem, line, inferred=True)
+                    start_new_question(
+                        page_num,
+                        expected_num,
+                        recovered_stem,
+                        line,
+                        forced_reason="question number not detected by OCR; number inferred from sequence",
+                    )
                 builder.add(letter, opt_match.group(2), line)
                 builder.raw_lines.append(text)
                 continue
@@ -329,6 +401,12 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             if builder is not None:
                 builder.raw_lines.append(text)
                 builder.append_active(text, line)
+                if builder.suppress_options and SPOT_ERROR_INTRO_END_RE.search(text):
+                    builder.suppress_options = False
+                if not builder.suppress_new_question and (MATCH_LIST_START_RE.search(text) or STATEMENTS_INTRO_RE.search(text)):
+                    builder.suppress_new_question = True
+                elif builder.suppress_new_question and (MATCH_LIST_END_RE.search(text) or STATEMENTS_END_RE.search(text)):
+                    builder.suppress_new_question = False
             elif collecting == "directions":
                 current_directions = (current_directions + " " + text).strip()
             elif collecting == "passage":
@@ -351,9 +429,11 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
         elif re.search(r"the second sentence", blob):
             q.question_type = "sentence_relation"
 
-    # sequence QA
+    # sequence QA - checks 1..max(seen), not a fixed count, since different
+    # papers have different total question counts (this used to be a
+    # hardcoded 120, silently wrong for anything else).
     seen = {q.q_number for q in questions}
-    missing = [n for n in range(1, TOTAL_QUESTIONS + 1) if n not in seen]
+    missing = [n for n in range(1, max(seen) + 1) if n not in seen] if seen else []
     if missing:
         warnings.append(f"Missing question numbers: {missing}")
     dupes = [n for n in seen if sum(1 for q in questions if q.q_number == n) > 1]

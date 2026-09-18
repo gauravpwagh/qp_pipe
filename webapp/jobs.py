@@ -13,7 +13,14 @@ JOBS: dict[str, dict] = {}
 _lock = threading.Lock()
 
 
-def start_job(pdf_path: str, variant_id: str, paper_dir: Path, source_filename: str, job_name: str | None = None) -> str:
+def start_job(
+    pdf_path: str,
+    variant_id: str,
+    paper_dir: Path,
+    source_filename: str,
+    job_name: str | None = None,
+    variant_options: dict | None = None,
+) -> str:
     job_id = uuid.uuid4().hex
     JOBS[job_id] = {
         "status": "pending",
@@ -37,6 +44,7 @@ def start_job(pdf_path: str, variant_id: str, paper_dir: Path, source_filename: 
                 source_filename=source_filename,
                 job_name=job_name,
                 progress_cb=progress_cb,
+                **(variant_options or {}),
             )
             with _lock:
                 JOBS[job_id]["status"] = "done"

@@ -43,9 +43,12 @@ function switchTab(name) {
 }
 
 // ---- Process tab ----
+let variantsById = {}; // id -> {id, label, fields} - looked up when rendering per-variant extra inputs
+
 async function loadVariants() {
   const res = await fetch("/api/variants");
   const variants = await res.json();
+  variantsById = Object.fromEntries(variants.map((v) => [v.id, v]));
   const select = document.getElementById("variant-select");
   select.innerHTML = "";
   for (const v of variants) {
@@ -54,7 +57,31 @@ async function loadVariants() {
     opt.textContent = v.label;
     select.appendChild(opt);
   }
+  renderVariantFields(select.value);
 }
+
+// Some variants need extra booklet-specific input (e.g. a page boundary
+// that isn't safe to hardcode - see src/variant_ndana_gat.py) - rendered
+// here from the variant's own "fields" metadata rather than being
+// hardcoded per variant in the form markup.
+function renderVariantFields(variantId) {
+  const container = document.getElementById("variant-fields");
+  container.innerHTML = "";
+  const fields = (variantsById[variantId] && variantsById[variantId].fields) || [];
+  for (const field of fields) {
+    const label = document.createElement("label");
+    label.textContent = field.label;
+    const input = document.createElement("input");
+    input.type = field.type === "number" ? "number" : "text";
+    input.min = "1";
+    input.name = field.name;
+    input.required = !!field.required;
+    label.appendChild(input);
+    container.appendChild(label);
+  }
+}
+
+document.getElementById("variant-select").addEventListener("change", (e) => renderVariantFields(e.target.value));
 
 document.getElementById("process-form").addEventListener("submit", async (e) => {
   e.preventDefault();
@@ -67,6 +94,9 @@ document.getElementById("process-form").addEventListener("submit", async (e) => 
   form.append("pdf", fileInput.files[0]);
   form.append("variant_id", variantId);
   if (jobName) form.append("job_name", jobName);
+  for (const input of document.querySelectorAll("#variant-fields input")) {
+    form.append(input.name, input.value);
+  }
 
   document.getElementById("process-btn").disabled = true;
   document.getElementById("process-error").hidden = true;
@@ -386,6 +416,12 @@ function renderQuestion(qNumber) {
   }
 
   const isMatchList = currentQuestion.question_type === "match_the_list" && currentQuestion.table;
+  // Unlike match_the_list, a paired_table doesn't replace the stem/options
+  // - it's a "Read the following pairs :"-style table embedded inside an
+  // otherwise-standard question, so the normal stem and (a)-(d) options
+  // both still render; the table is just shown alongside them for a
+  // cleaner read than the flattened OCR text alone.
+  const isPairedTable = currentQuestion.question_type === "paired_table" && currentQuestion.table;
   const stemEl = document.getElementById("question-stem");
   // the raw OCR'd stem for match-the-list questions is just the jumbled
   // List/Code text the table below already presents cleanly - showing both
@@ -401,7 +437,8 @@ function renderQuestion(qNumber) {
     tableBlock.hidden = false;
     tableBlock.innerHTML = renderMatchListTable(currentQuestion.table);
   } else {
-    tableBlock.hidden = true;
+    tableBlock.hidden = !isPairedTable;
+    if (isPairedTable) tableBlock.innerHTML = renderPairedTable(currentQuestion.table);
     optionsBlock.hidden = false;
     optionsBlock.innerHTML = "";
     for (const letter of ["a", "b", "c", "d"]) {
@@ -583,6 +620,38 @@ function updateMatchListCode(rowIndex, colIndex, value) {
   if (!row) return;
   row.values[colIndex] = value.trim();
   scheduleFieldSave(`table_code_${rowIndex}_${colIndex}`, () => saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table }));
+}
+
+// A "Read the following pairs :" style table (src/paired_table.py) - two
+// labelled columns, one row per Roman numeral, embedded in the stem
+// rather than replacing it like match_the_list's table does.
+function renderPairedTable(table) {
+  const headers = table.headers || ["", ""];
+  const rows = table.rows || [];
+  const rowsHtml = rows
+    .map(
+      (r, i) => `<tr>
+        <td>${escapeHtml(r.label)}.</td>
+        <td contenteditable="true" oninput="updatePairedTableCell(${i}, 'col1', this.innerHTML)">${r.col1 || ""}</td>
+        <td contenteditable="true" oninput="updatePairedTableCell(${i}, 'col2', this.innerHTML)">${r.col2 || ""}</td>
+      </tr>`
+    )
+    .join("");
+  return `
+    <table>
+      <thead><tr><th></th><th>${escapeHtml(headers[0] || "")}</th><th>${escapeHtml(headers[1] || "")}</th></tr></thead>
+      <tbody>${rowsHtml}</tbody>
+    </table>`;
+}
+
+function updatePairedTableCell(rowIndex, field, value) {
+  if (!currentQuestion || !currentQuestion.table || !currentQuestion.table.rows) return;
+  const row = currentQuestion.table.rows[rowIndex];
+  if (!row) return;
+  row[field] = value;
+  scheduleFieldSave(`table_row_${rowIndex}_${field}`, () =>
+    saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table })
+  );
 }
 
 function selectAnswer(letter) {
