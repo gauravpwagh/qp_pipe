@@ -464,6 +464,8 @@ def api_update_question(paper_id, q_number):
     # correct OCR mistakes directly in the question body. A question's
     # shared Directions text lives on its instruction entry instead (see
     # src/instructions.py) - edited via the /instructions/<id> route.
+    # needs_review/review_reason: lets the user dismiss a flag once they've
+    # manually verified the question is actually fine.
     allowed_flat = {
         "user_answer",
         "explanation_html",
@@ -471,6 +473,8 @@ def api_update_question(paper_id, q_number):
         "topics",
         "question_stem_html",
         "passage_text_html",
+        "needs_review",
+        "review_reason",
     }
     updates = {k: v for k, v in body.items() if k in allowed_flat}
     options_update = body.get("options")
@@ -492,6 +496,13 @@ def api_update_question(paper_id, q_number):
         question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
         if question is None:
             return jsonify({"error": "question not found"}), 404
+        if "needs_review" in updates and bool(updates["needs_review"]) != bool(question.get("needs_review")):
+            # Keep the paper-level summary count (shown in the Review
+            # picker) in sync with a flag dismissed/re-raised here, rather
+            # than leaving it stuck at whatever it was at processing time.
+            qa = paper.setdefault("qa", {})
+            delta = 1 if updates["needs_review"] else -1
+            qa["needs_review_count"] = max(0, qa.get("needs_review_count", 0) + delta)
         question.update(updates)
         if options_update:
             question.setdefault("options", {}).update(

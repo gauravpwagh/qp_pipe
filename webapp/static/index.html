@@ -60,7 +60,10 @@
         </label>
         <button id="prev-q-btn" title="Previous question">&larr;</button>
         <button id="next-q-btn" title="Next question">&rarr;</button>
-        <span id="review-meta" class="review-meta"></span>
+        <span id="review-meta" class="review-meta">
+          <span id="review-meta-text"></span>
+          <button type="button" id="review-meta-dismiss-btn" class="review-meta-dismiss" hidden title="Mark as reviewed - clears this warning">&times;</button>
+        </span>
       </div>
 
       <div id="review-empty" class="empty-state">No paper selected yet - process one, or pick an existing paper above.</div>

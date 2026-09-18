@@ -99,8 +99,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .review-toolbar label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
 .review-toolbar select { padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
 .review-toolbar button { padding: 6px 10px; }
-.review-meta { margin-left: auto; font-size: 12px; color: var(--muted); }
+.review-meta { margin-left: auto; font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
 .review-meta.needs-review { color: #b45309; font-weight: 600; }
+.review-meta-dismiss {
+  background: none; border: none; color: inherit; font-size: 15px; line-height: 1;
+  padding: 0 2px; cursor: pointer; opacity: 0.7;
+}
+.review-meta-dismiss:hover { opacity: 1; }
 
 .empty-state { color: var(--muted); padding: 40px; text-align: center; }
 

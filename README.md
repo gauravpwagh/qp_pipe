@@ -70,6 +70,13 @@ per variant (`output/_vocab/<variant_id>.json`) and suggested back via
 autocomplete on any question of any paper of that same variant - so a
 topic scheme you build up on one paper carries over to the next.
 
+A flagged `⚠ needs review: ...` warning has a small **×** next to it once
+you've checked the question and confirmed it's actually fine - clicking it
+clears the flag (and its "⚠" in the Question dropdown) for good; it
+doesn't re-appear on its own unless a later **Reprocess** re-detects the
+same issue. The paper picker's "N flagged" count stays in sync as flags
+get dismissed (or re-raised).
+
 If the pipeline's auto-detected crop is wrong - cuts off part of the
 question, includes a neighbor's, or splits across a column in a way that
 didn't stack right - click **Edit** in the Image pane's header. It opens

@@ -365,8 +365,13 @@ function renderQuestion(qNumber) {
   document.querySelector(".pane-notes").hidden = false;
 
   const meta = document.getElementById("review-meta");
-  meta.textContent = currentQuestion.needs_review ? `⚠ needs review: ${currentQuestion.review_reason}` : `confidence ${currentQuestion.ocr_confidence}`;
+  const metaText = document.getElementById("review-meta-text");
+  metaText.textContent = currentQuestion.needs_review
+    ? `⚠ needs review: ${currentQuestion.review_reason}`
+    : `confidence ${currentQuestion.ocr_confidence}`;
   meta.classList.toggle("needs-review", !!currentQuestion.needs_review);
+  document.getElementById("review-meta-dismiss-btn").hidden = !currentQuestion.needs_review;
+  updateNavOptionWarning(qNumber, currentQuestion.needs_review);
 
   const img = document.getElementById("question-image");
   img.src = currentQuestion.image ? `/api/papers/${currentPaper.paper_id}/${currentQuestion.image}` : "";
@@ -462,8 +467,9 @@ function renderInstruction(instructionId) {
   const applies = currentInstruction.applies_to;
   const range = applies.length > 1 ? `Q${applies[0]}-Q${applies[applies.length - 1]}` : `Q${applies[0]}`;
   const meta = document.getElementById("review-meta");
-  meta.textContent = `applies to ${range}`;
+  document.getElementById("review-meta-text").textContent = `applies to ${range}`;
   meta.classList.remove("needs-review");
+  document.getElementById("review-meta-dismiss-btn").hidden = true;
 
   const img = document.getElementById("question-image");
   img.src = currentInstruction.image ? `/api/papers/${currentPaper.paper_id}/${currentInstruction.image}` : "";
@@ -502,6 +508,25 @@ function clearAnswer() {
   saveQuestionField(currentQuestion.q_number, { user_answer: null });
 }
 document.getElementById("clear-answer-btn").addEventListener("click", clearAnswer);
+
+// Keeps the nav dropdown's "⚠" suffix in sync whenever a question's
+// needs_review flag changes (dismissed by hand, or flipped again by a
+// reprocess) - rather than only ever reflecting whatever it was when the
+// paper was first loaded.
+function updateNavOptionWarning(qNumber, needsReview) {
+  const opt = document.querySelector(`#question-select option[value="Q:${qNumber}"]`);
+  if (!opt) return;
+  opt.textContent = needsReview ? `Q${qNumber} ⚠` : `Q${qNumber}`;
+}
+
+function dismissNeedsReview() {
+  if (!currentQuestion) return;
+  currentQuestion.needs_review = false;
+  currentQuestion.review_reason = "";
+  renderQuestion(currentQuestion.q_number);
+  saveQuestionField(currentQuestion.q_number, { needs_review: false, review_reason: "" });
+}
+document.getElementById("review-meta-dismiss-btn").addEventListener("click", dismissNeedsReview);
 
 function renderMatchListTable(table) {
   const list1 = table.list1 || [];
