@@ -64,46 +64,61 @@ def _read_paper(paper_id: str) -> dict | None:
     return paper
 
 
+def _replace_with_retry(tmp_path: str, path: Path) -> None:
+    """os.replace() onto a destination that's open for reading elsewhere
+    at that exact moment - a GET request loading paper.json/an image, an
+    antivirus/search-indexer/sync-client scan, this same process's own
+    _read_paper() a moment earlier - can raise PermissionError outright on
+    Windows (unlike POSIX rename, which doesn't care who has the target
+    open). Confirmed by reproducing the race directly. The reader is
+    normally done within milliseconds, so retrying briefly resolves it
+    rather than surfacing a failure the user has to notice and retry by
+    hand (this is what made both "Save crop" and dismissing a needs_review
+    flag sometimes need a couple of tries - paper.json's write had no
+    retry at all, and images/ only relied on the swap itself, not a retry
+    loop)."""
+    last_err = None
+    for _ in range(20):
+        try:
+            os.replace(tmp_path, path)
+            return
+        except PermissionError as e:
+            last_err = e
+            time.sleep(0.1)
+    raise last_err
+
+
 def _write_paper_atomic(paper_id: str, paper: dict) -> None:
+    # Recomputed from the questions themselves on every save, rather than
+    # incrementally tracked (+1/-1) at each call site that can change
+    # needs_review - a delta only where the dismiss-flag route remembered
+    # to apply one already drifted out of sync with Reprocess, which flips
+    # needs_review directly via question.update() with no such bookkeeping.
+    # A single recompute here is the ground truth and can't drift.
+    if "qa" in paper and "questions" in paper:
+        paper["qa"]["needs_review_count"] = sum(1 for q in paper["questions"] if q.get("needs_review"))
+
     path = _paper_dir(paper_id) / "paper.json"
     fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix=".tmp")
     try:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(paper, f, indent=2, ensure_ascii=False)
-        os.replace(tmp_path, path)
+        _replace_with_retry(tmp_path, path)
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
 
 
 def _save_image_atomic(path: Path, image) -> None:
-    """This filename is fixed (q_0001.png, I1.png, ...) and can be open for
-    reading elsewhere at the same moment - the review page's own <img>, or
-    a Reprocess call's Image.open() - so a direct in-place overwrite can
-    hit a file-locking conflict, which is exactly what made "Save crop"
-    sometimes need a couple of tries.
-
-    Saving to a temp file first and swapping it in is the standard fix,
-    but on Windows even os.replace() onto an open destination can raise
-    PermissionError outright (unlike POSIX rename, which doesn't care who
-    has it open) - confirmed by testing: Python's own file opens don't
-    request the sharing flag Windows needs to allow that. The reader is
-    normally done within milliseconds, so retrying briefly resolves it
-    rather than surfacing a failure the user has to notice and retry by
-    hand."""
+    """Same reasoning as _write_paper_atomic - this filename is fixed
+    (q_0001.png, I1.png, ...) and can be open for reading elsewhere at the
+    same moment (the review page's own <img>, a Reprocess call's
+    Image.open())."""
     fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix=".tmp")
     try:
         os.close(fd)
         image.save(tmp_path, format="PNG")
-        last_err = None
-        for _ in range(20):
-            try:
-                os.replace(tmp_path, path)
-                return
-            except PermissionError as e:
-                last_err = e
-                time.sleep(0.1)
-        raise last_err
+        _replace_with_retry(tmp_path, path)
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
@@ -536,13 +551,6 @@ def api_update_question(paper_id, q_number):
         question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
         if question is None:
             return jsonify({"error": "question not found"}), 404
-        if "needs_review" in updates and bool(updates["needs_review"]) != bool(question.get("needs_review")):
-            # Keep the paper-level summary count (shown in the Review
-            # picker) in sync with a flag dismissed/re-raised here, rather
-            # than leaving it stuck at whatever it was at processing time.
-            qa = paper.setdefault("qa", {})
-            delta = 1 if updates["needs_review"] else -1
-            qa["needs_review_count"] = max(0, qa.get("needs_review_count", 0) + delta)
         question.update(updates)
         if options_update:
             question.setdefault("options", {}).update(
