@@ -146,7 +146,8 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .pane.collapsed .pane-header-actions { flex-direction: column; }
 .pane.collapsed .pane-header-label { writing-mode: vertical-rl; text-orientation: mixed; }
 .pane.collapsed .pane-body { display: none; }
-.pane.collapsed #edit-image-btn { display: none; }
+.pane.collapsed #edit-image-btn,
+.pane.collapsed #reprocess-btn { display: none; }
 
 .pane-image .pane-body img { max-width: 100%; display: block; border: 1px solid var(--border); border-radius: 4px; }
 
@@ -213,6 +214,14 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .table-block th, .table-block td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; }
 .table-block th { background: #f0f2f5; }
 .table-block h4 { margin: 12px 0 6px; }
+.table-block td[contenteditable="true"] { cursor: text; }
+.table-block td[contenteditable="true"]:hover,
+.table-block td span[contenteditable="true"]:hover { background-color: #f5f7fa; }
+.table-block td[contenteditable="true"]:focus,
+.table-block td span[contenteditable="true"]:focus {
+  background-color: var(--accent-bg);
+  outline: 1px dashed var(--accent);
+}
 
 .pane-notes h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
 

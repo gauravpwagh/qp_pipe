@@ -20,6 +20,7 @@ from .variants import VARIANTS
 from src import latex_ocr, screenshot_stitch
 from src.instructions import extract_instructions
 from src.pipeline import crop_and_stack_regions
+from src.reprocess import reprocess_instruction, reprocess_question
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -275,6 +276,43 @@ def api_recrop_question(paper_id, q_number):
     return jsonify(question)
 
 
+@app.route("/api/papers/<paper_id>/questions/<int:q_number>/reprocess", methods=["POST"])
+def api_reprocess_question(paper_id, q_number):
+    """Re-runs OCR + extraction on the question's CURRENT image (see
+    src/reprocess.py) and overwrites its stem/options (or table, for
+    match_the_list) - typically used right after "Edit image" fixes a bad
+    crop, so stale text from the original pipeline run doesn't linger.
+    Overwrites immediately, no preview - any manual corrections to the
+    question's text are lost, which the Review UI warns about before
+    calling this."""
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+        if question is None:
+            return jsonify({"error": "question not found"}), 404
+        if not question.get("image"):
+            return jsonify({"error": "this question has no image to reprocess"}), 400
+
+        image_path = _paper_dir(paper_id) / question["image"]
+        if not image_path.exists():
+            return jsonify({"error": "the question's image file is missing"}), 404
+
+        from PIL import Image
+
+        try:
+            with Image.open(image_path) as image:
+                result = reprocess_question(image, question.get("question_type", "standard"), q_number)
+        except Exception as e:
+            return jsonify({"error": f"reprocess failed: {e}"}), 500
+
+        question.update(result)
+        _write_paper_atomic(paper_id, paper)
+
+    return jsonify(question)
+
+
 @app.route("/api/papers/<paper_id>/instructions/<instruction_id>", methods=["PATCH"])
 def api_update_instruction(paper_id, instruction_id):
     body = request.get_json(force=True, silent=True) or {}
@@ -316,6 +354,36 @@ def api_recrop_instruction(paper_id, instruction_id):
 
         inst["image"] = f"images/{rel_name}"
         inst["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
+        _write_paper_atomic(paper_id, paper)
+
+    return jsonify(inst)
+
+
+@app.route("/api/papers/<paper_id>/instructions/<instruction_id>/reprocess", methods=["POST"])
+def api_reprocess_instruction(paper_id, instruction_id):
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        inst = next((i for i in paper.get("instructions", []) if i["instruction_id"] == instruction_id), None)
+        if inst is None:
+            return jsonify({"error": "instruction not found"}), 404
+        if not inst.get("image"):
+            return jsonify({"error": "this instruction has no image to reprocess"}), 400
+
+        image_path = _paper_dir(paper_id) / inst["image"]
+        if not image_path.exists():
+            return jsonify({"error": "the instruction's image file is missing"}), 404
+
+        from PIL import Image
+
+        try:
+            with Image.open(image_path) as image:
+                result = reprocess_instruction(image)
+        except Exception as e:
+            return jsonify({"error": f"reprocess failed: {e}"}), 500
+
+        inst.update(result)
         _write_paper_atomic(paper_id, paper)
 
     return jsonify(inst)
@@ -408,7 +476,13 @@ def api_update_question(paper_id, q_number):
     options_update = body.get("options")
     if not isinstance(options_update, dict):
         options_update = None
-    if not updates and not options_update:
+    # match_the_list's table is edited as one object client-side (it
+    # already has the full current table in memory), so a full replace is
+    # simplest - no per-cell merge logic needed like options above.
+    table_update = body.get("table")
+    if not isinstance(table_update, dict):
+        table_update = None
+    if not updates and not options_update and not table_update:
         return jsonify({"error": "no recognized fields in body"}), 400
 
     with _write_lock:
@@ -423,6 +497,8 @@ def api_update_question(paper_id, q_number):
             question.setdefault("options", {}).update(
                 {k: v for k, v in options_update.items() if k in ("a", "b", "c", "d")}
             )
+        if table_update:
+            question["table"] = table_update
         _write_paper_atomic(paper_id, paper)
         if "tags" in updates or "topics" in updates:
             _remember_vocab(paper.get("variant", paper_id), updates.get("tags"), updates.get("topics"))

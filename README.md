@@ -80,6 +80,20 @@ like the pipeline's own auto-crop does), then **Save crop**. Reopening the
 editor later starts from your last manual selection so it's easy to
 nudge rather than redraw from scratch.
 
+Once a crop is right, **Reprocess** (next to Edit) re-runs OCR + text
+extraction on just that image and overwrites the question's stem/options
+(or table, for match-the-list) or the instruction's text - useful after
+fixing a bad crop, since the original extraction ran against the old one
+and is now stale. It overwrites immediately (confirmed first, since any
+manual corrections to that text are lost) rather than re-classifying the
+question's type - a standard question stays standard, a match-the-list
+stays match-the-list, just with fresher content.
+
+Match-the-list's List I/List II and Code-answer table (see Known
+limitations below) are directly editable in place too, same click-and-type
+pattern as everywhere else, for fixing the OCR gaps that table type is
+most prone to.
+
 The Image and Question panes each have a -/+ button in their
 header to collapse them to a narrow strip, freeing up width for the
 explanation pane - useful when you're mostly writing and don't need the

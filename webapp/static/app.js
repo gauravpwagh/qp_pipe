@@ -506,15 +506,32 @@ document.getElementById("clear-answer-btn").addEventListener("click", clearAnswe
 function renderMatchListTable(table) {
   const list1 = table.list1 || [];
   const list2 = table.list2 || [];
-  const rows1 = list1
-    .map((item, i) => `<tr><td>${item.label}. ${item.text}</td><td>${list2[i] ? list2[i].label + ". " + list2[i].text : ""}</td></tr>`)
-    .join("");
+  const rowCount = Math.max(list1.length, list2.length);
+  const rows1 = [];
+  for (let i = 0; i < rowCount; i++) {
+    const item1 = list1[i];
+    const item2 = list2[i];
+    rows1.push(`<tr>
+      <td>${item1 ? item1.label : ""}. <span contenteditable="true" oninput="updateMatchListItem('list1', ${i}, this.innerHTML)">${item1 ? item1.text : ""}</span></td>
+      <td>${item2 ? item2.label : ""}. <span contenteditable="true" oninput="updateMatchListItem('list2', ${i}, this.innerHTML)">${item2 ? item2.text : ""}</span></td>
+    </tr>`);
+  }
   const codeRows = (table.code_table && table.code_table.rows ? table.code_table.rows : [])
-    .map((r) => `<tr><td>(${r.option})</td>${r.values.map((v) => `<td>${v === null || v === undefined ? "?" : v}</td>`).join("")}</tr>`)
+    .map(
+      (r, ri) =>
+        `<tr><td>(${r.option})</td>${r.values
+          .map(
+            (v, ci) =>
+              `<td contenteditable="true" oninput="updateMatchListCode(${ri}, ${ci}, this.textContent)">${
+                v === null || v === undefined ? "" : v
+              }</td>`
+          )
+          .join("")}</tr>`
+    )
     .join("");
   return `
     <h4>List I / List II</h4>
-    <table><thead><tr><th>List I</th><th>List II</th></tr></thead><tbody>${rows1}</tbody></table>
+    <table><thead><tr><th>List I</th><th>List II</th></tr></thead><tbody>${rows1.join("")}</tbody></table>
     <h4>Code</h4>
     <table><thead><tr><th></th><th>A</th><th>B</th><th>C</th><th>D</th></tr></thead><tbody>${codeRows}</tbody></table>
     <div class="options-block">
@@ -525,6 +542,22 @@ function renderMatchListTable(table) {
         )
         .join("")}
     </div>`;
+}
+
+function updateMatchListItem(listKey, index, value) {
+  if (!currentQuestion || !currentQuestion.table) return;
+  const list = currentQuestion.table[listKey];
+  if (!list || !list[index]) return;
+  list[index].text = value;
+  scheduleFieldSave(`table_${listKey}_${index}`, () => saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table }));
+}
+
+function updateMatchListCode(rowIndex, colIndex, value) {
+  if (!currentQuestion || !currentQuestion.table || !currentQuestion.table.code_table) return;
+  const row = currentQuestion.table.code_table.rows[rowIndex];
+  if (!row) return;
+  row.values[colIndex] = value.trim();
+  scheduleFieldSave(`table_code_${rowIndex}_${colIndex}`, () => saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table }));
 }
 
 function selectAnswer(letter) {
@@ -1390,6 +1423,53 @@ function initFormatToolbar() {
   });
 }
 
+// ---- Reprocess: re-run OCR + extraction on the current image ----
+// Works on whichever of currentQuestion/currentInstruction is active
+// (same idea as getEditTarget() inside initImageEditor) - typically used
+// right after "Edit image" fixes a bad crop, so stale text from the
+// original pipeline run doesn't linger. Overwrites immediately per
+// question's stem/options/table (or an instruction's text) with a fresh
+// OCR read - no diff preview, so it confirms first since any manual
+// corrections to that text are lost.
+function initReprocess() {
+  const btn = document.getElementById("reprocess-btn");
+  const originalLabel = btn.textContent;
+
+  btn.addEventListener("click", async () => {
+    if (!currentQuestion && !currentInstruction) return;
+    const warning = currentInstruction
+      ? "Reprocess this instruction from its current image? This overwrites its text with a fresh OCR read - any manual corrections will be lost."
+      : "Reprocess this question from its current image? This overwrites its stem/options (or table) with a fresh OCR read - any manual corrections will be lost.";
+    if (!confirm(warning)) return;
+
+    btn.disabled = true;
+    btn.textContent = "Reprocessing...";
+    try {
+      const url = currentInstruction
+        ? `/api/papers/${currentPaper.paper_id}/instructions/${currentInstruction.instruction_id}/reprocess`
+        : `/api/papers/${currentPaper.paper_id}/questions/${currentQuestion.q_number}/reprocess`;
+      const res = await fetch(url, { method: "POST" });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "reprocess failed");
+
+      if (currentInstruction) {
+        const idx = (currentPaper.instructions || []).findIndex((i) => i.instruction_id === data.instruction_id);
+        if (idx !== -1) currentPaper.instructions[idx] = data;
+        renderInstruction(data.instruction_id);
+      } else {
+        const idx = currentPaper.questions.findIndex((q) => q.q_number === data.q_number);
+        if (idx !== -1) currentPaper.questions[idx] = data;
+        renderQuestion(data.q_number);
+      }
+    } catch (err) {
+      alert(err.message);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = originalLabel;
+    }
+  });
+}
+
 // ---- init ----
 loadVariants();
 initEditableFields();
@@ -1397,3 +1477,4 @@ initLatexScratchpad();
 initPaneCollapse();
 initImageEditor();
 initFormatToolbar();
+initReprocess();
