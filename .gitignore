@@ -1,7 +1,17 @@
 __pycache__/
 *.pyc
 venv/
-output/
+# Track the actual review data (paper.json + per-variant vocab) but not
+# the regeneratable/bulky binary output - full-page renders, question
+# image crops, and the copied source PDF - which would otherwise make
+# this repo grow unboundedly with normal use (git doesn't diff binary
+# blobs well, so every reprocess/re-crop would add a whole new copy).
+output/*
+!output/_vocab/
+!output/*/
+output/*/*
+!output/_vocab/*.json
+!output/*/paper.json
 .EasyOCR/
 *.egg-info/
 dev_ocr_cache/

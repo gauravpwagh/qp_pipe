@@ -1,0 +1,3758 @@
+{
+  "paper_id": "cds_english_v1-qp-cdse-ii-26-english-140926-20260917-072913",
+  "variant": "cds_english_v1",
+  "source_filename": "QP-CDSE-II-26-ENGLISH-140926.pdf",
+  "processed_at": "2026-09-17T07:37:30.661651+00:00",
+  "total_questions": 120,
+  "qa": {
+    "sequence_ok": true,
+    "warnings": [],
+    "needs_review_count": 26
+  },
+  "questions": [
+    {
+      "q_number": 1,
+      "page": 2,
+      "question_type": "standard",
+      "image": "images/q_0001.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Presumptive and Presumptuous",
+      "options": {
+        "a": "Presumptive means something likely to be   true, and Presumptuous means to be disrespectfully bold",
+        "b": "Presumptive means to be disrespectfully bold; and Presumptuous means something likely to be true",
+        "c": "Presumptive means to exist; and Presumptuous means something very important",
+        "d": "Presumptive means something very important, and Presumptuous means to exist"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.93,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "<p>This is why option a i<strong>s corre</strong>ct.</p>",
+      "tags": [
+        "vocabulary"
+      ],
+      "topics": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 2,
+      "page": 2,
+      "question_type": "standard",
+      "image": "images/q_0002.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Tempestuous and Temperamental",
+      "options": {
+        "a": "Tempestuous means unpredictable behaviour; and Temperamental means displaying violent behaviour",
+        "b": "Tempestuous means displaying violent   behaviour; and  Temperaunpredictable mental means behaviour",
+        "c": "Tempestuous means transitory; and  Temperamental means   determined by temperature",
+        "d": "Tempestuous means determined by temperature, and Temperamental means transitory"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.92,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 3,
+      "page": 2,
+      "question_type": "standard",
+      "image": "images/q_0003.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "3 Voyager and Voyeur",
+      "options": {
+        "a": "Voyager means a travel writer; and Voyeur means an emotionally vulnerable person",
+        "b": "<u>Voyager</u> means an emotionally vulnerable person, and Voyeur means a travel writer",
+        "c": "Voyager <u>means</u> <u>a</u> <u>person</u> who enjoys   watching the private life of   others; and Voyeur means a traveller",
+        "d": "Voyager means a traveller; and Voyeur means a person who enjoys watching the private life of others"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.938,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            945.35546875,
+            319.2109375,
+            1625.87109375,
+            1255.796875
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 4,
+      "page": 2,
+      "question_type": "standard",
+      "image": "images/q_0004.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Differ and Defer",
+      "options": {
+        "a": "Differ means to diffuse, and Defer means to be respectful",
+        "b": "Differ means to be respectful, and Defer means to diffuse",
+        "c": "Differ means to be different from something; and Defer means to delay action",
+        "d": "Differ means to delay action, and Defer means to be different from something"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.905,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            938.33984375,
+            1294.3828125,
+            1625.87109375,
+            2059.0859375
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 5,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0005.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Elegy and Eulogy",
+      "options": {
+        "a": "Elegy <u>means</u> <u>a</u> <u>mourful</u> poem, and Eulogy means a tribute to the dead",
+        "b": "Elegy means a tribute to the dead, and   Eulogy means a mournful poem",
+        "c": "Elegy means an <u>inscription</u> on a gravestone, and Eulogy means a contemptuous utterance",
+        "d": "Elegy means an allegation; and Eulogy means an inscription on the gravestone"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.935,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 6,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0006.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Concord and Concourse",
+      "options": {
+        "a": "Concord means unity and harmony, and Concourse means the   large oper space in a building for people to gather",
+        "b": "Concord means convergence, and Concourse means to move jointly",
+        "c": "Concord means collaboration; and Concourse means goodwill",
+        "d": "Concord means to cohere, and Concourse means to unify diverse positions"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.869,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 7,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0007.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Edify and Educe",
+      "options": {
+        "a": "Edify means to be elated, and Educe means to subtract",
+        "b": "Edify means to improve and uplift, and Educe means to extract inforation",
+        "c": "Edify means to enlighten, and Educe means to reduce",
+        "d": "Edify means to delight; and Educe means to be tolerant"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.872,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 8,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0008.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Flaunt and Flinch means to be   flamboyant;",
+      "options": {
+        "a": "Flaunt and Flinch means to be impertinent",
+        "b": "Flaunt  means to strut about, and Flinch means to boast",
+        "c": "Flaunt means to display with flamboyance, and Flinch means to shy away",
+        "d": "Flaunt means to exhibit; and Flinch means to breach"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.894,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 9,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0009.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Ingenious and Ingenuous",
+      "options": {
+        "a": "Ingenious means to be resourceful, and Ingenuous means to be rooted",
+        "b": "Ingenious means to be artless, and Ingenuous means to be inventive",
+        "c": "Ingenious means  to be   naturally talented, and Ingenuous means to be genuine",
+        "d": "Ingenious means to be  creative, and Ingenuous means to be naively trusting"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.935,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 10,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0010.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Nefarious and Nebulous",
+      "options": {
+        "a": "Nefarious means scandalous, and Nebulous means indistinct",
+        "b": "Nefarious means destitute, and Nebulous means vague&nbsp;",
+        "c": "Nefarious means wicked, and Nebulous means unpleasant",
+        "d": "Nefarious means fastidious, and Nebulous means exposed"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.905,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I1"
+    },
+    {
+      "q_number": 11,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0011.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "As a child she displayed a <u>precocious</u> talent for music.",
+      "options": {
+        "a": "mildly unobtrusive",
+        "b": "unusually advanced",
+        "c": "markedly reluctant",
+        "d": "somewhat diffident"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.884,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 12,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0012.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "He spoke with a <u>tremulous</u> voice:",
+      "options": {
+        "a": "steady",
+        "b": "quivering",
+        "c": "sturdy",
+        "d": "calm"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.899,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 13,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0013.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "These days there is a lot of <u>gratuitous</u> violence on television:",
+      "options": {
+        "a": "unjustified",
+        "b": "gratifying",
+        "c": "grating",
+        "d": "unqualified"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.906,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 14,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0014.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "His <u>incendiary</u> remarks precipitated disaffection among the group.",
+      "options": {
+        "a": "insensitive",
+        "b": "boastful",
+        "c": "sequestering",
+        "d": "provocative"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.894,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 15,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0015.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Her career as a gymnast has been <u>blighted</u> by the decisions taken by her coach:",
+      "options": {
+        "a": "shortened",
+        "b": "ruined",
+        "c": "extended",
+        "d": "accelerated"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.915,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 16,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0016.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The office staff were left  absolutely <u>nonplussed</u> by the unexpected question posed by the boss:",
+      "options": {
+        "a": "exacerbated",
+        "b": "disaffected",
+        "c": "perplexed",
+        "d": "petrified"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.839,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 17,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0017.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "He had not completed the <u>mandatory</u> training for his promotion to the level of senior manager:",
+      "options": {
+        "a": "perfunctory",
+        "b": "compulsory",
+        "c": "recommendatory",
+        "d": "introductory"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.859,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 18,
+      "page": 4,
+      "question_type": "standard",
+      "image": "images/q_0018.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "One ought not to be <u>dogmatic</u>  about one's beliefs.",
+      "options": {
+        "a": "rigid",
+        "b": "amenable",
+        "c": "deterministic",
+        "d": "unassuming"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.809,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2"
+    },
+    {
+      "q_number": 19,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0019.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Guests visiting the professor are inevitably treated to a <u>scrumptious</u> meal.",
+      "options": {
+        "a": "lavish",
+        "b": "sustainable&nbsp;",
+        "c": "delectable",
+        "d": "abstemious"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.862,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I2",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            145.76874999999998,
+            122.93749999999999,
+            841.2437499999999,
+            786.8
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 20,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0020.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The menu for the birthday party comprised only <u>savoury</u> items, which took the gathered children by surprise.",
+      "options": {
+        "a": "salty",
+        "b": "blanched",
+        "c": "sugary",
+        "d": "spicy"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.935,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "<p><span style=\"color: rgb(31, 31, 31);\">(used about food) having a taste that is not sweet but salty.</span></p>",
+      "tags": [],
+      "instruction_id": "I2",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            886.9062499999999,
+            126.44999999999999,
+            1568.3312499999997,
+            790.3125
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 21,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0021.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Codex",
+      "options": {
+        "a": "an ancient manuscript in book form",
+        "b": "a member of a monastic community",
+        "c": "an algorithm for cracking codes",
+        "d": "an ancient time-measuring device"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.92,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 22,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0022.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Ergonomics",
+      "options": {
+        "a": "the study of market relations",
+        "b": "the non SI unit for energy&nbsp;",
+        "c": "the study of human efficiency in the workplace",
+        "d": "the study ofagricultural economics"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.845,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 23,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0023.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sobriquet",
+      "options": {
+        "a": "a thin broth or gruel",
+        "b": "an assumed name",
+        "c": "a broken piece of glass",
+        "d": "an image or likeness of something"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.943,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 24,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0024.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Viticulture",
+      "options": {
+        "a": "the making of vinegar",
+        "b": "the activation of any fermentable liquid",
+        "c": "the process of making wine",
+        "d": "the cultivation of grapevines"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.966,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 25,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0025.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Communique",
+      "options": {
+        "a": "Official order with   retrospective effect",
+        "b": "Official order with prospective effect",
+        "c": "Official retraction of an order",
+        "d": "Official announcement or statement"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.936,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 26,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0026.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sub-judice",
+      "options": {
+        "a": "Matter under   judicial considera tion",
+        "b": "Not showing or allowing any doubt regarding the legality of a matter",
+        "c": "Legal authority over an important matter",
+        "d": "A view that is   untenable in the eyes of law"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.907,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3",
+      "image_regions": {
+        "page": 6,
+        "boxes": [
+          [
+            156.4453125,
+            724.21875,
+            841.9921875,
+            1353.515625
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 27,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0027.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Manifesto",
+      "options": {
+        "a": "Written, printed or typed copy of words that have been spoken",
+        "b": "Written statements that describe the policies, goals, and positions of a person Or group",
+        "c": "Written laws that are fomally created by a government",
+        "d": "Written   description of an organisation $ functions and   responsibilities"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.872,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 28,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0028.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Tapestry",
+      "options": {
+        "a": "An engraved design on the surface of a plate",
+        "b": "An artwork using various materials",
+        "c": "A hand-dyed painting on fabrics",
+        "d": "A heavy decorative cloth hung on a wall"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.898,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 29,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0029.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Connotation&nbsp;",
+      "options": {
+        "a": "The&nbsp;<span style=\"font-size: 15px; font-weight: 600;\">suggested implications&nbsp;</span>beyond the literal meaning",
+        "b": "Language that describes something as better or worse than it really is",
+        "c": "A main subject that is elaborated upon in a piece of writing",
+        "d": "A literal or the primary meaning of a word"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.934,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3",
+      "image_regions": {
+        "page": 6,
+        "boxes": [
+          [
+            880.6640625,
+            713.671875,
+            1604.8828125,
+            1346.484375
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 30,
+      "page": 6,
+      "question_type": "standard",
+      "image": "images/q_0030.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Alibi",
+      "options": {
+        "a": "Proven fact of having been elsewhere at the time of the commitment of a crime",
+        "b": "A witness in court who speaks in favour of the defendant",
+        "c": "Presenting a proxy to obviate punishment",
+        "d": "Proving to be someone other than the accused and escaping thereby"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.913,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I3"
+    },
+    {
+      "q_number": 31,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0031.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "SI : In a typical Indian village today, one is   certain to find groups of women talking about finance.&nbsp;<div>S6 : In a society where women   play significant but never-recognised roles,  being a part of an SHG which gives  them  such financial power is indeed a matter of pride.&nbsp;</div><div><br></div><div>P: Sitting there, they might proudly introduce themselves by saying that they are members of a selfhelp group (SHG)&nbsp;</div><div><br></div><div>Q Altemnatively, they might lend money at reasonable interest rates to members for starting small businesses.&nbsp;</div><div><br></div><div>R They can be seen sitting under a tree, in an abandoned school building, or in the front yard of a village resident's dilapidated home, holding thick notebooks&nbsp;</div><div><br></div><div>S An SHG is usually a community group of 10-12 women from similar socio-economic background who pool their financial resources for taking up joint economic activities.</div>",
+      "options": {
+        "a": "Q S P R",
+        "b": "R P S Q",
+        "c": "R Q $ P",
+        "d": "S Q P R"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.875,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 32,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0032.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1 : For much of history, surnames, Or last   names, were not   considered necessary:&nbsp;<div>S6 : These two pieces of medieval bureaucracy meant that   virtually everyone had to settle on a definite and fixed surname.&nbsp;</div><div><br></div><div>P: The    other was the  enactment of the Statute of Additions in 1413, which required that all legal documents to contain not just the person's given name, but also his or her occupation and   place of abode.&nbsp;</div><div><br></div><div>Q: One was the introduction of a poll tax in 1379, which led the government to collect   the name of every person aged sixteen or over.&nbsp;</div><div><br></div><div>R: But  sometimes, the   process was accelerated such as in England where two events gave a boost to the adoption of surnames.&nbsp;</div><div><br></div><div>S: The business of acquiring surnames was a long one that evolved over centuries rather than years:</div>",
+      "options": {
+        "a": "R S P Q",
+        "b": "Q P R S",
+        "c": "R S Q P",
+        "d": "S R Q P"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.859,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            895.1242187500001,
+            390.40781250000003,
+            1612.63046875,
+            2039.9687500000002
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 33,
+      "page": 8,
+      "question_type": "standard",
+      "image": "images/q_0033.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sl : The first American settlers happened to live in the midst of perhaps the most exciting period in the history of the , English language.&nbsp;<div><br></div><div>S6 : Had the settlers gone a quarter of a century  earlier; America  might well have   preserved those previous forms, as it preserved many other archaisms.&nbsp;</div><div><br></div><div>P: Similarly, thee and thou pronoun forms were also dying out.&nbsp;</div><div><br></div><div>Q : This was a time when 12,000 words were being added to the language.&nbsp;</div><div><br></div><div>R One such change which these first settlers had already adopted was to use the s form on verbs, saying has rather than hath, runs rather than runneth.&nbsp;</div><div><br></div><div>S: It was also a time of considerable change in the structure of the language.</div>",
+      "options": {
+        "a": "R P Q S",
+        "b": "Q S R P",
+        "c": "S Q P R",
+        "d": "Q P R S"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.851,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 34,
+      "page": 8,
+      "question_type": "standard",
+      "image": "images/q_0034.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sl : In 1984, two small clay tablets of vaguely   rectangular   shape were found in Tell Brak, Syria, dating from the fourth millennium BCE.&nbsp;<div><br></div><div>S6 : All our history begins with these two modest tablets as they are <u>among</u> the oldest   examples of writing we know:&nbsp;</div><div><br></div><div>P: One of the animals may have been a goat, in  which case, the other probably was a sheep:&nbsp;</div><div><br></div><div>Q: Lying there were these simple, objects, unimpressive each bearing a few discrete markings a small   indentation near the top and some sort of stick-drawn animal in the centre.&nbsp;</div><div><br></div><div>R: The indentation; on the other hand, represents; according to archaeologists, the number ten:&nbsp;</div><div><br></div><div>S: These two tablets were seen by an expert the year before the Gulf   War; in an unostentatious display case in the Archaeological Museum of Baghdad.</div>",
+      "options": {
+        "a": "S Q P R",
+        "b": "Q S P R",
+        "c": "Q S R P",
+        "d": "S Q R P"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.841,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 8,
+        "boxes": [
+          [
+            884.57265625,
+            126.61875,
+            1570.42421875,
+            2068.10625
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 35,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0035.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "SI : For generations, the Balaraju pond remained the primary water source of Perakalapudi village in Guntur district of Andhra Pradesh:&nbsp;<div><br></div><div>S6: It was only after major restoration work was   carried out to restore the pond s  storage   capacity that the   community could retur to its traditional livelihood.&nbsp;</div><div><br></div><div>P By the 2000s, decades of water mismanagement led to a rapid drop in the groundwater table as well.&nbsp;</div><div><br></div><div>Q: However, overexploitation caused the pond to shrink to half its original size and reduced its water storage capacity by 60 per cent:&nbsp;</div><div><br></div><div>R The pond, spread across 2+4 hectares,   supported irrigation; sustained the fishing community, met household needs and remained home to a wide   variety of flora and fauna.&nbsp;</div><div><br></div><div>S As the pond disappeared, the households relied on groundwater to meet their daily needs:</div>",
+      "options": {
+        "a": "Q RP $",
+        "b": "Q P R S",
+        "c": "R Q S P",
+        "d": "R Q P $"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.835,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 36,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0036.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1: While most people are comfortable talking about colour, the concept of luminance even though it is more fundamental seems less familiar&nbsp;<div><br></div><div>S6 : This is something the Impressionist artists were able to master and it gave a shimmering, lively quality to many of their paintings.&nbsp;</div><div><br></div><div>P For example, given two patches of grey; they can easily tell which is lighter:&nbsp;</div><div><br></div><div>Q As the artist and art teacher Josef Albers  states, just as a musician should be able to distinguish between a higher tone and a lower tone, an  artist  should be   able to distinguish between higher and lower light intensity between different colours.&nbsp;</div><div><br></div><div>R: Artists, however; must learn to distinguish differences in luminance, independent of colour.&nbsp;</div><div><br></div><div>S: But given two patches of different colours; it is often difficult to make the same distinction.</div>",
+      "options": {
+        "a": "P S R Q",
+        "b": "P $ Q R",
+        "c": "R Q S P",
+        "d": "Q R S P"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.842,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 9,
+        "boxes": [
+          [
+            895.846875,
+            91.1625,
+            1597.096875,
+            2023.1062499999998
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 37,
+      "page": 10,
+      "question_type": "standard",
+      "image": "images/q_0037.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sl : Wooden  furniture is durable and long-lasting, reducing the need for frequent replacement: S6 : AS still better and sustainable, though slow, way is to plant new trees to maintain the forest cover: P Some of these negative impacts are deforestation and the loss of habitat for numerous species of animals Q Deforestation in turn disrupts water-cycles and accelerates the pace of climate change. R However; its use causes several negative ecological impacts S One way of reducing the use of wood is to recycle it as much as possible:",
+      "options": {
+        "a": "R P Q $",
+        "b": "Q S P R",
+        "c": "S Q R P",
+        "d": "P R $ Q"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.789,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 38,
+      "page": 10,
+      "question_type": "para_jumble",
+      "image": "images/q_0038.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1 : Circadian rhythm is a term used to refer to the physical, mental and behavioural changes an organism experiences over a 24-hour cycle.&nbsp;<div><br></div><div>S6: Maintaining a good circadian rhythm through appropriate exposure to natural   light; consistent sleep schedules and times of eating; and adequate physical exercise during the day can allow an organism to live a healthy life.&nbsp;</div><div><br></div><div>P Prolonged disruption; moreover; can cause long-term damages such as metabolic diseases, cardiovascular problems, and mental health issues.&nbsp;</div><div><br></div><div>Q : Light and dark (daytime and night-time) have the biggest influence on these circadian rhythms.&nbsp;</div><div><br></div><div>R Circadian rhythms are also affected by food intake,  stress, physical   activity,  social environment and temperature.&nbsp;</div><div><br></div><div>S When  any one or more than one of these cause the circadian rhythm to be disrupted, it can lead to sleep problems, drowsiness and poor focus:</div>",
+      "options": {
+        "a": "R Q S P",
+        "b": "Q R S P",
+        "c": "Q R P S",
+        "d": "R Q P S&nbsp;"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.836,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 39,
+      "page": 11,
+      "question_type": "standard",
+      "image": "images/q_0039.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<div><span style=\"font-size: 14px; font-weight: 400;\">S1 : All the different parts of Our eye help us t0 see.&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">S6 : These electrical signals then travel through the optic nerve to the brain which in turn converts these signals into the images we see.&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">P The iris, which is the coloured part of the eye, controls how much light the pupil lets in.</span></div><div><br></div><div>Q Next; light passes through the lens, the clear  inner part of the eye, which   focuses this light on the retina:&nbsp;</div><div><br></div><div>R First; light passes through the cornea, the clear front layer of the eye, and enters the eye through an opening called the pupil.&nbsp;</div><div><br></div><div>S When it hits the   retina, special called cells photoreceptors convert the   light into electrical signals.</div>",
+      "options": {
+        "a": "R P S Q",
+        "b": "R Q P S",
+        "c": "R Q S P",
+        "d": "R P Q S"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.696,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 40,
+      "page": 11,
+      "question_type": "para_jumble",
+      "image": "images/q_0040.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1 : Humans in colder climates first began wearing <u>some</u> form <u>of</u> sturdy foot covering at least 40,000 years ago.&nbsp;<div><br></div><div>S6 : Today, minimalistic barefoot shoes are becoming popular because they allow the wearer to feel the ground beneath their feet while still   offering some protection and support.&nbsp;</div><div><br></div><div>P Unfortunately, modern shoes have also had a negative impact on feet due to bad design such as a narrow toe box, difference in heel to toe drop; however  slight, and stiff soles:&nbsp;</div><div><br></div><div>Q Earlier skeletons had very robust little toes that could bend and grip surfaces.&nbsp;</div><div><br></div><div>R These gradually evolved to become  less   substantial than the because shoe-like big toe coverings reduced the mechanical stress on them and made them weaker:&nbsp;</div><div><br></div><div>S The evidence for this comes from the study of changes in the structure of the toe bones of foot skeletons from that time:</div>",
+      "options": {
+        "a": "S Q R P",
+        "b": "Q S R P",
+        "c": "Q S P R",
+        "d": "P $ Q R"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.871,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I4"
+    },
+    {
+      "q_number": 41,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0041.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The_teacher asked that_who was absent in the class that day: No error",
+      "options": {
+        "a": "<br>",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.856,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 42,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0042.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Neither of the two boys have done his homework: No error",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.84,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 43,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0043.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "43 I recommended that he would reduce his expenditure: No error",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.863,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 44,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0044.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "I am looking forward to meet you next month No error",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.727,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 45,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0045.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "She said that she will help me in this matter. No error:",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": "<br>"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.871,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 46,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0046.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">He insisted on knowing the reason of my absence No error:</span>",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.603,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 47,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0047.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "In your quotidian life you wouldn' t find an elephant in the supermarket.&nbsp; No error",
+      "options": {
+        "a": "",
+        "b": "(a",
+        "c": "",
+        "d": "<br>"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.863,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 48,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0048.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">48 I often dreamed of being famous in my prime: No error</span>",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.802,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 49,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0049.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "49 These shoes designed for regular runners like yourself No eror",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.799,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 50,
+      "page": 12,
+      "question_type": "standard",
+      "image": "images/q_0050.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Walk down our street any day you will see children playing No_error",
+      "options": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": "(c"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.953,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I5"
+    },
+    {
+      "q_number": 51,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0051.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "To overplay one's hand",
+      "options": {
+        "a": "To spoil one's chance of success due to overconfidence",
+        "b": "To play card games for too long",
+        "c": "To play exceedingly well with one hand",
+        "d": "To be a strong arm-wrestler"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.938,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 52,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0052.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Pass the buck",
+      "options": {
+        "a": "To treat someone badly",
+        "b": "To deflect blame",
+        "c": "To refuse money",
+        "d": "To accept an unpleasant result"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.871,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 53,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0053.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Over one' s head",
+      "options": {
+        "a": "Protective covering worn as a hat",
+        "b": "Bypassing authority surreptitiously",
+        "c": "Appreciably taller than one",
+        "d": "Beyond one's ability to understand"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.835,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 54,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0054.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Have a finger in every pie",
+      "options": {
+        "a": "To be familiar with the most recent developments",
+        "b": "To gorge on food",
+        "c": "To be able to do something very well",
+        "d": "To be involved in different activities"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.928,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 55,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0055.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "To go out o a limb",
+      "options": {
+        "a": "Adopt a convenient position that aligns with the popular view",
+        "b": "Adopt a convenient position that goes against the popular view",
+        "c": "Adopt a daring position that goes against the popular view",
+        "d": "Adopt a daring position that aligns with the popular view"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.908,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 56,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0056.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Live on your nerves",
+      "options": {
+        "a": "To be continually anxious",
+        "b": "To live life to the fullest",
+        "c": "To live without fear",
+        "d": "To be steely nerved"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.896,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 57,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0057.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Lilly-livered",
+      "options": {
+        "a": "Cowardly",
+        "b": "Weak",
+        "c": "Inebriated",
+        "d": "Triumphant"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.733,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 58,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0058.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "To spill the beans",
+      "options": {
+        "a": "To be bursting with energy and health",
+        "b": "To let a secret slip out",
+        "c": "To be laidback and easy-going",
+        "d": "To let food go waste"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.905,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 59,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0059.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "To make one's peace",
+      "options": {
+        "a": "To experience serenity",
+        "b": "To avoid violence at any cost",
+        "c": "To put an end to a quarrel",
+        "d": "To keep silent amidst adversity"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.882,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 60,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0060.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Fall by the wayside",
+      "options": {
+        "a": "To trip on the footpath",
+        "b": "To lose one' s sense of direction",
+        "c": "To weaken moral values",
+        "d": "To drop out of a pursuit"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.872,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I6"
+    },
+    {
+      "q_number": 61,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0061.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Her experience is requisite for the job.",
+      "options": {
+        "a": "essential",
+        "b": "obligatory",
+        "c": "vital",
+        "d": "optional"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.93,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 62,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0062.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<u>They</u> were given rudimentary training for the job:",
+      "options": {
+        "a": "fundamental",
+        "b": "advanced",
+        "c": "basic",
+        "d": "elementary"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.901,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 63,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0063.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "She sat there looking morose:",
+      "options": {
+        "a": "cheerful",
+        "b": "melancholic&nbsp;",
+        "c": "disinterested",
+        "d": "sullen"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.909,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 64,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0064.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "If you listen carefully you'Il discover that the soundtrack is fuzzy in places",
+      "options": {
+        "a": "noisy",
+        "b": "distorted",
+        "c": "clear",
+        "d": "vague"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.886,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 65,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0065.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The   shopkeeper is   known to charge exorbitant rates for the articles in his shop:",
+      "options": {
+        "a": "high",
+        "b": "affordable",
+        "c": "outrageous",
+        "d": "ridiculous"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.838,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 66,
+      "page": 14,
+      "question_type": "standard",
+      "image": "images/q_0066.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "If you ponder the matter you are likely to arrive at the appropriate conclusion.",
+      "options": {
+        "a": "mull",
+        "b": "ignore",
+        "c": "defer",
+        "d": "rethink"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.916,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 67,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0067.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The   diagnosis based on radiological evidence  determined the condition to be mortiferous.",
+      "options": {
+        "a": "exacerbating",
+        "b": "degenerative",
+        "c": "benign",
+        "d": "lethal"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.908,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 68,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0068.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The party  president chose' to placate his critics within the party:",
+      "options": {
+        "a": "prime",
+        "b": "persuade",
+        "c": "pacify",
+        "d": "provoke"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.86,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 69,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0069.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">&nbsp;69 The magician hoodwinked the&nbsp;</span>children:",
+      "options": {
+        "a": "cheated",
+        "b": "fooled",
+        "c": "disabused",
+        "d": "unhooked"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.992,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 70,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0070.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "She led a precarious life as a theatre artist.",
+      "options": {
+        "a": "insecure",
+        "b": "precious",
+        "c": "precipitous",
+        "d": "stable"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.832,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I7"
+    },
+    {
+      "q_number": 71,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0071.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Switzerland lies ___ France, Germany, Austria and Italy:",
+      "options": {
+        "a": "among",
+        "b": "between",
+        "c": "with",
+        "d": "besides"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.906,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 72,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0072.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "May I pay ___&nbsp;credit card ?",
+      "options": {
+        "a": "by",
+        "b": "with",
+        "c": "in",
+        "d": "on"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.929,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 73,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0073.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The information is available ___&nbsp;&nbsp;the Internet:",
+      "options": {
+        "a": "from",
+        "b": "with",
+        "c": "in",
+        "d": "on"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.866,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 74,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0074.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Didn't you borrow&nbsp;&nbsp;___ books of mine ?",
+      "options": {
+        "a": "some",
+        "b": "any",
+        "c": "few",
+        "d": "many"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.855,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 75,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0075.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "If you have any leftover milk, could you spare me&nbsp;&nbsp;___&nbsp;?",
+      "options": {
+        "a": "little",
+        "b": "a little",
+        "c": "an little",
+        "d": "any"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.934,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 76,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0076.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "He sat&nbsp;&nbsp;___ her all night:",
+      "options": {
+        "a": "aside",
+        "b": "beside",
+        "c": "besides",
+        "d": "asides your plans."
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.904,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 77,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0077.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Talk me&nbsp;&nbsp;___&nbsp; your plans.",
+      "options": {
+        "a": "for",
+        "b": "around",
+        "c": "about",
+        "d": "through&nbsp;"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.83,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 78,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0078.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "&nbsp; ___&nbsp;&nbsp;<span style=\"font-size: 14px; font-weight: 400;\">people make </span><u style=\"font-size: 14px; font-weight: 400;\">their</u><span style=\"font-size: 14px; font-weight: 400;\"> own&nbsp;</span>bread today than in earlier times:",
+      "options": {
+        "a": "Lesser&nbsp;",
+        "b": "Fewer",
+        "c": "Few",
+        "d": "Less"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.958,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 79,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0079.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "79 This beautiful historical building shall soon be restored to its&nbsp;&nbsp; ___&nbsp; state.",
+      "options": {
+        "a": "normal",
+        "b": "pristine",
+        "c": "degenerate",
+        "d": "dilapidated"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.929,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 80,
+      "page": 16,
+      "question_type": "standard",
+      "image": "images/q_0080.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "I don't like being stared&nbsp; ___&nbsp;&nbsp;",
+      "options": {
+        "a": "to",
+        "b": "at",
+        "c": "on",
+        "d": "about"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.902,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I8"
+    },
+    {
+      "q_number": 81,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0081.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Weather; Whether; Whither&nbsp;<div><br></div><div>1. Weather permitting; we' Il have the gathering outside.&nbsp;</div><div>2 Whether   conditions are likely to improve by Thursday:&nbsp;</div><div>3. They didn't know whither they should go.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "options": {
+        "a": "2 and 3 only",
+        "b": "1 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.834,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 82,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0082.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Quiet, Quite, Quit&nbsp;<div><br></div><div>1 . He plays quiet well&nbsp;</div><div>2. They had a quite wedding:&nbsp;</div><div>3. He has decided <u>to</u> quit as the manager of the team.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been  used correctly ?</div>",
+      "options": {
+        "a": "1 and 3 only",
+        "b": "3 only",
+        "c": "1 and 2 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.802,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 83,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0083.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Way; Weigh, Whey&nbsp;<div><br></div><div>1. I'm <u>not</u> happy with this way of working:&nbsp;</div><div>2. How much does it weigh ?&nbsp;</div><div>3. Whey is <u>the</u> thin liquid <u>that</u> separates from the solid parts when milk is curdled.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "options": {
+        "a": "2 and 3 only",
+        "b": "2 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.864,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 84,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0084.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Weave, Wave, Waive&nbsp;<div><br></div><div>1 . She loves to wave stories.&nbsp;</div><div>2 Unfortunately, he had to waive his rights.</div><div>3 A huge weave broke on the shore.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "options": {
+        "a": "1 and 3 only",
+        "b": "2 only",
+        "c": "1 and 2 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.795,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 85,
+      "page": 18,
+      "question_type": "standard",
+      "image": "images/q_0085.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Peak, Peek; Pique&nbsp;<div>1. Traffic  reaches its peak between 8 and 9 in the morning:&nbsp;</div><div>2 She peeked at the audience from behind the curtain:&nbsp;</div><div>3. <u>When</u> he realised   nobody was listening to him, he left in &amp; fit of pique:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "options": {
+        "a": "1 and 3 only",
+        "b": "1 only",
+        "c": "1 and 2 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.846,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 86,
+      "page": 18,
+      "question_type": "standard",
+      "image": "images/q_0086.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sent; Scent; Cent&nbsp;<div>1. A one minute phone call to the UK costs one sent:&nbsp;</div><div>2. The air was filled with the scent of wild flowers&nbsp;</div><div>3. The dogs   following him must have lost his cent:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.811,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 87,
+      "page": 18,
+      "question_type": "standard",
+      "image": "images/q_0087.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Aisle, Ale, Isle&nbsp;<div>1. I always prefer the isle seat in an aeroplane.&nbsp;</div><div>2 He always began his day with a glass of ginger ale:&nbsp;</div><div>3. While on a picnic we discovered a small aisle in the middle of a lake.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "options": {
+        "a": "2 and 3 only",
+        "b": "2 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.858,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 88,
+      "page": 18,
+      "question_type": "standard",
+      "image": "images/q_0088.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Rein, Reign, Arraign&nbsp;<div>1. Queen Elizabeth II had a long rein as a British monarch:&nbsp;</div><div>2. One needs to reign in their impulses at times.&nbsp;&nbsp;</div><div>3. He was arraigned before the judge yesterday:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "options": {
+        "a": "2 and 3 only",
+        "b": "3 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.902,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 89,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0089.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Ascend, Ascent, Assent&nbsp;<div><br></div><div>1. She made the ascend to the top of the mountains seem effortless:&nbsp;</div><div>2. The Prince waited a long time to ascent the throne.&nbsp;</div><div>3. She gave her tacit assent to the transfer of power:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "options": {
+        "a": "1 and 3 only",
+        "b": "2 only",
+        "c": "3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.846,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 90,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0090.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Brawl, Bawl, Bowl&nbsp;<div><br></div><div>1. The brawl caused utter confusion inside the train compartment.&nbsp;</div><div>2 The host   served a bawl of fresh garden fruit to the guests.&nbsp;</div><div>3. The little kid started to bowl noisily:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "options": {
+        "a": "2 only",
+        "b": "1 and 2 only",
+        "c": "1 only",
+        "d": "1,2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.823,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I9"
+    },
+    {
+      "q_number": 91,
+      "page": 19,
+      "question_type": "sentence_relation",
+      "image": "images/q_0091.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. Many students failed in the examination: S2. However; those who attended extra classes did not fail.&nbsp;<div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.777,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 92,
+      "page": 19,
+      "question_type": "sentence_relation",
+      "image": "images/q_0092.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. The medicine was supposed to reduce his fever:&nbsp;<div>S2. Even after taking it, his temperature continued to rise.&nbsp;<div>The second sentence</div></div>",
+      "options": {
+        "a": "negates the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.876,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 93,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0093.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. Mohan enjoys classical music.&nbsp;<div>S2. <u>Sohan</u> likes popular musical genres:&nbsp;</div><div><br></div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.9,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 94,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0094.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. Global warming is accelerating with each passing year&nbsp;<div>S2. Recent studies indicate that temperatures are rising across continents.&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.957,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 95,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0095.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. Sarah recently contended that she has never visited Paris:&nbsp;<div>S2 Someone shared a photograph that shows Sarah standing underneath the Eiffel Tower:&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.829,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 96,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0096.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1 The Indian team won the championship.&nbsp;<div>S2 They were struggling in the preliminary rounds.&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.851,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 97,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0097.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. Geeta is an excellent public speaker:&nbsp;<div>S2. She   received a standing ovation after her speech.&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "affirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.86,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 98,
+      "page": 20,
+      "question_type": "sentence_relation",
+      "image": "images/q_0098.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sl. The city is known for its moder architecture.&nbsp;<div>S2 The   neighbouring villages maintain their traditional buildings&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "affirs the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "quantifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.872,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 99,
+      "page": 21,
+      "question_type": "sentence_relation",
+      "image": "images/q_0099.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "SI. The train is usually on time.&nbsp;<div>S2. The train was delayed by an hour today:&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "qualifies the first",
+        "b": "contradicts the first",
+        "c": "contrasts with the first",
+        "d": "confirms the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.856,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 100,
+      "page": 21,
+      "question_type": "sentence_relation",
+      "image": "images/q_0100.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "S1. This vaccine is highly effective.&nbsp;<div>S2.   Notably however; its effect decreases slightly in older adults.&nbsp;</div><div>The second sentence</div>",
+      "options": {
+        "a": "contradicts the first",
+        "b": "contrasts with the first",
+        "c": "confirms the first",
+        "d": "qualifies the first"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.815,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I10"
+    },
+    {
+      "q_number": 101,
+      "page": 21,
+      "question_type": "match_the_list",
+      "image": "images/q_0101.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "(Meaning) Word/ Term) 1. Decaying As Discreet B Discrete 2. Tactful 3 Defile C. Desecrate 4. Separate D Decrepit Code A   B   C  D",
+      "options": {
+        "a": "2 4 3",
+        "b": "4 3 2",
+        "c": "3 2",
+        "d": "4 ` 3 1 ` 2 List II List ["
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "s Discreet"
+          },
+          {
+            "label": "B",
+            "text": "Discrete"
+          },
+          {
+            "label": "C",
+            "text": "Desecrate"
+          },
+          {
+            "label": "D",
+            "text": "Decrepit"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Decaying"
+          },
+          {
+            "label": "2",
+            "text": "Tactful"
+          },
+          {
+            "label": "3",
+            "text": "Defile"
+          },
+          {
+            "label": "4",
+            "text": "Separate"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "2",
+                "4",
+                "3",
+                "1"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                null,
+                "3",
+                "2",
+                null
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.833,
+      "needs_review": true,
+      "review_reason": "match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column D not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column D not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): missing value(s) [None, '3', '2', None]; Code table row (d): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 102,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0102.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "(Meaning) Word/ Term)&nbsp;<div>A. Inflation 1. Expansion&nbsp;</div><div>B. Indentation 2 Declension&nbsp;<div><div>C. Infiltration&nbsp; 3 Permeation&nbsp;</div><div>D Inflection&nbsp;4. Depression&nbsp;</div><div><br></div><div>Code A   B   C   D</div></div></div>",
+      "options": {
+        "a": "4 2 3 1",
+        "b": "4 3 2 1",
+        "c": "1 3 2 4",
+        "d": "1&nbsp; 4 3 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.87,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 103,
+      "page": 22,
+      "question_type": "match_the_list",
+      "image": "images/q_0103.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List I List II (Word/Term) (Meaning) 1. Having more A Polyglot than one B. Polymorphous meaning C. Polysemy 2 A person of great and D. Polymath varied learning 3. A person knowing more than one language 4 Having many different forms Code A   B   C   D",
+      "options": {
+        "a": "3 2",
+        "b": "3 2 4",
+        "c": "3 2",
+        "d": "4 3 2"
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Polyglot"
+          },
+          {
+            "label": "B",
+            "text": "Polymorphous"
+          },
+          {
+            "label": "C",
+            "text": "Polysemy"
+          },
+          {
+            "label": "D",
+            "text": "Polymath"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Having more than one"
+          },
+          {
+            "label": "2",
+            "text": "A person of great and varied learning"
+          },
+          {
+            "label": "3",
+            "text": "A person knowing more than one language"
+          },
+          {
+            "label": "4",
+            "text": "Having many. different forms"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "2",
+                null,
+                null
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "4",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "3",
+                "4",
+                "1",
+                "2"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.905,
+      "needs_review": true,
+      "review_reason": "Code table row (a): missing value(s) - ['3', '2', None, None]; Code table row (b): column D not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 104,
+      "page": 22,
+      "question_type": "match_the_list",
+      "image": "images/q_0104.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List ] List II (Meaning) (Word/ Term) A Philatelist 1. A person who studies B Philanthropist language C. Philologist 2 A person who does not value D. Philistine art or culture 3. A person who collects stamps 4. A person who helps the needy Code B   C D A",
+      "options": {
+        "a": "2 3 4 C 2 3 4 2 3 4 4 3 2 List I",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": {},
+      "has_underline": false,
+      "ocr_confidence": 0.882,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; 'Code' label not found could not locate the answer grid",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 105,
+      "page": 22,
+      "question_type": "match_the_list",
+      "image": "images/q_0105.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List II (Meaning) (Word/ Term) 1. Biased A. Tabernacle B Tenuous 2. Place of worship C. Tempestuous 3. Stormy D Tendentious 4. Flimsy Code B D A ;",
+      "options": {
+        "a": "2 4 G 4 1 3 3 4 4 3 2 1",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Tabernacle"
+          },
+          {
+            "label": "B",
+            "text": "Tenuous"
+          },
+          {
+            "label": "C",
+            "text": "Tempestuous"
+          },
+          {
+            "label": "D",
+            "text": "Tendentious"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Biased"
+          },
+          {
+            "label": "2",
+            "text": "Place of worship"
+          },
+          {
+            "label": "3",
+            "text": "Stormy"
+          },
+          {
+            "label": "4",
+            "text": "Flimsy"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "2",
+                "4",
+                null,
+                null
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                null,
+                "3",
+                null,
+                "4"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.895,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; answer-grid row 2: marker read as '(a)' but expected '(b)' by position using position; Code table row (a): column C not detected by OCR inferred as 2 (every row here is a permutation of 1-4), verify against source; Code table row (b): missing value(s) ['2', '4', None, None]; Code table row (c): missing value(s) [None, '3', None, '4']",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 106,
+      "page": 22,
+      "question_type": "match_the_list",
+      "image": "images/q_0106.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List I List II (Word/ Term) (Meaning) A Sacred 1. Oblation B Desecration 2. Consecrated 3 Defilement C Sacrosanct D. Sacrifice 4. Inviolable Code D B A",
+      "options": {
+        "a": "2 3 4 3 2 4 3 1 2 3 4 3 2 1",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Sacred"
+          },
+          {
+            "label": "B",
+            "text": "Desecration"
+          },
+          {
+            "label": "C",
+            "text": "Sacrosanct"
+          },
+          {
+            "label": "D",
+            "text": "Sacrifice"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Oblation"
+          },
+          {
+            "label": "2",
+            "text": "Consecrated"
+          },
+          {
+            "label": "3",
+            "text": "Defilement"
+          },
+          {
+            "label": "4",
+            "text": "Inviolable"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "1",
+                "3",
+                "4",
+                "2"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "2",
+                "4",
+                "3"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.909,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 107,
+      "page": 23,
+      "question_type": "match_the_list",
+      "image": "images/q_0107.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List I List II 109. (Word/ Term) (Meaning) A Triumph 1. Feeling great pride post B Triumphant victory C. Triumphal 2 Act of celebrating a D. Triumphalism great success or victory 3. A. show of smug superiority 4, A notable success Code B D A 2",
+      "options": {
+        "a": "3 4 G 4 2 3 1 2 3 4 3 4 2",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Triumph"
+          },
+          {
+            "label": "B",
+            "text": "Triumphant"
+          },
+          {
+            "label": "C",
+            "text": "Triumphal"
+          },
+          {
+            "label": "D",
+            "text": "Triumphalism"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Feeling great pride post victory"
+          },
+          {
+            "label": "2",
+            "text": "Act of celebrating a great success or victory"
+          },
+          {
+            "label": "3",
+            "text": "A. show of smug superiority"
+          },
+          {
+            "label": "4",
+            "text": "A notable success"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "4",
+                "1",
+                "2",
+                "3"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "2",
+                "4",
+                "1",
+                "3"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "2",
+                "3",
+                "4",
+                "1"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "3",
+                "1",
+                "4",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.916,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column B not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column C not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column B not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 108,
+      "page": 23,
+      "question_type": "match_the_list",
+      "image": "images/q_0108.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List [ List II (Word/ Term) (Meaning) A. Revel 1. Unrestrained merriment B. Revelry 2 To make merry C Reveal 3. Boisterous D Reveller individual making merry 4 Disclose Code B ` D A 2",
+      "options": {
+        "a": "3 4 G 2 3 2 1: 4 3 3 2 4 List I List II (Meaning) Word/ Term) 1. To happen or As Transmit occur B Transmute 2 To continue for C. Transpire only a short time 3. To change into D Transient something different 4. To send an electronic signal Code A   B   C  D",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Revel 1. Unrestrained merriment"
+          },
+          {
+            "label": "B",
+            "text": "Revelry 2 To make merry"
+          },
+          {
+            "label": "C",
+            "text": "Reveal 3. Boisterous"
+          },
+          {
+            "label": "D",
+            "text": "Reveller individual making merry 4 Disclose"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "10_"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "1",
+                "4",
+                "2",
+                "3"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                null,
+                null,
+                "4",
+                "3"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "2",
+                null,
+                null,
+                null
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.901,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; List II: expected 4 items, found 1; expected 4 answer-grid rows, found 5; Code table row (a): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source; Code table row (c): missing value(s) [None, None, '4', '3']; Code table row (d): missing value(s) ['2', None, None, None]",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 109,
+      "page": 23,
+      "question_type": "match_the_list",
+      "image": "images/q_0109.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "4 . 2",
+      "options": {
+        "a": "3",
+        "b": "3 4 2",
+        "c": "2 3 4",
+        "d": "2 4 3 List II"
+      },
+      "table": {},
+      "has_underline": false,
+      "ocr_confidence": 0.937,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; match-the-list layout, raw text may be jumbled verify against source PDF; 'Code' label not found could not locate the answer grid",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 110,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0110.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "List I (Meaning) (Word/ Term)&nbsp;<div>A. Emanated 1 . Liberated&nbsp;</div><div>B. Emancipated 2 Starved&nbsp;</div><div>C. Empathised 3. Originated&nbsp;</div><div>D Emaciated 4. Commiserated&nbsp;</div><div>Code A B   C D</div>",
+      "options": {
+        "a": "3 4 2 1&nbsp;",
+        "b": "4 2 1 3",
+        "c": "3 1 4 2",
+        "d": "4 3 1 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.914,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I11"
+    },
+    {
+      "q_number": 111,
+      "page": 24,
+      "question_type": "comprehension",
+      "image": "images/q_0111.png",
+      "passage_label": "PASSAGE I",
+      "passage_text_html": "",
+      "question_stem_html": "In this passage, \"women's suffrage\" refers to",
+      "options": {
+        "a": "Women's sufiering",
+        "b": "Women 's inability to read",
+        "c": "Women s right to vote in political elections",
+        "d": "Women's anger at political rallies"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.775,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I12"
+    },
+    {
+      "q_number": 112,
+      "page": 24,
+      "question_type": "comprehension",
+      "image": "images/q_0112.png",
+      "passage_label": "PASSAGE I",
+      "passage_text_html": "",
+      "question_stem_html": "In this passage, \"grassroots\" refers to",
+      "options": {
+        "a": "The conmon people at a local level",
+        "b": "The common problems faced by people",
+        "c": "The root cause of poverty",
+        "d": "The gentry in the cities"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.878,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I12"
+    },
+    {
+      "q_number": 113,
+      "page": 24,
+      "question_type": "standard",
+      "image": "images/q_0113.png",
+      "passage_label": "PASSAGE I",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following is the correct noun form of \"subversive\" ?",
+      "options": {
+        "a": "Subvert",
+        "b": "Subverting",
+        "c": "Subversion",
+        "d": "Subvention"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.884,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I12"
+    },
+    {
+      "q_number": 114,
+      "page": 25,
+      "question_type": "comprehension",
+      "image": "images/q_0114.png",
+      "passage_label": "PASSAGE I",
+      "passage_text_html": "",
+      "question_stem_html": "In this passage, \"canonical literature\" refers to",
+      "options": {
+        "a": "War literature",
+        "b": "Nonsensical literature",
+        "c": "Influential and   significant  literature",
+        "d": "Pretentious and bombastic  literature"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.914,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I12"
+    },
+    {
+      "q_number": 115,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0115.png",
+      "passage_label": "PASSAGE I",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following words is <u>opposite</u> in meaning to the word \"resistant\" ?",
+      "options": {
+        "a": "pliant",
+        "b": "hesitant",
+        "c": "persistent",
+        "d": "defiant"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.923,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I12"
+    },
+    {
+      "q_number": 116,
+      "page": 25,
+      "question_type": "comprehension",
+      "image": "images/q_0116.png",
+      "passage_label": "PASSAGE MI",
+      "passage_text_html": "",
+      "question_stem_html": "This passage traces the history of",
+      "options": {
+        "a": "the arrival of the potato in South America from Europe",
+        "b": "the arrival of the potato in Europe from India&nbsp;",
+        "c": "the arrival of the potato in India from Europe",
+        "d": "the arrival of the potato in India from South America"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.881,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I13"
+    },
+    {
+      "q_number": 117,
+      "page": 25,
+      "question_type": "comprehension",
+      "image": "images/q_0117.png",
+      "passage_label": "PASSAGE MI",
+      "passage_text_html": "",
+      "question_stem_html": "According to this passage, how long ago was the potato domesticated in South America ?",
+      "options": {
+        "a": "Two thousand years ag0",
+        "b": "Two to five thousand years ago",
+        "c": "Four to seven thousand years ago",
+        "d": "Ten thousand years ago"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.891,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I14"
+    },
+    {
+      "q_number": 118,
+      "page": 26,
+      "question_type": "comprehension",
+      "image": "images/q_0118.png",
+      "passage_label": "PASSAGE MI",
+      "passage_text_html": "",
+      "question_stem_html": "In this passage the word \"culture\" refers to",
+      "options": {
+        "a": "The arts, music, literature and other intellectual achievements",
+        "b": "All the knowledge and values shared by a society",
+        "c": "The   practices of the Maya and Inca civilisations",
+        "d": "<u>Certain</u> <u>techniques</u> of raising plants for propagation"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.946,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I14"
+    },
+    {
+      "q_number": 119,
+      "page": 26,
+      "question_type": "standard",
+      "image": "images/q_0119.png",
+      "passage_label": "PASSAGE MI",
+      "passage_text_html": "",
+      "question_stem_html": "Which form of the word \"settlement\"' can be used both as a verb and as an adjective ?",
+      "options": {
+        "a": "Settled",
+        "b": "Settling",
+        "c": "Settler",
+        "d": "Settle"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.856,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I14"
+    },
+    {
+      "q_number": 120,
+      "page": 26,
+      "question_type": "standard",
+      "image": "images/q_0120.png",
+      "passage_label": "PASSAGE MI",
+      "passage_text_html": "",
+      "question_stem_html": "The word \"terraced\" has been formed by changing",
+      "options": {
+        "a": "A noun to a verb",
+        "b": "A verb to a noun",
+        "c": "An adjective to a noun",
+        "d": "A noun to an adjective"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.774,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "instruction_id": "I14"
+    }
+  ],
+  "job_name": "QP-CDSE-II-26-ENGLISH-140926.pdf",
+  "source_pdf": "source.pdf",
+  "instructions": [
+    {
+      "instruction_id": "I1",
+      "text_html": "In the following items, a pair of words is provided. You are required to select the option that most appropriately describes the meaning of both the words and mark your response on the Answer Sheet accordingly:",
+      "image": "images/I1.png",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            235.0234375,
+            122.7734375,
+            1627.625,
+            305.1796875
+          ]
+        ]
+      },
+      "applies_to": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "instruction_id": "I2",
+      "text_html": "In the following items a sentence O a phrase is given with a word that is underlined, followed by four words or groups of words. Select the option that is nearest in meaning to the underlined word and mark  your  response on the Answer Sheet accordingly:",
+      "image": "images/I2.png",
+      "image_regions": {
+        "page": 4,
+        "boxes": [
+          [
+            228.0078125,
+            115.7578125,
+            1613.59375,
+            340.2578125
+          ]
+        ]
+      },
+      "applies_to": [
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "instruction_id": "I3",
+      "text_html": "Identify the most appropriate meaning for the words given below and mark your response accordingly on the Answer Sheet:",
+      "image": "images/I3.png",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            200.21249999999998,
+            860.5624999999999,
+            1559.5499999999997,
+            1001.0624999999999
+          ]
+        ]
+      },
+      "applies_to": [
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "instruction_id": "I4",
+      "text_html": "In this section each item consists of six sentences that comprise & passage. The first and sixth sentences are given in the beginning as Sl and S6. The sequence of the middle four sentences has been jumbled up and labelled as P; Q, R and S. You are required to find the proper  sequence of the four  sentences  and mark   your  response accordingly on the Answer Sheet:",
+      "image": "images/I4.png",
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            218.065625,
+            126.61875,
+            1579.2171875,
+            386.890625
+          ]
+        ]
+      },
+      "applies_to": [
+        31,
+        32,
+        33,
+        34,
+        35,
+        36,
+        37,
+        38,
+        39,
+        40
+      ]
+    },
+    {
+      "instruction_id": "I5",
+      "text_html": "Each item in this section has a sentence with three underlined parts labelled (a), (6) and (c): Read each sentence to determine  whether there is an error in any underlined   part   and indicate  your  response on  the answer   sheet against the abovementioned corresponding letter: If there is no erTor; indicate your response as (d).",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        41,
+        42,
+        43,
+        44,
+        45,
+        46,
+        47,
+        48,
+        49,
+        50
+      ]
+    },
+    {
+      "instruction_id": "I6",
+      "text_html": "Given below are idioms/phrases. Choose the most appropriate meaning and mark your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        51,
+        52,
+        53,
+        54,
+        55,
+        56,
+        57,
+        58,
+        59,
+        60
+      ]
+    },
+    {
+      "instruction_id": "I7",
+      "text_html": "Each item in this section consists of a sentence with an underlined word followed by four words Or groups of words. Select the option that is opposite in meaning to the underlined word and mark your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        61,
+        62,
+        63,
+        64,
+        65,
+        66,
+        67,
+        68,
+        69,
+        70
+      ]
+    },
+    {
+      "instruction_id": "I8",
+      "text_html": "Each of the following sentences in this section has a blank space with four options. Select the most appropriate option to fill in the blank and indicate your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        71,
+        72,
+        73,
+        74,
+        75,
+        76,
+        77,
+        78,
+        79,
+        80
+      ]
+    },
+    {
+      "instruction_id": "I9",
+      "text_html": "In the   following items similar sounding  words are given,  followed by sentences wherein these words has been   used, and underlined. You are required to identify those sentences in which these words have been used most appropriately and mark your response in the Answer Sheet accordingly",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90
+      ]
+    },
+    {
+      "instruction_id": "I10",
+      "text_html": "In the following items a pair of sentences (S1, S2) is given. Select the most appropriate and relevant co-relationship of the second sentence to the first from among the options (a), (b), (c) and (d), and mark your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100
+      ]
+    },
+    {
+      "instruction_id": "I11",
+      "text_html": "Match List I with List II and select the answer using the code given below the Lists List II List I",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110
+      ]
+    },
+    {
+      "instruction_id": "I12",
+      "text_html": "Read the passage carefully and answer the questions given below based solely on the passage&nbsp;<div><br></div><div>When Elizabeth Long began   investigating women' s book groups in the  mid-1980s, her research plan   provoked two profoundly different sets of reactions. Women; who had themselves participated in such groups, as well as men whose mothers and grandmothers had done so, immediately grasped the importance of her project \"You will never know what a difference it made\" was the phrase she heard again and again. But among her   academic colleagues, common readers seemed to be occupying a zone of cultural invisibility: They were not of interest to literature departments, whose major focus is on books and authors, not readers. They were not of interest to sociologists or political  scientists because women' s reading groups do not   pursue  activities with any obvious relationship to formal political processes: Long; however; went on to show that such  groups had mobilised the women S suffrage and Progressive movements at the grassroots  Scholars of popular culture had not found  reading  groups  interesting because the groups  read canonized fiction and did not transform their cultural consumption into a resistant\" subcultural style. It had not yet occurred to them that the so-called highbrow canonical  literature could be immensely popular and devilishly subversive. David Vincent's Bread, Knowledge and Freedom (1981) had already demonstrated the important role of reading in inspiring working-class consciousness in early nineteenth-century Britain. As a sociologist; Long concluded that the really important question that needed answering was why academics did not care about readers.</div>",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        111,
+        112,
+        113,
+        114,
+        115
+      ]
+    },
+    {
+      "instruction_id": "I13",
+      "text_html": "Read the passage carefully and answer the questions given below<div><br></div><div>Christopher Columbus of Spain set foot in the New World in 1492. Six years later; Vasco da Gama of Portugal reached India.   During the next two centuries the   Spaniards and the Portuguese actively transferred, not only to Europe but to many parts of Asia as well, a number of plant species which they encountered in South and central America, in expectation of their potential either as food or as medicine. These plants had been developed to a high degree by the Maya and Inca civilizations of these regions. Of these, the potato (Solanum tuberosum) is believed to have been domesticated in terraced slopes on the high plateau of Bolivia-Peru in South America, sometime between 5000 and 2000 BC. Europeans first saw potatoes in South America in 1537, and around 1570 a Spanish ship brought the first potatoes to Europe. Though termed papa in South America, they were incorrectly called batata (the name for the sweet potato) when John Gerard first described them in English in 1597, and this name stuck An 1860 report states that by 1780, potatoes, peas and beans were in high repute as foods in Calcutta, and that the Dutch are said t0 have been the first to introduce the culture of potatoes, which was received from their settlement of the Cape of Good Hope. From there the British received annually the seeds of every kind of vegetable useful at the table, as well as several plants of which there appears to be much need, especially various kinds of pot herbs.</div>",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        116
+      ]
+    },
+    {
+      "instruction_id": "I14",
+      "text_html": "Read the passage carefully and answer the questions given below&nbsp;<div><br></div><div>Christopher Columbus of Spain set foot in the New World in 1492. Six years later; Vasco da Gama of Portugal reached India.   During the next two centuries the   Spaniards and the Portuguese actively transferred, not only to Europe but to many parts of Asia as well, a number of plant species which they encountered in South and central America, in expectation of their potential either as food or as medicine. These plants had been developed to a high degree by the Maya and Inca civilizations of these regions. Of these, the potato (Solanum tuberosum) is believed to have been domesticated in terraced slopes on the high plateau of Bolivia-Peru in South America, sometime between 5000 and 2000 BC. Europeans first saw potatoes in South America in 1537, and around 1570 a Spanish ship brought the first potatoes to Europe. Though termed papa in South America, they were incorrectly called batata (the name for the sweet potato) when John Gerard first described them in English in 1597, and this name stuck An 1860 report states that by 1780, potatoes, peas and beans were in high repute as foods in Calcutta, and that the Dutch are said t0 have been the first to introduce the culture of potatoes, which was received from their settlement of the Cape of Good Hope. From there the British received annually the seeds of every kind of vegetable useful at the table, as well as several plants of which there appears to be much need, especially various kinds of pot herbs.</div>",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        117,
+        118,
+        119,
+        120
+      ]
+    }
+  ]
+}

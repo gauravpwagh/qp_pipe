@@ -1,0 +1,3346 @@
+{
+  "paper_id": "cds_gk_v1-cdse-ii-26-general-knowledge-20260917-113856",
+  "variant": "cds_gk_v1",
+  "job_name": "CDSE-II-26-GENERAL-KNOWLEDGE",
+  "source_filename": "QP-CDSE-II-26-GENERAL-KNOWLEDGE-140926.pdf",
+  "source_pdf": "source.pdf",
+  "processed_at": "2026-09-17T11:47:24.610278+00:00",
+  "total_questions": 120,
+  "qa": {
+    "sequence_ok": true,
+    "warnings": [],
+    "needs_review_count": 12
+  },
+  "questions": [
+    {
+      "q_number": 1,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0001.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements related to the Constituent Assembly of India is/are correct ?<br><br>1. Its members were chosen by indirect election by the members of the Provincial Legislative Assemblies&nbsp;<div>2. Indian Princely States were given representation in the Constituent Assembly<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.932,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "<p>Use the relation:<span class=\"ql-formula\" data-value=\"{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">y</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">t</mi><mtext>&nbsp;</mtext><mi mathvariant=\"normal\">R</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">t</mi><mi mathvariant=\"normal\">e</mi></mrow><mrow><mo fence=\"true\">(</mo><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">R</mi></mrow><mo fence=\"true\">)</mo></mrow><mo>=</mo><mfrac><mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow><mo>−</mo><mrow><mi mathvariant=\"normal\">W</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 1em; vertical-align: -0.25em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">Unemployment</span><span class=\"mspace nobreak\">&nbsp;</span><span class=\"mord mathrm\">Rate</span></span></span><span class=\"mspace\" style=\"margin-right: 0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top: 0em;\">(</span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">UR</span></span></span><span class=\"mclose delimcenter\" style=\"top: 0em;\">)</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0463em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3603em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">WPR</span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span>Given:</p><ul><li>LFPR = 50%</li><li>WPR = 45%</li></ul><p><span class=\"ql-formula\" data-value=\"UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mn>50</mn><mo>−</mo><mn>45</mn></mrow><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mfrac><mn>5</mn><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mn>10</mn><mi mathvariant=\"normal\">%</mi></mrow><annotation encoding=\"application/x-tex\">UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\">45</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">5</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8056em; vertical-align: -0.0556em;\"></span><span class=\"mord\">10%</span></span></span></span></span></span>﻿</span>Final Answer: 10%</p><p><br></p><p>Think of the population in <strong>three layers</strong>:</p><p><br></p><h3>1) Labour Force Participation Rate (LFPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>working OR actively looking for work</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>L</mi><mi>F</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>LFPR</mtext><mo>=</mo><mfrac><mtext>Labour&nbsp;Force</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">FPR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are participating in the job market</strong>.</p><p><br></p><h3>2) Worker Population Ratio (WPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>actually employed</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>W</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>E</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>P</mi><mi>e</mi><mi>o</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>WPR</mtext><mo>=</mo><mfrac><mtext>Employed&nbsp;People</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">W</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">PR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.0576em;\">E</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">P</span><span class=\"mord mathnormal\">eo</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">WPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Employed&nbsp;People</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are actually working</strong>.</p><p><br></p><h3>3) Unemployment Rate (UR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>in the labour force but NOT working</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mi>U</mi><mi>n</mi><mi>e</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mo>×</mo><mn>100</mn><mtext>UR</mtext><mo>=</mo><mfrac><mtext>Unemployed</mtext><mtext>Labour&nbsp;Force</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\">n</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">UR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0574em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Unemployed</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many job-seekers couldn’t find work</strong>.</p><p><br></p><h2>Simple Example</h2><p>Suppose a village has <strong>100 people</strong>:</p><ul><li>50 people are working</li><li>10 people are looking for jobs</li><li>40 people are not interested in working (students, elderly, etc.)</li></ul><h3>Step-by-step:</h3><ul><li><strong>Labour Force = 50 (working) + 10 (unemployed) = 60</strong></li><li><strong>LFPR = 60 / 100 × 100 = 60%</strong></li><li><strong>WPR = 50 / 100 × 100 = 50%</strong></li><li><strong>Unemployment Rate = 10 / 60 × 100 = 16.67%</strong></li></ul><h2>Intuition (very important)</h2><ul><li><strong>LFPR</strong> → Who is in the game</li><li><strong>WPR</strong> → Who is winning (has a job)</li><li><strong>Unemployment Rate</strong> → Who is trying but losing (jobless)</li></ul>",
+      "tags": [],
+      "topics": [],
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            114.56249999999999,
+            162.14999999999998,
+            861.8625,
+            1092.75
+          ]
+        ]
+      },
+      "instruction_id": null
+    },
+    {
+      "q_number": 2,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0002.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements regarding State   Support Mission by NITI Aayog<br><br>1. State Support Mission is an umbrella initiative by NITI Aayog aimed at fostering structured and institutionalized engagement with states and Union Territories (UTs)<br><br>2. Its   primary objective is to assist States and UTs in achieving their socioeconomic goals by 2036<br><br>Which of the statements  given  above is /are correct ?",
+      "options": {
+        "a": "only 1",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 3,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0003.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following pairs of Institutions / Organizations and their official motto<br><br>1. National&nbsp;&nbsp;Investigation Agency:&nbsp;Rastraraksanam&nbsp; adyakartavyam&nbsp;&nbsp;<div>2. Supreme Court of India: Yato Dharmastato Jayah</div><div>3. University Grants Commission: GyanVigyan Vimuktaye&nbsp;</div><div><br>How many of the above is/are correctly paired ?</div>",
+      "options": {
+        "a": "Nil",
+        "b": "1",
+        "c": "2",
+        "d": "3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.944,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 4,
+      "page": 3,
+      "question_type": "standard",
+      "image": "images/q_0004.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "4 Which one of the   following is the 'Theme of the Year   2026' of Indian Army?",
+      "options": {
+        "a": "Anchored in Tradition, Sailing into Self-Reliance and Innovation",
+        "b": "Year of   Networking and Data Centricity",
+        "c": "Achook, Abhedya va Sateek",
+        "d": "Samarth Bharat,  Saksham Sena"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.943,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null,
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            875.9625,
+            1434.675,
+            1566.8625,
+            2079.75
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 5,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0005.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following Writs Iiterally means \"you have the body\"?",
+      "options": {
+        "a": "Habeas Corpus",
+        "b": "Mandamus",
+        "c": "Prohibition",
+        "d": "Certiorari"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.912,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 6,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0006.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements about National Human   Rights Commission, India is/are correct ?<br><br>1. It can intervene in court proceedings  involving human  rights violations with the approval of the court&nbsp;<div>2. It can undertake   research in the field of human rights<br>3. It cannot investigate human rights violation on its own initiative<br><br>Select the answer using the code given below:</div>",
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "1 and 2 only",
+        "c": "2 and 3 only",
+        "d": "3 only"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.902,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 7,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0007.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements is / are correct ?&nbsp;<div>1. In First-Past-the-Post system of representation; candidate who wins the election may not get majority votes&nbsp;</div><div>2. In Proportional Representation system of   representation, candidate who wins the   election gets majority of votes<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither [ nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.878,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 8,
+      "page": 5,
+      "question_type": "standard",
+      "image": "images/q_0008.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements is/ are correct with respect to the Union Territory of Dadra and Nagar Haveli and Daman and Diu ?<div>1. The merger of the Union Territories of Dadra and   Nagar Haveli  and Daman and Diu was given  effect to by an Act of the Parliament of India<br><br>2. After the merger of the Union Territories of Dadra and Nagar Haveli and Daman and Diu; three seats   have been allocated in the House of People<br><br>3 . The jurisdiction of the High Court of Bombay continues to extend to this Union Territory<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "2 only"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.87,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 9,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0009.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "As regards the 'disqualification on ground of defection' as per the Constitution of India, which of the following statements is/are correct ?<br><br>1. Disqualification on ground of defection does not   apply to any nominated member of a House&nbsp;<div>2 Disqualification on ground of defection does not apply to a member of a House if she/he does not accept the merger of her/his original political party into another and opts to function as a separate group<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.874,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 10,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0010.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements is/are correct ?<br><br>1. Using powers given under Article 342 A of the Constitution of India, the President of India may notify a Central List of socially; educationally and economically backward classes with respect to a State&nbsp;<div>2. Every State may prepare a list of socially and educationally backward classes for its own purposes different   from the Central List<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.934,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 11,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0011.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements about Goods and Services Tax (GST) in course of inter-State trade or commerce is/are correct ?<br><br>1. Levy and collection  of GST are governed   under 'Article 269 A of the Constitution of India<br><br>2. GST <u>on</u> <u>supplies</u> in the <u>course</u> of inter-State   trade or commerce may not be   levied and   collected by the States<br><br>3. GST is apportioned between the Union and the States<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "1 only"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.906,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 12,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0012.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements about State Election Commissioner is/are correct ?<br><br>1. Preparation of  electoral  rolls   for elections to the Panchayats takes place under his/her direction&nbsp;<div>2. He/ she is appointed by the Governor of the concerned State on the advice of the Chief Election Commissioner of India<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.871,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 13,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0013.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "13 Which one of the following statements related to below mentioned Committees of the Parliament is correct ?",
+      "options": {
+        "a": "The Rajya Sabha elects more members   than the Lok Sabha to the Committee on the Welfare of Scheduled Castes   and  Scheduled Tribes Chairperson",
+        "b": "The of the Committee on Welfare of Other Backward Classes is appointed by the Speaker of the Lok Sabha&nbsp;",
+        "c": "Members nominated by the Chairman of the Rajya Sabha are more in number than Members nominated by the Speaker of the Lok Sabha on the Committee on Empowerment of Women",
+        "d": "The Rajya Sabha elects more members   than the Lok Sabha to the Public Accounts Committee"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.877,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null,
+      "image_regions": {
+        "page": 9,
+        "boxes": [
+          [
+            160.2453125,
+            982.603125,
+            906.8828125,
+            2070.8625
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 14,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0014.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the   following statements is/are correct ?<br><br>1. India has committed to reduce Emissions Intensity of its GDP by 47% by 2035 from 2005 level<br><br>2. India has set the target to achieve 60%/ cumulative electric power installed capacity from non-fossil fuel-based energy resources by 2035<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.881,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Environment"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 15,
+      "page": 9,
+      "question_type": "standard",
+      "image": "images/q_0015.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements with respect to the Ordinance promulgated   under Article 213 of the Constitution of India is/are correct ?<br><br>1. It shall be laid before the Legislative Assembly of the State, or where there is a Legislative Council in the State, before both the Houses<br><br>2. It shall cease to   operate at the expiration of two months from the reassembly of the Legislature<br><br>3 . It may be withdrawn at any time by the Governor<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1 only",
+        "b": "3 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.888,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 16,
+      "page": 11,
+      "question_type": "standard",
+      "image": "images/q_0016.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following groups of countries consists of the members of Mekong-Ganga Cooperation (MGC) ?",
+      "options": {
+        "a": "India, Cambodia, Lao PDR, Myanmar; Thailand and Vietnam",
+        "b": "India, Bangladesh; Lao PDR Myanmar; Thailand and Vietnam",
+        "c": "India, Bangladesh and Myanmar",
+        "d": "India, Bangladesh, Myanmar and Sri Lanka"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.91,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 17,
+      "page": 11,
+      "question_type": "standard",
+      "image": "images/q_0017.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following pairs is NOT correctly matched ?",
+      "options": {
+        "a": "Formation The Constitution of the State (Fifty-fifth Amendment) of Arunachal Pradesh Act; 1986",
+        "b": "Formation The Constitution (Fifty-third of the State Amendment) of Mizoram Act, 1986",
+        "c": "Special The Constitution provision (Fourteenth with respect Amendment) to the State Act; 1962 of Nagaland",
+        "d": "Reorganisa- The Constitution tion of the (Fifty-sixth Amendment) Union Terri tory of Goa; Act;, 1987 Daman and Diu"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.873,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 18,
+      "page": 11,
+      "question_type": "standard",
+      "image": "images/q_0018.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the statements regarding the delimitation exercise carried out in Assam in 2023<br><br>1. The delimitation of constituencies was done on the basis of 2001 census<br><br>2. No increase was made in the number of ST Assembly seats<br><br>Which of the statements   given above is/are correct ?",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.914,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 19,
+      "page": 11,
+      "question_type": "standard",
+      "image": "images/q_0019.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements about the administration and control of Scheduled Areas<br><br>1. The Governors of each State having Scheduled Areas therein shall, annually or whenever SO required by the President, make a report to the President regarding the administration of the Scheduled Areas in that State&nbsp;<div>2 The Executive Power of the Union shall extend to the giving of directions to the States as to the administration of the Scheduled Areas<br><br>Which of the statements   given  above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 20,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0020.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Under the Ministry of Finance,  which Department is  responsible for   giving advice on economic issues  having a bearing on internal and external aspects of' economy including foreign exchange management ?",
+      "options": {
+        "a": "Department of Economic Affairs",
+        "b": "Department of Expenditure",
+        "c": "Department of Investment and Public Asset Management",
+        "d": "Department of Financial  Services"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.867,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 21,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0021.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with reference to PANI (Portal for Asset and Navigation Information)<br><br>1. It is a unified platform which provides river navigation and infrastructure information&nbsp;<div>2 It provides detailed information of various features of National Waterways</div><div>3. It facilitates ~One Nation One Registration through a singlewindow system<br><br>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "3 only",
+        "c": "1 and 2",
+        "d": "2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.909,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 22,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0022.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with reference to Indian Ports Act, 2025<br><br>1. It established Maritime State Development Council (MSDC) as a statutory consultative body to coordinate between Centre and coastal states&nbsp;<div>2 Its legislation mandates Global Green Norms and Disaster Readiness for Indian Ports<br><br>Which of the statements  given above is / are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.937,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 23,
+      "page": 13,
+      "question_type": "standard",
+      "image": "images/q_0023.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements relating to Disaster Management (Amendment) Act, 2025 are correct ?<br><br>1. It mandates the creation of a National Disaster Database&nbsp;<div>2 It addresses the issue of urban disaster risk management through Provision 41 A</div><div>3. It empowers the constitution of an Urban Disaster Management Authority (UDMA) for State Capitals and all cities having Municipal Corporations (excluding NCT of Delhi and Union Territories of Chandigarh)<br><br>Select the answer using the code given below&nbsp;</div>",
+      "options": {
+        "a": "<span style=\"font-size: 15px; font-weight: 600;\">1 and 3 only</span>",
+        "b": "2 and 3 only",
+        "c": "1 and 2 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.882,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 24,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0024.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with reference to Fisheries   Startups Ecosystem in India<br><br>1. Fisheries Startup Grand Challenge was launched to identify start-ups offering solutions related to productivity: sustainability; and market access<br><br>2. Matsya Manthan is a knowledge- building lecture series aimed at strengthening the innovation ecosystem in the fisheries sector<br><br>3. The Department of Fisheries has supported the establishment of fisheries business incubation centres to provide mentorship and training for   developing business models<br><br>Which of the statements given above is/are correct ?",
+      "options": {
+        "a": "1 only",
+        "b": "1 and 3 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.885,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 25,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0025.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements relating to objectives of National Livestock Mission are correct ?<br><br>1. Promoting risk management measures including livestock insurance for farmers&nbsp;<div>2 Increase in   production of meat, egg; goat milk; wool and fodder<br>3. Employment generation through entrepreneurship   development in small ruminant; poultry and piggery sector &amp; fodder sector<br><br>Select the answer using the code given below&nbsp;</div>",
+      "options": {
+        "a": "1&nbsp;<span style=\"font-size: 15px; font-weight: 600;\">and 2 only</span>",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.928,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 26,
+      "page": 15,
+      "question_type": "standard",
+      "image": "images/q_0026.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements relating to given weather  phenomena in India is/are correct ?<br><br>1. When maximum temperature of a station   reaches 7408C for plains and 7308C for hilly regions, it is considered heat wave&nbsp;<div>2. When minimum temperature of a station is &lt;10PC for plains and &lt;0PC for hilly regions, it is considered cold wave<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.801,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 27,
+      "page": 17,
+      "question_type": "match_the_list",
+      "image": "images/q_0027.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Match List ] with List II and select the answer using the code given below the Lists List List II (Biosphere (Statel Reserve) Union Territory) A. Seshachalam 1a Andhra Pradesh B Manas<br><br>2. Assam C. Similipal<br><br>3. Odisha D Panna<br><br>4. Madhya Pradesh Code B   C D",
+      "options": {
+        "a": "2 3",
+        "b": "2 3 4",
+        "c": "4 2 3",
+        "d": "2 3"
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Seshachalam"
+          },
+          {
+            "label": "B",
+            "text": "Manas"
+          },
+          {
+            "label": "C",
+            "text": "Similipal"
+          },
+          {
+            "label": "D",
+            "text": "Panna"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "a Andhra Pradesh"
+          },
+          {
+            "label": "2",
+            "text": "Assam"
+          },
+          {
+            "label": "3",
+            "text": "Odisha"
+          },
+          {
+            "label": "4",
+            "text": "Madhya Pradesh"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                null,
+                "2",
+                "3",
+                null
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "1",
+                "3",
+                "2",
+                "4"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                null,
+                "2",
+                "3",
+                null
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.896,
+      "needs_review": true,
+      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'Match List ] with List II and select the answer using (Biosphere Reserve)'; List II: discarded unlabeled text (not a missing item): 'the code given below the (Statel Union Territory)'; Code table row (a): missing value(s) - [None, '2', '3', None]; Code table row (b): column A not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column D not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): missing value(s) - [None, '2', '3', None]",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 28,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0028.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following is India's key programmes to conserve wildlife and protect endangered species ?",
+      "options": {
+        "a": "Humpback Whale Project",
+        "b": "International Big Cat Alliance",
+        "c": "International Gorilla Conservation Programme",
+        "d": "International Rhino Foundation"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.918,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 29,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0029.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements<br><br>1. Mangroves are natural buffers against cyclones, storm surges and coastal erosion&nbsp;<div>2 Recognising it, India implemented the Mangrove Initiative for Shoreline   Habitats and Tangible Incomes (MISHTI)<br><br>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.87,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 30,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0030.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with reference to Ramsar sites in India&nbsp;<div>1. India has the highest number   of Ramsar sites in Asia<br>2. Ramsar site Patna Bird Sanctuary is situated in Etah district of Uttar Pradesh<br>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.842,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 31,
+      "page": 17,
+      "question_type": "standard",
+      "image": "images/q_0031.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following are India s first Ramsar-accredited Wetland Cities ?<br>1 . Udaipur&nbsp;<div>2. Patna<br>3 . Indore<br>4. Bhubaneswar<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 and 3",
+        "b": "1 and 4",
+        "c": "2 and 3",
+        "d": "3 and 4"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.864,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 32,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0032.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements related to the stages of evolution of the present atmosphere are correct ?<br><br>1. The first stage is marked by the loss of primordial atmosphere<br><br>2. In the second stage, the hot interior of the earth contributed to the evolution of the atmosphere<br><br>3. <u>Finally,</u> the   composition of the atmosphere was modified by the living world  through the process of photosynthesis<br><br>Select the answer using the code given below :",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "1 and 3 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.891,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 33,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0033.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with reference to earthquakes<br><br>1. Collapse earthquakes are most common&nbsp;<div>2. Tsunamis are waves generated by the tremors and not an earthquake in itself<br>3 . High   magnitude  earthquakes i.e. 8+ are quite rare whereas 'tiny\" types occur almost every minute<br><br>Which of the statements  given above are correct ?</div>",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "1 and 3 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 34,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0034.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements related to water vapours:<br><br>1. It is a variable gas in the atmosphere, which decreases with altitude&nbsp;<div>2 In the dry and cold areas of desert and polar regions, it may be less than one per cent of the air<br><br>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.859,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 35,
+      "page": 19,
+      "question_type": "standard",
+      "image": "images/q_0035.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements related to river terraces<br><br>1. They are surfaces marking old valley floor or floodplain levels<br><br>2. They may be bedrock surfaces without any alluvial cover or alluvial terraces consisting of stream deposits<br><br>3. They are basically   products of deposition as they result due to vertical erosion by the stream into its own depositional floodplain<br><br>Which of the statements   given above is /are correct ?",
+      "options": {
+        "a": "1 only",
+        "b": "1 and 2 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.935,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 36,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0036.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following States<br><br>1. Nagaland<br>2. Assam<br>3. Mizoram<br>4. Tripura&nbsp;<div><br></div><div>The State of Arunachal Pradesh has common boundary with which of the above States of India ?</div>",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 and 3",
+        "c": "1, 2 and 4",
+        "d": "1, 3 and 4"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.929,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 37,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0037.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The Tetrahedral Hypothesis of the origin of continents  and ocean basin was proposed by",
+      "options": {
+        "a": "F B Taylor",
+        "b": "Lowthian Green",
+        "c": "Alfred Wegener",
+        "d": "W M Davis"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.856,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 38,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0038.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<u>Which</u> one among the following constitute a food chain ?",
+      "options": {
+        "a": "Grass, Fish and Goat",
+        "b": "Grass, Insects and Frog",
+        "c": "Goat, Cow and Elephant",
+        "d": "Tiger; Lion and Grass"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.878,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 39,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0039.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "UNESCO World  Heritage site Nanda Devi National Park is located in which one of the following States ?",
+      "options": {
+        "a": "Arunachal Pradesh",
+        "b": "Uttarakhand",
+        "c": "Himachal Pradesh",
+        "d": "Sikkim"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.868,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 40,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0040.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "What was the theme for the International Day for Biological Diversity 2026 ?",
+      "options": {
+        "a": "Save Water; Save Environment",
+        "b": "Acting Locally for Global Impact",
+        "c": "From Agreement to Action Build Back Biodiversity",
+        "d": "Conserve Flora and Fauna of the Planet"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.903,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 41,
+      "page": 21,
+      "question_type": "standard",
+      "image": "images/q_0041.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements<br><br>1. Services sector   contributes more than 50% to India's GVA<br>2 . Services sector   growth is more volatile than agriculture sector&nbsp;<div>3. FDI in services sector contributes to three-fourth of total FDI in the post-Covid period<br><br>Which of the statements  given above are correct ?</div>",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "1 and 3 only",
+        "c": "2 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.831,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 42,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0042.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following best explains the \"crowding-in effect\" observed in India ?",
+      "options": {
+        "a": "Reduction in private sector borrowing",
+        "b": "Public investment leading to increase in private investment",
+        "c": "Decline in fiscal deficit",
+        "d": "Increase in imports due to higher demand"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.907,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 43,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0043.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements<br>1. India runs current account deficit&nbsp;<div>2 Merchandise imports of India exceed exports<br><br></div><div>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.91,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 44,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0044.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "With reference to Ayushman Bharat Pradhan Mantri Jan   Arogya Yojana; which of the following statements is/are correct ?<br><br>1. It provides health insurance coverage to vulnerable families<br><br>2. It covers both secondary and tertiary care hospitalization<br><br>3. It is applicable to all citizens irrespective of income<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "[ and 2",
+        "d": "2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.944,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 45,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0045.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "India's fiscal deficit widens significantly due to increased Goverimment spending on subsidies while tax revenue remains unchanged. Which one of the following is the most likely consequence ?",
+      "options": {
+        "a": "Inflation will rise,  interest rates will fall, and  private   investment will increase",
+        "b": "Inflation will   rise, interest rates may rise, and private investment may slow down",
+        "c": "Inflation will fall, interest rates will rise, and. private investment will increase",
+        "d": "Inflation will fall, interest rates will fall, and GDP   growth will accelerate"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.883,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 46,
+      "page": 23,
+      "question_type": "standard",
+      "image": "images/q_0046.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "India s reliance on imported energy exposes it to geopolitical supply shocks. In this context, what is the most likely short-term impact of <u>a</u> major disruption in crude oil imports ?",
+      "options": {
+        "a": "Decrease in inflation",
+        "b": "Strengthening of the rupee",
+        "c": "Higher   input costs and   inflation pressure",
+        "d": "Increase in exports"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.927,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 47,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0047.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The Defence Research & Development Organisation (DRDO) recently COnducted a successful  flight-test of the Pinaka Long Range Guided Rocket (LRGR) The rocket was tested for a user-defined minimum range of",
+      "options": {
+        "a": "30 km",
+        "b": "40 km",
+        "c": "50 km",
+        "d": "60 km"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.916,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 48,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0048.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following best explains how India's growth resilience is achieved in a fragile global context in recent years ?",
+      "options": {
+        "a": "Lower inflation with a simultaneous increase in   consumption and investment supported by strong domestic demand",
+        "b": "A sharp depreciation of the Indian to boost exports despite rupee weak global demand",
+        "c": "A fiscal push achieved primarily through increased revenue deficit financing",
+        "d": "Reduced   public capital expenditure to curb inflationary pressures"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.946,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 49,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0049.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "If Labour Force Participation Rate (LFPR) is 50% and Worker Population Ratio (WPR) is 45%, what is the Unemployment Rate ?",
+      "options": {
+        "a": "5%",
+        "b": "10%",
+        "c": "15%",
+        "d": "Cannot be determined"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.923,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "<p><br></p>",
+      "tags": [],
+      "topics": [
+        "Economy"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 50,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0050.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following major structural trends in agricultural output is highlighted in the Economic Survey 2025-26 ?",
+      "options": {
+        "a": "Livestock output declined relative to crop production",
+        "b": "Production of fruits exceeded production of vegetables",
+        "c": "Pulses   production   outpaced both horticulture and  food grains prOduction",
+        "d": "Horticulture production surpassed food grain production"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.885,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 51,
+      "page": 25,
+      "question_type": "standard",
+      "image": "images/q_0051.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Three resistors, R1, R2 and R3; (R1 &gt; R2 &gt; R3), are connected to a battery of  voltage V; such that the circuit   generates maximum heat per unit time. Which one among the following is the correct circuit combination for this ?",
+      "options": {
+        "a": "R1, R2 and R3 are connected in series combination",
+        "b": "R1, R2 and R3 are connected   in parallel combination",
+        "c": "R1 and R3 are connected in parallel and R2 is connected in series to the combination",
+        "d": "R1 and R3 are connected in series and R2 is connected parallel to the combination"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.847,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 52,
+      "page": 27,
+      "question_type": "standard",
+      "image": "images/q_0052.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Convex side of a plano-convex lens is fully immersed in a liquid, of same refractive index (equal to 8/5) as that of the   lens. Which one among the following is correct regarding the image of a point source of light placed in air at 40 cm away from the lens ? (Assume the focal length of the planoconvex lens as 20 cm)",
+      "options": {
+        "a": "Its   image will be formed 40 cm behind the lens",
+        "b": "Its image will be formed at 25 cm behind the lens",
+        "c": "No image will be formed because of the same refractive index of the lens and the liquid",
+        "d": "Its  image will be    formed 64 cm behind the lens"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.897,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 53,
+      "page": 27,
+      "question_type": "standard",
+      "image": "images/q_0053.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "A car of mass 800 kg is travelling at a speed of 40 km/h on a straight road. A force of 1000 N is applied on it in the direction of its velocity for 12 s. Which one among the following is the final speed of the car ?",
+      "options": {
+        "a": "55 km/h",
+        "b": "60 km/h",
+        "c": "94 km/h",
+        "d": "104 km/h"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.876,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 54,
+      "page": 27,
+      "question_type": "standard",
+      "image": "images/q_0054.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "A positively charged   particle (alpha-particle) is projected towards west in a horizontal plane. It is deflected towards north in the same plane by a magnetic field. Which one among the following is the direction of the magnetic field ?",
+      "options": {
+        "a": "Towards south",
+        "b": "Towards east",
+        "c": "Vertically downwards",
+        "d": "Vertically upwards"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.874,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 55,
+      "page": 27,
+      "question_type": "standard",
+      "image": "images/q_0055.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "With   regard to the magnetic field lines, which one among the following statements is NOT correct ?",
+      "options": {
+        "a": "They are always parallel to each other",
+        "b": "They point from south pole to north pole inside bar magnets",
+        "c": "They can cross each other inside bar magnets",
+        "d": "The larger  the line   density in a region, the larger is the magnetic field in that region"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.879,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 56,
+      "page": 27,
+      "question_type": "standard",
+      "image": "images/q_0056.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "A rod is balanced   vertically on one of its ends. Which one among the following is the correct nature of its state of equilibrium ?",
+      "options": {
+        "a": "Neutral  equilibrium",
+        "b": "Stable equilibrium",
+        "c": "Unstable equilibrium",
+        "d": "Conditional stable equilibrium"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.951,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 57,
+      "page": 29,
+      "question_type": "standard",
+      "image": "images/q_0057.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Two parallel, but not necessarily unidirectional, forces of magnitude 1 N and 2 N are acting on a body: Two more, parallel; again not necessarily unidirectional, forces of magnitude 3 N and 1 N, but   perpendicular to the earlier forces, are applied to the body: Which one among the  following are the smallest and largest possible magnitudes of the resultant force on the body ?",
+      "options": {
+        "a": "2 N and 8 N&nbsp;",
+        "b": "V2 N and 5 N",
+        "c": "V5 N and 5 N",
+        "d": "V3 N and 7 N"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.848,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 58,
+      "page": 29,
+      "question_type": "standard",
+      "image": "images/q_0058.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Gravitational   acceleration at moon is 1/6 of that on earth. On earth; if an object floats in water with fraction 'fe' of its volume submersed in water; and on moon, fraction 'fm' is submersed, then",
+      "options": {
+        "a": "fe > fm",
+        "b": "fe &lt; fm",
+        "c": "fe = fm",
+        "d": "fm = 1/6 fe"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.872,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 59,
+      "page": 29,
+      "question_type": "standard",
+      "image": "images/q_0059.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Two very thin and very long uniform wires, placed very close to each other; carry equal but opposite currents Point 1 is exactly at the middle of those wires   and point 2 is far away from the wires. Which one among the following regarding the net magnetic field produced is correct ?",
+      "options": {
+        "a": "Magnetic field at point 1 is Zero",
+        "b": "Magnetic field at point 2 is Zero",
+        "c": "Magnetic field lines will form elliptical loops around the wires",
+        "d": "Magnetic field lines will form circular loops around the wires"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.86,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 60,
+      "page": 29,
+      "question_type": "standard",
+      "image": "images/q_0060.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following is the primary reason for asking persons undergoing X-ray imaging to remove metallic objects ?",
+      "options": {
+        "a": "Metallic objects can absorb / reflect X-ray resulting in dark / bright spot",
+        "b": "Metallic objects can melt causing serious skin damage",
+        "c": "X-ray can create sparks on hitting the metallic objects",
+        "d": "X-ray can damage the metallic objects by altering their composition"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.871,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Physics"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 61,
+      "page": 29,
+      "question_type": "standard",
+      "image": "images/q_0061.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following protocols works at application layer in a TCP/IP protocol suit ?",
+      "options": {
+        "a": "<span style=\"font-size: 15px; font-weight: 600;\">&nbsp;IP</span>",
+        "b": "TCP",
+        "c": "TELNET",
+        "d": "Go-back-N"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.913,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Computer"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 62,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0062.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following tasks is NOT carried out  by an operating system ?",
+      "options": {
+        "a": "To link a program with the subroutines it references",
+        "b": "To manage   data   transfer to and from peripherals",
+        "c": "To allocate memory for   storing programs",
+        "d": "To provide a layered, user-friendly interface"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.92,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Computer"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 63,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0063.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following is NOT true about Standard Generalised Markup Language (SGML) ?",
+      "options": {
+        "a": "It is an international open standard",
+        "b": "It is   dependent on a computer's hardware",
+        "c": "It is independent of a computer's operating system",
+        "d": "It defines document type"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.894,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Computer"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 64,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0064.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following consists of a list of commands that is executed automatically as the computer system starts up ?",
+      "options": {
+        "a": "COMMAND.COM",
+        "b": "AUTOEXEC.BAT",
+        "c": "CONFIG.SYS",
+        "d": "AUTOSTART.BAT"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.879,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Computer"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 65,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0065.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "In MS Word, which one  among the following is used to set the alignment for the content in the document ?",
+      "options": {
+        "a": "Ruler bar",
+        "b": "Toolbar",
+        "c": "Status bar",
+        "d": "Scrollbar"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.921,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Computer"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 66,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0066.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following are the forms of calcium carbonate ?<br><br>1. Marble&nbsp;<div>2 Chalk<br>3. Limestone<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 and 2 only",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "1, 2 and 3"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.893,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 67,
+      "page": 31,
+      "question_type": "standard",
+      "image": "images/q_0067.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Upon adding hydrochloric acid in copper oxide, it turns to   blue-green color which is due to the formation of",
+      "options": {
+        "a": "Copper hydrochloride",
+        "b": "Copper (II) chloride",
+        "c": "Copper (I) chloride",
+        "d": "Copper (I) hydride"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.864,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 68,
+      "page": 33,
+      "question_type": "match_the_list",
+      "image": "images/q_0068.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Match List [ with List II and select the answer using the code given below the Lists List [ List II (Acid present) (Source) A Tomato<br><br>1 . Acetic acid<br><br>2. Methanoic acid B Sour milk C. Ant sting<br><br>3. Oxalic Acid D Vinegar<br><br>4. Lactic acid Code B A",
+      "options": {
+        "a": "3 () 2 4 3",
+        "b": "",
+        "c": "",
+        "d": "3"
+      },
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Tomato"
+          },
+          {
+            "label": "B",
+            "text": "Sour milk"
+          },
+          {
+            "label": "C",
+            "text": "Ant sting"
+          },
+          {
+            "label": "D",
+            "text": "Vinegar"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "Acetic acid"
+          },
+          {
+            "label": "2",
+            "text": "Methanoic acid"
+          },
+          {
+            "label": "3",
+            "text": "Oxalic Acid"
+          },
+          {
+            "label": "4",
+            "text": "Lactic acid"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                null,
+                null,
+                null,
+                null
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                null,
+                "4",
+                "2",
+                null
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                null,
+                null,
+                null,
+                "3"
+              ]
+            }
+          ]
+        }
+      },
+      "has_underline": false,
+      "ocr_confidence": 0.913,
+      "needs_review": true,
+      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'Match List [ with List II and select the answer using (Source)'; List II: discarded unlabeled text (not a missing item): 'the code given below the (Acid present)'; expected 4 answer-grid rows, found 5; Code table row (a): missing value(s) - ['3', None, None, None]; Code table row (b): missing value(s) - [None, None, None, None]; Code table row (c): missing value(s) - [None, '4', '2', None]; Code table row (d): missing value(s) - [None, None, None, '3']",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 69,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0069.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Chemical formula of cooking soda is",
+      "options": {
+        "a": "NaCl",
+        "b": "NaOCl",
+        "c": "NazCO3",
+        "d": "NaHCO;"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.772,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 70,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0070.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sodium metal is kept immersed in kerosene oil. This is because",
+      "options": {
+        "a": "It evaporates quickly in the air",
+        "b": "It undergoes corrosion with air",
+        "c": "It reacts violently with moisture in air",
+        "d": "All of the above"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.87,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 71,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0071.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Concentration of a solution can be expressed in<br>1. Molarity&nbsp;<div>2 Molality<br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.942,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 72,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0072.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "When electricity is passed through an aqueous   solution of sodium chloride; it decomposes to form",
+      "options": {
+        "a": "NaHCO3",
+        "b": "NaOH",
+        "c": "HCI",
+        "d": "HOCI"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.839,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 73,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0073.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The mass of one mole of a substance in grams is called its",
+      "options": {
+        "a": "Kilo-gram mass",
+        "b": "Gram-mass",
+        "c": "Molar-mass",
+        "d": "All the above"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.793,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 74,
+      "page": 33,
+      "question_type": "standard",
+      "image": "images/q_0074.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "An aqueous solution of an acid conducts electricity: This is because",
+      "options": {
+        "a": "It contains hydrogen ion",
+        "b": "It contains water molecules",
+        "c": "Electricity passes through it",
+        "d": "It generates electricity"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.824,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 75,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0075.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "A chemical that donate proton (hydrogen ion) is called",
+      "options": {
+        "a": "Hydrophilic",
+        "b": "Protophilic",
+        "c": "Hydrophobic",
+        "d": "Acid"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Chemistry"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 76,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0076.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "`Study of human societies and cultures from the oldest times to the present' is the work of",
+      "options": {
+        "a": "Archaeologists",
+        "b": "Anthropologists",
+        "c": "Palaeontologists",
+        "d": "Geologists"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.896,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 77,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0077.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "How many of the following pairs is/are correctly matched ? Harappan Modern site state/region&nbsp;<br><br>1 . Bhirrana: Haryana<br><br>2. Ganweriwala: Punjab (Pakistan)<br><br>3. Dholavira: Gujarat<br><br>4. Farmana: Uttar Pradesh<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.873,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Ancient India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 78,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0078.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following is/are correct about the Harappans ?<br><br>1. They were the first to grow cotton in Eurasia<br>2. They consumed   turmeric, ginger and banana<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.879,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Ancient India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 79,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0079.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The stories of Shvetaketu and Nachiketa teach us the worth of",
+      "options": {
+        "a": "Unquestioned obedience to Rishis",
+        "b": "Asking   questions in   pursuit of knowledge",
+        "c": "&nbsp;Lasting friendships in life",
+        "d": "Physical labour for healthy life"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.871,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 80,
+      "page": 35,
+      "question_type": "standard",
+      "image": "images/q_0080.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following schools of thought believed that this material world is the only thing that exists and therefore 'there can be no life after death",
+      "options": {
+        "a": "Vaisheshika",
+        "b": "Ajivika",
+        "c": "Charvaka",
+        "d": "Nyaya"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.889,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 81,
+      "page": 37,
+      "question_type": "standard",
+      "image": "images/q_0081.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements<br><br>1. Dasavatara temple at Deogarh is a Gupta period building<br><br>2. Bhitargaon temple is built of dressed stone<br><br>Which of the above statements is / are correct ?",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.906,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 82,
+      "page": 37,
+      "question_type": "standard",
+      "image": "images/q_0082.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements about the treaty of Allahabad (1765)<br><br>1 . It was an agreement between the Mughal emperor Shah Alam II and the English East India Company&nbsp;<div><br></div><div>2 It made the   English East India Company the Diwan of Bengal; Bihar and Orissa<br><br>3. As per the provisions of the treaty, the East India Company was granted Diwani in exchange for an annual tribute to Mughal Emperor&nbsp;</div><div><br></div><div>4 The treaty was worked out   after the defeat of the Mughal emperor in the battle of Buxar&nbsp;</div><div><br></div><div>How many of  the above statements is/are correct ?</div>",
+      "options": {
+        "a": "1",
+        "b": "2",
+        "c": "3",
+        "d": "4"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.907,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Modern India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 83,
+      "page": 37,
+      "question_type": "standard",
+      "image": "images/q_0083.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following is <u>a</u> correct order of placement of major Harappan settlements from north to south ?",
+      "options": {
+        "a": "Lakhmirwala; Banawali, Rakhigarhi, Bhirrana",
+        "b": "Rakhigarhi, Banawali, Bhirrana; Lakhmirwala",
+        "c": "Banawali, Rakhigarhi, Lakhmirwala, Bhirrana",
+        "d": "Rakhigarhi, Bhirrana, Banawali, Lakhmirwala the   following landmarks in"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.873,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 84,
+      "page": 37,
+      "question_type": "standard",
+      "image": "images/q_0084.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Arrange the discovery and preservation of early monuments and sculpture in a chronological order<br><br>1 . Founding of the Indian museum, Calcutta&nbsp;<div><br></div><div>2.&nbsp;<u>H.</u> <u>H.</u> Cole appointed Curator of Ancient Monuments<br><br>3 . Establishment of the Government Museum; Madras<br><br>4. Passing of <u>the</u> Indian Treasure Trove Act, 1878<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1,2, 3, 4",
+        "b": "1,3, 2, 4",
+        "c": "2, 3, 4, 1",
+        "d": "3, 4, 2, 1"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.851,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 85,
+      "page": 39,
+      "question_type": "standard",
+      "image": "images/q_0085.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "With reference to the eligibility criteria for becoming the member of a Sabha as laid down in the Uttarmerur inscription, consider the following statements<br><br>1. The candidate should have his own house  and his own plot of land&nbsp;<div>2 The candidate should be within 60 years of age   and above 30 years<br><br>Which of the statements   given above is/are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.901,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 86,
+      "page": 39,
+      "question_type": "standard",
+      "image": "images/q_0086.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Why <u>do</u> you <u>think</u> <u>Vijayanagara</u> incorporated agricultural  tracts  within the fortified area ?",
+      "options": {
+        "a": "To promote high yield agriculture under State supervision",
+        "b": "To protect the   agricultural belt from the   sieges of an invading army",
+        "c": "To   protect the agriculture from stray animals",
+        "d": "To   protect the agriculture from drought"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.94,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 87,
+      "page": 39,
+      "question_type": "standard",
+      "image": "images/q_0087.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "What do you think the titles of Mahendravarman-I like 'Vichitrachitta', Chaityakari' and 'Chitrakarapuli' seem to suggest ?",
+      "options": {
+        "a": "It shows his proficiency in Sanskrit literature",
+        "b": "It   shows his   interest  in art activities",
+        "c": "It shows his charming personality",
+        "d": "It shows his interest in conducting experiments with agriculture"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.853,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [
+        "IMP"
+      ],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 88,
+      "page": 39,
+      "question_type": "standard",
+      "image": "images/q_0088.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The term 'Pendentive' refers to which form of Indian architecture ?",
+      "options": {
+        "a": "AS building/ temple which tends to be broader and shorter than Latina type",
+        "b": "A triangular bracket in the angle of two walls, connecting the base of the dome to its supporting arches",
+        "c": "Drum house from where cere - monial music was played which was usually situated over the gate",
+        "d": "Many curves in an arch"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.881,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 89,
+      "page": 39,
+      "question_type": "standard",
+      "image": "images/q_0089.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following European travelers have NOT written an account of the Vijayanagara Empire ?",
+      "options": {
+        "a": "Niccolo di Conti",
+        "b": "Marco Polo",
+        "c": "Domingo Paes",
+        "d": "Fernao Nuniz"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.892,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 90,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0090.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Who among the following was the founder president of the Asiatic Society of Bengal ?",
+      "options": {
+        "a": "Charles Wilkins",
+        "b": "William Jones",
+        "c": "Warren Hastings",
+        "d": "Henry Colebrooke"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.842,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Modern India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 91,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0091.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following terms was used in the   Sangam Texts for ploughmen ?",
+      "options": {
+        "a": "Vellalar",
+        "b": "Uzhavar",
+        "c": "Gahpati",
+        "d": "Adimai"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.934,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Heritage, Art and Culture"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 92,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0092.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Prithivimahadevi, Dharmamahadevi, Dandimahadevi and  Valkulamahadevi, who became rulers due to the absence of a male heir; belonged to the",
+      "options": {
+        "a": "Eastern Chalukya dynasty",
+        "b": "Kadamba dynasty",
+        "c": "Bhauma-Kara dynasty",
+        "d": "Gonanda dynasty"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.854,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Medieval India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 93,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0093.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Sri Narayana Dharma Paripalana Movement took place in which of the following States of India ?",
+      "options": {
+        "a": "Tamil Nadu",
+        "b": "Kerala",
+        "c": "Punjab",
+        "d": "Uttarakhand"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.913,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Freedom Movement"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 94,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0094.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "With reference to the Shunga dynasty; Patanjali refers to the yavanas reaching up to Saketa and Madhyamika: The place Madhyamika is identified as located near",
+      "options": {
+        "a": "Chittor",
+        "b": "Ujjain",
+        "c": "Kaushambi",
+        "d": "Pataliputra"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.904,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Ancient India"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 95,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0095.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The Sylhet Referendum was held in ?",
+      "options": {
+        "a": "1947",
+        "b": "1948",
+        "c": "1949",
+        "d": "1950"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.892,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Freedom Movement"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 96,
+      "page": 41,
+      "question_type": "standard",
+      "image": "images/q_0096.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements with regard to the defence sector in India :<br><br>1. The overall defence budget has increased   from about &lt;2.50 lakh crore in FY 2013-14 to ?7.80 lakh crore in FY 2026-27&nbsp;<div><br></div><div>2 Capital expenditure has risen sharply from about &lt;94,000 crore in 2014-15 to more than &lt;2.00 lakh crore in 2026-27<br><br>Which of the statements   given  above is/ are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.844,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Economy"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 97,
+      "page": 43,
+      "question_type": "standard",
+      "image": "images/q_0097.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The   Technology   Development Fund (TDF) is a flagship initiative under",
+      "options": {
+        "a": "Ministry of Defence",
+        "b": "Ministry of Heavy Industries&nbsp;",
+        "c": "Ministry of Science and Technology",
+        "d": "Ministry of Agriculture and Farmers Welfare"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.867,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Development"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 98,
+      "page": 43,
+      "question_type": "standard",
+      "image": "images/q_0098.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Consider the following statements about Exercise Khaan Quest, 2026<br><br>1. The Indian Army contingent comprises 40 personnel, including troops from a battalion of the Sikh Regiment and personnel from other Arms and Services<br><br>2. The aim of the Exercise is to prepare   contingents of participating Defence Forces   for peacekeeping missions while operating in a multilateral  environment<br><br>Which of the statements  given  above is /are correct ?",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.886,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 99,
+      "page": 43,
+      "question_type": "standard",
+      "image": "images/q_0099.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "How many of the 2026 Padma awardees were conferred the award from the category of Foreigners NRI / PIO / OCI ?",
+      "options": {
+        "a": "2",
+        "b": "4",
+        "c": "6",
+        "d": "8"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.915,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Current Affairs"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 100,
+      "page": 43,
+      "question_type": "standard",
+      "image": "images/q_0100.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "The Report on Floating Solar PV Potential Assessment of India was released by",
+      "options": {
+        "a": "Ministry of Power",
+        "b": "Ministry of New and   Renewable Energy",
+        "c": "Ministry of Coal",
+        "d": "Ministry of Petroleum and Natural Gas"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.866,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Current Affairs"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 101,
+      "page": 43,
+      "question_type": "standard",
+      "image": "images/q_0101.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one among the following was the theme of Fire Safety Week 2026 ?",
+      "options": {
+        "a": "Unite to Ignite, a Fire Safe India",
+        "b": "Safe Schools, Safe Hospitals, and <u>a</u> Fire-Safety Aware Society Together for Fire Prevention",
+        "c": "Ensure Fire Safety; Contribute towards Nation Building",
+        "d": "Awareness in Fire Safety for Growth of National Infrastructure"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.831,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 102,
+      "page": 45,
+      "question_type": "standard",
+      "image": "images/q_0102.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "NDMA has recently successfully operationalised <u>the</u> Integrated Alert System (SACHET). It has been developed by",
+      "options": {
+        "a": "C-DOT (Centre for Development of Telematics)",
+        "b": "C-DAC (Centre for Development of Advanced Computing)",
+        "c": "C-MET (Centre for Materials for Electronics Technology)",
+        "d": "SAMEER (Society for Applied Microwave Electronics Engineering & Research)"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.91,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 103,
+      "page": 45,
+      "question_type": "standard",
+      "image": "images/q_0103.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which book won the 2026 International Booker Prize ?",
+      "options": {
+        "a": "Taiwan Travelogue",
+        "b": "Transcription",
+        "c": "Shadow Ticket",
+        "d": "Vigil"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.949,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 104,
+      "page": 45,
+      "question_type": "standard",
+      "image": "images/q_0104.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements relating to SEBI (Index Providers) Regulations, 2024 is/are correct ?<br><br>1. These are applicable only to Index Providers that administer significant indices   consisting of securities   listed on a recognized stock exchange in India for use in the Indian securities market&nbsp;<div>2 The  primary objective is to promote   transparency and accountability in governance and administration of indices<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only (6b) 2 only",
+        "b": "",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.898,
+      "needs_review": true,
+      "review_reason": "missing option(s)",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 105,
+      "page": 45,
+      "question_type": "standard",
+      "image": "images/q_0105.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements regarding `Startup India Fund of Funds&nbsp;2.0' is/are correct ?<br><br>1. It has a corpus of about &lt;10,000 crore<br><br>2. NITI Aayog serves as the primary implementation agency<br><br>3. It focuses on deep-tech and technology-driven manufacturing startups<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1, 2 and 3",
+        "b": "2 and 3 only",
+        "c": "1 and 3 only",
+        "d": "2 only"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.906,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Schemes"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 106,
+      "page": 47,
+      "question_type": "standard",
+      "image": "images/q_0106.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements regarding the similarity in glycogen in animal <u>cell</u> and starch in plant <u>cell</u> is/ are NOT correct ?&nbsp;<div>1 Both are mixtures of amylose and amylopectin&nbsp;</div><div>2 Starch and glycogen, both represent the storage form of carbohydrate in liver cells<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.942,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 107,
+      "page": 47,
+      "question_type": "comprehension",
+      "image": "images/q_0107.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "In which of the following processes, active transport is NOT used ?",
+      "options": {
+        "a": "Reabsorption of amino acids and glucose from kidney into blood",
+        "b": "Loading sugar from photosynthesizing leaf cells into phloem tissue for transportation",
+        "c": "Passage of Na and Cl through hydrophilic channel created by protein  molecules",
+        "d": "Absorption of glucose and electrolytes into the bloodstream"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.856,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 108,
+      "page": 47,
+      "question_type": "standard",
+      "image": "images/q_0108.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following is NOT true of mitotic cell division ?",
+      "options": {
+        "a": "The nuclei of the two daughter cells in mitosis have same number of chromosomes",
+        "b": "Replacement of cell and tissue repairing is possible through mitosis",
+        "c": "Asexual reproduction in eukaryotes is done by mitosis",
+        "d": "The cells become haploid as a result of mitosis"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.907,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 109,
+      "page": 47,
+      "question_type": "standard",
+      "image": "images/q_0109.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<u>Which</u> one of the following is important for   cartilage but NOT a globin protein ?",
+      "options": {
+        "a": "Haemoglobin",
+        "b": "Myoglobin",
+        "c": "Keratin",
+        "d": "Collagen"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.922,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 110,
+      "page": 47,
+      "question_type": "standard",
+      "image": "images/q_0110.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following   activity <u>a</u> mammalian erythrocyte CANNOT perform ?",
+      "options": {
+        "a": "Diffusion of oxygen",
+        "b": "Protein synthesis and cell division",
+        "c": "Squeeze while passing through capillaries",
+        "d": "Carry haemoglobin&nbsp;"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 111,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0111.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">111. Consider the following statements associated with Malaria&nbsp;</span><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">1. Only the female Anopheles mosquitoes take human blood for reproduction</span></div><div><br></div><div>2 Plasmodium can pass across the placenta from mother to foetus&nbsp;</div><div><br></div><div>Which of the statements  given above is/ are correct ?</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.95,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 112,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0112.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following is involved in light independent reactions of photosynthesis ?",
+      "options": {
+        "a": "Calvin cycle",
+        "b": "Hill reaction",
+        "c": "Photosystem",
+        "d": "Light absorption by photosynthetic pigments"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.925,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 113,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0113.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following is associated to Schizophrenia ?",
+      "options": {
+        "a": "Multiple personalities",
+        "b": "Neurodegeneration",
+        "c": "Not subjected to environmental influence",
+        "d": "Hallucination"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.965,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 114,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0114.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following is NOT found in a prokaryotic cell ?",
+      "options": {
+        "a": "Cell wall",
+        "b": "Ribosome",
+        "c": "Nuclear membrane",
+        "d": "Plasmid DNA"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.953,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 115,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0115.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements is NOT correct ?",
+      "options": {
+        "a": "Hardy_Weinberg Principle says that  allele frequencies in a population is unstable",
+        "b": "Branching descent and natural selection are the two key concepts of Darwinian Theory of evolution",
+        "c": "Lamarckism is based on inheritance of acquired character",
+        "d": "The concept of mutation, gene flow, genetic drift, gene recombination and natural selection affect Hardy-Weinberg equilibrium"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.894,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 116,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0116.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following can be considered   associated with   mitigation of environmental problems",
+      "options": {
+        "a": "Biomagnification",
+        "b": "Accelerated eutrophication",
+        "c": "Release of Nuclear wastes",
+        "d": "Categorical disposal of  different wastes"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.844,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 117,
+      "page": 51,
+      "question_type": "standard",
+      "image": "images/q_0117.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the following statements is/are associated with role of enzymes in genetic engineering ?<br><br>1. Exonucleases   remove nucleotides from the ends of DNA&nbsp;<div>2 Restriction endonucleases are used to form recombinant  molecule of DNA<br><br>Select the answer using the code given below</div>",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.89,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 118,
+      "page": 51,
+      "question_type": "standard",
+      "image": "images/q_0118.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following is NOT a biocontrol agent ?",
+      "options": {
+        "a": "Bacillus thuringiensis",
+        "b": "Ladybird beetle",
+        "c": "Trichoderma",
+        "d": "Aphid"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.898,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 119,
+      "page": 51,
+      "question_type": "standard",
+      "image": "images/q_0119.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which one of the following statements is NOT correct ?",
+      "options": {
+        "a": "Single celled eukaryotes belong to Kingdom Protista",
+        "b": "Yeast; a fungus is multicellular",
+        "c": "The fungi <u>constitute</u> a unique kingdom of heterotrophs",
+        "d": "Ascomycetes, a saprophytic fungi is multicellular or rarely unicellular"
+      },
+      "table": null,
+      "has_underline": true,
+      "ocr_confidence": 0.908,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    },
+    {
+      "q_number": 120,
+      "page": 51,
+      "question_type": "standard",
+      "image": "images/q_0120.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Which of the   following statements associated with cancer is/are correct ?<br><br>1. Oncogenes   expression and some viral infections can cause cancer<br><br>2. In metastasis, the cancer cells spread through the blood and lymphatic system<br><br>Select the answer using the code given below",
+      "options": {
+        "a": "1 only",
+        "b": "2 only",
+        "c": "Both 1 and 2",
+        "d": "Neither 1 nor 2"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.874,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
+      "explanation_html": "",
+      "tags": [],
+      "topics": [
+        "Biology"
+      ],
+      "instruction_id": null
+    }
+  ],
+  "instructions": []
+}
