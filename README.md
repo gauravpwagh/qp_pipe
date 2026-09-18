@@ -86,6 +86,22 @@ explanation pane - useful when you're mostly writing and don't need the
 source image or question text on screen. The panes' widths are already
 weighted toward Explanation by default (it's the one most read/written).
 
+### Shared instructions ("Directions :")
+
+A block of consecutive questions sharing one "Directions :" paragraph
+(common in these booklets - e.g. Q1-10 all say "select the option that
+best describes...") is stored once, not once per question: it gets its
+own entry (`I1`, `I2`, ...) in the paper's nav sequence, right before the
+first question it applies to - `..., Q7, I1, Q8, Q9, ...`. Selecting one
+shows it the same way a question is - image left, editable text middle -
+minus the answer/topics/tags/explanation parts, which don't apply to it.
+It starts with no image (the pipeline doesn't separately track a
+Directions header's own region); use the same **Edit** button/full-page
+editor described above to mark where it is on the page. A paper processed
+before this feature existed is migrated automatically the first time it's
+opened - its previously-duplicated per-question text is split out into
+instructions transparently, no reprocessing needed.
+
 The explanation editor's toolbar has a **formula** button (type/paste raw
 LaTeX, renders inline via KaTeX) and an **image** button, and also accepts
 a directly pasted image (e.g. copied from the LaTeX Scratchpad tab below,
@@ -166,7 +182,19 @@ Review picker - user-chosen at upload time, falls back to the filename),
 `source_filename` (the original uploaded filename), `source_pdf` (relative
 path to the stored copy, normally `"source.pdf"`), `processed_at`,
 `total_questions`, `qa` (`sequence_ok`/`warnings`/`needs_review_count`),
-and `questions`. Each question in that array:
+`instructions`, and `questions`.
+
+Each entry in `instructions` (see src/instructions.py; empty list if no
+question shares a Directions block with another):
+
+| field | meaning |
+|---|---|
+| `instruction_id` | `"I1"`, `"I2"`, ... - referenced by each question's own `instruction_id` |
+| `text_html` | the Directions text (editable in the Review UI) |
+| `applies_to` | ascending list of `q_number`s this instruction covers |
+| `image`, `image_regions` | `null` until manually set via the Review UI's "Edit image" tool - same shape as a question's (below) |
+
+Each question in the `questions` array:
 
 | field | meaning |
 |---|---|
@@ -174,7 +202,8 @@ and `questions`. Each question in that array:
 | `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list` |
 | `image` | path (relative to the paper's folder) to the cropped question image |
 | `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |
-| `section_directions_html`, `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
+| `instruction_id` | `null`, or the `instructions` entry this question shares a Directions block with |
+| `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
 | `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list`) |
 | `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`), else `null` |
 | `ocr_confidence`, `needs_review`, `review_reason` | as in the CSV schema below |

@@ -18,6 +18,7 @@ from werkzeug.utils import secure_filename
 from . import jobs
 from .variants import VARIANTS
 from src import latex_ocr, screenshot_stitch
+from src.instructions import extract_instructions
 from src.pipeline import crop_and_stack_regions
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -51,7 +52,14 @@ def _read_paper(paper_id: str) -> dict | None:
     if not path.exists():
         return None
     with open(path, "r", encoding="utf-8") as f:
-        return json.load(f)
+        paper = json.load(f)
+    if "instructions" not in paper:
+        # One-time lazy migration for a paper.json written before shared
+        # Directions text was split out (see src/instructions.py) - avoids
+        # needing to re-OCR every already-processed job to get it.
+        paper["instructions"] = extract_instructions(paper["questions"])
+        _write_paper_atomic(paper_id, paper)
+    return paper
 
 
 def _write_paper_atomic(paper_id: str, paper: dict) -> None:
@@ -215,24 +223,35 @@ def api_paper_page_image(paper_id, filename):
     return send_from_directory(_paper_dir(paper_id) / "page_images", filename)
 
 
-@app.route("/api/papers/<paper_id>/questions/<int:q_number>/recrop", methods=["POST"])
-def api_recrop_question(paper_id, q_number):
-    body = request.get_json(force=True, silent=True) or {}
+def _crop_regions_or_error(paper_id: str, body: dict):
+    """Shared by the question and instruction recrop routes: validate the
+    {page, boxes} body, load that page's stored image, and produce the
+    stacked crop. Returns (combined_image, None) on success or
+    (None, (response, status)) on failure."""
     page = body.get("page")
     boxes = body.get("boxes")
     if not isinstance(page, int) or not isinstance(boxes, list) or not boxes:
-        return jsonify({"error": "expected {page: int, boxes: [[x0,y0,x1,y1], ...]}"}), 400
+        return None, (jsonify({"error": "expected {page: int, boxes: [[x0,y0,x1,y1], ...]}"}), 400)
     for b in boxes:
         if not (isinstance(b, list) and len(b) == 4 and all(isinstance(v, (int, float)) for v in b)):
-            return jsonify({"error": "each box must be [x0,y0,x1,y1]"}), 400
+            return None, (jsonify({"error": "each box must be [x0,y0,x1,y1]"}), 400)
 
     page_image_path = _paper_dir(paper_id) / "page_images" / f"page_{page:03d}.png"
     if not page_image_path.exists():
-        return jsonify({"error": f"no stored page image for page {page}"}), 404
+        return None, (jsonify({"error": f"no stored page image for page {page}"}), 404)
 
     combined = crop_and_stack_regions([(page_image_path, tuple(float(v) for v in b)) for b in boxes])
     if combined is None:
-        return jsonify({"error": "could not crop the given region(s)"}), 400
+        return None, (jsonify({"error": "could not crop the given region(s)"}), 400)
+    return combined, None
+
+
+@app.route("/api/papers/<paper_id>/questions/<int:q_number>/recrop", methods=["POST"])
+def api_recrop_question(paper_id, q_number):
+    body = request.get_json(force=True, silent=True) or {}
+    combined, err = _crop_regions_or_error(paper_id, body)
+    if err:
+        return err
 
     with _write_lock:
         paper = _read_paper(paper_id)
@@ -250,10 +269,56 @@ def api_recrop_question(paper_id, q_number):
         question["image"] = f"images/{rel_name}"
         # Remembered so re-opening the editor later starts from the last
         # manual selection instead of blank.
-        question["image_regions"] = {"page": page, "boxes": boxes}
+        question["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
         _write_paper_atomic(paper_id, paper)
 
     return jsonify(question)
+
+
+@app.route("/api/papers/<paper_id>/instructions/<instruction_id>", methods=["PATCH"])
+def api_update_instruction(paper_id, instruction_id):
+    body = request.get_json(force=True, silent=True) or {}
+    if "text_html" not in body:
+        return jsonify({"error": "expected {text_html}"}), 400
+
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        inst = next((i for i in paper.get("instructions", []) if i["instruction_id"] == instruction_id), None)
+        if inst is None:
+            return jsonify({"error": "instruction not found"}), 404
+        inst["text_html"] = body["text_html"]
+        _write_paper_atomic(paper_id, paper)
+
+    return jsonify(inst)
+
+
+@app.route("/api/papers/<paper_id>/instructions/<instruction_id>/recrop", methods=["POST"])
+def api_recrop_instruction(paper_id, instruction_id):
+    body = request.get_json(force=True, silent=True) or {}
+    combined, err = _crop_regions_or_error(paper_id, body)
+    if err:
+        return err
+
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        inst = next((i for i in paper.get("instructions", []) if i["instruction_id"] == instruction_id), None)
+        if inst is None:
+            return jsonify({"error": "instruction not found"}), 404
+
+        images_dir = _paper_dir(paper_id) / "images"
+        images_dir.mkdir(parents=True, exist_ok=True)
+        rel_name = f"{instruction_id}.png"
+        combined.save(images_dir / rel_name)
+
+        inst["image"] = f"images/{rel_name}"
+        inst["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
+        _write_paper_atomic(paper_id, paper)
+
+    return jsonify(inst)
 
 
 @app.route("/api/papers/<paper_id>/source.pdf")
@@ -327,16 +392,16 @@ def api_variant_vocab(variant_id):
 def api_update_question(paper_id, q_number):
     body = request.get_json(force=True, silent=True) or {}
     # user_answer/explanation_html/tags/topics: the review workflow's own
-    # fields. question_stem_html/section_directions_html/passage_text_html/
-    # options: lets the user correct OCR mistakes directly in the question
-    # body.
+    # fields. question_stem_html/passage_text_html/options: lets the user
+    # correct OCR mistakes directly in the question body. A question's
+    # shared Directions text lives on its instruction entry instead (see
+    # src/instructions.py) - edited via the /instructions/<id> route.
     allowed_flat = {
         "user_answer",
         "explanation_html",
         "tags",
         "topics",
         "question_stem_html",
-        "section_directions_html",
         "passage_text_html",
     }
     updates = {k: v for k, v in body.items() if k in allowed_flat}

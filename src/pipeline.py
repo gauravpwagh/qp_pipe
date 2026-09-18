@@ -14,6 +14,7 @@ import numpy as np
 from PIL import Image
 
 from .bbox import compute_bboxes
+from .instructions import extract_instructions
 from .match_list import reconstruct as reconstruct_match_list
 from .ocr import Box, ocr_image
 from .parse_questions import parse_document, Question
@@ -220,6 +221,11 @@ def run_pipeline_json(
             }
         )
 
+    # Collapses runs of consecutive questions that share the exact same
+    # Directions text (see instructions.py) into one entry each, instead of
+    # storing the same paragraph once per question under it.
+    instructions = extract_instructions(question_dicts)
+
     needs_review_count = sum(1 for q in questions if q.needs_review)
     paper_id = paper_dir_p.name
     resolved_source_filename = source_filename or Path(pdf_path).name
@@ -239,6 +245,7 @@ def run_pipeline_json(
             "warnings": warnings,
             "needs_review_count": needs_review_count,
         },
+        "instructions": instructions,
         "questions": question_dicts,
     }
 

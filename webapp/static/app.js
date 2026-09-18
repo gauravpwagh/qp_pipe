@@ -2,6 +2,7 @@
 let quill = null;
 let currentPaper = null; // full paper JSON
 let currentQuestion = null; // current question object (reference into currentPaper.questions)
+let currentInstruction = null; // current instruction object (reference into currentPaper.instructions) - mutually exclusive with currentQuestion
 let pendingSelectPaperId = null; // set right after a process job finishes
 let jobPollTimer = null;
 
@@ -172,6 +173,23 @@ document.getElementById("delete-paper-btn").addEventListener("click", async () =
   await loadPapers();
 });
 
+// Interleaves each instruction into the question sequence right before the
+// first question it applies to (e.g. Q7, I1, Q8, Q9) - the natural reading
+// order, instead of listing all instructions separately from questions.
+function buildNavSequence(paper) {
+  const instByFirstQ = new Map();
+  for (const inst of paper.instructions || []) {
+    instByFirstQ.set(inst.applies_to[0], inst);
+  }
+  const seq = [];
+  for (const q of paper.questions) {
+    const inst = instByFirstQ.get(q.q_number);
+    if (inst) seq.push({ type: "instruction", id: inst.instruction_id });
+    seq.push({ type: "question", q_number: q.q_number });
+  }
+  return seq;
+}
+
 async function loadPaper(paperId) {
   if (!paperId) return;
   const res = await fetch(`/api/papers/${paperId}`);
@@ -180,15 +198,23 @@ async function loadPaper(paperId) {
 
   const qSelect = document.getElementById("question-select");
   qSelect.innerHTML = "";
-  for (const q of currentPaper.questions) {
+  const seq = buildNavSequence(currentPaper);
+  for (const item of seq) {
     const opt = document.createElement("option");
-    opt.value = q.q_number;
-    opt.textContent = `Q${q.q_number}${q.needs_review ? " ⚠" : ""}`;
+    if (item.type === "instruction") {
+      opt.value = `I:${item.id}`;
+      opt.textContent = `${item.id} (Instructions)`;
+      opt.className = "instruction-option";
+    } else {
+      const q = currentPaper.questions.find((qq) => qq.q_number === item.q_number);
+      opt.value = `Q:${item.q_number}`;
+      opt.textContent = `Q${item.q_number}${q.needs_review ? " ⚠" : ""}`;
+    }
     qSelect.appendChild(opt);
   }
   document.getElementById("review-empty").hidden = true;
   document.getElementById("review-body").hidden = false;
-  renderQuestion(currentPaper.questions[0].q_number);
+  if (seq.length) renderSelection(qSelect.options[0].value);
 }
 
 // Every tag/topic ever entered for this paper's variant, so typing a new
@@ -226,17 +252,30 @@ function rememberSuggestion(datalistId, value) {
   }
 }
 
-document.getElementById("question-select").addEventListener("change", (e) => renderQuestion(Number(e.target.value)));
+document.getElementById("question-select").addEventListener("change", (e) => renderSelection(e.target.value));
 
-document.getElementById("prev-q-btn").addEventListener("click", () => stepQuestion(-1));
-document.getElementById("next-q-btn").addEventListener("click", () => stepQuestion(1));
+document.getElementById("prev-q-btn").addEventListener("click", () => stepSelection(-1));
+document.getElementById("next-q-btn").addEventListener("click", () => stepSelection(1));
 
-function stepQuestion(delta) {
+function stepSelection(delta) {
   const qSelect = document.getElementById("question-select");
   const idx = qSelect.selectedIndex + delta;
   if (idx >= 0 && idx < qSelect.options.length) {
     qSelect.selectedIndex = idx;
-    renderQuestion(Number(qSelect.value));
+    renderSelection(qSelect.value);
+  }
+}
+
+// The nav dropdown/prev-next walk a single sequence of "Q:<n>" and
+// "I:<id>" values (see buildNavSequence) - dispatch to whichever render
+// function the selected entry needs.
+function renderSelection(value) {
+  if (!value) return;
+  const [kind, id] = value.split(":");
+  if (kind === "I") {
+    renderInstruction(id);
+  } else {
+    renderQuestion(Number(id));
   }
 }
 
@@ -318,7 +357,12 @@ function renderQuestion(qNumber) {
   flushAllPendingSaves();
   currentQuestion = currentPaper.questions.find((q) => q.q_number === qNumber);
   if (!currentQuestion) return;
-  document.getElementById("question-select").value = String(qNumber);
+  currentInstruction = null;
+  document.getElementById("question-select").value = `Q:${qNumber}`;
+  document.getElementById("pane-question-label").textContent = "Question";
+  document.getElementById("question-body-content").hidden = false;
+  document.getElementById("instruction-body").hidden = true;
+  document.querySelector(".pane-notes").hidden = false;
 
   const meta = document.getElementById("review-meta");
   meta.textContent = currentQuestion.needs_review ? `⚠ needs review: ${currentQuestion.review_reason}` : `confidence ${currentQuestion.ocr_confidence}`;
@@ -326,10 +370,6 @@ function renderQuestion(qNumber) {
 
   const img = document.getElementById("question-image");
   img.src = currentQuestion.image ? `/api/papers/${currentPaper.paper_id}/${currentQuestion.image}` : "";
-
-  const directionsEl = document.getElementById("section-directions");
-  directionsEl.hidden = !currentQuestion.section_directions_html;
-  directionsEl.innerHTML = currentQuestion.section_directions_html || "";
 
   const passageBlock = document.getElementById("passage-block");
   if (currentQuestion.passage_text_html) {
@@ -401,6 +441,59 @@ function renderQuestion(qNumber) {
   setSaveIndicator("");
 
   renderTags();
+}
+
+// An instruction ("Directions :") shared by a run of questions gets its
+// own entry in the nav sequence (see buildNavSequence) - shown the same
+// way a question is (image left, editable text middle), but without
+// answer options or the Explanation/Topics/Tags notes pane, none of which
+// apply to it.
+function renderInstruction(instructionId) {
+  flushAllPendingSaves();
+  currentInstruction = (currentPaper.instructions || []).find((i) => i.instruction_id === instructionId);
+  if (!currentInstruction) return;
+  currentQuestion = null;
+  document.getElementById("question-select").value = `I:${instructionId}`;
+  document.getElementById("pane-question-label").textContent = "Instructions";
+  document.getElementById("question-body-content").hidden = true;
+  document.getElementById("instruction-body").hidden = false;
+  document.querySelector(".pane-notes").hidden = true;
+
+  const applies = currentInstruction.applies_to;
+  const range = applies.length > 1 ? `Q${applies[0]}-Q${applies[applies.length - 1]}` : `Q${applies[0]}`;
+  const meta = document.getElementById("review-meta");
+  meta.textContent = `applies to ${range}`;
+  meta.classList.remove("needs-review");
+
+  const img = document.getElementById("question-image");
+  img.src = currentInstruction.image ? `/api/papers/${currentPaper.paper_id}/${currentInstruction.image}` : "";
+
+  document.getElementById("instruction-meta").textContent = `Instructions - applies to ${range}`;
+  document.getElementById("instruction-text").innerHTML = currentInstruction.text_html || "";
+  setSaveIndicator("");
+}
+
+document.getElementById("instruction-text").addEventListener("input", (e) => {
+  if (!currentInstruction) return;
+  currentInstruction.text_html = e.target.innerHTML;
+  scheduleFieldSave("instruction_text", () =>
+    saveInstructionField(currentInstruction.instruction_id, { text_html: e.target.innerHTML })
+  );
+});
+
+async function saveInstructionField(instructionId, updates) {
+  setSaveIndicator("saving");
+  try {
+    const res = await fetch(`/api/papers/${currentPaper.paper_id}/instructions/${instructionId}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(updates),
+    });
+    if (!res.ok) throw new Error("save failed");
+    setSaveIndicator("saved");
+  } catch (err) {
+    setSaveIndicator("error saving");
+  }
 }
 
 function clearAnswer() {
@@ -517,29 +610,34 @@ async function saveQuestionField(qNumber, updates) {
 }
 
 function setSaveIndicator(state) {
-  const el = document.getElementById("save-indicator");
-  el.classList.remove("saving", "saved");
-  if (state === "saving") {
-    el.textContent = "Saving...";
-    el.classList.add("saving");
-  } else if (state === "saved") {
-    el.textContent = "Saved";
-    el.classList.add("saved");
-  } else if (state === "error saving") {
-    el.textContent = "Error saving";
-  } else {
-    el.textContent = "";
+  // Question mode and instruction mode each have their own indicator
+  // element (only one is ever visible at a time) - update both so
+  // whichever is showing reflects the current save state.
+  for (const id of ["save-indicator", "instruction-save-indicator"]) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    el.classList.remove("saving", "saved");
+    if (state === "saving") {
+      el.textContent = "Saving...";
+      el.classList.add("saving");
+    } else if (state === "saved") {
+      el.textContent = "Saved";
+      el.classList.add("saved");
+    } else if (state === "error saving") {
+      el.textContent = "Error saving";
+    } else {
+      el.textContent = "";
+    }
   }
 }
 
-// ---- editable question body (stem / directions / passage) ----
+// ---- editable question body (stem / passage) ----
 // One-time setup: these elements persist across renderQuestion() calls
 // (only their innerHTML is replaced), so the listeners only need attaching
 // once, not per-render.
 function initEditableFields() {
   const bindings = [
     { id: "question-stem", field: "question_stem_html", key: "stem" },
-    { id: "section-directions", field: "section_directions_html", key: "directions" },
     { id: "passage-text", field: "passage_text_html", key: "passage" },
   ];
   for (const { id, field, key } of bindings) {
@@ -998,20 +1096,52 @@ function initImageEditor() {
   let regions = []; // [{x,y,w,h}], SOURCE-page pixel coords, in draw order
   let dragStart = null; // {x,y} in canvas pixel coordinates
 
-  function pageImageUrl() {
-    const pageNum = String(currentQuestion.page).padStart(3, "0");
+  // Works on whichever of currentQuestion/currentInstruction is active, so
+  // the one "Edit image" tool serves both (an instruction has no `page`
+  // field of its own - it's inferred from the first question it applies
+  // to, since that's the page its Directions header actually sits on).
+  function getEditTarget() {
+    if (currentInstruction) {
+      const firstQ = currentPaper.questions.find((q) => q.q_number === currentInstruction.applies_to[0]);
+      return {
+        page: firstQ ? firstQ.page : null,
+        imageRegions: currentInstruction.image_regions,
+        recropUrl: `/api/papers/${currentPaper.paper_id}/instructions/${currentInstruction.instruction_id}/recrop`,
+        apply: (data) => {
+          currentInstruction.image = data.image;
+          currentInstruction.image_regions = data.image_regions;
+        },
+      };
+    }
+    if (currentQuestion) {
+      return {
+        page: currentQuestion.page,
+        imageRegions: currentQuestion.image_regions,
+        recropUrl: `/api/papers/${currentPaper.paper_id}/questions/${currentQuestion.q_number}/recrop`,
+        apply: (data) => {
+          currentQuestion.image = data.image;
+          currentQuestion.image_regions = data.image_regions;
+        },
+      };
+    }
+    return null;
+  }
+
+  function pageImageUrl(page) {
+    const pageNum = String(page).padStart(3, "0");
     return `/api/papers/${currentPaper.paper_id}/page_images/page_${pageNum}.png`;
   }
 
   function openEditor() {
-    if (!currentQuestion) return;
+    const target = getEditTarget();
+    if (!target || !target.page) return;
     errorEl.hidden = true;
     statusEl.textContent = "";
     regions = [];
     // Reuse the last manual selection as a starting point, but only if it
     // was drawn on this same page - otherwise start blank.
-    if (currentQuestion.image_regions && currentQuestion.image_regions.page === currentQuestion.page) {
-      regions = currentQuestion.image_regions.boxes.map(([x0, y0, x1, y1]) => ({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 }));
+    if (target.imageRegions && target.imageRegions.page === target.page) {
+      regions = target.imageRegions.boxes.map(([x0, y0, x1, y1]) => ({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 }));
     }
     const img = new Image();
     img.onload = () => {
@@ -1028,7 +1158,7 @@ function initImageEditor() {
       errorEl.hidden = false;
       overlay.hidden = false;
     };
-    img.src = pageImageUrl();
+    img.src = pageImageUrl(target.page);
   }
 
   function closeEditor() {
@@ -1162,21 +1292,21 @@ function initImageEditor() {
   });
 
   saveBtn.addEventListener("click", async () => {
-    if (!regions.length || !currentQuestion) return;
+    const target = getEditTarget();
+    if (!regions.length || !target) return;
     saveBtn.disabled = true;
     statusEl.textContent = "Saving...";
     errorEl.hidden = true;
     const boxes = regions.map((r) => [r.x, r.y, r.x + r.w, r.y + r.h]);
     try {
-      const res = await fetch(`/api/papers/${currentPaper.paper_id}/questions/${currentQuestion.q_number}/recrop`, {
+      const res = await fetch(target.recropUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page: currentQuestion.page, boxes }),
+        body: JSON.stringify({ page: target.page, boxes }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "recrop failed");
-      currentQuestion.image = data.image;
-      currentQuestion.image_regions = data.image_regions;
+      target.apply(data);
       document.getElementById("question-image").src = `/api/papers/${currentPaper.paper_id}/${data.image}?t=${Date.now()}`;
       statusEl.textContent = "Saved";
       closeEditor();

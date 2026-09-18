@@ -81,20 +81,27 @@
 
         <div class="pane pane-question" id="pane-question">
           <div class="pane-header">
-            <span class="pane-header-label">Question</span>
+            <span class="pane-header-label" id="pane-question-label">Question</span>
             <button type="button" class="pane-collapse-btn" data-pane="pane-question" title="Collapse">&minus;</button>
           </div>
           <div class="pane-body">
-            <div class="section-directions" id="section-directions"></div>
-            <div class="passage" id="passage-block" hidden>
-              <h4 id="passage-label"></h4>
-              <div id="passage-text"></div>
-            </div>
-            <div id="question-stem" class="question-stem"></div>
+            <div id="question-body-content">
+              <div class="passage" id="passage-block" hidden>
+                <h4 id="passage-label"></h4>
+                <div id="passage-text"></div>
+              </div>
+              <div id="question-stem" class="question-stem"></div>
 
-            <div id="options-block" class="options-block"></div>
-            <div id="table-block" class="table-block" hidden></div>
-            <button type="button" id="clear-answer-btn" class="clear-answer-btn" hidden>Clear selected answer</button>
+              <div id="options-block" class="options-block"></div>
+              <div id="table-block" class="table-block" hidden></div>
+              <button type="button" id="clear-answer-btn" class="clear-answer-btn" hidden>Clear selected answer</button>
+            </div>
+
+            <div id="instruction-body" hidden>
+              <div id="instruction-meta" class="instruction-meta"></div>
+              <div id="instruction-text" class="question-stem" contenteditable="true"></div>
+              <span id="instruction-save-indicator" class="save-indicator"></span>
+            </div>
           </div>
         </div>
 

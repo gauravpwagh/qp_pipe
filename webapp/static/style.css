@@ -150,8 +150,9 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 
 .pane-image .pane-body img { max-width: 100%; display: block; border: 1px solid var(--border); border-radius: 4px; }
 
-.section-directions { font-style: italic; color: var(--muted); font-size: 13px; margin-bottom: 10px; }
 .passage { background: #fafbfc; border: 1px solid var(--border); border-radius: 6px; padding: 10px; margin-bottom: 12px; font-size: 13px; }
+.instruction-meta { font-style: italic; color: var(--muted); font-size: 13px; margin-bottom: 10px; }
+option.instruction-option { font-style: italic; color: var(--accent); }
 .passage h4 { margin: 0 0 6px; }
 .question-stem { font-size: 15px; font-weight: 600; margin-bottom: 14px; line-height: 1.6; }
 .question-stem u, .passage u, .option-text u { text-decoration: underline; }
@@ -161,7 +162,6 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
    plain static text. */
 [contenteditable="true"] { border-radius: 4px; transition: background-color 0.1s; }
 .question-stem[contenteditable="true"],
-.section-directions[contenteditable="true"],
 #passage-text[contenteditable="true"],
 .option-text[contenteditable="true"] {
   cursor: text;
@@ -169,13 +169,11 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   margin: -2px -4px;
 }
 .question-stem[contenteditable="true"]:hover,
-.section-directions[contenteditable="true"]:hover,
 #passage-text[contenteditable="true"]:hover,
 .option-text[contenteditable="true"]:hover {
   background-color: #f5f7fa;
 }
 .question-stem[contenteditable="true"]:focus,
-.section-directions[contenteditable="true"]:focus,
 #passage-text[contenteditable="true"]:focus,
 .option-text[contenteditable="true"]:focus {
   background-color: var(--accent-bg);
