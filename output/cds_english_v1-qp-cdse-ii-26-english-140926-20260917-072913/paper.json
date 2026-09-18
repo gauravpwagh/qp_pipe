@@ -7,7 +7,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 26
+    "needs_review_count": 22
   },
   "questions": [
     {
@@ -983,7 +983,7 @@
       "image": "images/q_0037.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Sl : Wooden  furniture is durable and long-lasting, reducing the need for frequent replacement: S6 : AS still better and sustainable, though slow, way is to plant new trees to maintain the forest cover: P Some of these negative impacts are deforestation and the loss of habitat for numerous species of animals Q Deforestation in turn disrupts water-cycles and accelerates the pace of climate change. R However; its use causes several negative ecological impacts S One way of reducing the use of wood is to recycle it as much as possible:",
+      "question_stem_html": "Sl : Wooden  furniture is durable and long-lasting, reducing the need for frequent replacement:&nbsp;<div><br></div><div>S6 : AS still better and sustainable, though slow, way is to plant new trees to maintain the forest cover:&nbsp;</div><div><br></div><div>P Some of these negative impacts are deforestation and the loss of habitat for numerous species of animals&nbsp;</div><div><br></div><div>Q Deforestation in turn disrupts water-cycles and accelerates the pace of climate change.&nbsp;</div><div><br></div><div>R However; its use causes several negative ecological impacts&nbsp;</div><div><br></div><div>S One way of reducing the use of wood is to recycle it as much as possible:</div>",
       "options": {
         "a": "R P Q $",
         "b": "Q S P R",
@@ -1022,7 +1022,24 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I4"
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 10,
+        "boxes": [
+          [
+            134.990625,
+            1812.7312499999998,
+            829.228125,
+            2023.1062499999998
+          ],
+          [
+            930.909375,
+            98.175,
+            1590.084375,
+            2037.13125
+          ]
+        ]
+      }
     },
     {
       "q_number": 39,
@@ -1031,7 +1048,7 @@
       "image": "images/q_0039.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<div><span style=\"font-size: 14px; font-weight: 400;\">S1 : All the different parts of Our eye help us t0 see.&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">S6 : These electrical signals then travel through the optic nerve to the brain which in turn converts these signals into the images we see.&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">P The iris, which is the coloured part of the eye, controls how much light the pupil lets in.</span></div><div><br></div><div>Q Next; light passes through the lens, the clear  inner part of the eye, which   focuses this light on the retina:&nbsp;</div><div><br></div><div>R First; light passes through the cornea, the clear front layer of the eye, and enters the eye through an opening called the pupil.&nbsp;</div><div><br></div><div>S When it hits the   retina, special called cells photoreceptors convert the   light into electrical signals.</div>",
+      "question_stem_html": "<div><span style=\"font-size: 14px;\">S1 : All the different parts of our eye help us to see.&nbsp;</span></div><div><span style=\"font-size: 14px;\"><br></span></div><div><span style=\"font-size: 14px;\">S6 : These electrical signals then travel through the optic nerve to the brain which in turn converts these signals into the images we see.&nbsp;</span></div><div><span style=\"font-size: 14px;\"><br></span></div><div><span style=\"font-size: 14px;\">P The iris, which is the coloured part of the eye, controls how much light the pupil lets in.</span></div><div><br></div><div>Q Next; light passes through the lens, the clear  inner part of the eye, which   focuses this light on the retina:&nbsp;</div><div><br></div><div>R First; light passes through the cornea, the clear front layer of the eye, and enters the eye through an opening called the pupil.&nbsp;</div><div><br></div><div>S When it hits the   retina, special called cells photoreceptors convert the   light into electrical signals.</div>",
       "options": {
         "a": "R P S Q",
         "b": "R Q P S",
@@ -1041,12 +1058,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.696,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I4"
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 11,
+        "boxes": [
+          [
+            138.55859375,
+            94.7109375,
+            850.64453125,
+            1767.9375
+          ]
+        ]
+      }
     },
     {
       "q_number": 40,
@@ -1070,7 +1098,24 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I4"
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 11,
+        "boxes": [
+          [
+            156.09765625,
+            1824.0625,
+            854.15234375,
+            2038.0390625
+          ],
+          [
+            941.84765625,
+            94.7109375,
+            1573.25390625,
+            2020.5
+          ]
+        ]
+      }
     },
     {
       "q_number": 41,
@@ -1079,7 +1124,7 @@
       "image": "images/q_0041.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The_teacher asked that_who was absent in the class that day: No error",
+      "question_stem_html": "<u>The_teacher asked</u>&nbsp; &nbsp;<u>that_who was absent</u>&nbsp; &nbsp;&nbsp;<u>in the class that day.</u>&nbsp; &nbsp;&nbsp;<u>No error</u>",
       "options": {
         "a": "<br>",
         "b": "",
@@ -1089,8 +1134,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.856,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "a",
       "explanation_html": "",
       "tags": [],
@@ -1103,7 +1148,7 @@
       "image": "images/q_0042.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Neither of the two boys have done his homework: No error",
+      "question_stem_html": "Neither of the two boys&nbsp;<div>have done&nbsp;</div><div>his homework.</div><div>No error</div>",
       "options": {
         "a": "",
         "b": "",
@@ -1113,12 +1158,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.84,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            131.54296875,
+            498.109375,
+            1225.98046875,
+            673.5
+          ]
+        ]
+      }
     },
     {
       "q_number": 43,
@@ -1127,7 +1183,7 @@
       "image": "images/q_0043.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "43 I recommended that he would reduce his expenditure: No error",
+      "question_stem_html": "43&nbsp;<div>I recommended&nbsp;<div>that he would reduce&nbsp;</div><div>his expenditure.&nbsp;</div><div>No error</div></div>",
       "options": {
         "a": "",
         "b": "",
@@ -1137,12 +1193,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.863,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            163.11328125,
+            684.0234375,
+            1268.07421875,
+            841.875
+          ]
+        ]
+      }
     },
     {
       "q_number": 44,
@@ -1151,7 +1218,7 @@
       "image": "images/q_0044.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "I am looking forward to meet you next month No error",
+      "question_stem_html": "I am looking forward<div>to meet you&nbsp;</div><div>next month.</div><div>No error</div>",
       "options": {
         "a": "",
         "b": "",
@@ -1190,7 +1257,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            152.58984375,
+            1027.7890625,
+            1148.80859375,
+            1189.1484375
+          ]
+        ]
+      }
     },
     {
       "q_number": 46,
@@ -3597,8 +3675,18 @@
     {
       "instruction_id": "I5",
       "text_html": "Each item in this section has a sentence with three underlined parts labelled (a), (6) and (c): Read each sentence to determine  whether there is an error in any underlined   part   and indicate  your  response on  the answer   sheet against the abovementioned corresponding letter: If there is no erTor; indicate your response as (d).",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I5.png",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            210.46875,
+            112.25,
+            1578.515625,
+            336.75
+          ]
+        ]
+      },
       "applies_to": [
         41,
         42,
