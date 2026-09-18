@@ -18,6 +18,7 @@ from werkzeug.utils import secure_filename
 from . import jobs
 from .variants import VARIANTS
 from src import latex_ocr, screenshot_stitch
+from src.pipeline import crop_and_stack_regions
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -204,6 +205,55 @@ def api_delete_paper(paper_id):
 @app.route("/api/papers/<paper_id>/images/<path:filename>")
 def api_paper_image(paper_id, filename):
     return send_from_directory(_paper_dir(paper_id) / "images", filename)
+
+
+@app.route("/api/papers/<paper_id>/page_images/<path:filename>")
+def api_paper_page_image(paper_id, filename):
+    """Full source page image - used by the Review UI's "Edit image" tool,
+    which lets the user redraw the question's crop region(s) from scratch
+    rather than trusting only the pipeline's auto-detected bounding box."""
+    return send_from_directory(_paper_dir(paper_id) / "page_images", filename)
+
+
+@app.route("/api/papers/<paper_id>/questions/<int:q_number>/recrop", methods=["POST"])
+def api_recrop_question(paper_id, q_number):
+    body = request.get_json(force=True, silent=True) or {}
+    page = body.get("page")
+    boxes = body.get("boxes")
+    if not isinstance(page, int) or not isinstance(boxes, list) or not boxes:
+        return jsonify({"error": "expected {page: int, boxes: [[x0,y0,x1,y1], ...]}"}), 400
+    for b in boxes:
+        if not (isinstance(b, list) and len(b) == 4 and all(isinstance(v, (int, float)) for v in b)):
+            return jsonify({"error": "each box must be [x0,y0,x1,y1]"}), 400
+
+    page_image_path = _paper_dir(paper_id) / "page_images" / f"page_{page:03d}.png"
+    if not page_image_path.exists():
+        return jsonify({"error": f"no stored page image for page {page}"}), 404
+
+    combined = crop_and_stack_regions([(page_image_path, tuple(float(v) for v in b)) for b in boxes])
+    if combined is None:
+        return jsonify({"error": "could not crop the given region(s)"}), 400
+
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+        if question is None:
+            return jsonify({"error": "question not found"}), 404
+
+        images_dir = _paper_dir(paper_id) / "images"
+        images_dir.mkdir(parents=True, exist_ok=True)
+        rel_name = f"q_{q_number:04d}.png"
+        combined.save(images_dir / rel_name)
+
+        question["image"] = f"images/{rel_name}"
+        # Remembered so re-opening the editor later starts from the last
+        # manual selection instead of blank.
+        question["image_regions"] = {"page": page, "boxes": boxes}
+        _write_paper_atomic(paper_id, paper)
+
+    return jsonify(question)
 
 
 @app.route("/api/papers/<paper_id>/source.pdf")

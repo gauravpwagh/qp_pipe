@@ -957,7 +957,10 @@ function initLatexScratchpad() {
 // just shrinks it to a narrow strip; the other panes' flex-grow ratios
 // reclaim the freed width automatically, no layout math needed here.
 function initPaneCollapse() {
-  document.querySelectorAll(".pane-collapse-btn").forEach((btn) => {
+  // Scoped to buttons that actually declare a target pane - the pane
+  // header also holds other same-styled buttons (e.g. "Edit image") that
+  // aren't collapse toggles.
+  document.querySelectorAll(".pane-collapse-btn[data-pane]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const pane = document.getElementById(btn.dataset.pane);
       const collapsed = pane.classList.toggle("collapsed");
@@ -967,8 +970,300 @@ function initPaneCollapse() {
   });
 }
 
+// ---- Edit image: redraw a question's crop region(s) from the full page ----
+// Opens the question's full source page in a modal; the user drags one or
+// more rectangles marking the true area(s) (a question split across a
+// column break or the page needs more than one), Save re-crops server-side
+// (src/pipeline.py's crop_and_stack_regions, the same stacking logic the
+// pipeline itself uses) and overwrites the question's image.
+function initImageEditor() {
+  const overlay = document.getElementById("image-editor-overlay");
+  const canvas = document.getElementById("image-editor-canvas");
+  const ctx = canvas.getContext("2d");
+  const closeBtn = document.getElementById("image-editor-close-btn");
+  const cancelBtn = document.getElementById("image-editor-cancel-btn");
+  const saveBtn = document.getElementById("image-editor-save-btn");
+  const clearBtn = document.getElementById("image-editor-clear-btn");
+  const regionListEl = document.getElementById("image-editor-region-list");
+  const previewEl = document.getElementById("image-editor-preview");
+  const statusEl = document.getElementById("image-editor-status");
+  const errorEl = document.getElementById("image-editor-error");
+  const editBtn = document.getElementById("edit-image-btn");
+
+  const MAX_W = 900;
+  const MAX_H = 640;
+
+  let pageImage = null; // HTMLImageElement, the full source page
+  let displayScale = 1;
+  let regions = []; // [{x,y,w,h}], SOURCE-page pixel coords, in draw order
+  let dragStart = null; // {x,y} in canvas pixel coordinates
+
+  function pageImageUrl() {
+    const pageNum = String(currentQuestion.page).padStart(3, "0");
+    return `/api/papers/${currentPaper.paper_id}/page_images/page_${pageNum}.png`;
+  }
+
+  function openEditor() {
+    if (!currentQuestion) return;
+    errorEl.hidden = true;
+    statusEl.textContent = "";
+    regions = [];
+    // Reuse the last manual selection as a starting point, but only if it
+    // was drawn on this same page - otherwise start blank.
+    if (currentQuestion.image_regions && currentQuestion.image_regions.page === currentQuestion.page) {
+      regions = currentQuestion.image_regions.boxes.map(([x0, y0, x1, y1]) => ({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 }));
+    }
+    const img = new Image();
+    img.onload = () => {
+      pageImage = img;
+      displayScale = Math.min(1, MAX_W / img.naturalWidth, MAX_H / img.naturalHeight);
+      canvas.width = Math.round(img.naturalWidth * displayScale);
+      canvas.height = Math.round(img.naturalHeight * displayScale);
+      redraw();
+      renderRegionList();
+      overlay.hidden = false;
+    };
+    img.onerror = () => {
+      errorEl.textContent = "Could not load this question's page image.";
+      errorEl.hidden = false;
+      overlay.hidden = false;
+    };
+    img.src = pageImageUrl();
+  }
+
+  function closeEditor() {
+    overlay.hidden = true;
+    pageImage = null;
+  }
+
+  function drawRegion(r, label, color) {
+    const rx = r.x * displayScale;
+    const ry = r.y * displayScale;
+    const rw = r.w * displayScale;
+    const rh = r.h * displayScale;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    ctx.strokeRect(rx, ry, rw, rh);
+    ctx.fillStyle = color;
+    ctx.fillRect(rx, ry, 20, 16);
+    ctx.fillStyle = "white";
+    ctx.font = "11px sans-serif";
+    ctx.fillText(String(label), rx + 6, ry + 12);
+  }
+
+  function redraw(dragRect) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.drawImage(pageImage, 0, 0, canvas.width, canvas.height);
+    regions.forEach((r, i) => drawRegion(r, i + 1, "#2563eb"));
+    if (dragRect) drawRegion(dragRect, regions.length + 1, "#059669");
+  }
+
+  function canvasPoint(e) {
+    const rect = canvas.getBoundingClientRect();
+    const scaleX = canvas.width / rect.width;
+    const scaleY = canvas.height / rect.height;
+    return {
+      x: Math.max(0, Math.min(canvas.width, (e.clientX - rect.left) * scaleX)),
+      y: Math.max(0, Math.min(canvas.height, (e.clientY - rect.top) * scaleY)),
+    };
+  }
+
+  canvas.addEventListener("mousedown", (e) => {
+    e.preventDefault();
+    dragStart = canvasPoint(e);
+  });
+  canvas.addEventListener("mousemove", (e) => {
+    if (!dragStart || !pageImage) return;
+    const cur = canvasPoint(e);
+    const x0 = Math.min(dragStart.x, cur.x);
+    const y0 = Math.min(dragStart.y, cur.y);
+    const x1 = Math.max(dragStart.x, cur.x);
+    const y1 = Math.max(dragStart.y, cur.y);
+    redraw({ x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale });
+  });
+  window.addEventListener("mouseup", (e) => {
+    if (!dragStart || !pageImage || overlay.hidden) {
+      dragStart = null;
+      return;
+    }
+    const cur = canvasPoint(e);
+    const x0 = Math.min(dragStart.x, cur.x);
+    const y0 = Math.min(dragStart.y, cur.y);
+    const x1 = Math.max(dragStart.x, cur.x);
+    const y1 = Math.max(dragStart.y, cur.y);
+    dragStart = null;
+    if (x1 - x0 < 6 || y1 - y0 < 6) {
+      redraw(); // an accidental click/tiny drag - not a real region
+      return;
+    }
+    regions.push({ x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale });
+    redraw();
+    renderRegionList();
+  });
+
+  function renderRegionList() {
+    regionListEl.innerHTML = "";
+    regions.forEach((r, i) => {
+      const row = document.createElement("div");
+      row.className = "image-editor-region-row";
+      const label = document.createElement("span");
+      label.textContent = `Region ${i + 1}`;
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.textContent = "Remove";
+      removeBtn.addEventListener("click", () => {
+        regions.splice(i, 1);
+        redraw();
+        renderRegionList();
+      });
+      row.append(label, removeBtn);
+      regionListEl.appendChild(row);
+    });
+    saveBtn.disabled = regions.length === 0;
+    renderPreview();
+  }
+
+  function renderPreview() {
+    if (!regions.length || !pageImage) {
+      previewEl.innerHTML = `<div class="image-editor-preview-empty">Draw at least one region to preview.</div>`;
+      return;
+    }
+    const gap = 6;
+    const crops = regions.map((r) => ({ w: Math.max(1, Math.round(r.w)), h: Math.max(1, Math.round(r.h)), r }));
+    const width = Math.max(...crops.map((c) => c.w));
+    const height = crops.reduce((sum, c) => sum + c.h, 0) + gap * (crops.length - 1);
+    const c = document.createElement("canvas");
+    c.width = width;
+    c.height = height;
+    const cctx = c.getContext("2d");
+    cctx.fillStyle = "white";
+    cctx.fillRect(0, 0, width, height);
+    let y = 0;
+    for (const crop of crops) {
+      cctx.drawImage(pageImage, crop.r.x, crop.r.y, crop.w, crop.h, 0, y, crop.w, crop.h);
+      y += crop.h + gap;
+    }
+    previewEl.innerHTML = "";
+    const img = document.createElement("img");
+    img.src = c.toDataURL("image/png");
+    previewEl.appendChild(img);
+  }
+
+  clearBtn.addEventListener("click", () => {
+    regions = [];
+    redraw();
+    renderRegionList();
+  });
+
+  closeBtn.addEventListener("click", closeEditor);
+  cancelBtn.addEventListener("click", closeEditor);
+  overlay.addEventListener("mousedown", (e) => {
+    if (e.target === overlay) closeEditor();
+  });
+
+  saveBtn.addEventListener("click", async () => {
+    if (!regions.length || !currentQuestion) return;
+    saveBtn.disabled = true;
+    statusEl.textContent = "Saving...";
+    errorEl.hidden = true;
+    const boxes = regions.map((r) => [r.x, r.y, r.x + r.w, r.y + r.h]);
+    try {
+      const res = await fetch(`/api/papers/${currentPaper.paper_id}/questions/${currentQuestion.q_number}/recrop`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ page: currentQuestion.page, boxes }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "recrop failed");
+      currentQuestion.image = data.image;
+      currentQuestion.image_regions = data.image_regions;
+      document.getElementById("question-image").src = `/api/papers/${currentPaper.paper_id}/${data.image}?t=${Date.now()}`;
+      statusEl.textContent = "Saved";
+      closeEditor();
+    } catch (err) {
+      errorEl.textContent = err.message;
+      errorEl.hidden = false;
+      statusEl.textContent = "";
+    } finally {
+      saveBtn.disabled = regions.length === 0;
+    }
+  });
+
+  editBtn.addEventListener("click", openEditor);
+}
+
+// ---- floating Bold/Underline toolbar for editable question-body text ----
+// Select some text inside the stem/directions/passage/options (all
+// contenteditable, see initEditableFields()) and a small toolbar pops up
+// next to the selection - execCommand runs directly on the browser's own
+// contenteditable selection, which is what the "input" listeners already
+// on these fields pick up to save (same path as any other edit there).
+function initFormatToolbar() {
+  const toolbar = document.getElementById("format-toolbar");
+  const buttons = toolbar.querySelectorAll("button[data-cmd]");
+  const questionPane = document.getElementById("pane-question");
+
+  function isWithinEditableField(node) {
+    if (!node) return false;
+    const el = node.nodeType === Node.TEXT_NODE ? node.parentElement : node;
+    const editable = el && el.closest && el.closest('[contenteditable="true"]');
+    return !!(editable && questionPane.contains(editable));
+  }
+
+  function updateActiveStates() {
+    buttons.forEach((btn) => {
+      let active = false;
+      try {
+        active = document.queryCommandState(btn.dataset.cmd);
+      } catch (err) {
+        active = false;
+      }
+      btn.classList.toggle("active", active);
+    });
+  }
+
+  function hide() {
+    toolbar.hidden = true;
+  }
+
+  document.addEventListener("selectionchange", () => {
+    const selection = window.getSelection();
+    if (!selection || selection.isCollapsed || selection.rangeCount === 0 || !isWithinEditableField(selection.anchorNode)) {
+      hide();
+      return;
+    }
+    const rect = selection.getRangeAt(0).getBoundingClientRect();
+    if (!rect || (rect.width === 0 && rect.height === 0)) {
+      hide();
+      return;
+    }
+    toolbar.hidden = false;
+    updateActiveStates();
+    const top = rect.top - toolbar.offsetHeight - 8;
+    const left = rect.left + rect.width / 2 - toolbar.offsetWidth / 2;
+    toolbar.style.top = `${Math.max(4, top)}px`;
+    toolbar.style.left = `${Math.max(4, left)}px`;
+  });
+
+  buttons.forEach((btn) => {
+    // mousedown (not click) + preventDefault - a click would blur the
+    // field first and lose the selection execCommand needs to act on.
+    btn.addEventListener("mousedown", (e) => {
+      e.preventDefault();
+      document.execCommand(btn.dataset.cmd);
+      updateActiveStates();
+    });
+  });
+
+  document.addEventListener("mousedown", (e) => {
+    if (!toolbar.contains(e.target) && !isWithinEditableField(e.target)) hide();
+  });
+}
+
 // ---- init ----
 loadVariants();
 initEditableFields();
 initLatexScratchpad();
 initPaneCollapse();
+initImageEditor();
+initFormatToolbar();

@@ -248,35 +248,43 @@ def run_pipeline_json(
     return paper
 
 
-def _crop_question_image(q: Question, bb_list: list, page_images_by_num: dict, crops_dir: Path) -> str | None:
-    """Crop and save this question's source-image thumbnail. Usually one
-    region; when a question's content overflows from the bottom of one
-    column to the top of the next (same page), bb_list has two - both are
-    cropped and stacked vertically (with a thin separator) into one image,
-    rather than silently showing only the first and losing the rest."""
+def crop_and_stack_regions(regions: list[tuple[Path, tuple[float, float, float, float]]]) -> Image.Image | None:
+    """Crop each (page_image_path, (x0,y0,x1,y1)) region and stack them
+    vertically (with a thin separator) into one image. Shared by the
+    pipeline's own auto-bbox cropping and the Review UI's manual "Edit
+    image" tool (webapp/app.py's recrop route) - usually one region, but a
+    question whose content overflows from the bottom of one column to the
+    top of the next (or that a user manually marks as multiple areas) gets
+    more than one, rather than silently showing only the first."""
     crops = []
-    for bb in bb_list:
-        if bb.page not in page_images_by_num:
-            continue
+    for path, (x0, y0, x1, y1) in regions:
         try:
-            with Image.open(page_images_by_num[bb.page]) as page_img:
-                crops.append(page_img.crop((bb.x0, bb.y0, bb.x1, bb.y1)).copy())
+            with Image.open(path) as page_img:
+                crops.append(page_img.crop((x0, y0, x1, y1)).copy())
         except Exception:
             continue
     if not crops:
         return None
 
     if len(crops) == 1:
-        combined = crops[0]
-    else:
-        gap = 10
-        width = max(c.width for c in crops)
-        height = sum(c.height for c in crops) + gap * (len(crops) - 1)
-        combined = Image.new("L", (width, height), color=255)
-        y = 0
-        for c in crops:
-            combined.paste(c, (0, y))
-            y += c.height + gap
+        return crops[0]
+
+    gap = 10
+    width = max(c.width for c in crops)
+    height = sum(c.height for c in crops) + gap * (len(crops) - 1)
+    combined = Image.new("L", (width, height), color=255)
+    y = 0
+    for c in crops:
+        combined.paste(c, (0, y))
+        y += c.height + gap
+    return combined
+
+
+def _crop_question_image(q: Question, bb_list: list, page_images_by_num: dict, crops_dir: Path) -> str | None:
+    regions = [(page_images_by_num[bb.page], (bb.x0, bb.y0, bb.x1, bb.y1)) for bb in bb_list if bb.page in page_images_by_num]
+    combined = crop_and_stack_regions(regions)
+    if combined is None:
+        return None
 
     rel_name = f"q_{q.q_number:04d}.png"
     combined.save(crops_dir / rel_name)

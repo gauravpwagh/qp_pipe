@@ -58,16 +58,27 @@ In Review: pick a question number to see its source-image crop (left),
 question text with clickable answer options or, for "match the list"
 questions, a reconstructed List I/List II + Code-answer table (middle), and
 topics, tags, and a rich-text explanation editor (bold/italic/underline/
-color/font) (right) - the explanation gets whatever vertical space is left
-after topics/tags, with its own internal scrollbar, so a long explanation
-doesn't push the rest of the pane around. The stem, directions, passage
-text, and each option are directly editable in place (click in and type -
-useful for fixing the occasional OCR mistake). Answers, explanations,
-edited text, topics, and tags all autosave as you go. Topics and tags you
-type are remembered per variant (`output/_vocab/<variant_id>.json`) and
-suggested back via autocomplete on any question of any paper of that same
-variant - so a topic scheme you build up on one paper carries over to the
-next.
+color/font) (right) - Topics/Tags sit above Explanation, which grows to
+fit its own content; the pane scrolls as a whole once that's taller than
+the viewport. The stem, directions, passage text, and each option are
+directly editable in place (click in and type - useful for fixing the
+occasional OCR mistake); select some text in any of them and a small
+floating **B**/**U** toolbar pops up to bold/underline it, same as you'd
+expect from any text editor. Answers, explanations, edited text, topics,
+and tags all autosave as you go. Topics and tags you type are remembered
+per variant (`output/_vocab/<variant_id>.json`) and suggested back via
+autocomplete on any question of any paper of that same variant - so a
+topic scheme you build up on one paper carries over to the next.
+
+If the pipeline's auto-detected crop is wrong - cuts off part of the
+question, includes a neighbor's, or splits across a column in a way that
+didn't stack right - click **Edit** in the Image pane's header. It opens
+the question's full source page in a modal; drag to mark the question's
+real area, draw more than one region for content split across a column
+break (they stack vertically into one image, in the order drawn, exactly
+like the pipeline's own auto-crop does), then **Save crop**. Reopening the
+editor later starts from your last manual selection so it's easy to
+nudge rather than redraw from scratch.
 
 The Image and Question panes each have a -/+ button in their
 header to collapse them to a narrow strip, freeing up width for the
@@ -162,6 +173,7 @@ and `questions`. Each question in that array:
 | `q_number`, `page` | 1..N; source PDF page |
 | `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list` |
 | `image` | path (relative to the paper's folder) to the cropped question image |
+| `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |
 | `section_directions_html`, `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
 | `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list`) |
 | `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`), else `null` |

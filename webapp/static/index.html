@@ -69,7 +69,10 @@
         <div class="pane pane-image" id="pane-image">
           <div class="pane-header">
             <span class="pane-header-label">Image</span>
-            <button type="button" class="pane-collapse-btn" data-pane="pane-image" title="Collapse">&minus;</button>
+            <span class="pane-header-actions">
+              <button type="button" id="edit-image-btn" class="pane-collapse-btn" title="Redraw this question's crop region(s) from the full page">Edit</button>
+              <button type="button" class="pane-collapse-btn" data-pane="pane-image" title="Collapse">&minus;</button>
+            </span>
           </div>
           <div class="pane-body">
             <img id="question-image" alt="Question image">
@@ -183,6 +186,42 @@
       </div>
     </section>
   </main>
+
+  <div id="image-editor-overlay" class="modal-overlay" hidden>
+    <div class="modal-dialog image-editor-dialog">
+      <div class="modal-header">
+        <h3>Edit question image</h3>
+        <button type="button" id="image-editor-close-btn" class="modal-close-btn" title="Close">&times;</button>
+      </div>
+      <p class="image-editor-hint">
+        Drag on the page below to mark this question's area. Draw more than one region for a question
+        split across a column break or the page - they'll be stacked into one image, in the order drawn.
+      </p>
+      <div id="image-editor-error" class="error" hidden></div>
+      <div class="image-editor-body">
+        <div class="image-editor-canvas-wrap">
+          <canvas id="image-editor-canvas"></canvas>
+        </div>
+        <div class="image-editor-side">
+          <h4>Regions</h4>
+          <div id="image-editor-region-list" class="image-editor-region-list"></div>
+          <button type="button" id="image-editor-clear-btn">Clear all</button>
+          <h4>Preview</h4>
+          <div id="image-editor-preview" class="image-editor-preview"></div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <span id="image-editor-status" class="save-indicator"></span>
+        <button type="button" id="image-editor-cancel-btn" class="secondary-btn">Cancel</button>
+        <button type="button" id="image-editor-save-btn" disabled>Save crop</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="format-toolbar" class="format-toolbar" hidden>
+    <button type="button" data-cmd="bold" title="Bold"><b>B</b></button>
+    <button type="button" data-cmd="underline" title="Underline"><u>U</u></button>
+  </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
