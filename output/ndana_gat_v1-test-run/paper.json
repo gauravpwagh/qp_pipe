@@ -1,17 +1,88 @@
 {
   "paper_id": "ndana_gat_v1-test-run",
   "variant": "ndana_gat_v1",
-  "job_name": "ndana-gat-spoterror-fix-test",
+  "job_name": "ndana-gat-directions-countdown-fix",
   "source_filename": "QP-NDANA-II-26-GENERAL-ABILITY-TEST-140926.pdf",
   "source_pdf": null,
-  "processed_at": "2026-09-18T17:16:23.842121+00:00",
+  "processed_at": "2026-09-18T19:12:07.677782+00:00",
   "total_questions": 150,
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 68
+    "needs_review_count": 73
   },
-  "instructions": [],
+  "instructions": [
+    {
+      "instruction_id": "I1",
+      "text_html": "(for the next 10 items that follow) Each item in this section consists of a sentence with an underlined word followed by four words.  Select the word that is   opposite in meaning to the underlined word and mark your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ]
+    },
+    {
+      "instruction_id": "I2",
+      "text_html": "(for the next 05 items that follow) Each item in this section consists of & sentence with Given below are some foreign phrases followed by an underlined word followed by four words: Select four alternatives to each. Select the most appropriate the word that is nearest in meaning to the alternative which provides the correct meaning of underlined word and mark your response on the the foreign phrase used in English and mark your Answer Sheet accordingly.",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "instruction_id": "I3",
+      "text_html": "(for the next 05 items that follow) Given below are some idioms/ phrases followed by Each of the following sentences has an underlined four alternatives to each. Select the most appropriate word_ Read the sentence carefully and identify alternative which provides the correct meaning of which word class the underlined word belongs to the idiom /phrase and mark your response on the Indicate your response on the Answer Sheet Answer Sheet accordingly.",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        21,
+        22,
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "instruction_id": "I4",
+      "text_html": "(for the next 05 items that follow) Reorder the PQRS set to create the most appropriate meaningful sentence. Indicate your response on the Answer Sheet accordingly.",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        31,
+        32,
+        33,
+        34,
+        35
+      ]
+    },
+    {
+      "instruction_id": "I5",
+      "text_html": "(for the next 05 items that follow) : The   following items have four sentences, one of which is grammatically correct_ Select the most appropriate correct sentence and mark your response on the Answer Sheet accordingly:",
+      "image": null,
+      "image_regions": null,
+      "applies_to": [
+        36,
+        37,
+        38,
+        39,
+        40
+      ]
+    }
+  ],
   "questions": [
     {
       "q_number": 1,
@@ -36,7 +107,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 2,
@@ -61,7 +132,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 3,
@@ -86,7 +157,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 4,
@@ -111,7 +182,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 5,
@@ -136,7 +207,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 6,
@@ -161,7 +232,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 7,
@@ -186,7 +257,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 8,
@@ -211,7 +282,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 9,
@@ -236,7 +307,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 10,
@@ -250,18 +321,18 @@
         "a": "apprentice",
         "b": "dilettante amateur",
         "c": "",
-        "d": "aspirant Directions (for the next 05 items that follow) Directions (for the next 05 items that follow) Each item in this section consists of & sentence with Given below are some foreign phrases followed by an underlined word followed by four words: Select four alternatives to each. Select the most appropriate the word that is nearest in meaning to the alternative which provides the correct meaning of underlined word and mark your response on the the foreign phrase used in English and mark your Answer Sheet accordingly."
+        "d": "aspirant"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.88,
+      "ocr_confidence": 0.886,
       "needs_review": true,
       "review_reason": "missing option(s)",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I1"
     },
     {
       "q_number": 11,
@@ -286,7 +357,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I2"
     },
     {
       "q_number": 12,
@@ -311,7 +382,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I2"
     },
     {
       "q_number": 13,
@@ -336,7 +407,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I2"
     },
     {
       "q_number": 14,
@@ -361,7 +432,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I2"
     },
     {
       "q_number": 15,
@@ -386,7 +457,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I2"
     },
     {
       "q_number": 16,
@@ -500,11 +571,11 @@
         "a": "The most appropriate word",
         "b": "Method of operating",
         "c": "The violation of a rule",
-        "d": "Successful operation ' , ` ': Directions (for the next 05 items that follow) Directions (for the next 05 items that follow) Given below are some idioms/ phrases followed by Each of the following sentences has an underlined four alternatives to each. Select the most appropriate word_ Read the sentence carefully and identify alternative which provides the correct meaning of which word class the underlined word belongs to the idiom /phrase and mark your response on the Indicate your response on the Answer Sheet Answer Sheet accordingly."
+        "d": "Successful operation ' , ` ':"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.846,
+      "ocr_confidence": 0.804,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -536,7 +607,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 22,
@@ -561,7 +632,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 23,
@@ -586,7 +657,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 24,
@@ -611,7 +682,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 25,
@@ -636,7 +707,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 26,
@@ -750,11 +821,11 @@
         "a": "Preposition",
         "b": "Conjunction",
         "c": "Adjective",
-        "d": "Adverb Directions (for the next 05 items that follow) Reorder the PQRS set to create the most appropriate meaningful sentence. Indicate your response on the Answer Sheet accordingly."
+        "d": "Adverb"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.881,
+      "ocr_confidence": 0.925,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -786,7 +857,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I4"
     },
     {
       "q_number": 32,
@@ -811,7 +882,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I4"
     },
     {
       "q_number": 33,
@@ -836,7 +907,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I4"
     },
     {
       "q_number": 34,
@@ -861,7 +932,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I4"
     },
     {
       "q_number": 35,
@@ -875,18 +946,18 @@
         "a": "PRSQ",
         "b": "SPRQ",
         "c": "QPRS",
-        "d": "SQPR 1' 7j7 Directions (for the next 05 items that follow) : The   following items have four sentences, one of which is grammatically correct_ Select the most appropriate correct sentence and mark your response on the Answer Sheet accordingly:"
+        "d": "SQPR 1' 7j7"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.793,
+      "ocr_confidence": 0.795,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I4"
     },
     {
       "q_number": 36,
@@ -911,7 +982,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 37,
@@ -936,7 +1007,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 38,
@@ -961,7 +1032,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 39,
@@ -986,7 +1057,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 40,
@@ -1011,7 +1082,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 41,
@@ -1075,11 +1146,11 @@
         "a": "I only",
         "b": "II only Both I and II",
         "c": "",
-        "d": "Neither [ nor II (6 - A )"
+        "d": "Neither [ nor II"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.871,
+      "ocr_confidence": 0.894,
       "needs_review": true,
       "review_reason": "missing option(s)",
       "user_answer": null,
@@ -1095,18 +1166,18 @@
       "image": "images/q_0044.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Read the following pairs Active Voice Passive Voice<br><br>I_ They asked My name was asked me my name by them. II  They found him He found them <u>guilty.</u> guilty. Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "(6 - A ) 44. Read the following pairs Active Voice Passive Voice I_ They asked My name was asked me my name by them. II  They found him He found them guilty. guilty. Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II"
+        "d": "Neither I nor II 45. Read the following pairs"
       },
       "table": null,
-      "has_underline": true,
-      "ocr_confidence": 0.856,
-      "needs_review": false,
-      "review_reason": "",
+      "has_underline": false,
+      "ocr_confidence": 0.765,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1120,7 +1191,7 @@
       "image": "images/q_0045.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Read the following pairs Direct Speech Indirect Speech<br><br>I_ He said, 'Bravo! You He applauded him have written the best |saying that he had answer written the best answer. II  | The sun rises in the The teacher said [East;' said the that the sun rose <u>teacher.</u> in the East: Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Direct Speech Indirect Speech I_ He said, 'Bravo! You He applauded him have written the best |saying that he had answer written the best answer. II  | The sun rises in the The teacher said [East;' said the that the sun rose teacher. in the East: Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.",
       "options": {
         "a": "Ionly",
         "b": "II only",
@@ -1128,10 +1199,10 @@
         "d": "Neither I nor II"
       },
       "table": null,
-      "has_underline": true,
-      "ocr_confidence": 0.839,
-      "needs_review": false,
-      "review_reason": "",
+      "has_underline": false,
+      "ocr_confidence": 0.905,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1150,11 +1221,11 @@
         "a": "Ionly",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II TFDD-B-AGT"
+        "d": "Neither I nor II"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.857,
+      "ocr_confidence": 0.849,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -1166,41 +1237,16 @@
     {
       "q_number": 47,
       "page": 7,
-      "question_type": "standard",
+      "question_type": "paired_table",
       "image": "images/q_0047.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Read the following <u>pairs</u> One-word Group of words <u>substitution</u><br><br>I_ One who studies Graphologist <u>handwriting</u><br><br><u>II.</u> One who draws maps <u>Cartographer</u><br><br><u>III.</u> One who studies flags Vexillologist Identify the   pairs wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "TFDD-B-AGT 47. Read the following pairs One-word Group of words substitution I_ One who studies Graphologist handwriting II. One who draws maps Cartographer III. One who studies flags Vexillologist Identify the   pairs wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
       "options": {
         "a": "I and II only",
         "b": "II and III only Iand III only",
         "c": "",
-        "d": "I, II and III"
-      },
-      "table": null,
-      "has_underline": true,
-      "ocr_confidence": 0.899,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
-      "explanation_html": "",
-      "tags": [],
-      "topics": [],
-      "instruction_id": null
-    },
-    {
-      "q_number": 48,
-      "page": 7,
-      "question_type": "paired_table",
-      "image": "images/q_0048.png",
-      "passage_label": "",
-      "passage_text_html": "",
-      "question_stem_html": "Read the following <u>pairs</u> One-word Group of words <u>substitution</u> <u>I</u> One who knows everything <u>Omnipotent</u><br><br><u>II.</u> One who is all powerful <u>Omniscient</u><br><br>III. One who abandons Apostate religious faith Identify the pair(s) wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
-      "options": {
-        "a": "I only",
-        "b": "II only",
-        "c": "III only",
-        "d": "I, II and III"
+        "d": "I, II and III 48. Read the following <u>pairs</u> One-word Group of words <u>substitution</u> <u>I</u> One who knows everything <u>Omnipotent</u> <u>II.</u> One who is all powerful <u>Omniscient</u> III. One who abandons Apostate religious faith"
       },
       "table": {
         "headers": [
@@ -1221,9 +1267,34 @@
         ]
       },
       "has_underline": true,
-      "ocr_confidence": 0.895,
-      "needs_review": false,
-      "review_reason": "",
+      "ocr_confidence": 0.918,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null
+    },
+    {
+      "q_number": 48,
+      "page": 7,
+      "question_type": "standard",
+      "image": "images/q_0048.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "Identify the pair(s) wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "options": {
+        "a": "I only",
+        "b": "II only",
+        "c": "III only",
+        "d": "I, II and III"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.818,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1892,11 +1963,11 @@
         "a": "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I.",
         "b": "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I.",
         "c": "Statement-I is correct; but Statement-II is not correct.",
-        "d": "Statement-I is not correct, but Statement-II is correct."
+        "d": "Statement-I is not correct, but Statement-II is correct. 76. Consider the following statements regarding oxidation numbers L The oxidation number of oxygen in peroxides   and  superoxides is   assigned as ~1 and -1/2 respectively. II. In all its   compounds, fluorine has an oxidation number of -l. III. In a reduction half-reaction, the oxidation number of the reductant decreases."
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.867,
+      "ocr_confidence": 0.832,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -1912,7 +1983,7 @@
       "image": "images/q_0076.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding oxidation numbers L The oxidation number of oxygen in peroxides   and  superoxides is   assigned as ~1 and -1/2 respectively. II. In all its   compounds, fluorine has an oxidation number of -l.<br><br>III. In a reduction half-reaction, the oxidation number of the reductant decreases.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Which of the statements given above are correct ?",
       "options": {
         "a": "Iand II only",
         "b": "II and III only Iand III only",
@@ -1921,9 +1992,9 @@
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.82,
+      "ocr_confidence": 0.89,
       "needs_review": true,
-      "review_reason": "missing option(s)",
+      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2156,7 +2227,7 @@
         "a": "One",
         "b": "Two",
         "c": "Three",
-        "d": "All four (21 _ A ) 4 A . 2:"
+        "d": "All four"
       },
       "table": {
         "headers": [
@@ -2182,7 +2253,7 @@
         ]
       },
       "has_underline": true,
-      "ocr_confidence": 0.837,
+      "ocr_confidence": 0.894,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -2198,7 +2269,7 @@
       "image": "images/q_0085.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "What are the   approximate percentages by mass of nitrogen and hydrogen respectively in urea ?",
+      "question_stem_html": "(21 _ A ) 4 A . 2: 85. What are the   approximate percentages by mass of nitrogen and hydrogen respectively in urea ?",
       "options": {
         "a": "43% and 5%",
         "b": "479 and 5%",
@@ -2207,9 +2278,9 @@
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.865,
-      "needs_review": false,
-      "review_reason": "",
+      "ocr_confidence": 0.873,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2328,7 +2399,7 @@
         "a": "One",
         "b": "Two",
         "c": "Three",
-        "d": "All four yV"
+        "d": "All four yV 91. Consider the following statements in relation to respiration in animals"
       },
       "table": {
         "headers": [
@@ -2359,7 +2430,7 @@
         ]
       },
       "has_underline": true,
-      "ocr_confidence": 0.858,
+      "ocr_confidence": 0.868,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -2375,7 +2446,7 @@
       "image": "images/q_0091.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements in relation to respiration in animals I Glucose breaks down into pyruvate in the cytoplasm of all cells in both aerobic and anaerobic conditions. II. The energy released  during  anaerobic respiration is greater than the energy released in aerobic respiration:<br><br>III. Carbon dioxide is released only in aerobic respiration.<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "I Glucose breaks down into pyruvate in the cytoplasm of all cells in both aerobic and anaerobic conditions. II. The energy released  during  anaerobic respiration is greater than the energy released in aerobic respiration: III. Carbon dioxide is released only in aerobic respiration. Which of the statements given above islare correct ?",
       "options": {
         "a": "I only",
         "b": "II only",
@@ -2384,9 +2455,9 @@
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.863,
-      "needs_review": false,
-      "review_reason": "",
+      "ocr_confidence": 0.918,
+      "needs_review": true,
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2707,11 +2778,11 @@
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II"
+        "d": "Neither I nor II 104. Consider the following statements regarding the slash-and-burn   agricultural practices in"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.893,
+      "ocr_confidence": 0.869,
       "needs_review": false,
       "review_reason": "",
       "user_answer": null,
@@ -2723,44 +2794,22 @@
     {
       "q_number": 104,
       "page": 29,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0104.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the slash-and-burn   agricultural practices in India I. This practice is a primitive subsistence farming: II. This practice is known as Jhum in the North Eastern Hill region.<br><br>III. When soil  fertility  decreases, farmers shift to a fresh patch of land:<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "India I. This practice is a primitive subsistence farming: II. This practice is known as Jhum in the North Eastern Hill region. III. When soil  fertility  decreases, farmers shift to a fresh patch of land: Which of the statements given above islare correct ?",
       "options": {
         "a": "I only",
         "b": "III only",
         "c": "Iand III only",
         "d": "I, II and III"
       },
-      "table": {
-        "headers": [
-          "",
-          ""
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "This practice is a primitive subsistence"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "This practice is known as Jhum in the"
-          },
-          {
-            "label": "III",
-            "col1": "When soil  fertility  decreases, farmers",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.828,
+      "ocr_confidence": 0.82,
       "needs_review": true,
-      "review_reason": "row III: could not split into two columns; column headers not detected",
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3548,49 +3597,22 @@
     {
       "q_number": 132,
       "page": 41,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0132.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "With reference to the  Panchsheel, which of the following islare correct ? I. Mutual respect for territorial integrity and sovereignty II. Mutual non-interference<br><br>III: Collective security against non-aggression<br><br>IV. Peaceful co-existence<br><br>Select the answer using the code given below",
+      "question_stem_html": "132. With reference to the  Panchsheel, which of the following islare correct ? I. Mutual respect for territorial integrity and sovereignty II. Mutual non-interference III: Collective security against non-aggression IV. Peaceful co-existence Select the answer using the code given below",
       "options": {
         "a": "I only",
         "b": "I,II and III",
         "c": "II, III and IV",
         "d": "I,II and IV"
       },
-      "table": {
-        "headers": [
-          "(c)",
-          "II, III and IV"
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "Mutual respect for territorial integrity"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Mutual non-interference"
-          },
-          {
-            "label": "III",
-            "col1": "Collective",
-            "col2": "security against"
-          },
-          {
-            "label": "IV",
-            "col1": "Peaceful co-existence",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.86,
+      "ocr_confidence": 0.746,
       "needs_review": true,
-      "review_reason": "row IV: could not split into two columns",
+      "review_reason": "question number not detected by OCR; number inferred from sequence",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],

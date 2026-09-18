@@ -34,6 +34,17 @@ QUESTION_START_LOOSE_RE = re.compile(r"^(\d{1,3})\s+(?=[A-Z][a-z])(.*)$")
 DIRECTIONS_RE = re.compile(r"^directions?\s*[:.]?\s*(.*)$", re.IGNORECASE)
 PASSAGE_RE = re.compile(r"^passage\b\s*(.*)$", re.IGNORECASE)
 
+# "Directions (for the next 05 items that follow)" - a fixed, distinctive
+# phrase, safe to treat as a genuine heading regardless of column width or
+# trailing punctuation (both of which OCR gets inconsistently across
+# otherwise-identical repeats of this exact heading - seen in practice:
+# only 1 of 6 real occurrences in one booklet had its trailing colon
+# actually captured). The item count also drives auto-expiry - see
+# parse_questions.py - since some booklets print this heading only for a
+# batch of N questions and never repeat or explicitly close it before the
+# next, differently-instructed section begins.
+DIRECTIONS_ITEM_COUNT_RE = re.compile(r"for the next\s+(\d+)\s+items?\s+that\s+follow", re.IGNORECASE)
+
 # "Spot the error" questions (a fixed, verbatim boilerplate in CDS/NDA
 # papers) describe the sentence's own parts as "(a), (b) and (c)" inline
 # within the stem, then say "mark your option (d)" - each of those

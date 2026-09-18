@@ -6,6 +6,7 @@ import re
 from dataclasses import dataclass, field
 
 from .patterns import (
+    DIRECTIONS_ITEM_COUNT_RE,
     DIRECTIONS_RE,
     OPTION_LETTER_FIX,
     OPTION_RE,
@@ -259,6 +260,14 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
     current_directions = ""
     current_passage_label = ""
     current_passage_text = ""
+    # Some Directions headings ("...for the next 05 items that follow")
+    # explicitly state how many questions they cover and are never
+    # explicitly closed before a differently-instructed section begins
+    # (e.g. a question type whose instructions are embedded per-question
+    # instead) - this counts down so current_directions expires on its own
+    # once that many questions have consumed it, instead of silently
+    # bleeding into every question for the rest of the document.
+    directions_remaining: int | None = None
 
     builder: Builder | None = None
     collecting: str | None = None  # "directions" | "passage" | None
@@ -273,11 +282,16 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             builder = None
 
     def start_new_question(page_num: int, q_number: int, stem_prefix: str, line: Line, forced_reason: str = ""):
-        nonlocal builder, expected_num
+        nonlocal builder, expected_num, current_directions, directions_remaining
         finalize_current()
         builder = Builder(q_number, page_num, current_directions, current_passage_label, current_passage_text)
         builder.start_y = line.y0
         builder.start_kind = line.kind
+        if directions_remaining is not None:
+            directions_remaining -= 1
+            if directions_remaining <= 0:
+                current_directions = ""
+                directions_remaining = None
         if stem_prefix:
             builder.add("stem", stem_prefix.strip(), line)
         if forced_reason:
@@ -352,19 +366,36 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                 collecting = None
                 continue
 
-            # Real "Directions :" / "PASSAGE" headings are always standalone
-            # full-width lines in this exam format. Gate on line.kind=="FULL"
-            # too, not just the regex - otherwise a normal sentence that
-            # happens to word-wrap with "directions" starting a new printed
-            # line (e.g. "...shall extend to the giving of / directions to
-            # the States...") gets misread as a new section header, since
-            # each printed line is checked independently. Same risk applies
-            # to "passage" as an ordinary word.
-            dir_match = DIRECTIONS_RE.match(text) if line.kind == "FULL" else None
+            # Real "Directions :" / "PASSAGE" headings are usually standalone
+            # full-width lines in this exam format, so line.kind=="FULL" is
+            # gated on too, not just the regex - otherwise a normal sentence
+            # that happens to word-wrap with "directions" starting a new
+            # printed line (e.g. "...shall extend to the giving of /
+            # directions to the States...") gets misread as a new section
+            # header, since each printed line is checked independently. Same
+            # risk applies to "passage" as an ordinary word.
+            #
+            # In a two-column booklet (e.g. NDA/NA GAT) a genuine Directions
+            # heading can be short enough to sit entirely within one column
+            # ("Directions (for the next 05 items that follow) :", ~43% of
+            # page width) and never reach FULL_WIDTH_FRAC, so it's also
+            # accepted on a narrower LEFT/RIGHT line when the line ends with
+            # a colon, or contains the fixed "for the next N items that
+            # follow" phrase (more reliable than the colon in practice - of
+            # six real repeats of this exact heading in one booklet, OCR
+            # only captured the trailing colon on one of them) - a prose
+            # line wrapping onto "directions..." essentially never also
+            # happens to match either.
+            is_directions_heading = (
+                line.kind == "FULL" or text.rstrip().endswith(":") or DIRECTIONS_ITEM_COUNT_RE.search(text)
+            )
+            dir_match = DIRECTIONS_RE.match(text) if is_directions_heading else None
             if dir_match:
                 finalize_current()
                 current_directions = dir_match.group(1)
                 collecting = "directions"
+                count_match = DIRECTIONS_ITEM_COUNT_RE.search(text)
+                directions_remaining = int(count_match.group(1)) if count_match else None
                 continue
 
             pas_match = PASSAGE_RE.match(text) if line.kind == "FULL" else None
