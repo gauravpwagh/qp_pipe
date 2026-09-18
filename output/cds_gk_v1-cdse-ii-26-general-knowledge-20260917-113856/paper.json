@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 12
+    "needs_review_count": 3
   },
   "questions": [
     {
@@ -32,7 +32,7 @@
       "needs_review": false,
       "review_reason": "",
       "user_answer": "c",
-      "explanation_html": "<p>Use the relation:<span class=\"ql-formula\" data-value=\"{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">y</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">t</mi><mtext>&nbsp;</mtext><mi mathvariant=\"normal\">R</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">t</mi><mi mathvariant=\"normal\">e</mi></mrow><mrow><mo fence=\"true\">(</mo><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">R</mi></mrow><mo fence=\"true\">)</mo></mrow><mo>=</mo><mfrac><mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow><mo>−</mo><mrow><mi mathvariant=\"normal\">W</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 1em; vertical-align: -0.25em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">Unemployment</span><span class=\"mspace nobreak\">&nbsp;</span><span class=\"mord mathrm\">Rate</span></span></span><span class=\"mspace\" style=\"margin-right: 0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top: 0em;\">(</span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">UR</span></span></span><span class=\"mclose delimcenter\" style=\"top: 0em;\">)</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0463em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3603em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">WPR</span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span>Given:</p><ul><li>LFPR = 50%</li><li>WPR = 45%</li></ul><p><span class=\"ql-formula\" data-value=\"UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mn>50</mn><mo>−</mo><mn>45</mn></mrow><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mfrac><mn>5</mn><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mn>10</mn><mi mathvariant=\"normal\">%</mi></mrow><annotation encoding=\"application/x-tex\">UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\">45</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">5</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8056em; vertical-align: -0.0556em;\"></span><span class=\"mord\">10%</span></span></span></span></span></span>﻿</span>Final Answer: 10%</p><p><br></p><p>Think of the population in <strong>three layers</strong>:</p><p><br></p><h3>1) Labour Force Participation Rate (LFPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>working OR actively looking for work</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>L</mi><mi>F</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>LFPR</mtext><mo>=</mo><mfrac><mtext>Labour&nbsp;Force</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">FPR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are participating in the job market</strong>.</p><p><br></p><h3>2) Worker Population Ratio (WPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>actually employed</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>W</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>E</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>P</mi><mi>e</mi><mi>o</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>WPR</mtext><mo>=</mo><mfrac><mtext>Employed&nbsp;People</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">W</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">PR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.0576em;\">E</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">P</span><span class=\"mord mathnormal\">eo</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">WPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Employed&nbsp;People</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are actually working</strong>.</p><p><br></p><h3>3) Unemployment Rate (UR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>in the labour force but NOT working</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mi>U</mi><mi>n</mi><mi>e</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mo>×</mo><mn>100</mn><mtext>UR</mtext><mo>=</mo><mfrac><mtext>Unemployed</mtext><mtext>Labour&nbsp;Force</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\">n</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">UR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0574em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Unemployed</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many job-seekers couldn’t find work</strong>.</p><p><br></p><h2>Simple Example</h2><p>Suppose a village has <strong>100 people</strong>:</p><ul><li>50 people are working</li><li>10 people are looking for jobs</li><li>40 people are not interested in working (students, elderly, etc.)</li></ul><h3>Step-by-step:</h3><ul><li><strong>Labour Force = 50 (working) + 10 (unemployed) = 60</strong></li><li><strong>LFPR = 60 / 100 × 100 = 60%</strong></li><li><strong>WPR = 50 / 100 × 100 = 50%</strong></li><li><strong>Unemployment Rate = 10 / 60 × 100 = 16.67%</strong></li></ul><h2>Intuition (very important)</h2><ul><li><strong>LFPR</strong> → Who is in the game</li><li><strong>WPR</strong> → Who is winning (has a job)</li><li><strong>Unemployment Rate</strong> → Who is trying but losing (jobless)</li></ul>",
+      "explanation_html": "<p><br></p>",
       "tags": [],
       "topics": [],
       "image_regions": {
@@ -115,8 +115,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.943,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "b",
       "explanation_html": "",
       "tags": [],
@@ -351,8 +351,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.877,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "b",
       "explanation_html": "",
       "tags": [],
@@ -614,8 +614,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.882,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "d",
       "explanation_html": "",
       "tags": [],
@@ -664,8 +664,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.928,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "d",
       "explanation_html": "",
       "tags": [],
@@ -712,6 +712,52 @@
         "d": "2 3"
       },
       "table": {
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "1",
+                "2",
+                "3",
+                "4"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "1",
+                "3",
+                "2",
+                "4"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "2",
+                "3",
+                "1"
+              ]
+            }
+          ]
+        },
         "list1": [
           {
             "label": "A",
@@ -747,58 +793,12 @@
             "label": "4",
             "text": "Madhya Pradesh"
           }
-        ],
-        "code_table": {
-          "headers": [
-            "A",
-            "B",
-            "C",
-            "D"
-          ],
-          "rows": [
-            {
-              "option": "a",
-              "values": [
-                null,
-                "2",
-                "3",
-                null
-              ]
-            },
-            {
-              "option": "b",
-              "values": [
-                "1",
-                "3",
-                "2",
-                "4"
-              ]
-            },
-            {
-              "option": "c",
-              "values": [
-                "4",
-                "3",
-                "2",
-                "1"
-              ]
-            },
-            {
-              "option": "d",
-              "values": [
-                null,
-                "2",
-                "3",
-                null
-              ]
-            }
-          ]
-        }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.896,
-      "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'Match List ] with List II and select the answer using (Biosphere Reserve)'; List II: discarded unlabeled text (not a missing item): 'the code given below the (Statel Union Territory)'; Code table row (a): missing value(s) - [None, '2', '3', None]; Code table row (b): column A not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column D not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): missing value(s) - [None, '2', '3', None]",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "a",
       "explanation_html": "",
       "tags": [],
@@ -1062,7 +1062,7 @@
       "image": "images/q_0038.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>Which</u> one among the following constitute a food chain ?",
+      "question_stem_html": "Which one among the following constitute a food chain ?",
       "options": {
         "a": "Grass, Fish and Goat",
         "b": "Grass, Insects and Frog",
@@ -1350,7 +1350,7 @@
       "needs_review": false,
       "review_reason": "",
       "user_answer": "b",
-      "explanation_html": "<p><br></p>",
+      "explanation_html": "<p>Use the relation:<span class=\"ql-formula\" data-value=\"{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">p</mi><mi mathvariant=\"normal\">l</mi><mi mathvariant=\"normal\">o</mi><mi mathvariant=\"normal\">y</mi><mi mathvariant=\"normal\">m</mi><mi mathvariant=\"normal\">e</mi><mi mathvariant=\"normal\">n</mi><mi mathvariant=\"normal\">t</mi><mtext>&nbsp;</mtext><mi mathvariant=\"normal\">R</mi><mi mathvariant=\"normal\">a</mi><mi mathvariant=\"normal\">t</mi><mi mathvariant=\"normal\">e</mi></mrow><mrow><mo fence=\"true\">(</mo><mrow><mi mathvariant=\"normal\">U</mi><mi mathvariant=\"normal\">R</mi></mrow><mo fence=\"true\">)</mo></mrow><mo>=</mo><mfrac><mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow><mo>−</mo><mrow><mi mathvariant=\"normal\">W</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mrow><mrow><mi mathvariant=\"normal\">L</mi><mi mathvariant=\"normal\">F</mi><mi mathvariant=\"normal\">P</mi><mi mathvariant=\"normal\">R</mi></mrow></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">{\\mathrm{Unemployment~Rate}}\\left({\\mathrm{UR}}\\right)=\\frac{\\mathrm{LFPR}-{\\mathrm{WPR}}}{\\mathrm{LFPR}}\\times100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 1em; vertical-align: -0.25em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">Unemployment</span><span class=\"mspace nobreak\">&nbsp;</span><span class=\"mord mathrm\">Rate</span></span></span><span class=\"mspace\" style=\"margin-right: 0.1667em;\"></span><span class=\"minner\"><span class=\"mopen delimcenter\" style=\"top: 0em;\">(</span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">UR</span></span></span><span class=\"mclose delimcenter\" style=\"top: 0em;\">)</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0463em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3603em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\"><span class=\"mord\"><span class=\"mord mathrm\">WPR</span></span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span>Given:</p><ul><li>LFPR = 50%</li><li>WPR = 45%</li></ul><p><span class=\"ql-formula\" data-value=\"UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mfrac><mrow><mn>50</mn><mo>−</mo><mn>45</mn></mrow><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mfrac><mn>5</mn><mn>50</mn></mfrac><mo>×</mo><mn>100</mn><mo>=</mo><mn>10</mn><mi mathvariant=\"normal\">%</mi></mrow><annotation encoding=\"application/x-tex\">UR=\\frac{50-45}{50}\\times100=\\frac{5}{50}\\times100=10\\%</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">−</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mord\">45</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0074em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3214em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">50</span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord\">5</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8056em; vertical-align: -0.0556em;\"></span><span class=\"mord\">10%</span></span></span></span></span></span>﻿</span>Final Answer: 10%</p><p><br></p><p>Think of the population in <strong>three layers</strong>:</p><p><br></p><p><br></p><h3>1) Labour Force Participation Rate (LFPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>working OR actively looking for work</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>L</mi><mi>F</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>LFPR</mtext><mo>=</mo><mfrac><mtext>Labour&nbsp;Force</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">LFPR=Labour ForceTotal Population×100\\text{LFPR} = \\frac{\\text{Labour Force}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">FPR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">LFPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are participating in the job market</strong>.</p><p><br></p><p><br></p><h3>2) Worker Population Ratio (WPR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>actually employed</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>W</mi><mi>P</mi><mi>R</mi><mo>=</mo><mi>E</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>P</mi><mi>e</mi><mi>o</mi><mi>p</mi><mi>l</mi><mi>e</mi><mi>T</mi><mi>o</mi><mi>t</mi><mi>a</mi><mi>l</mi><mi>P</mi><mi>o</mi><mi>p</mi><mi>u</mi><mi>l</mi><mi>a</mi><mi>t</mi><mi>i</mi><mi>o</mi><mi>n</mi><mo>×</mo><mn>100</mn><mtext>WPR</mtext><mo>=</mo><mfrac><mtext>Employed&nbsp;People</mtext><mtext>Total&nbsp;Population</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">WPR=Employed PeopleTotal Population×100\\text{WPR} = \\frac{\\text{Employed People}}{\\text{Total Population}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">W</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">PR</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.0576em;\">E</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">P</span><span class=\"mord mathnormal\">eo</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">T</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">lP</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">p</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">l</span><span class=\"mord mathnormal\">a</span><span class=\"mord mathnormal\">t</span><span class=\"mord mathnormal\">i</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">n</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">WPR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.2519em; vertical-align: -0.8804em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Total&nbsp;Population</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Employed&nbsp;People</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.8804em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many people are actually working</strong>.</p><p><br></p><p><br></p><h3>3) Unemployment Rate (UR)</h3><ul><li><strong>Who is counted?</strong> People who are <strong>in the labour force but NOT working</strong>.</li><li><strong>Formula:</strong><span class=\"ql-formula\" data-value=\"UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100\">﻿<span contenteditable=\"false\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\" display=\"block\"><semantics><mrow><mi>U</mi><mi>R</mi><mo>=</mo><mi>U</mi><mi>n</mi><mi>e</mi><mi>m</mi><mi>p</mi><mi>l</mi><mi>o</mi><mi>y</mi><mi>e</mi><mi>d</mi><mi>L</mi><mi>a</mi><mi>b</mi><mi>o</mi><mi>u</mi><mi>r</mi><mi>F</mi><mi>o</mi><mi>r</mi><mi>c</mi><mi>e</mi><mo>×</mo><mn>100</mn><mtext>UR</mtext><mo>=</mo><mfrac><mtext>Unemployed</mtext><mtext>Labour&nbsp;Force</mtext></mfrac><mo>×</mo><mn>100</mn></mrow><annotation encoding=\"application/x-tex\">UR=UnemployedLabour Force×100\\text{UR} = \\frac{\\text{Unemployed}}{\\text{Labour Force}} \\times 100</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0077em;\">R</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.8889em; vertical-align: -0.1944em;\"></span><span class=\"mord mathnormal\" style=\"margin-right: 0.109em;\">U</span><span class=\"mord mathnormal\">n</span><span class=\"mord mathnormal\">e</span><span class=\"mord mathnormal\">m</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0197em;\">pl</span><span class=\"mord mathnormal\">oye</span><span class=\"mord mathnormal\">d</span><span class=\"mord mathnormal\">L</span><span class=\"mord mathnormal\">ab</span><span class=\"mord mathnormal\">o</span><span class=\"mord mathnormal\">u</span><span class=\"mord mathnormal\" style=\"margin-right: 0.0278em;\">r</span><span class=\"mord mathnormal\" style=\"margin-right: 0.1389em;\">F</span><span class=\"mord mathnormal\">orce</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6833em;\"></span><span class=\"mord\">100</span><span class=\"mord text\"><span class=\"mord\">UR</span></span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right: 0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 2.0574em; vertical-align: -0.686em;\"></span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 1.3714em;\"><span class=\"\" style=\"top: -2.314em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Labour&nbsp;Force</span></span></span></span><span class=\"\" style=\"top: -3.23em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width: 0.04em;\"></span></span><span class=\"\" style=\"top: -3.677em;\"><span class=\"pstrut\" style=\"height: 3em;\"></span><span class=\"mord\"><span class=\"mord text\"><span class=\"mord\">Unemployed</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height: 0.686em;\"><span class=\"\"></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right: 0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height: 0.6444em;\"></span><span class=\"mord\">100</span></span></span></span></span></span>﻿</span></li></ul><p>👉 It tells you <strong>how many job-seekers couldn’t find work</strong>.</p><p><br></p><p><br></p><h2>Simple Example</h2><p>Suppose a village has <strong>100 people</strong>:</p><p><br></p><ul><li>50 people are working</li><li>10 people are looking for jobs</li><li>40 people are not interested in working (students, elderly, etc.)</li></ul><h3>Step-by-step:</h3><ul><li><strong>Labour Force = 50 (working) + 10 (unemployed) = 60</strong></li><li><strong>LFPR = 60 / 100 × 100 = 60%</strong></li><li><strong>WPR = 50 / 100 × 100 = 50%</strong></li><li><strong>Unemployment Rate = 10 / 60 × 100 = 16.67%</strong></li></ul><h2>Intuition (very important)</h2><ul><li><strong>LFPR</strong> → Who is in the game</li><li><strong>WPR</strong> → Who is winning (has a job)</li><li><strong>Unemployment Rate</strong> → Who is trying but losing (jobless)</li></ul><p><br></p>",
       "tags": [],
       "topics": [
         "Economy"
@@ -1561,8 +1561,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.848,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "c",
       "explanation_html": "",
       "tags": [],
@@ -1856,6 +1856,52 @@
         "d": "3"
       },
       "table": {
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "2",
+                "4",
+                "1"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "4",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "1",
+                "2",
+                "4",
+                "3"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "1",
+                "4",
+                "2",
+                "3"
+              ]
+            }
+          ]
+        },
         "list1": [
           {
             "label": "A",
@@ -1891,58 +1937,12 @@
             "label": "4",
             "text": "Lactic acid"
           }
-        ],
-        "code_table": {
-          "headers": [
-            "A",
-            "B",
-            "C",
-            "D"
-          ],
-          "rows": [
-            {
-              "option": "a",
-              "values": [
-                "3",
-                null,
-                null,
-                null
-              ]
-            },
-            {
-              "option": "b",
-              "values": [
-                null,
-                null,
-                null,
-                null
-              ]
-            },
-            {
-              "option": "c",
-              "values": [
-                null,
-                "4",
-                "2",
-                null
-              ]
-            },
-            {
-              "option": "d",
-              "values": [
-                null,
-                null,
-                null,
-                "3"
-              ]
-            }
-          ]
-        }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.913,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'Match List [ with List II and select the answer using (Source)'; List II: discarded unlabeled text (not a missing item): 'the code given below the (Acid present)'; expected 4 answer-grid rows, found 5; Code table row (a): missing value(s) - ['3', None, None, None]; Code table row (b): missing value(s) - [None, None, None, None]; Code table row (c): missing value(s) - [None, '4', '2', None]; Code table row (d): missing value(s) - [None, None, None, '3']",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "b",
       "explanation_html": "",
       "tags": [],
@@ -2172,7 +2172,7 @@
       "image": "images/q_0077.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "How many of the following pairs is/are correctly matched ? Harappan Modern site state/region&nbsp;<br><br>1 . Bhirrana: Haryana<br><br>2. Ganweriwala: Punjab (Pakistan)<br><br>3. Dholavira: Gujarat<br><br>4. Farmana: Uttar Pradesh<br><br>Select the answer using the code given below",
+      "question_stem_html": "How many of the following pairs is/are correctly matched ?&nbsp;<div><br></div><div>Harappan site:&nbsp; Modern state/region&nbsp;</div><div><br>1 . Bhirrana: Haryana<br><br>2. Ganweriwala: Punjab (Pakistan)<br><br>3. Dholavira: Gujarat<br><br>4. Farmana: Uttar Pradesh<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1",
         "b": "2",
@@ -2271,7 +2271,18 @@
       "topics": [
         "Heritage, Art and Culture"
       ],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 35,
+        "boxes": [
+          [
+            883.39375,
+            1471.7375,
+            1547.25625,
+            2026.7124999999999
+          ]
+        ]
+      }
     },
     {
       "q_number": 81,
@@ -2350,7 +2361,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 37,
+        "boxes": [
+          [
+            912.3046875,
+            119.53125,
+            1576.7578125,
+            794.53125
+          ]
+        ]
+      }
     },
     {
       "q_number": 84,
@@ -2720,8 +2742,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.867,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "a",
       "explanation_html": "",
       "tags": [],
@@ -3024,7 +3046,7 @@
       "image": "images/q_0109.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>Which</u> one of the following is important for   cartilage but NOT a globin protein ?",
+      "question_stem_html": "Which one of the following is important for   cartilage but NOT a globin protein ?",
       "options": {
         "a": "Haemoglobin",
         "b": "Myoglobin",
@@ -3069,7 +3091,18 @@
       "topics": [
         "Biology"
       ],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            845.88359375,
+            1463.15,
+            1545.8039062500002,
+            2039.96875
+          ]
+        ]
+      }
     },
     {
       "q_number": 111,
@@ -3078,7 +3111,7 @@
       "image": "images/q_0111.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">111. Consider the following statements associated with Malaria&nbsp;</span><div><span style=\"font-size: 14px; font-weight: 400;\"><br></span></div><div><span style=\"font-size: 14px; font-weight: 400;\">1. Only the female Anopheles mosquitoes take human blood for reproduction</span></div><div><br></div><div>2 Plasmodium can pass across the placenta from mother to foetus&nbsp;</div><div><br></div><div>Which of the statements  given above is/ are correct ?</div>",
+      "question_stem_html": "<span style=\"font-size: 14px;\">111. Consider the following statements associated with Malaria&nbsp;</span><div><span style=\"font-size: 14px;\"><br></span></div><div><span style=\"font-size: 14px;\">1. Only the female Anopheles mosquitoes take human blood for reproduction</span></div><div><br></div><div>2 Plasmodium can pass across the placenta from mother to foetus&nbsp;</div><div><br></div><div>Which of the statements  given above is/ are correct ?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -3088,15 +3121,26 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.95,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [
         "Biology"
       ],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            142.44609375000002,
+            140.6875,
+            831.81484375,
+            991.8468750000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 112,
