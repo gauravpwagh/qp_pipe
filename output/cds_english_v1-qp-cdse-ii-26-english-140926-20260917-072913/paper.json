@@ -7,7 +7,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 22
+    "needs_review_count": 3
   },
   "questions": [
     {
@@ -1124,7 +1124,7 @@
       "image": "images/q_0041.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>The_teacher asked</u>&nbsp; &nbsp;<u>that_who was absent</u>&nbsp; &nbsp;&nbsp;<u>in the class that day.</u>&nbsp; &nbsp;&nbsp;<u>No error</u>",
+      "question_stem_html": "<u>The_teacher asked</u>&nbsp; &nbsp;<div><u>that_who was absent</u>&nbsp; &nbsp;&nbsp;</div><div><u>in the class that day.</u>&nbsp; &nbsp;&nbsp;</div><div><u>No error</u></div>",
       "options": {
         "a": "<br>",
         "b": "",
@@ -1228,8 +1228,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.727,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1252,8 +1252,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.871,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1277,7 +1277,7 @@
       "image": "images/q_0046.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">He insisted on knowing the reason of my absence No error:</span>",
+      "question_stem_html": "<span style=\"font-size: 14px;\">He insisted&nbsp;</span><div><span style=\"font-size: 14px;\">on knowing&nbsp;</span></div><div><span style=\"font-size: 14px;\">the reason of my absence.&nbsp;</span></div><div><span style=\"font-size: 14px;\">No error:</span></div>",
       "options": {
         "a": "",
         "b": "",
@@ -1287,12 +1287,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.603,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            152.58984375,
+            1199.671875,
+            1215.45703125,
+            1364.5390625
+          ]
+        ]
+      }
     },
     {
       "q_number": 47,
@@ -1301,22 +1312,33 @@
       "image": "images/q_0047.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "In your quotidian life you wouldn' t find an elephant in the supermarket.&nbsp; No error",
+      "question_stem_html": "In your quotidian life&nbsp;<div>you wouldn't find an elephant&nbsp;</div><div>in the supermarket.&nbsp;&nbsp;</div><div>No error</div>",
       "options": {
         "a": "",
-        "b": "(a",
+        "b": "<br>",
         "c": "",
         "d": "<br>"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.863,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            156.09765625,
+            1389.09375,
+            1545.19140625,
+            1536.421875
+          ]
+        ]
+      }
     },
     {
       "q_number": 48,
@@ -1325,7 +1347,7 @@
       "image": "images/q_0048.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">48 I often dreamed of being famous in my prime: No error</span>",
+      "question_stem_html": "<span style=\"font-size: 14px;\">48 I often dreamed&nbsp;</span><div><span style=\"font-size: 14px;\">of being famous&nbsp;</span></div><div><span style=\"font-size: 14px;\">in my prime:&nbsp;</span></div><div><span style=\"font-size: 14px;\">No error</span></div>",
       "options": {
         "a": "",
         "b": "",
@@ -1335,12 +1357,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.802,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            163.11328125,
+            1560.9765625,
+            1166.34765625,
+            1683.75
+          ]
+        ]
+      }
     },
     {
       "q_number": 49,
@@ -1349,7 +1382,7 @@
       "image": "images/q_0049.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "49 These shoes designed for regular runners like yourself No eror",
+      "question_stem_html": "49 These shoes designed&nbsp;<div>for regular runners&nbsp;</div><div>like yourself.&nbsp;</div><div>No error.</div>",
       "options": {
         "a": "",
         "b": "",
@@ -1359,12 +1392,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.799,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I5"
+      "instruction_id": "I5",
+      "image_regions": {
+        "page": 12,
+        "boxes": [
+          [
+            163.11328125,
+            1711.8125,
+            1282.10546875,
+            1890.7109375
+          ]
+        ]
+      }
     },
     {
       "q_number": 50,
@@ -1373,7 +1417,7 @@
       "image": "images/q_0050.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Walk down our street any day you will see children playing No_error",
+      "question_stem_html": "Walk down our street&nbsp;<div>any day you will&nbsp;</div><div>see children playing.&nbsp;</div><div>No error.</div>",
       "options": {
         "a": "",
         "b": "",
@@ -1383,8 +1427,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.953,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1412,7 +1456,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I6"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 13,
+        "boxes": [
+          [
+            125.19296875,
+            260.96562500000005,
+            805.8195312500001,
+            729.9984375000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 52,
@@ -1445,7 +1500,7 @@
       "image": "images/q_0053.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Over one' s head",
+      "question_stem_html": "Over one's head",
       "options": {
         "a": "Protective covering worn as a hat",
         "b": "Bypassing authority surreptitiously",
@@ -1484,7 +1539,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I6"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 13,
+        "boxes": [
+          [
+            142.82578125,
+            1541.1078125000001,
+            816.39921875,
+            2034.8265625000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 55,
@@ -1493,7 +1559,7 @@
       "image": "images/q_0055.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "To go out o a limb",
+      "question_stem_html": "To go out on a limb",
       "options": {
         "a": "Adopt a convenient position that aligns with the popular view",
         "b": "Adopt a convenient position that goes against the popular view",
@@ -1553,7 +1619,7 @@
       "ocr_confidence": 0.733,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I6"
@@ -1577,7 +1643,7 @@
       "ocr_confidence": 0.905,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I6"
@@ -1601,10 +1667,21 @@
       "ocr_confidence": 0.882,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I6"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 14,
+        "boxes": [
+          [
+            195.37734375,
+            112.64999999999999,
+            807.91171875,
+            545.6484375
+          ]
+        ]
+      }
     },
     {
       "q_number": 60,
@@ -1616,7 +1693,7 @@
       "question_stem_html": "Fall by the wayside",
       "options": {
         "a": "To trip on the footpath",
-        "b": "To lose one' s sense of direction",
+        "b": "To lose one's sense of direction",
         "c": "To weaken moral values",
         "d": "To drop out of a pursuit"
       },
@@ -1628,7 +1705,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I6"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 14,
+        "boxes": [
+          [
+            902.96015625,
+            126.73124999999999,
+            1561.2585937499998,
+            545.6484375
+          ]
+        ]
+      }
     },
     {
       "q_number": 61,
@@ -1637,7 +1725,7 @@
       "image": "images/q_0061.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Her experience is requisite for the job.",
+      "question_stem_html": "Her experience is <u>requisite </u>for the job.",
       "options": {
         "a": "essential",
         "b": "obligatory",
@@ -1661,7 +1749,7 @@
       "image": "images/q_0062.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>They</u> were given rudimentary training for the job:",
+      "question_stem_html": "<u>They</u> were given <u>rudimentary</u> training for the job:",
       "options": {
         "a": "fundamental",
         "b": "advanced",
@@ -1673,7 +1761,7 @@
       "ocr_confidence": 0.901,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I7"
@@ -1685,7 +1773,7 @@
       "image": "images/q_0063.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "She sat there looking morose:",
+      "question_stem_html": "She sat there looking <u>morose:</u>",
       "options": {
         "a": "cheerful",
         "b": "melancholic&nbsp;",
@@ -1697,7 +1785,7 @@
       "ocr_confidence": 0.909,
       "needs_review": true,
       "review_reason": "missing option(s)",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I7"
@@ -1709,7 +1797,7 @@
       "image": "images/q_0064.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "If you listen carefully you'Il discover that the soundtrack is fuzzy in places",
+      "question_stem_html": "If you listen carefully you'Il discover that the soundtrack is <u>fuzzy</u> in places",
       "options": {
         "a": "noisy",
         "b": "distorted",
@@ -1721,7 +1809,7 @@
       "ocr_confidence": 0.886,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I7"
@@ -1733,7 +1821,7 @@
       "image": "images/q_0065.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The   shopkeeper is   known to charge exorbitant rates for the articles in his shop:",
+      "question_stem_html": "The   shopkeeper is   known to charge <u>exorbitant</u> rates for the articles in his shop:",
       "options": {
         "a": "high",
         "b": "affordable",
@@ -1745,7 +1833,7 @@
       "ocr_confidence": 0.838,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I7"
@@ -1757,7 +1845,7 @@
       "image": "images/q_0066.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "If you ponder the matter you are likely to arrive at the appropriate conclusion.",
+      "question_stem_html": "If you <u>ponder</u> the matter you are likely to arrive at the appropriate conclusion.",
       "options": {
         "a": "mull",
         "b": "ignore",
@@ -1769,7 +1857,7 @@
       "ocr_confidence": 0.916,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I7"
@@ -1781,7 +1869,7 @@
       "image": "images/q_0067.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The   diagnosis based on radiological evidence  determined the condition to be mortiferous.",
+      "question_stem_html": "The   diagnosis based on radiological evidence  determined the condition to be <u>mortiferous</u>.",
       "options": {
         "a": "exacerbating",
         "b": "degenerative",
@@ -1793,10 +1881,21 @@
       "ocr_confidence": 0.908,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I7"
+      "instruction_id": "I7",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            124.52734375,
+            108.7421875,
+            808.55078125,
+            691.0390625
+          ]
+        ]
+      }
     },
     {
       "q_number": 68,
@@ -1805,7 +1904,7 @@
       "image": "images/q_0068.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The party  president chose' to placate his critics within the party:",
+      "question_stem_html": "The party  president chose to <u>placate</u> his critics within the party:",
       "options": {
         "a": "prime",
         "b": "persuade",
@@ -1820,7 +1919,18 @@
       "user_answer": "d",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I7"
+      "instruction_id": "I7",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            135.05078125,
+            743.65625,
+            794.51953125,
+            1280.3515625
+          ]
+        ]
+      }
     },
     {
       "q_number": 69,
@@ -1829,7 +1939,7 @@
       "image": "images/q_0069.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">&nbsp;69 The magician hoodwinked the&nbsp;</span>children:",
+      "question_stem_html": "<span style=\"font-size: 14px; font-weight: 400;\">&nbsp;69 </span><span style=\"font-size: 14px;\">The magician <u style=\"\">hoodwinked</u> the&nbsp;</span>children:",
       "options": {
         "a": "cheated",
         "b": "fooled",
@@ -1844,7 +1954,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I7"
+      "instruction_id": "I7",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            861.16796875,
+            115.7578125,
+            1538.17578125,
+            673.5
+          ]
+        ]
+      }
     },
     {
       "q_number": 70,
@@ -1853,7 +1974,7 @@
       "image": "images/q_0070.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "She led a precarious life as a theatre artist.",
+      "question_stem_html": "She led a <u>precarious </u>life as a theatre artist.",
       "options": {
         "a": "insecure",
         "b": "precious",
@@ -1868,7 +1989,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I7"
+      "instruction_id": "I7",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            857.66015625,
+            726.1171875,
+            1534.66796875,
+            1269.828125
+          ]
+        ]
+      }
     },
     {
       "q_number": 71,
@@ -1892,7 +2024,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I8"
+      "instruction_id": "I8",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            121.01953125,
+            1536.421875,
+            798.02734375,
+            2027.515625
+          ]
+        ]
+      }
     },
     {
       "q_number": 72,
@@ -1913,7 +2056,7 @@
       "ocr_confidence": 0.929,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I8"
@@ -1937,10 +2080,21 @@
       "ocr_confidence": 0.866,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I8"
+      "instruction_id": "I8",
+      "image_regions": {
+        "page": 16,
+        "boxes": [
+          [
+            180.65234375,
+            98.21875,
+            857.66015625,
+            585.8046875
+          ]
+        ]
+      }
     },
     {
       "q_number": 74,
@@ -2045,7 +2199,7 @@
       "image": "images/q_0078.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "&nbsp; ___&nbsp;&nbsp;<span style=\"font-size: 14px; font-weight: 400;\">people make </span><u style=\"font-size: 14px; font-weight: 400;\">their</u><span style=\"font-size: 14px; font-weight: 400;\"> own&nbsp;</span>bread today than in earlier times:",
+      "question_stem_html": "&nbsp; ___&nbsp;&nbsp;<span style=\"font-size: 14px;\">people make </span><u style=\"font-size: 14px;\">their</u><span style=\"font-size: 14px;\"> own&nbsp;</span>bread today than in earlier times:",
       "options": {
         "a": "Lesser&nbsp;",
         "b": "Fewer",
@@ -2055,12 +2209,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.958,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I8"
+      "instruction_id": "I8",
+      "image_regions": {
+        "page": 16,
+        "boxes": [
+          [
+            910.27734375,
+            550.7265625,
+            1580.26953125,
+            1041.8203125
+          ]
+        ]
+      }
     },
     {
       "q_number": 79,
@@ -2079,12 +2244,23 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.929,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I8"
+      "instruction_id": "I8",
+      "image_regions": {
+        "page": 16,
+        "boxes": [
+          [
+            910.27734375,
+            1055.8515625,
+            1601.31640625,
+            1567.9921875
+          ]
+        ]
+      }
     },
     {
       "q_number": 80,
@@ -2117,7 +2293,7 @@
       "image": "images/q_0081.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Weather; Whether; Whither&nbsp;<div><br></div><div>1. Weather permitting; we' Il have the gathering outside.&nbsp;</div><div>2 Whether   conditions are likely to improve by Thursday:&nbsp;</div><div>3. They didn't know whither they should go.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "question_stem_html": "Weather; Whether; Whither&nbsp;<div><br></div><div>1. <u>Weather</u> permitting; we' Il have the gathering outside.&nbsp;</div><div>2 <u>Whether</u>   conditions are likely to improve by Thursday:&nbsp;</div><div>3. They didn't know <u>whither</u> they should go.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
       "options": {
         "a": "2 and 3 only",
         "b": "1 only",
@@ -2141,7 +2317,7 @@
       "image": "images/q_0082.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Quiet, Quite, Quit&nbsp;<div><br></div><div>1 . He plays quiet well&nbsp;</div><div>2. They had a quite wedding:&nbsp;</div><div>3. He has decided <u>to</u> quit as the manager of the team.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been  used correctly ?</div>",
+      "question_stem_html": "Quiet, Quite, Quit&nbsp;<div><br></div><div>1 . He plays <u>quiet</u> well&nbsp;</div><div>2. They had a <u>quite</u> wedding:&nbsp;</div><div>3. He has decided <u>to</u> <u>quit</u> as the manager of the team.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been  used correctly ?</div>",
       "options": {
         "a": "1 and 3 only",
         "b": "3 only",
@@ -2153,7 +2329,7 @@
       "ocr_confidence": 0.802,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I9"
@@ -2165,7 +2341,7 @@
       "image": "images/q_0083.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Way; Weigh, Whey&nbsp;<div><br></div><div>1. I'm <u>not</u> happy with this way of working:&nbsp;</div><div>2. How much does it weigh ?&nbsp;</div><div>3. Whey is <u>the</u> thin liquid <u>that</u> separates from the solid parts when milk is curdled.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "question_stem_html": "Way; Weigh, Whey&nbsp;<div><br></div><div>1. I'm <u>not</u> happy with this <u>way</u> of working:&nbsp;</div><div>2. How much does it <u>weigh</u> ?&nbsp;</div><div>3. <u>Whey </u>is the thin liquid that separates from the solid parts when milk is curdled.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
       "options": {
         "a": "2 and 3 only",
         "b": "2 only",
@@ -2180,7 +2356,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I9"
+      "instruction_id": "I9",
+      "image_regions": {
+        "page": 17,
+        "boxes": [
+          [
+            895.846875,
+            361.14375,
+            1593.5906249999998,
+            1230.69375
+          ]
+        ]
+      }
     },
     {
       "q_number": 84,
@@ -2204,7 +2391,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I9"
+      "instruction_id": "I9",
+      "image_regions": {
+        "page": 17,
+        "boxes": [
+          [
+            899.353125,
+            1237.70625,
+            1586.578125,
+            2023.1062499999998
+          ]
+        ]
+      }
     },
     {
       "q_number": 85,
@@ -2228,7 +2426,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I9"
+      "instruction_id": "I9",
+      "image_regions": {
+        "page": 18,
+        "boxes": [
+          [
+            145.509375,
+            91.1625,
+            818.7093749999999,
+            1065.8999999999999
+          ]
+        ]
+      }
     },
     {
       "q_number": 86,
@@ -2237,7 +2446,7 @@
       "image": "images/q_0086.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Sent; Scent; Cent&nbsp;<div>1. A one minute phone call to the UK costs one sent:&nbsp;</div><div>2. The air was filled with the scent of wild flowers&nbsp;</div><div>3. The dogs   following him must have lost his cent:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "question_stem_html": "Sent; Scent; Cent&nbsp;<div>1. A one minute phone call to the UK costs one <u>sent:</u>&nbsp;</div><div>2. The air was filled with the <u>scent</u> of wild flowers&nbsp;</div><div>3. The dogs   following him must have lost his <u>cent</u>:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "2 only",
@@ -2249,7 +2458,7 @@
       "ocr_confidence": 0.811,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "instruction_id": "I9"
@@ -2261,7 +2470,7 @@
       "image": "images/q_0087.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Aisle, Ale, Isle&nbsp;<div>1. I always prefer the isle seat in an aeroplane.&nbsp;</div><div>2 He always began his day with a glass of ginger ale:&nbsp;</div><div>3. While on a picnic we discovered a small aisle in the middle of a lake.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
+      "question_stem_html": "Aisle, Ale, Isle&nbsp;<div>1. I always prefer the <u>isle</u> seat in an aeroplane.&nbsp;</div><div>2 He always began his day with a glass of ginger <u>ale</u>:&nbsp;</div><div>3. While on a picnic we discovered a small <u>aisle</u> in the middle of a lake.&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined  words been used correctly ?</div>",
       "options": {
         "a": "2 and 3 only",
         "b": "2 only",
@@ -2285,7 +2494,7 @@
       "image": "images/q_0088.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Rein, Reign, Arraign&nbsp;<div>1. Queen Elizabeth II had a long rein as a British monarch:&nbsp;</div><div>2. One needs to reign in their impulses at times.&nbsp;&nbsp;</div><div>3. He was arraigned before the judge yesterday:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "question_stem_html": "Rein, Reign, Arraign&nbsp;<div>1. Queen Elizabeth II had a long <u>rein </u>as a British monarch:&nbsp;</div><div>2. One needs to <u>reign</u> in their impulses at times.&nbsp;&nbsp;</div><div>3. He was <u>arraigned</u> before the judge yesterday:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
       "options": {
         "a": "2 and 3 only",
         "b": "3 only",
@@ -2324,7 +2533,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I9"
+      "instruction_id": "I9",
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            159.32109375,
+            115.55156249999999,
+            838.62421875,
+            1060.9734375
+          ]
+        ]
+      }
     },
     {
       "q_number": 90,
@@ -2333,7 +2553,7 @@
       "image": "images/q_0090.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Brawl, Bawl, Bowl&nbsp;<div><br></div><div>1. The brawl caused utter confusion inside the train compartment.&nbsp;</div><div>2 The host   served a bawl of fresh garden fruit to the guests.&nbsp;</div><div>3. The little kid started to bowl noisily:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
+      "question_stem_html": "Brawl, Bawl, Bowl&nbsp;<div><br></div><div>1. The<u> brawl</u> caused utter confusion inside the train compartment.&nbsp;</div><div>2 The host   served a<u> bawl </u>of fresh garden fruit to the guests.&nbsp;</div><div>3. The little kid started to <u>bowl</u> noisily:&nbsp;</div><div><br></div><div>In which of the sentences given above have the underlined words been used correctly ?</div>",
       "options": {
         "a": "2 only",
         "b": "1 and 2 only",
@@ -2348,7 +2568,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I9"
+      "instruction_id": "I9",
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            898.1507812499999,
+            108.54843749999999,
+            1577.4539062499998,
+            1067.9765625
+          ]
+        ]
+      }
     },
     {
       "q_number": 91,
@@ -2396,7 +2627,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I10"
+      "instruction_id": "I10",
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            901.65234375,
+            1309.584375,
+            1570.45078125,
+            2023.9031249999998
+          ]
+        ]
+      }
     },
     {
       "q_number": 93,
@@ -2444,7 +2686,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I10"
+      "instruction_id": "I10",
+      "image_regions": {
+        "page": 20,
+        "boxes": [
+          [
+            155.81953124999998,
+            693.3093749999999,
+            828.1195312499999,
+            1355.1046874999997
+          ]
+        ]
+      }
     },
     {
       "q_number": 95,
@@ -2516,7 +2769,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I10"
+      "instruction_id": "I10",
+      "image_regions": {
+        "page": 20,
+        "boxes": [
+          [
+            877.1414062499999,
+            749.3343749999999,
+            1559.9460937499998,
+            1383.1171875
+          ]
+        ]
+      }
     },
     {
       "q_number": 98,
@@ -2564,7 +2828,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I10"
+      "instruction_id": "I10",
+      "image_regions": {
+        "page": 21,
+        "boxes": [
+          [
+            124.63828125,
+            115.8609375,
+            802.24921875,
+            818.0484375
+          ]
+        ]
+      }
     },
     {
       "q_number": 100,
@@ -2588,7 +2863,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I10"
+      "instruction_id": "I10",
+      "image_regions": {
+        "page": 21,
+        "boxes": [
+          [
+            851.40234375,
+            108.8390625,
+            1553.58984375,
+            804.0046874999999
+          ]
+        ]
+      }
     },
     {
       "q_number": 101,
@@ -2605,10 +2891,56 @@
         "d": "4 ` 3 1 ` 2 List II List ["
       },
       "table": {
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "2",
+                "4",
+                "3",
+                "1"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "4",
+                "3",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "1",
+                "3",
+                "2",
+                "4"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
         "list1": [
           {
             "label": "A",
-            "text": "s Discreet"
+            "text": "Discreet"
           },
           {
             "label": "B",
@@ -2640,62 +2972,27 @@
             "label": "4",
             "text": "Separate"
           }
-        ],
-        "code_table": {
-          "headers": [
-            "A",
-            "B",
-            "C",
-            "D"
-          ],
-          "rows": [
-            {
-              "option": "a",
-              "values": [
-                "2",
-                "4",
-                "3",
-                "1"
-              ]
-            },
-            {
-              "option": "b",
-              "values": [
-                "4",
-                "3",
-                "2",
-                "1"
-              ]
-            },
-            {
-              "option": "c",
-              "values": [
-                null,
-                "3",
-                "2",
-                null
-              ]
-            },
-            {
-              "option": "d",
-              "values": [
-                "4",
-                "3",
-                "1",
-                "2"
-              ]
-            }
-          ]
-        }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.833,
-      "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column D not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column D not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): missing value(s) [None, '3', '2', None]; Code table row (d): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 21,
+        "boxes": [
+          [
+            128.14921875000002,
+            997.10625,
+            781.1835937500001,
+            2043.3656250000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 102,
@@ -2704,12 +3001,12 @@
       "image": "images/q_0102.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "(Meaning) Word/ Term)&nbsp;<div>A. Inflation 1. Expansion&nbsp;</div><div>B. Indentation 2 Declension&nbsp;<div><div>C. Infiltration&nbsp; 3 Permeation&nbsp;</div><div>D Inflection&nbsp;4. Depression&nbsp;</div><div><br></div><div>Code A   B   C   D</div></div></div>",
+      "question_stem_html": "List I Word/ Term) A Inflation B. Indentation C. Infiltration D Inflection Code List II (Meaning)<br><br>1. Expansion<br><br>2. Declension<br><br>3_ Permeation<br><br>4_ Depression A   B   C  D 3",
       "options": {
-        "a": "4 2 3 1",
-        "b": "4 3 2 1",
-        "c": "1 3 2 4",
-        "d": "1&nbsp; 4 3 2"
+        "a": "4 2",
+        "b": "4 3 2",
+        "c": "71 3 2",
+        "d": "1  4  3 2"
       },
       "table": null,
       "has_underline": false,
@@ -2719,7 +3016,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 21,
+        "boxes": [
+          [
+            939.17578125,
+            997.10625,
+            1479.86015625,
+            2022.3000000000002
+          ]
+        ]
+      }
     },
     {
       "q_number": 103,
@@ -2736,6 +3044,52 @@
         "d": "4 3 2"
       },
       "table": {
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "2",
+                "1",
+                "4"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "4",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "3",
+                "4",
+                "1",
+                "2"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        },
         "list1": [
           {
             "label": "A",
@@ -2771,58 +3125,12 @@
             "label": "4",
             "text": "Having many. different forms"
           }
-        ],
-        "code_table": {
-          "headers": [
-            "A",
-            "B",
-            "C",
-            "D"
-          ],
-          "rows": [
-            {
-              "option": "a",
-              "values": [
-                "3",
-                "2",
-                null,
-                null
-              ]
-            },
-            {
-              "option": "b",
-              "values": [
-                "3",
-                "4",
-                "2",
-                "1"
-              ]
-            },
-            {
-              "option": "c",
-              "values": [
-                "3",
-                "4",
-                "1",
-                "2"
-              ]
-            },
-            {
-              "option": "d",
-              "values": [
-                "4",
-                "3",
-                "1",
-                "2"
-              ]
-            }
-          ]
-        }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.905,
-      "needs_review": true,
-      "review_reason": "Code table row (a): missing value(s) - ['3', '2', None, None]; Code table row (b): column D not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2842,15 +3150,107 @@
         "c": "",
         "d": ""
       },
-      "table": {},
+      "table": {
+        "list1": [
+          {
+            "label": "B",
+            "text": "Philanthropist"
+          },
+          {
+            "label": "C",
+            "text": "Philologist"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "A person who studies language"
+          },
+          {
+            "label": "2",
+            "text": "A person who does not value art or culture"
+          },
+          {
+            "label": "3",
+            "text": "A person who collects stamps"
+          },
+          {
+            "label": "4",
+            "text": "A person who helps the needy"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "2",
+                "1",
+                "4"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "4",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                null,
+                null,
+                null,
+                "2"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "3",
+                "4",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
       "has_underline": false,
       "ocr_confidence": 0.882,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; 'Code' label not found could not locate the answer grid",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 22,
+        "boxes": [
+          [
+            173.63671875,
+            1361.03125,
+            854.15234375,
+            2041.546875
+          ],
+          [
+            962.89453125,
+            108.7421875,
+            1496.08203125,
+            494.6015625
+          ]
+        ]
+      }
     },
     {
       "q_number": 105,
@@ -2952,8 +3352,8 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.895,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; answer-grid row 2: marker read as '(a)' but expected '(b)' by position using position; Code table row (a): column C not detected by OCR inferred as 2 (every row here is a permutation of 1-4), verify against source; Code table row (b): missing value(s) ['2', '4', None, None]; Code table row (c): missing value(s) [None, '3', None, '4']",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3059,8 +3459,8 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.909,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (c): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3166,12 +3566,23 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.916,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; Code table row (a): column B not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column C not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): column B not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 23,
+        "boxes": [
+          [
+            121.01953125,
+            112.25,
+            787.50390625,
+            1189.1484375
+          ]
+        ]
+      }
     },
     {
       "q_number": 108,
@@ -3191,25 +3602,37 @@
         "list1": [
           {
             "label": "A",
-            "text": "Revel 1. Unrestrained merriment"
+            "text": "Revel"
           },
           {
             "label": "B",
-            "text": "Revelry 2 To make merry"
+            "text": "Revelry"
           },
           {
             "label": "C",
-            "text": "Reveal 3. Boisterous"
+            "text": "Reveal"
           },
           {
             "label": "D",
-            "text": "Reveller individual making merry 4 Disclose"
+            "text": "Reveller"
           }
         ],
         "list2": [
           {
             "label": "1",
-            "text": "10_"
+            "text": "Unrestrained merriment"
+          },
+          {
+            "label": "2",
+            "text": "To make merry"
+          },
+          {
+            "label": "3",
+            "text": "Boisterous individual making merry"
+          },
+          {
+            "label": "4",
+            "text": "Disclose"
           }
         ],
         "code_table": {
@@ -3223,8 +3646,8 @@
             {
               "option": "a",
               "values": [
-                "1",
-                "4",
+                null,
+                null,
                 "2",
                 "3"
               ]
@@ -3241,8 +3664,8 @@
             {
               "option": "c",
               "values": [
-                null,
-                null,
+                "2",
+                "1",
                 "4",
                 "3"
               ]
@@ -3250,10 +3673,10 @@
             {
               "option": "d",
               "values": [
-                "2",
-                null,
-                null,
-                null
+                "3",
+                "4",
+                "1",
+                "2"
               ]
             }
           ]
@@ -3261,12 +3684,23 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.901,
-      "needs_review": true,
-      "review_reason": "missing option(s); match-the-list layout, raw text may be jumbled verify against source PDF; List II: expected 4 items, found 1; expected 4 answer-grid rows, found 5; Code table row (a): column A not detected by OCR inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (b): column A not detected by OCR inferred as 4 (every row here is a permutation of 1-4), verify against source; Code table row (c): missing value(s) [None, None, '4', '3']; Code table row (d): missing value(s) ['2', None, None, None]",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 23,
+        "boxes": [
+          [
+            103.48046875,
+            1203.1796875,
+            762.94921875,
+            2038.0390625
+          ]
+        ]
+      }
     },
     {
       "q_number": 109,
@@ -3282,15 +3716,109 @@
         "c": "2 3 4",
         "d": "2 4 3 List II"
       },
-      "table": {},
+      "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Transmit"
+          },
+          {
+            "label": "B",
+            "text": "Transmute"
+          },
+          {
+            "label": "C",
+            "text": "Transpire"
+          },
+          {
+            "label": "D",
+            "text": "Transient"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "To happen or occur"
+          },
+          {
+            "label": "2",
+            "text": "To continue for only a short time"
+          },
+          {
+            "label": "3",
+            "text": "To change into something different"
+          },
+          {
+            "label": "4",
+            "text": "To send an electronic signal"
+          }
+        ],
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "4",
+                "2",
+                "1"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "2",
+                null,
+                null,
+                "3"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "4",
+                "2",
+                "3",
+                "1"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "3",
+                "1",
+                "2"
+              ]
+            }
+          ]
+        }
+      },
       "has_underline": false,
       "ocr_confidence": 0.937,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; match-the-list layout, raw text may be jumbled verify against source PDF; 'Code' label not found could not locate the answer grid",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I11"
+      "instruction_id": "I11",
+      "image_regions": {
+        "page": 23,
+        "boxes": [
+          [
+            836.61328125,
+            108.7421875,
+            1517.12890625,
+            1164.59375
+          ]
+        ]
+      }
     },
     {
       "q_number": 110,
@@ -3309,8 +3837,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.914,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "c",
       "explanation_html": "",
       "tags": [],
@@ -3362,7 +3890,24 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I12"
+      "instruction_id": "I12",
+      "image_regions": {
+        "page": 24,
+        "boxes": [
+          [
+            173.63671875,
+            1806.5234375,
+            871.69140625,
+            2024.0078125
+          ],
+          [
+            906.76953125,
+            1185.640625,
+            1583.77734375,
+            1504.8515625
+          ]
+        ]
+      }
     },
     {
       "q_number": 113,
@@ -3386,7 +3931,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I12"
+      "instruction_id": "I12",
+      "image_regions": {
+        "page": 24,
+        "boxes": [
+          [
+            903.26171875,
+            1543.4375,
+            1590.79296875,
+            2048.5625
+          ]
+        ]
+      }
     },
     {
       "q_number": 114,
@@ -3410,7 +3966,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I12"
+      "instruction_id": "I12",
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            110.79140625000001,
+            140.6875,
+            807.1945312500001,
+            604.95625
+          ]
+        ]
+      }
     },
     {
       "q_number": 115,
@@ -3434,7 +4001,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I12"
+      "instruction_id": "I12",
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            845.88359375,
+            130.1359375,
+            1535.25234375,
+            587.3703125
+          ]
+        ]
+      }
     },
     {
       "q_number": 116,
@@ -3453,8 +4031,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.881,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": "c",
       "explanation_html": "",
       "tags": [],
@@ -3530,7 +4108,24 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I14"
+      "instruction_id": "I14",
+      "image_regions": {
+        "page": 26,
+        "boxes": [
+          [
+            181.13515625,
+            798.4015625000001,
+            870.50390625,
+            960.1921875
+          ],
+          [
+            930.2960937500001,
+            133.65312500000002,
+            1584.49296875,
+            481.85468750000007
+          ]
+        ]
+      }
     },
     {
       "q_number": 120,
@@ -3554,7 +4149,18 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "instruction_id": "I14"
+      "instruction_id": "I14",
+      "image_regions": {
+        "page": 26,
+        "boxes": [
+          [
+            919.74453125,
+            502.9578125,
+            1605.59609375,
+            974.2609375
+          ]
+        ]
+      }
     }
   ],
   "job_name": "QP-CDSE-II-26-ENGLISH-140926.pdf",
@@ -3703,8 +4309,18 @@
     {
       "instruction_id": "I6",
       "text_html": "Given below are idioms/phrases. Choose the most appropriate meaning and mark your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I6.png",
+      "image_regions": {
+        "page": 13,
+        "boxes": [
+          [
+            197.4875,
+            105.79687500000001,
+            1551.6875,
+            243.33281250000005
+          ]
+        ]
+      },
       "applies_to": [
         51,
         52,
@@ -3720,9 +4336,19 @@
     },
     {
       "instruction_id": "I7",
-      "text_html": "Each item in this section consists of a sentence with an underlined word followed by four words Or groups of words. Select the option that is opposite in meaning to the underlined word and mark your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "text_html": "Each item in this section consists of a sentence with an underlined word followed by four words or groups of words. Select the option that is opposite in meaning to the underlined word and mark your response on the Answer Sheet accordingly:",
+      "image": "images/I7.png",
+      "image_regions": {
+        "page": 14,
+        "boxes": [
+          [
+            242.90156249999998,
+            587.8921875,
+            1594.7015625,
+            763.9078125
+          ]
+        ]
+      },
       "applies_to": [
         61,
         62,
@@ -3739,8 +4365,18 @@
     {
       "instruction_id": "I8",
       "text_html": "Each of the following sentences in this section has a blank space with four options. Select the most appropriate option to fill in the blank and indicate your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I8.png",
+      "image_regions": {
+        "page": 15,
+        "boxes": [
+          [
+            185.9140625,
+            1339.984375,
+            1543.4375,
+            1515.375
+          ]
+        ]
+      },
       "applies_to": [
         71,
         72,
@@ -3757,8 +4393,18 @@
     {
       "instruction_id": "I9",
       "text_html": "In the   following items similar sounding  words are given,  followed by sentences wherein these words has been   used, and underlined. You are required to identify those sentences in which these words have been used most appropriately and mark your response in the Answer Sheet accordingly",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I9.png",
+      "image_regions": {
+        "page": 17,
+        "boxes": [
+          [
+            220.89374999999998,
+            108.69375,
+            1567.2937499999998,
+            319.06875
+          ]
+        ]
+      },
       "applies_to": [
         81,
         82,
@@ -3775,8 +4421,18 @@
     {
       "instruction_id": "I10",
       "text_html": "In the following items a pair of sentences (S1, S2) is given. Select the most appropriate and relevant co-relationship of the second sentence to the first from among the options (a), (b), (c) and (d), and mark your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I10.png",
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            210.09375,
+            1116.9984375,
+            1572.2015625,
+            1292.0765625
+          ]
+        ]
+      },
       "applies_to": [
         91,
         92,
@@ -3793,8 +4449,18 @@
     {
       "instruction_id": "I11",
       "text_html": "Match List I with List II and select the answer using the code given below the Lists List II List I",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I11.png",
+      "image_regions": {
+        "page": 21,
+        "boxes": [
+          [
+            196.6125,
+            842.625,
+            1562.3671875,
+            972.5296875
+          ]
+        ]
+      },
       "applies_to": [
         101,
         102,
@@ -3810,9 +4476,19 @@
     },
     {
       "instruction_id": "I12",
-      "text_html": "Read the passage carefully and answer the questions given below based solely on the passage&nbsp;<div><br></div><div>When Elizabeth Long began   investigating women' s book groups in the  mid-1980s, her research plan   provoked two profoundly different sets of reactions. Women; who had themselves participated in such groups, as well as men whose mothers and grandmothers had done so, immediately grasped the importance of her project \"You will never know what a difference it made\" was the phrase she heard again and again. But among her   academic colleagues, common readers seemed to be occupying a zone of cultural invisibility: They were not of interest to literature departments, whose major focus is on books and authors, not readers. They were not of interest to sociologists or political  scientists because women' s reading groups do not   pursue  activities with any obvious relationship to formal political processes: Long; however; went on to show that such  groups had mobilised the women S suffrage and Progressive movements at the grassroots  Scholars of popular culture had not found  reading  groups  interesting because the groups  read canonized fiction and did not transform their cultural consumption into a resistant\" subcultural style. It had not yet occurred to them that the so-called highbrow canonical  literature could be immensely popular and devilishly subversive. David Vincent's Bread, Knowledge and Freedom (1981) had already demonstrated the important role of reading in inspiring working-class consciousness in early nineteenth-century Britain. As a sociologist; Long concluded that the really important question that needed answering was why academics did not care about readers.</div>",
-      "image": null,
-      "image_regions": null,
+      "text_html": "Read the passage carefully and answer the questions given below based solely on the passage&nbsp;<div><br></div><div>When Elizabeth Long began   investigating women's book groups in the  mid-1980s, her research plan   provoked two profoundly different sets of reactions. Women; who had themselves participated in such groups, as well as men whose mothers and grandmothers had done so, immediately grasped the importance of her project \"You will never know what a difference it made\" was the phrase she heard again and again. But among her   academic colleagues, common readers seemed to be occupying a zone of cultural invisibility: They were not of interest to literature departments, whose major focus is on books and authors, not readers. They were not of interest to sociologists or political  scientists because women' s reading groups do not   pursue  activities with any obvious relationship to formal political processes: Long; however; went on to show that such  groups had mobilised the women's&nbsp; suffrage and Progressive movements at the grassroots  Scholars of popular culture had not found  reading  groups  interesting because the groups  read canonized fiction and did not transform their cultural consumption into a resistant\" subcultural style. It had not yet occurred to them that the so-called highbrow canonical  literature could be immensely popular and devilishly subversive. David Vincent's Bread, Knowledge and Freedom (1981) had already demonstrated the important role of reading in inspiring working-class consciousness in early nineteenth-century Britain. As a sociologist, Long concluded that the really important question that needed answering was why academics did not care about readers.</div>",
+      "image": "images/I12.png",
+      "image_regions": {
+        "page": 24,
+        "boxes": [
+          [
+            180.65234375,
+            126.28125,
+            1597.80859375,
+            1140.0390625
+          ]
+        ]
+      },
       "applies_to": [
         111,
         112,
@@ -3824,19 +4500,39 @@
     {
       "instruction_id": "I13",
       "text_html": "Read the passage carefully and answer the questions given below<div><br></div><div>Christopher Columbus of Spain set foot in the New World in 1492. Six years later; Vasco da Gama of Portugal reached India.   During the next two centuries the   Spaniards and the Portuguese actively transferred, not only to Europe but to many parts of Asia as well, a number of plant species which they encountered in South and central America, in expectation of their potential either as food or as medicine. These plants had been developed to a high degree by the Maya and Inca civilizations of these regions. Of these, the potato (Solanum tuberosum) is believed to have been domesticated in terraced slopes on the high plateau of Bolivia-Peru in South America, sometime between 5000 and 2000 BC. Europeans first saw potatoes in South America in 1537, and around 1570 a Spanish ship brought the first potatoes to Europe. Though termed papa in South America, they were incorrectly called batata (the name for the sweet potato) when John Gerard first described them in English in 1597, and this name stuck An 1860 report states that by 1780, potatoes, peas and beans were in high repute as foods in Calcutta, and that the Dutch are said t0 have been the first to introduce the culture of potatoes, which was received from their settlement of the Cape of Good Hope. From there the British received annually the seeds of every kind of vegetable useful at the table, as well as several plants of which there appears to be much need, especially various kinds of pot herbs.</div>",
-      "image": null,
-      "image_regions": null,
+      "image": "images/I13.png",
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            103.75703125,
+            650.6796875,
+            1538.76953125,
+            1533.49375
+          ]
+        ]
+      },
       "applies_to": [
-        116
+        116,
+        117
       ]
     },
     {
       "instruction_id": "I14",
       "text_html": "Read the passage carefully and answer the questions given below&nbsp;<div><br></div><div>Christopher Columbus of Spain set foot in the New World in 1492. Six years later; Vasco da Gama of Portugal reached India.   During the next two centuries the   Spaniards and the Portuguese actively transferred, not only to Europe but to many parts of Asia as well, a number of plant species which they encountered in South and central America, in expectation of their potential either as food or as medicine. These plants had been developed to a high degree by the Maya and Inca civilizations of these regions. Of these, the potato (Solanum tuberosum) is believed to have been domesticated in terraced slopes on the high plateau of Bolivia-Peru in South America, sometime between 5000 and 2000 BC. Europeans first saw potatoes in South America in 1537, and around 1570 a Spanish ship brought the first potatoes to Europe. Though termed papa in South America, they were incorrectly called batata (the name for the sweet potato) when John Gerard first described them in English in 1597, and this name stuck An 1860 report states that by 1780, potatoes, peas and beans were in high repute as foods in Calcutta, and that the Dutch are said t0 have been the first to introduce the culture of potatoes, which was received from their settlement of the Cape of Good Hope. From there the British received annually the seeds of every kind of vegetable useful at the table, as well as several plants of which there appears to be much need, especially various kinds of pot herbs.</div>",
       "image": null,
-      "image_regions": null,
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            103.75703125,
+            650.6796875,
+            1538.76953125,
+            1533.49375
+          ]
+        ]
+      },
       "applies_to": [
-        117,
         118,
         119,
         120
