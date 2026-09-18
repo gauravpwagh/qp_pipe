@@ -9,6 +9,7 @@ import re
 import shutil
 import tempfile
 import threading
+import time
 from datetime import datetime, timezone
 from pathlib import Path
 
@@ -70,6 +71,39 @@ def _write_paper_atomic(paper_id: str, paper: dict) -> None:
         with os.fdopen(fd, "w", encoding="utf-8") as f:
             json.dump(paper, f, indent=2, ensure_ascii=False)
         os.replace(tmp_path, path)
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)
+
+
+def _save_image_atomic(path: Path, image) -> None:
+    """This filename is fixed (q_0001.png, I1.png, ...) and can be open for
+    reading elsewhere at the same moment - the review page's own <img>, or
+    a Reprocess call's Image.open() - so a direct in-place overwrite can
+    hit a file-locking conflict, which is exactly what made "Save crop"
+    sometimes need a couple of tries.
+
+    Saving to a temp file first and swapping it in is the standard fix,
+    but on Windows even os.replace() onto an open destination can raise
+    PermissionError outright (unlike POSIX rename, which doesn't care who
+    has it open) - confirmed by testing: Python's own file opens don't
+    request the sharing flag Windows needs to allow that. The reader is
+    normally done within milliseconds, so retrying briefly resolves it
+    rather than surfacing a failure the user has to notice and retry by
+    hand."""
+    fd, tmp_path = tempfile.mkstemp(dir=str(path.parent), suffix=".tmp")
+    try:
+        os.close(fd)
+        image.save(tmp_path, format="PNG")
+        last_err = None
+        for _ in range(20):
+            try:
+                os.replace(tmp_path, path)
+                return
+            except PermissionError as e:
+                last_err = e
+                time.sleep(0.1)
+        raise last_err
     finally:
         if os.path.exists(tmp_path):
             os.remove(tmp_path)
@@ -265,7 +299,10 @@ def api_recrop_question(paper_id, q_number):
         images_dir = _paper_dir(paper_id) / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
         rel_name = f"q_{q_number:04d}.png"
-        combined.save(images_dir / rel_name)
+        try:
+            _save_image_atomic(images_dir / rel_name, combined)
+        except PermissionError as e:
+            return jsonify({"error": f"could not save the image (file busy, try again): {e}"}), 409
 
         question["image"] = f"images/{rel_name}"
         # Remembered so re-opening the editor later starts from the last
@@ -350,7 +387,10 @@ def api_recrop_instruction(paper_id, instruction_id):
         images_dir = _paper_dir(paper_id) / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
         rel_name = f"{instruction_id}.png"
-        combined.save(images_dir / rel_name)
+        try:
+            _save_image_atomic(images_dir / rel_name, combined)
+        except PermissionError as e:
+            return jsonify({"error": f"could not save the image (file busy, try again): {e}"}), 409
 
         inst["image"] = f"images/{rel_name}"
         inst["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
