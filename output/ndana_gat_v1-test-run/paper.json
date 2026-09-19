@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 14
+    "needs_review_count": 13
   },
   "instructions": [
     {
@@ -3665,11 +3665,49 @@
         "c": "I-D, II-C, III-A, IV-B",
         "d": "I-C , II-D, III-B, IV-A ::' ~n."
       },
-      "table": {},
+      "table": {
+        "list1": [
+          {
+            "label": "I",
+            "text": "Passing of the Age of Consent Bill"
+          },
+          {
+            "label": "II",
+            "text": "Establishment of the Arya Samaj"
+          },
+          {
+            "label": "III",
+            "text": "Death of Dayanand Saraswati"
+          },
+          {
+            "label": "IV",
+            "text": "Foundation of the Nagari Pracharini Sabha"
+          }
+        ],
+        "list2": [
+          {
+            "label": "A",
+            "text": "1893"
+          },
+          {
+            "label": "B",
+            "text": "1883"
+          },
+          {
+            "label": "C",
+            "text": "1875"
+          },
+          {
+            "label": "D",
+            "text": "1891"
+          }
+        ],
+        "code_table": null
+      },
       "has_underline": false,
       "ocr_confidence": 0.829,
-      "needs_review": true,
-      "review_reason": "'Code' label not found - could not locate the answer grid",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
