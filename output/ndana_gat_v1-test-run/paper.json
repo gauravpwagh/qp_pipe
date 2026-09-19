@@ -9,14 +9,24 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 73
+    "needs_review_count": 14
   },
   "instructions": [
     {
       "instruction_id": "I1",
-      "text_html": "(for the next 10 items that follow) Each item in this section consists of a sentence with an underlined word followed by four words.  Select the word that is   opposite in meaning to the underlined word and mark your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "text_html": "(for the next 10 items that follow) <span style=\"font-weight: normal;\">Each item in this section consists of a sentence with an underlined word followed by four words.  Select the word that is   </span>opposite in meaning<span style=\"font-weight: normal;\"> to the underlined word and mark your response on the Answer Sheet accordingly:</span>",
+      "image": "images/I1.png",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            99.18124999999999,
+            184.19375,
+            860.7515625,
+            492.36406249999993
+          ]
+        ]
+      },
       "applies_to": [
         1,
         2,
@@ -32,9 +42,19 @@
     },
     {
       "instruction_id": "I2",
-      "text_html": "(for the next 05 items that follow) Each item in this section consists of & sentence with Given below are some foreign phrases followed by an underlined word followed by four words: Select four alternatives to each. Select the most appropriate the word that is nearest in meaning to the alternative which provides the correct meaning of underlined word and mark your response on the the foreign phrase used in English and mark your Answer Sheet accordingly.",
-      "image": null,
-      "image_regions": null,
+      "text_html": "<span style=\"font-weight: normal;\">(for the next 05 items that follow) Each item in this section consists of &amp; sentence with Given below are some foreign phrases followed by an underlined word followed by four words: Select four alternatives to each. Select the most appropriate the word that is </span>nearest in meaning<span style=\"font-weight: normal;\"> to the alternative which provides the correct meaning of underlined word and mark your response on the the foreign phrase used in English and mark your Answer Sheet accordingly.</span>",
+      "image": "images/I2.png",
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            60.2171875,
+            159.3984375,
+            814.703125,
+            417.978125
+          ]
+        ]
+      },
       "applies_to": [
         11,
         12,
@@ -45,9 +65,42 @@
     },
     {
       "instruction_id": "I3",
-      "text_html": "(for the next 05 items that follow) Given below are some idioms/ phrases followed by Each of the following sentences has an underlined four alternatives to each. Select the most appropriate word_ Read the sentence carefully and identify alternative which provides the correct meaning of which word class the underlined word belongs to the idiom /phrase and mark your response on the Indicate your response on the Answer Sheet Answer Sheet accordingly.",
-      "image": null,
-      "image_regions": null,
+      "text_html": "<span style=\"font-weight: normal;\">(for the next 05 items that follow) Given below are some foreign phrases followed by four alternatives to each. Select the most appropriate alternative which provides the correct meaning of the foreign phrase used in English and mark your response on the Answer Sheet accordingly.</span>",
+      "image": "images/I3.png",
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            821.7875,
+            159.3984375,
+            1576.2734375,
+            410.89374999999995
+          ]
+        ]
+      },
+      "applies_to": [
+        16,
+        17,
+        18,
+        19,
+        20
+      ]
+    },
+    {
+      "instruction_id": "I4",
+      "text_html": "(for the next 05 items that follow) <span style=\"font-weight: normal;\">Given below are some idioms/phrases followed by four alternatives to each. Select the most appropriate alternative which provides the correct meaning of the idiom/phrase and mark your response on the Answer Sheet accordingly.</span>",
+      "image": "images/I4.png",
+      "image_regions": {
+        "page": 4,
+        "boxes": [
+          [
+            81.47031249999999,
+            152.3140625,
+            843.040625,
+            456.94218750000005
+          ]
+        ]
+      },
       "applies_to": [
         21,
         22,
@@ -57,10 +110,43 @@
       ]
     },
     {
-      "instruction_id": "I4",
-      "text_html": "(for the next 05 items that follow) Reorder the PQRS set to create the most appropriate meaningful sentence. Indicate your response on the Answer Sheet accordingly.",
-      "image": null,
-      "image_regions": null,
+      "instruction_id": "I5",
+      "text_html": "(for the next 05 items that follow) <span style=\"font-weight: normal;\">Each of the following sentences has an underlined word: Read the sentence carefully and identify which word class the underlined word belongs to. Indicate your response on the Answer Sheet accordingly.</span>",
+      "image": "images/I5.png",
+      "image_regions": {
+        "page": 4,
+        "boxes": [
+          [
+            846.5828124999999,
+            162.94062499999998,
+            1611.6953125,
+            449.8578125
+          ]
+        ]
+      },
+      "applies_to": [
+        26,
+        27,
+        28,
+        29,
+        30
+      ]
+    },
+    {
+      "instruction_id": "I6",
+      "text_html": "(for the next 05 items that follow) <span style=\"font-weight: normal;\">Reorder the PQRS set to create the most appropriate meaningful sentence. Indicate your response on the Answer Sheet accordingly:</span>",
+      "image": "images/I6.png",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            49.612500000000004,
+            134.6625,
+            811.51875,
+            386.26875
+          ]
+        ]
+      },
       "applies_to": [
         31,
         32,
@@ -70,10 +156,20 @@
       ]
     },
     {
-      "instruction_id": "I5",
-      "text_html": "(for the next 05 items that follow) : The   following items have four sentences, one of which is grammatically correct_ Select the most appropriate correct sentence and mark your response on the Answer Sheet accordingly:",
-      "image": null,
-      "image_regions": null,
+      "instruction_id": "I7",
+      "text_html": "(for the next 05 items that follow) :<span style=\"font-weight: normal;\"> The   following items have four sentences, one of which is grammatically correct_ Select the most appropriate correct sentence and mark your response on the Answer Sheet accordingly:</span>",
+      "image": "images/I7.png",
+      "image_regions": {
+        "page": 6,
+        "boxes": [
+          [
+            88.59375,
+            127.575,
+            846.9562500000001,
+            347.2875
+          ]
+        ]
+      },
       "applies_to": [
         36,
         37,
@@ -91,7 +187,7 @@
       "image": "images/q_0001.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "During the trial, the witness s deposition was equivocal:",
+      "question_stem_html": "During the trial, the witness's deposition was <u>equivocal:</u>",
       "options": {
         "a": "ambiguous",
         "b": "evasive",
@@ -103,7 +199,7 @@
       "ocr_confidence": 0.936,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -116,7 +212,7 @@
       "image": "images/q_0002.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The professor is known for his characteristic reticence:",
+      "question_stem_html": "The professor is known for his characteristic <u>reticence</u>:",
       "options": {
         "a": "communicativeness",
         "b": "reserve",
@@ -128,7 +224,7 @@
       "ocr_confidence": 0.954,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -141,7 +237,7 @@
       "image": "images/q_0003.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Observers noted the officials' increasingly capricious approach to administrative reforms_",
+      "question_stem_html": "Observers noted the officials' increasingly <u>capricious</u> approach to administrative reforms_",
       "options": {
         "a": "erratic",
         "b": "whimsical",
@@ -153,7 +249,7 @@
       "ocr_confidence": 0.979,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -166,7 +262,7 @@
       "image": "images/q_0004.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The novel presents an idealistic view of the ongoing political reform_",
+      "question_stem_html": "The novel presents an <u>idealistic</u> view of the ongoing political reform_",
       "options": {
         "a": "visionary",
         "b": "utopian",
@@ -178,7 +274,7 @@
       "ocr_confidence": 0.943,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -191,23 +287,34 @@
       "image": "images/q_0005.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "5 The speaker s tone became increasingly caustic during the debate.",
+      "question_stem_html": "5 The speaker s tone became increasingly <u>caustic</u> during the debate.",
       "options": {
         "a": "sarcastic",
         "b": "conciliatory",
         "c": "acerbic",
-        "d": "acrimonious PART - A"
+        "d": "acrimonious"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.93,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I1"
+      "instruction_id": "I1",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            97.41015625,
+            1710.8765624999999,
+            862.52265625,
+            2008.4203125
+          ]
+        ]
+      }
     },
     {
       "q_number": 6,
@@ -216,7 +323,7 @@
       "image": "images/q_0006.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The note drew attention to the fallacious assumptions underlying the proposals.",
+      "question_stem_html": "The note drew attention to the<u> fallacious</u> assumptions underlying the proposals.",
       "options": {
         "a": "veracious",
         "b": "misleading",
@@ -228,7 +335,7 @@
       "ocr_confidence": 0.962,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -241,23 +348,34 @@
       "image": "images/q_0007.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The activist was sceptical with regard to the antecedents of the newly discovered documents _",
+      "question_stem_html": "The activist was <u>sceptical</u> with regard to the antecedents of the newly discovered documents.",
       "options": {
         "a": "restrained",
-        "b": "credulous circumlocutory",
-        "c": "",
+        "b": "credulous&nbsp;",
+        "c": "circumlocutory",
         "d": "guarded"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.973,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I1"
+      "instruction_id": "I1",
+      "image_regions": {
+        "page": 2,
+        "boxes": [
+          [
+            873.1492187499999,
+            559.665625,
+            1627.63515625,
+            924.5109375
+          ]
+        ]
+      }
     },
     {
       "q_number": 8,
@@ -266,7 +384,7 @@
       "image": "images/q_0008.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The   panel found the conclusion somewhat speculative:",
+      "question_stem_html": "The   panel found the conclusion somewhat <u>speculative:</u>",
       "options": {
         "a": "conjectural",
         "b": "hypothetical",
@@ -291,19 +409,19 @@
       "image": "images/q_0009.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "After the mishap, the mood was sombre among the survivors.",
+      "question_stem_html": "After the mishap, the mood was <u>sombre</u> among the survivors.",
       "options": {
         "a": "shady",
-        "b": "dingy restrained",
-        "c": "",
+        "b": "dingy&nbsp;",
+        "c": "restrained",
         "d": "buoyant"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.952,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -316,19 +434,19 @@
       "image": "images/q_0010.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "He is a professional artist.",
+      "question_stem_html": "He is a <u>professional</u> artist.",
       "options": {
         "a": "apprentice",
-        "b": "dilettante amateur",
-        "c": "",
+        "b": "dilettante&nbsp;",
+        "c": "amateur",
         "d": "aspirant"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.886,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -341,9 +459,9 @@
       "image": "images/q_0011.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The controversial policy received the committee's imprimatur: (a criticism",
+      "question_stem_html": "The controversial policy received the committee's <u>imprimatur</u>:",
       "options": {
-        "a": "",
+        "a": "<span style=\"font-size: 15px; font-weight: 600;\">criticism</span>",
         "b": "approval",
         "c": "rejection",
         "d": "appraisal"
@@ -351,8 +469,8 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.946,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -366,19 +484,19 @@
       "image": "images/q_0012.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The archaeologist was fascinated by the annular design of the ancient monument:",
+      "question_stem_html": "The archaeologist was fascinated by the <u>annular </u>design of the ancient monument:",
       "options": {
         "a": "circular",
-        "b": "vertical (c triangular",
-        "c": "",
+        "b": "vertical&nbsp;",
+        "c": "triangular",
         "d": "funicular"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.966,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -391,18 +509,18 @@
       "image": "images/q_0013.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The nobility is not known for its munificence",
+      "question_stem_html": "The nobility is not known for its <u>munificence</u>",
       "options": {
-        "a": "reluctance (b valour",
-        "b": "",
+        "a": "reluctance",
+        "b": "valour",
         "c": "generosity",
         "d": "graciousness"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.963,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -416,18 +534,18 @@
       "image": "images/q_0014.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The goods kept in the storage  facility were declared to be contraband:",
+      "question_stem_html": "The goods kept in the storage  facility were declared to be <u>contraband:</u>",
       "options": {
         "a": "prohibited",
-        "b": "taxable (c foreign",
-        "c": "",
+        "b": "taxable",
+        "c": "foreign",
         "d": "adulterated"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.931,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -441,12 +559,12 @@
       "image": "images/q_0015.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The judge ruled on the egregious violations of human rights by the authorities.",
+      "question_stem_html": "The judge ruled on the<u> egregious</u> violations of human rights by the authorities.",
       "options": {
         "a": "subtle",
         "b": "flagrant",
         "c": "inadvertent",
-        "d": "concealed response on the Answer Sheet accordingly:"
+        "d": "concealed"
       },
       "table": null,
       "has_underline": false,
@@ -457,7 +575,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I2"
+      "instruction_id": "I2",
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            69.07265625,
+            1732.1296875,
+            816.47421875,
+            2043.8421875
+          ]
+        ]
+      }
     },
     {
       "q_number": 16,
@@ -469,20 +598,20 @@
       "question_stem_html": "Ipso facto",
       "options": {
         "a": "After the fact",
-        "b": "In fact By the fact itself",
-        "c": "",
+        "b": "In fact&nbsp;",
+        "c": "By the fact itself",
         "d": "The primary factor"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.945,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 17,
@@ -494,20 +623,20 @@
       "question_stem_html": "Via media",
       "options": {
         "a": "Through newspapers",
-        "b": "Through diplomacy In secrecy",
-        "c": "",
+        "b": "Through diplomacy&nbsp;",
+        "c": "In secrecy",
         "d": "middle way"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.961,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 18,
@@ -532,7 +661,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 19,
@@ -544,20 +673,20 @@
       "question_stem_html": "A posteriori",
       "options": {
         "a": "At the very beginning",
-        "b": "Based on reasoning from known facts or empirical evidence (c Military campaign leading to swift victory",
-        "c": "",
+        "b": "Based on reasoning from known facts or empirical evidence&nbsp;",
+        "c": "Military campaign leading to swift victory",
         "d": "A person with a sociable and expansive lifestyle"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.89,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3"
     },
     {
       "q_number": 20,
@@ -571,18 +700,29 @@
         "a": "The most appropriate word",
         "b": "Method of operating",
         "c": "The violation of a rule",
-        "d": "Successful operation ' , ` ':"
+        "d": "Successful operation&nbsp;"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.804,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I3",
+      "image_regions": {
+        "page": 3,
+        "boxes": [
+          [
+            830.64296875,
+            1771.09375,
+            1439.89921875,
+            2054.46875
+          ]
+        ]
+      }
     },
     {
       "q_number": 21,
@@ -607,7 +747,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I3"
+      "instruction_id": "I4"
     },
     {
       "q_number": 22,
@@ -616,7 +756,7 @@
       "image": "images/q_0022.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Make no bones about something'",
+      "question_stem_html": "'Make no bones about something'",
       "options": {
         "a": "To do your own thing",
         "b": "To make no money",
@@ -632,7 +772,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I3"
+      "instruction_id": "I4"
     },
     {
       "q_number": 23,
@@ -644,20 +784,20 @@
       "question_stem_html": "'A blot on the landscape'",
       "options": {
         "a": "A painting that has turned out wrong",
-        "b": "A bald patch in a meadow A black sheep in an office",
-        "c": "",
+        "b": "A bald patch in a meadow&nbsp;",
+        "c": "A black sheep in an office",
         "d": "Something ugly that spoils the appearance of a place"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.859,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I3"
+      "instruction_id": "I4"
     },
     {
       "q_number": 24,
@@ -669,20 +809,20 @@
       "question_stem_html": "'A bone of contention'",
       "options": {
         "a": "Source of agreement",
-        "b": "Point of long standing dispute (c hidden agenda",
-        "c": "",
+        "b": "Point of long standing dispute&nbsp;",
+        "c": "A hidden agenda",
         "d": "Legal obligation"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.906,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I3"
+      "instruction_id": "I4"
     },
     {
       "q_number": 25,
@@ -694,20 +834,31 @@
       "question_stem_html": "Pour oil on troubled waters'",
       "options": {
         "a": "To mastermind a trick or deception",
-        "b": "To produce something that is required as ifby magic (c To exacerbate a festering situation",
-        "c": "",
-        "d": "To say or do   something to stop an argument or calm down a situation accordingly:"
+        "b": "To produce something that is required as if by magic&nbsp;",
+        "c": "To exacerbate a festering situation",
+        "d": "To say or do   something to stop an argument or calm down a situation"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.902,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I3"
+      "instruction_id": "I4",
+      "image_regions": {
+        "page": 4,
+        "boxes": [
+          [
+            97.41015625,
+            1654.2015625,
+            844.81171875,
+            1997.7937499999998
+          ]
+        ]
+      }
     },
     {
       "q_number": 26,
@@ -716,23 +867,23 @@
       "image": "images/q_0026.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Despite the heavy rain, the match continued as scheduled.",
+      "question_stem_html": "<u>Despite </u>the heavy rain, the match continued as scheduled.",
       "options": {
         "a": "Conjunction",
-        "b": "Adverb (c Noun",
-        "c": "",
+        "b": "Adverb&nbsp;",
+        "c": "Noun",
         "d": "Preposition"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.874,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 27,
@@ -741,23 +892,23 @@
       "image": "images/q_0027.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "He gave both candidates an equal opportunity to present their case.",
+      "question_stem_html": "He gave <u>both</u> candidates an equal opportunity to present their case.",
       "options": {
         "a": "Determiner",
-        "b": "Pronoun Adverb",
-        "c": "",
+        "b": "Pronoun",
+        "c": "&nbsp;Adverb",
         "d": "Adjective"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.965,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 28,
@@ -766,7 +917,7 @@
       "image": "images/q_0028.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The old woman sat on the bench; knitting in silence:",
+      "question_stem_html": "The old woman sat on the bench; knitting in <u>silence</u>:",
       "options": {
         "a": "Verb",
         "b": "Adjective",
@@ -782,7 +933,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 29,
@@ -791,7 +942,7 @@
       "image": "images/q_0029.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The injured soldier crawled forward in spite of debilitating pain.",
+      "question_stem_html": "The injured soldier crawled <u>forward</u> in spite of debilitating pain.",
       "options": {
         "a": "Noun",
         "b": "Adverb",
@@ -807,7 +958,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 30,
@@ -816,7 +967,7 @@
       "image": "images/q_0030.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The results were beyond everyone's expectation.",
+      "question_stem_html": "The results were <u>beyond</u> everyone's expectation.",
       "options": {
         "a": "Preposition",
         "b": "Conjunction",
@@ -832,7 +983,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": "I5"
     },
     {
       "q_number": 31,
@@ -841,7 +992,7 @@
       "image": "images/q_0031.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The findings were<br><br>P: that had long been accepted<br><br>Q: because they fundamentally challenged the assumptions<br><br>R: met with considerable resistance at first<br><br>S : by the mainstream scientific community The proper sequencing should be",
+      "question_stem_html": "The findings were<br><br>P: that had long been accepted<br><br>Q: because they fundamentally challenged the assumptions<br><br>R: met with considerable resistance at first<br><br>S : by the mainstream scientific community&nbsp;<div><br></div><div>The proper sequencing should be:</div>",
       "options": {
         "a": "RQPS",
         "b": "RSPQ",
@@ -857,7 +1008,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I4"
+      "instruction_id": "I6"
     },
     {
       "q_number": 32,
@@ -866,12 +1017,12 @@
       "image": "images/q_0032.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "It is often argued that<br><br>P : are not the result of innate talent alone<br><br>Q: but rather the product of<br><br>R : extraordinary achievements<br><br>S : sustained effort and deliberate practice The proper sequencing should be",
+      "question_stem_html": "It is often argued that<br><br>P : are not the result of innate talent alone<br><br>Q: but rather the product of<br><br>R : extraordinary achievements<br><br>S : sustained effort and deliberate practice&nbsp;<div><br></div><div>The proper sequencing should be</div>",
       "options": {
         "a": "SPQR",
         "b": "PSQR",
         "c": "RPQS",
-        "d": "QRSP TFDD-B-AGT (5- A )"
+        "d": "QRSP"
       },
       "table": null,
       "has_underline": false,
@@ -882,7 +1033,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I4"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            58.471875000000004,
+            1233.2250000000001,
+            788.484375,
+            1984.5000000000002
+          ]
+        ]
+      }
     },
     {
       "q_number": 33,
@@ -891,23 +1053,23 @@
       "image": "images/q_0033.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The historian noted that<br><br>P : had been systematically erased<br><br>Q: the memory of certain communities<br><br>R : and replaced with a sanitized narrative<br><br>S : from the official records of the colonial period The proper sequencing should be",
+      "question_stem_html": "The historian noted that<br><br>P : had been systematically erased<br><br>Q: the memory of certain communities<br><br>R : and replaced with a sanitized narrative<br><br>S : from the official records of the colonial period&nbsp;<div><br></div><div>The proper sequencing should be</div>",
       "options": {
-        "a": "PQRS QPSR RQSP",
-        "b": "",
-        "c": "",
+        "a": "PQRS&nbsp;",
+        "b": "QPSR&nbsp;",
+        "c": "RQSP",
         "d": "QSPR"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.88,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I4"
+      "instruction_id": "I6"
     },
     {
       "q_number": 34,
@@ -916,23 +1078,23 @@
       "image": "images/q_0034.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Critics have long maintained that<br><br>P: literature s true power lies in its<br><br>Q: assumptions and not in the mere<br><br>R: ability to disturb comfortable S reproduction of social reality The proper sequencing should be",
+      "question_stem_html": "Critics have long maintained that<br><br>P: literature s true power lies in its<br><br>Q: assumptions and not in the mere<br><br>R: ability to disturb comfortable&nbsp;<div><br></div><div>S: reproduction of social reality&nbsp;<div><br></div><div>The proper sequencing should be:</div></div>",
       "options": {
-        "a": "PQRS PRQS SPQR",
-        "b": "",
-        "c": "",
+        "a": "PQRS&nbsp;",
+        "b": "PRQS&nbsp;",
+        "c": "SPQR",
         "d": "QRSP"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.928,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I4"
+      "instruction_id": "I6"
     },
     {
       "q_number": 35,
@@ -941,12 +1103,12 @@
       "image": "images/q_0035.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The movie<br><br>P : it was hardly possible<br><br>Q: were so humorous that<br><br>R : to keep a straight face<br><br>S : had many scenes which The proper sequencing should be",
+      "question_stem_html": "The movie<br><br>P : it was hardly possible<br><br>Q: were so humorous that<br><br>R : to keep a straight face<br><br>S : had many scenes which&nbsp;<div><br></div><div>The proper sequencing should be</div>",
       "options": {
         "a": "PRSQ",
         "b": "SPRQ",
         "c": "QPRS",
-        "d": "SQPR 1' 7j7"
+        "d": "SQPR"
       },
       "table": null,
       "has_underline": false,
@@ -957,7 +1119,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I4"
+      "instruction_id": "I6",
+      "image_regions": {
+        "page": 5,
+        "boxes": [
+          [
+            820.3781250000001,
+            1389.15,
+            1383.8343750000001,
+            1980.9562500000002
+          ]
+        ]
+      }
     },
     {
       "q_number": 36,
@@ -982,7 +1155,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I5"
+      "instruction_id": "I7"
     },
     {
       "q_number": 37,
@@ -1007,7 +1180,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I5"
+      "instruction_id": "I7"
     },
     {
       "q_number": 38,
@@ -1019,20 +1192,20 @@
       "question_stem_html": "",
       "options": {
         "a": "The teacher made the students to rewrite the essay.",
-        "b": "The teacher has the students to rewrite the essay. The teacher got the students rewriting the essay.",
-        "c": "",
+        "b": "The teacher has the students to rewrite the essay.",
+        "c": "&nbsp;The teacher got the students rewriting the essay.",
         "d": "The teacher had the students  rewrite the essay."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.894,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I5"
+      "instruction_id": "I7"
     },
     {
       "q_number": 39,
@@ -1057,7 +1230,7 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I5"
+      "instruction_id": "I7"
     },
     {
       "q_number": 40,
@@ -1069,20 +1242,20 @@
       "question_stem_html": "",
       "options": {
         "a": "Do not panic because a situation is under control_",
-        "b": "Do not panic because   situation under control_ Do not   panic however a situation is under control.",
-        "c": "",
-        "d": "Do not panic because the  situation is under control TFDD-B-AGT"
+        "b": "Do not panic because   situation under control.",
+        "c": "Do not panic however a situation is under control.",
+        "d": "Do not panic because the  situation is under control."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.881,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": "I5"
+      "instruction_id": "I7"
     },
     {
       "q_number": 41,
@@ -1093,16 +1266,16 @@
       "passage_text_html": "",
       "question_stem_html": "A sentence is given in three parts (a), (b) and (c) Find out which part of the sentence has an error_ If there is no error, mark your option (d): Indicate your response on the Answer Sheet accordingly.",
       "options": {
-        "a": "He is a honest man who has served this institution for twenty years",
-        "b": "",
-        "c": "",
+        "a": "He is a honest man&nbsp;",
+        "b": "who has served&nbsp;",
+        "c": "this institution for twenty years",
         "d": "No error"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.902,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1118,16 +1291,16 @@
       "passage_text_html": "",
       "question_stem_html": "A sentence is given in three parts (a), (b) and (c) Find out which part of the sentence has an error_ If there is no error, mark your option (d): Indicate your response on the Answer Sheet accordingly.",
       "options": {
-        "a": "The jury has delivered its verdict after long and careful deliberations No error",
-        "b": "",
-        "c": "",
-        "d": ""
+        "a": "The jury has delivered",
+        "b": "&nbsp;its verdict after&nbsp;",
+        "c": "long and careful deliberations&nbsp;",
+        "d": "No error"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.936,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1141,18 +1314,18 @@
       "image": "images/q_0043.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Read the following pairs Active Voice Passive Voice I These grapes These grapes are sour taste sour: when they are tasted.<br><br>II. Forget the past: Let the past be forgotten. Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Read the following pairs&nbsp;<div><br></div><div>Active Voice Passive Voice&nbsp;</div><div>I These grapes taste sour. :These grapes are sour&nbsp; when they are tasted.</div><div><br>II. Forget the past. : Let the past be forgotten.&nbsp;</div><div><br></div><div>Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
         "a": "I only",
-        "b": "II only Both I and II",
-        "c": "",
+        "b": "II only&nbsp;",
+        "c": "Both I and II",
         "d": "Neither [ nor II"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.894,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1166,23 +1339,34 @@
       "image": "images/q_0044.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "(6 - A ) 44. Read the following pairs Active Voice Passive Voice I_ They asked My name was asked me my name by them. II  They found him He found them guilty. guilty. Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "44. Read the following pairs&nbsp;<div>Active Voice Passive Voice&nbsp;</div><div><br></div><div>I_ They asked me my name. :&nbsp; My name was asked&nbsp; by them.&nbsp;</div><div><br></div><div>II  They found him guilty. : He found them&nbsp; guilty.&nbsp;</div><div><br></div><div>Identify the pair(s) wherein the Passive Voice is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II 45. Read the following pairs"
+        "d": "Neither I nor II&nbsp;"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.765,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            86.821875,
+            127.575,
+            841.640625,
+            705.2062500000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 45,
@@ -1191,9 +1375,9 @@
       "image": "images/q_0045.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Direct Speech Indirect Speech I_ He said, 'Bravo! You He applauded him have written the best |saying that he had answer written the best answer. II  | The sun rises in the The teacher said [East;' said the that the sun rose teacher. in the East: Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Direct Speech Indirect Speech&nbsp;<div><br></div><div>I. He said, 'Bravo! You have written the best answer. | He applauded him saying that he had&nbsp; written the best answer.&nbsp;</div><div><br></div><div>II. \"The sun rises in the East,\" said the&nbsp;&nbsp;teacher. : The teacher said&nbsp; that the sun rose in the East:&nbsp;</div><div><br></div><div>Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
-        "a": "Ionly",
+        "a": "I only",
         "b": "II only",
         "c": "Both I and II",
         "d": "Neither I nor II"
@@ -1201,13 +1385,24 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.905,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            93.90937500000001,
+            719.38125,
+            845.184375,
+            1392.69375
+          ]
+        ]
+      }
     },
     {
       "q_number": 46,
@@ -1216,7 +1411,7 @@
       "image": "images/q_0046.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Read the following pairs Direct Speech Indirect Speech I He said to him, He ordered him to ( Wait here until wait here until he [ return returned:<br><br>II. He said, \"Alas! He exclaimed sadly I am undone. that he was undone_ Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Read the following pairs&nbsp;<div>Direct Speech Indirect Speech&nbsp;</div><div><br></div><div>I He said to him, \"Wait here until I return.&nbsp; He ordered him to wait here until he&nbsp; returned:</div><div><br>II. He said, \"Alas! I am undone.\" He exclaimed sadly that he was undone.&nbsp;</div><div><br></div><div>Identify the pair(s) wherein the Indirect Speech is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
         "a": "Ionly",
         "b": "II only",
@@ -1241,12 +1436,12 @@
       "image": "images/q_0047.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "TFDD-B-AGT 47. Read the following pairs One-word Group of words substitution I_ One who studies Graphologist handwriting II. One who draws maps Cartographer III. One who studies flags Vexillologist Identify the   pairs wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Read the following pairs Group of words<br><br>I. One who studies handwriting One-word substitution Graphologist<br><br><u>II.</u> One who draws maps <u>Cartographer</u><br><br>III: |One who studies flags Vexillologist&nbsp;<div><br></div><div>Identify the pairs wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
-        "a": "I and II only",
-        "b": "II and III only Iand III only",
-        "c": "",
-        "d": "I, II and III 48. Read the following <u>pairs</u> One-word Group of words <u>substitution</u> <u>I</u> One who knows everything <u>Omnipotent</u> <u>II.</u> One who is all powerful <u>Omniscient</u> III. One who abandons Apostate religious faith"
+        "a": "Iand II only",
+        "b": "II and III only",
+        "c": "Iand III only",
+        "d": "I, II and III"
       },
       "table": {
         "headers": [
@@ -1268,13 +1463,24 @@
       },
       "has_underline": true,
       "ocr_confidence": 0.918,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            848.7281250000001,
+            134.6625,
+            1596.4593750000001,
+            715.8375000000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 48,
@@ -1283,23 +1489,34 @@
       "image": "images/q_0048.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Identify the pair(s) wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.",
+      "question_stem_html": "Read the following <u>pairs</u> Group of words One-word substitution&nbsp;<div><u><br></u></div><div><u>I</u> One who knows everything |Omnipotent<br><br><u>II.</u> One who is all powerful Omniscient Apostate<br><br>III. One who abandons religious faith&nbsp;</div><div><br></div><div>Identify the   pair(s) wherein the one word substitution is correctly stated and mark your response on the Answer Sheet accordingly.</div>",
       "options": {
         "a": "I only",
-        "b": "II only",
+        "b": "<u>II</u> only",
         "c": "III only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.818,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            852.271875,
+            712.29375,
+            1617.7218750000002,
+            1297.0125
+          ]
+        ]
+      }
     },
     {
       "q_number": 49,
@@ -1308,7 +1525,7 @@
       "image": "images/q_0049.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Fill in the blanks with the most appropriate phrasal verb and mark your response on the Answer Sheet accordingly The car tended to every time the rains decided to",
+      "question_stem_html": "Fill in the blanks with the most appropriate phrasal verb and mark your response on the Answer Sheet accordingly&nbsp;<div><br></div><div>The car tended to&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;every time the rains decided to</div>",
       "options": {
         "a": "act out; come in",
         "b": "act up; come down",
@@ -1333,12 +1550,12 @@
       "image": "images/q_0050.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Fill in the blanks with the <u>most</u> <u>appropriate</u> phrasal verb and mark your response on the Answer Sheet accordingly. He was eager to after having resigned his position, but was advised to his next move given the prevailing market situation.",
+      "question_stem_html": "Fill in the blanks with the <u>most</u> <u>appropriate</u> phrasal verb and mark your response on the Answer Sheet accordingly.&nbsp;<div><br></div><div>He was eager to after having resigned his position, but was advised to his next move given the prevailing market situation.</div>",
       "options": {
         "a": "move on; hold on",
         "b": "move off; hold off",
         "c": "move on; hold off",
-        "d": "move off; hold on (7-A ) ~tKt PART - B"
+        "d": "move off; hold on&nbsp;"
       },
       "table": null,
       "has_underline": true,
@@ -1349,7 +1566,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 7,
+        "boxes": [
+          [
+            855.8156250000001,
+            1623.0375000000001,
+            1614.1781250000001,
+            2005.7625000000003
+          ]
+        ]
+      }
     },
     {
       "q_number": 51,
@@ -1358,19 +1586,19 @@
       "image": "images/q_0051.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A bicycle racing track is a level circular road of radius 10 m Three cyclists P, Q and R with identical cycles are cycling on the track with speeds 2 m/s, 3 m/s and 5 mls respectively. If the  coefficient of friction between the tyres and the road is 0.1, then which cyclist   will slip ? (Take g = 10 m/s2)",
+      "question_stem_html": "A bicycle racing track is a level circular road of radius 10 m Three cyclists P, Q and R with identical cycles are cycling on the track with speeds 2 m/s, 3 m/s and 5 m/s respectively. If the  coefficient of friction between the tyres and the road is 0.1, then which cyclist   will slip ? (Take g = 10 m/s2)",
       "options": {
-        "a": "P only only R only",
-        "b": "",
-        "c": "",
+        "a": "P only&nbsp;",
+        "b": "Q only&nbsp;",
+        "c": "R only",
         "d": "All will slip"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.882,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1385,21 +1613,32 @@
       "passage_text_html": "",
       "question_stem_html": "The  bob of a simple pendulum is   displaced from its mean position and then released from rest 0.20 m above its mean position. What is the speed of the bob as it passes through the mean position ? (Take g = 10 m/s2)",
       "options": {
-        "a": "0 mls",
-        "b": "1 mls 2 mls",
-        "c": "",
-        "d": "V1o mls I"
+        "a": "0 m/s",
+        "b": "1 m/s&nbsp;",
+        "c": "2 m/s",
+        "d": "V1o m/s"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.888,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 9,
+        "boxes": [
+          [
+            26.51953125,
+            830.9453125,
+            772.6023437499999,
+            1329.5125
+          ]
+        ]
+      }
     },
     {
       "q_number": 53,
@@ -1424,7 +1663,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 9,
+        "boxes": [
+          [
+            22.98359375,
+            1382.5515625,
+            772.6023437499999,
+            1994.2687500000002
+          ]
+        ]
+      }
     },
     {
       "q_number": 54,
@@ -1458,19 +1708,19 @@
       "image": "images/q_0055.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements The weight of an object is the same everywhere on the surface of the Earth, but its inertial mass could be different:<br><br>II. The inertial mass and gravitational mass of an object are proportional and the proportionality constant is the same everywhere<br><br>III. The inertial mass and weight of an object are the same at different places on Earth<br><br>Which of the statements  given above islare correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I. The weight of an object is the same everywhere on the surface of the Earth, but its inertial mass could be different:<br><br>II. The inertial mass and gravitational mass of an object are proportional and the proportionality constant is the same everywhere<br><br>III. The inertial mass and weight of an object are the same at different places on Earth<br><br>Which of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "Ionly",
         "b": "II only",
         "c": "I and II",
-        "d": "II and III ToT'"
+        "d": "II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.857,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1483,7 +1733,7 @@
       "image": "images/q_0056.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following I Gravitational field due to a spherical body<br><br>II. Electrostatic field due to a point charge<br><br>III: Strong nuclear force field due to a proton<br><br>IV. Magnetic field due to a bar magnet How   many of the above   follow the inverse square law ?",
+      "question_stem_html": "Consider the following :<div><br></div><div>I. Gravitational field due to a spherical body<br><br>II. Electrostatic field due to a point charge<br><br>III: Strong nuclear force field due to a proton<br><br>IV. Magnetic field due to a bar magnet&nbsp;</div><div><br></div><div>How   many of the above   follow the inverse square law ?</div>",
       "options": {
         "a": "One",
         "b": "Two",
@@ -1511,15 +1761,15 @@
       "question_stem_html": "While   pouring water slowly from a jug, a general observation is that a water layer usually flows along the side of the jug: Which property of water among the   following is responsible for this phenomenon ?",
       "options": {
         "a": "Surface tension",
-        "b": "Relatively low vapour pressure at room temperature (c Negligible compressibility",
-        "c": "",
+        "b": "Relatively low vapour pressure at room temperature&nbsp;",
+        "c": "Negligible compressibility",
         "d": "Low viscosity at room temperature"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.919,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1558,7 +1808,7 @@
       "image": "images/q_0059.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A particle of mass m moves along x-direction under the force F(x) Fo<br><br>1_X for L 0 < x < L. If the particle starts from rest at x = 0, then what is the speed (v) of the particle atx=L? [2FoL",
+      "question_stem_html": "A particle of mass m moves along x-direction under the force F(x) Fo1_X for&nbsp; 0 &lt; x &lt; L. If the particle starts from rest at x = 0, then what is the speed (v) of the particle at x=L?&nbsp;",
       "options": {
         "a": "V = m FoL",
         "b": "V = m FoL",
@@ -1583,7 +1833,7 @@
       "image": "images/q_0060.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A narrow tunnel passes through the centre of a planet of radius R and uniform mass density p. A particle is released into the tunnel. What is the angular frequency of oscillation of the particle (0) equal to 2 (Symbols carry their usual meaning) AzGe",
+      "question_stem_html": "A narrow tunnel passes through the centre of a planet of radius R and uniform mass density p. A particle is released into the tunnel. What is the angular frequency of oscillation of the particle (0) equal to 2 (Symbols carry their usual meaning)",
       "options": {
         "a": "0 3 ZtGe",
         "b": "@ = 3",
@@ -1610,17 +1860,17 @@
       "passage_text_html": "",
       "question_stem_html": "On a rainy day, rain drops fall vertically with speed v. An observer is moving towards east with speed V, while another observer moves towards north with the same speed v_ What is the angle between   apparent rain directions observed by them ?",
       "options": {
-        "a": "",
-        "b": "308",
-        "c": "450",
-        "d": "600"
+        "a": "0",
+        "b": "30",
+        "c": "45",
+        "d": "60"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.841,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1636,9 +1886,9 @@
       "question_stem_html": "What is the minimum horizontal speed given to the bob of a simple  pendulum of length 50 cm so that it describes a complete circle ? (Take g = 10 m/s2)",
       "options": {
         "a": "5 mls",
-        "b": "7-5 mls",
+        "b": "7.5 mls",
         "c": "10 mls",
-        "d": "12+5 mls"
+        "d": "12.5 mls"
       },
       "table": null,
       "has_underline": false,
@@ -1658,19 +1908,19 @@
       "image": "images/q_0063.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Two conducting wires made of the same material have   lengths L and<br><br>1.2 La If the volume of the longer wire is half that of the shorter wire, then what is the electric resistance of the longer wire in  comparison with the shorter wire ?",
+      "question_stem_html": "Two conducting wires made of the same material have   lengths L and&nbsp;1.2 L. If the volume of the longer wire is half that of the shorter wire, then what is the electric resistance of the longer wire in  comparison with the shorter wire ?",
       "options": {
-        "a": "2889 larger",
+        "a": "288%&nbsp;larger",
         "b": "200% larger",
-        "c": "1889 larger",
-        "d": "1089 larger"
+        "c": "188%&nbsp;larger",
+        "d": "108%&nbsp;larger"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.845,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1683,7 +1933,7 @@
       "image": "images/q_0064.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A biconvex lens is made of a material of refractive index 2 such that the ratio of the radii of curvature of its two faces is 1 : 2. A point source in air is placed on the principal axis of this lens at a distance u from the lens Which one of the following is correct if the image is formed exactly at the same distance as that of the point source ? (where R is the radius of curvature of the first face)",
+      "question_stem_html": "A biconvex lens is made of a material of refractive index 2 such that the ratio of the radii of curvature of its two faces is 1 : 2. A point source in air is placed on the principal axis of this lens at a distance u from the lens Which one of the following is correct if the image is formed exactly at the same distance as that of the point source ?&nbsp;<div>(where R is the radius of curvature of the first face)</div>",
       "options": {
         "a": "u = R",
         "b": "u = 2R",
@@ -1708,12 +1958,12 @@
       "image": "images/q_0065.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "In a carrom game, a striker of mass 15 g hits a coin of mass 5 g head on and the coin moves with a speed of 0-36 m/s. If the time of contact between the striker and the coin is 3 milliseconds, then what is the average force applied by the striker on the coin ?",
+      "question_stem_html": "In a carrom game, a striker of mass 15 g hits a coin of mass 5 g head on and the coin moves with a speed of 0.36 m/s. If the time of contact between the striker and the coin is 3 milliseconds, then what is the average force applied by the striker on the coin ?",
       "options": {
         "a": "0.72 N",
-        "b": "0-60 N",
-        "c": "0-54 N",
-        "d": "030 N"
+        "b": "0.60 N",
+        "c": "0.54 N",
+        "d": "0.30 N"
       },
       "table": null,
       "has_underline": false,
@@ -1733,18 +1983,18 @@
       "image": "images/q_0066.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A hollow prism is filled with water of refractive index 1 34 and white light is incident on the   prism: The white   light is assumed to have  wavelengths ranging from 4020 A to 6700 A What is the corresponding wavelength range in water ?",
+      "question_stem_html": "A hollow prism is filled with water of refractive index 1.34 and white light is incident on the   prism: The white   light is assumed to have  wavelengths ranging from 4020 A to 6700 A What is the corresponding wavelength range in water ?",
       "options": {
         "a": "3000 A to 5000 A",
-        "b": "4020 A to 6700 A (c 5000 A to 7000 A",
-        "c": "",
+        "b": "4020 A to 6700 A&nbsp;",
+        "c": "5000 A to 7000 A",
         "d": "5386 A to 8978 A"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.844,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1788,7 +2038,7 @@
         "a": "The centre of mass of the system moves towards Y.",
         "b": "X moves and the centre of mass of the system follows him_",
         "c": "The centre of mass follows the tool:",
-        "d": "The centre of mass remains fixed. 15 _ A )"
+        "d": "The centre of mass remains fixed."
       },
       "table": null,
       "has_underline": false,
@@ -1811,15 +2061,15 @@
       "question_stem_html": "A uniform rope hangs symmetrically over a smooth pulley. One end of the rope is given a slight mass, making that side slightly heavier. Which one of the following is correct ?",
       "options": {
         "a": "As the rope starts moving, every point on the rope has the same acceleration.",
-        "b": "As the rope starts moving, every point on the rope has the same speed, but not the same acceleration. (Cc As the rope starts moving, the tension remains the same throughout the rope.",
-        "c": "",
+        "b": "As the rope starts moving, every point on the rope has the same speed, but not the same acceleration.&nbsp;",
+        "c": "As the rope starts moving, the tension remains the same throughout the rope.",
         "d": "As the rope starts moving, the centre of mass remains stationary."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.782,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1835,17 +2085,17 @@
       "passage_text_html": "",
       "question_stem_html": "An  insulating container contains 250 g of water at 20*C . Steam at 100PC is   passed through it, heating it up to 258C. During this process, part of the steam also gets condensed_ raising the mass of water to 252 g. If the specific heat of water is 1 Cal g-1 8C-1 then what is the value of the latent heat of steam ?",
       "options": {
-        "a": "530 Calg",
-        "b": "540 Callg",
-        "c": "550 Calg",
-        "d": "560 Callg P<0."
+        "a": "530 Cal/g",
+        "b": "540 Cal/g",
+        "c": "550 Cal/g",
+        "d": "560 Cal/g"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.764,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1858,7 +2108,7 @@
       "image": "images/q_0071.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Three parallel glass slabs of refractive indices<br><br>1-5, V and<br><br>1-5 respectively have widths 2 mm; 1 mm and 4 mm_ The combination is in air. Light is incident at the first slab at an angle of incidence t/3. What is the angle with respect to the normal at which the light will emerge from the final surface ?",
+      "question_stem_html": "Three parallel glass slabs of refractive indices 1.5, V and&nbsp;1-5 respectively have widths 2 mm; 1 mm and 4 mm_ The combination is in air. Light is incident at the first slab at an angle of incidence t/3. What is the angle with respect to the normal at which the light will emerge from the final surface ?",
       "options": {
         "a": "T/6",
         "b": "T/4",
@@ -1883,7 +2133,7 @@
       "image": "images/q_0072.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider three wires X, Y and Z of the same length such that the ratio of their conductivities is 1 2<br><br>3. Further, the cross-sectional area of wire Z is twice that of Y and the resistance of X is   equal to the resistance of Z. What is the ratio of the resistance of Y to that of X ?",
+      "question_stem_html": "Consider three wires X, Y and Z of the same length such that the ratio of their conductivities is 1:2:3. Further, the cross-sectional area of wire Z is twice that of Y and the resistance of X is   equal to the resistance of Z. What is the ratio of the resistance of Y to that of X ?",
       "options": {
         "a": "1 :1",
         "b": "3 : 1",
@@ -1918,8 +2168,8 @@
       "table": null,
       "has_underline": true,
       "ocr_confidence": 0.836,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1933,18 +2183,18 @@
       "image": "images/q_0074.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements in respect of sound waves<br><br>I_ The speed of sound waves decreases with an increase in temperature if the atmospheric pressure remains the same_<br><br>II. The speed of sound waves increases with increasing humidity if the  atmospheric pressure remains the same<br><br>III. The speed of sound waves is not affected by a change in atmospheric pressure, provided the temperature is kept constant_<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements in respect of sound waves:<br><br>I. The speed of sound waves decreases with an increase in temperature if the atmospheric pressure remains the same_<br><br>II. The speed of sound waves increases with increasing humidity if the  atmospheric pressure remains the same<br><br>III. The speed of sound waves is not affected by a change in atmospheric pressure, provided the temperature is kept constant_<br><br>Which of the statements given above are correct ?",
       "options": {
-        "a": "I and II only (b II and III only",
-        "b": "",
+        "a": "I and II only",
+        "b": "&nbsp;II and III only",
         "c": "Iand III only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.916,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1958,12 +2208,12 @@
       "image": "images/q_0075.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements Statement-I : Marine animals remain alive in winter and move near the bottom of lakes despite frozen water on the surface Statement-II : The density of water is maximum at 4*C and water at the bottom of lakes remains warm in winter. Which one of the following is correct in respect of the above statements ?",
+      "question_stem_html": "Consider the following statements Statement-I : Marine animals remain alive in winter and move near the bottom of lakes despite frozen water on the surface Statement-II : The density of water is maximum at 4*C and water at the bottom of lakes remains warm in winter.&nbsp;<div><br></div><div>Which one of the following is correct in respect of the above statements ?</div>",
       "options": {
         "a": "Both Statement-I and Statement-II are correct and Statement-II explains Statement-I.",
         "b": "Both Statement-I and Statement-II are correct, but Statement-II does not explain Statement-I.",
         "c": "Statement-I is correct; but Statement-II is not correct.",
-        "d": "Statement-I is not correct, but Statement-II is correct. 76. Consider the following statements regarding oxidation numbers L The oxidation number of oxygen in peroxides   and  superoxides is   assigned as ~1 and -1/2 respectively. II. In all its   compounds, fluorine has an oxidation number of -l. III. In a reduction half-reaction, the oxidation number of the reductant decreases."
+        "d": "Statement-I is not correct, but Statement-II is correct.&nbsp;"
       },
       "table": null,
       "has_underline": false,
@@ -1974,7 +2224,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 17,
+        "boxes": [
+          [
+            800.88984375,
+            1064.3171875,
+            1575.26015625,
+            2061.4515625
+          ]
+        ]
+      }
     },
     {
       "q_number": 76,
@@ -1983,23 +2244,34 @@
       "image": "images/q_0076.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding oxidation numbers:&nbsp;<div>I. The oxidation number of   oxygen in peroxides and superoxides is  assigned as ~1 and -1/2 respectively.&nbsp;</div><div>II. In all its  compounds, fluorine has an oxidation number of -l.</div><div>III. In a reduction half-reaction, the oxidation number of the reductant decreases.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
-        "b": "II and III only Iand III only",
-        "c": "",
+        "b": "II and III only",
+        "c": "I and III only",
         "d": "I,II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.89,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            40.78906249999999,
+            219.90624999999997,
+            796.2734374999999,
+            1099.5312499999998
+          ]
+        ]
+      }
     },
     {
       "q_number": 77,
@@ -2008,45 +2280,34 @@
       "image": "images/q_0077.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the properties of hydrogen and water I. Tritium, the   isotope of   hydrogen, is radioactive and emits low energy alpha particles.<br><br>II. In the gas phase, the structure of water is linear.<br><br>III. The basic principle of a hydrogen economy is the transportation and storage of energy in the form of liquid or gaseous molecular hydrogen.<br><br>Which of the statements given above  islare not correct ?",
+      "question_stem_html": "Consider the following statements regarding the properties of hydrogen and water&nbsp;<div><br></div><div>I. Tritium, the   isotope of   hydrogen, is&nbsp; radioactive and emits low energy alpha particles.<br><br>II. In the gas phase, the structure of water is linear_<br><br>III. The basic principle of a hydrogen economy is the transportation and storage of energy in the form of liquid or gaseous molecular hydrogen.<br><br>Which of the statements given above is/are not correct ?</div>",
       "options": {
-        "a": "Iand II only",
+        "a": "I and II only",
         "b": "II and III only",
         "c": "I and III only",
-        "d": "II only (19 _ A )"
+        "d": "II only"
       },
-      "table": {
-        "headers": [
-          "(c)",
-          "I and III only"
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "Tritium, the   isotope of   hydrogen, is"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "In the gas phase, the structure of water"
-          },
-          {
-            "label": "III",
-            "col1": "The basic principle of a hydrogen",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.82,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 19,
+        "boxes": [
+          [
+            33.6953125,
+            1166.921875,
+            796.2734374999999,
+            2082.015625
+          ]
+        ]
+      }
     },
     {
       "q_number": 78,
@@ -2057,7 +2318,7 @@
       "passage_text_html": "",
       "question_stem_html": "Consider the following statements regarding nitrogen<br><br>I. Nitrogen contains a triple bond:<br><br>II. Nitrogen is & triatomic gas.<br><br>III:   Forces acting between nitrogen molecules are weak van der Waals forces.<br><br>Which of the statements given above are correct ?",
       "options": {
-        "a": "Iand II only",
+        "a": "I and II only",
         "b": "II and III only",
         "c": "I and III only",
         "d": "I, II and III"
@@ -2105,7 +2366,7 @@
       "image": "images/q_0080.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I Zinc metal, when treated with both HCL (aq.) and NaOH (aq.) separately, produces molecular hydrogen. II. An copper   sulphate solution aqueous cannot be kept in a zinc vessel.<br><br>III. Lemon, tamarind and tomato are natural sources of citric acid, oxalic acid and tartaric acid, respectively<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I Zinc metal, when treated with both HCL (aq.) and NaOH (aq.) separately, produces molecular hydrogen.&nbsp;</div><div><br></div><div>II. An copper   sulphate solution aqueous cannot be kept in a zinc vessel.<br><br>III. Lemon, tamarind and tomato are natural sources of citric acid, oxalic acid and tartaric acid, respectively<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
         "b": "II and III only",
@@ -2130,18 +2391,18 @@
       "image": "images/q_0081.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I solution of iodine in ethanol known as 'tincture of iodine' is a heterogeneous mixture_ II. A suspension is a heterogeneous mixture and its particles scatter a beam of light passing through it, making its path visible.<br><br>III. A colloidal solution, although it appears homogeneous, is a heterogeneous mixture<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I solution of iodine in ethanol known as 'tincture of iodine' is a heterogeneous mixture.&nbsp;</div><div><br></div><div>II. A suspension is a heterogeneous mixture and its particles scatter a beam of light passing through it, making its path visible.<br><br>III. A colloidal solution, although it appears homogeneous, is a heterogeneous mixture<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "I and II only",
-        "b": "II and III only (c Iand III only",
-        "c": "",
-        "d": "1,II and III"
+        "b": "II and III only&nbsp;",
+        "c": "I and III only",
+        "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.879,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2151,39 +2412,22 @@
     {
       "q_number": 82,
       "page": 21,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0082.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I. A 30% solution of hydrogen peroxide is marketed as 10 volume' HzC 02 II. In the compound copper sulphate pentahydrate, all the five water molecules are hydrogen bonded:<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div>I. A 30% solution of hydrogen peroxide is marketed as 10 volume' HzC 02&nbsp;</div><div><br></div><div>II. In the compound copper sulphate pentahydrate, all the five water molecules are hydrogen bonded:<br><br>Which of the statements given above is/are correct ?</div>",
       "options": {
-        "a": "Ionly",
-        "b": "II only (c Both I and II",
-        "c": "",
+        "a": "I only",
+        "b": "II only&nbsp;",
+        "c": "Both I and II",
         "d": "Neither I nor II"
       },
-      "table": {
-        "headers": [
-          "(c",
-          "Both I and II"
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "A 30% solution of hydrogen peroxide is"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "In the compound copper sulphate"
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.897,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2197,7 +2441,7 @@
       "image": "images/q_0083.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I The leaves of nettle, a herbaceous plant, cause painful stings when touched accidentally because of the secretion of formic acid.<br><br>II. When gypsum is heated at 100*C, it forms calcium carbonate   hemihydrate, called Plaster of Paris:<br><br>III. When  moistened with water, anhydrous copper sulphate forms a green-coloured copper sulphate dihydrate.<br><br>Which of the statements  given above is/are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I The leaves of nettle, a herbaceous plant, cause painful stings when touched accidentally because of the secretion of formic acid.<br><br>II. When gypsum is heated at 100*C, it forms calcium carbonate   hemihydrate, called Plaster of Paris:<br><br>III. When  moistened with water, anhydrous copper sulphate forms a green-coloured copper sulphate dihydrate.<br><br>Which of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "III only",
@@ -2222,7 +2466,7 @@
       "image": "images/q_0084.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following pairs Type of Chemical Reaction Chemical <u>Reaction</u> Fe(s) + CuSO4 (aq.) Displacement reaction FeSO4 (aq.) + Cu(s)<br><br>II. Na2S04 (aq.) + BaClz Double displacement I(aq.) - 4 BaSOg(s) reaction 2NaCl (aq.)<br><br>III_ FezO3(s) + 3CO(g) Redox reaction 2Fe(s) + <u>3CO2(g)</u><br><br>IV . Izkclog(s) 2KCI(s) Thermal decomposition + <u>302(g)</u> <u>reaction</u> How many of the pairs given above are correctly matched ?",
+      "question_stem_html": "Consider the following <u>pairs:</u>&nbsp;<div><br></div><div>How many of the   pairs given above are correctly matched ?</div>",
       "options": {
         "a": "One",
         "b": "Two",
@@ -2236,19 +2480,24 @@
         ],
         "rows": [
           {
-            "label": "II",
-            "col1": "Na2S04 (aq.) + BaClz",
-            "col2": "Double"
+            "col1": "<span style=\"font-size: 15px;\">Fe(s) + CuSO4 (aq.)</span><span style=\"font-size: 15px; font-weight: 600;\"> </span><span style=\"font-size: 15px;\">&gt;&nbsp;</span><span style=\"font-size: 15px;\">FeSO4 (aq.) + Cu(s)</span>",
+            "col2": "<span style=\"font-size: 15px;\">Displacement&nbsp;</span><span style=\"font-size: 15px;\">reaction</span>",
+            "label": "I"
           },
           {
-            "label": "III",
-            "col1": "FezO3(s) + 3CO(g)",
-            "col2": "Redox reaction"
+            "col1": "Na2S04 (aq.) + BaCl2<span style=\"font-size: 15px;\">(aq.) &gt; BaSO4(s) 2NaCl (aq.)&nbsp;</span>",
+            "col2": "Double&nbsp;<span style=\"font-size: 15px;\">displacement reaction</span>",
+            "label": "II"
           },
           {
-            "label": "IV",
-            "col1": "Izkclog(s) 2KCI(s)",
-            "col2": "Thermal"
+            "col1": "Fe2O3(s) + 3CO(g) gives&nbsp;<span style=\"font-size: 15px;\">2Fe(s) + </span><span style=\"font-size: 15px;\">3C02(g)</span>",
+            "col2": "Redox reaction",
+            "label": "III"
+          },
+          {
+            "col1": "<span style=\"font-size: 15px;\">2KCIO3(s) gives</span>&nbsp;2KCI(s)&nbsp;<span style=\"font-size: 15px;\">+</span><span style=\"font-size: 15px; font-weight: 600;\"> </span><span style=\"font-size: 15px;\">302(g)</span>",
+            "col2": "Thermal&nbsp;<span style=\"font-size: 15px;\">decomposition </span><span style=\"font-size: 15px;\">reaction</span>",
+            "label": "IV"
           }
         ]
       },
@@ -2269,23 +2518,34 @@
       "image": "images/q_0085.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "(21 _ A ) 4 A . 2: 85. What are the   approximate percentages by mass of nitrogen and hydrogen respectively in urea ?",
+      "question_stem_html": "85. What are the   approximate percentages by mass of nitrogen and hydrogen respectively in urea ?",
       "options": {
         "a": "43% and 5%",
-        "b": "479 and 5%",
+        "b": "47%&nbsp;and 5%",
         "c": "43% and 7%",
-        "d": "479 and 79"
+        "d": "47%&nbsp;and 7%"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.873,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 23,
+        "boxes": [
+          [
+            76.02265625,
+            205.084375,
+            825.6414062499999,
+            640.0046874999999
+          ]
+        ]
+      }
     },
     {
       "q_number": 86,
@@ -2319,7 +2579,7 @@
       "image": "images/q_0087.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding hydrogen bonds I Hydrogen bonds can only form when hydrogen is bonded to oxygen, nitrogen or fluorine.<br><br>II. Hydrogen bonds are intramolecular only.<br><br>III. The strength of a hydrogen bond decreases with a decrease in the electronegativity of the two bonded atoms.<br><br>Which of the statements  given above islare not correct ?",
+      "question_stem_html": "Consider the following statements regarding hydrogen bonds&nbsp;<div><br></div><div>I Hydrogen bonds can only form when hydrogen is bonded to oxygen, nitrogen or fluorine.<br><br>II. Hydrogen bonds are intramolecular only.<br><br>III. The strength of a hydrogen bond decreases with a decrease in the electronegativity of the two bonded atoms.<br><br>Which of the statements  given above islare not correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
@@ -2347,15 +2607,15 @@
       "question_stem_html": "Ionic compounds have high melting and boiling points. This is due to",
       "options": {
         "a": "the presence of strong electrostatic forces between ions in the crystal lattice.",
-        "b": "the weak intermolecular van der Waals forces. the presence of a ssea of delocalized electrons'",
-        "c": "",
+        "b": "the weak intermolecular van der Waals forces.&nbsp;",
+        "c": "the presence of a 'sea of delocalized electrons'",
         "d": "lower lattice energy"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.861,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2394,12 +2654,12 @@
       "image": "images/q_0090.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following pairs Example of Colloid Type of Colloid I_ Cloud Aerosol<br><br><u>II.</u> <u>Mud</u> <u>Sol</u><br><br>III: Milk Emulsion<br><br>IV . Rubber Foam How many of the   pairs given above are correctly matched ?",
+      "question_stem_html": "Consider the following pairs :&nbsp;<div><br></div><div>How many of the   pairs given above are correctly matched ?</div>",
       "options": {
         "a": "One",
         "b": "Two",
         "c": "Three",
-        "d": "All four yV 91. Consider the following statements in relation to respiration in animals"
+        "d": "All four&nbsp;"
       },
       "table": {
         "headers": [
@@ -2437,7 +2697,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 23,
+        "boxes": [
+          [
+            839.78515625,
+            1417.9109375,
+            1589.40390625,
+            2068.5234375
+          ]
+        ]
+      }
     },
     {
       "q_number": 91,
@@ -2446,23 +2717,34 @@
       "image": "images/q_0091.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "I Glucose breaks down into pyruvate in the cytoplasm of all cells in both aerobic and anaerobic conditions. II. The energy released  during  anaerobic respiration is greater than the energy released in aerobic respiration: III. Carbon dioxide is released only in aerobic respiration. Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements in relation to respiration in animals Glucose breaks  down into pyruvate in&nbsp;<div><br></div><div>I the cytoplasm of all cells in both aerobic and anaerobic conditions. The energy released  during  anaerobic&nbsp;</div><div><br></div><div>II. respiration is greater than the energy released in aerobic respiration.<br><br>III. Carbon dioxide is released only in aerobic respiration.<br><br>Which of the statements given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
-        "c": "I and III",
+        "c": "Iand III",
         "d": "II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.918,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            72.390625,
+            197.75,
+            824.546875,
+            1324.21875
+          ]
+        ]
+      }
     },
     {
       "q_number": 92,
@@ -2474,15 +2756,15 @@
       "question_stem_html": "In humans, the exit of partially digested food from the stomach into the small intestine is regulated by which one of the following structures/processes ?",
       "options": {
         "a": "Peristalsis",
-        "b": "Muscular walls of stomach (c Sphincter muscle",
-        "c": "",
+        "b": "Muscular walls of stomach&nbsp;",
+        "c": "Sphincter muscle",
         "d": "Villi in small intestine"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.929,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2492,49 +2774,22 @@
     {
       "q_number": 93,
       "page": 25,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0093.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following cells form components of complex permanent tissue in plants ? I. Companion cells<br><br>II . Sieve tubes<br><br>III. Tracheids<br><br>IV. Vessels<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following cells form components of complex permanent tissue in plants ?&nbsp;<div><br></div><div>I. Companion cells<br><br>II . Sieve tubes<br><br>III. Tracheids<br><br>IV. Vessels<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "I,II, III and IV",
         "b": "II, III and IV only",
         "c": "I, III and IV only",
-        "d": "Iand II only"
+        "d": "I and II only"
       },
-      "table": {
-        "headers": [
-          "",
-          ""
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "Companion cells"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Sieve tubes"
-          },
-          {
-            "label": "III",
-            "col1": "Tracheids",
-            "col2": ""
-          },
-          {
-            "label": "IV",
-            "col1": "Vessels",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.826,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns; row IV: could not split into two columns; column headers not detected",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2573,18 +2828,18 @@
       "image": "images/q_0095.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following organisms show external fertilization ? IS Pigeon<br><br>II. Frog<br><br>III. Fish<br><br>IV . Lizard<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following organisms show external fertilization ?&nbsp;<div><br></div><div>I. Pigeon<br><br>II. Frog<br><br>III. Fish<br><br>IV . Lizard<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "II, III and IV",
-        "b": "II and III only (c I and IV only",
-        "c": "",
+        "b": "II and III only&nbsp;",
+        "c": "I and IV only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.789,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2698,7 +2953,7 @@
       "image": "images/q_0100.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the following is not a characteristic of an insect-pollinated plant ?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the following is </span>not a<span style=\"font-weight: normal;\"> characteristic of an insect-pollinated plant ?</span>",
       "options": {
         "a": "Brightly coloured and fragrant flowers",
         "b": "Light and small pollen grains",
@@ -2723,7 +2978,7 @@
       "image": "images/q_0101.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following States I Tripura II. Chhattisgarh<br><br>III. Assam<br><br>IV . Odisha How many of the States given above have jute mills ?",
+      "question_stem_html": "Consider the following States&nbsp;<div><br></div><div>I Tripura&nbsp;</div><div><br></div><div>II. Chhattisgarh<br><br>III. Assam<br><br>IV . Odisha&nbsp;</div><div><br></div><div>How many of the States given above have jute mills ?</div>",
       "options": {
         "a": "One",
         "b": "Two",
@@ -2750,17 +3005,17 @@
       "passage_text_html": "",
       "question_stem_html": "Which one of the following is classified under the physical processes of weathering ?",
       "options": {
-        "a": "Water pressure (b Oxidation Carbonation",
-        "b": "",
-        "c": "",
+        "a": "Water pressure&nbsp;",
+        "b": "Oxidation",
+        "c": "Carbonation",
         "d": "Hydration"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.951,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2773,23 +3028,34 @@
       "image": "images/q_0103.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I The Steppes of Eurasia are temperate grasslands. II. The Pampas of South America are classified as tropical grasslands. Which   of the statements  given above is/are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I The Steppes of Eurasia are temperate grasslands.&nbsp;</div><div><br></div><div>II. The Pampas of South America are classified as tropical grasslands.&nbsp;</div><div><br></div><div>Which   of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II 104. Consider the following statements regarding the slash-and-burn   agricultural practices in"
+        "d": "Neither I nor II&nbsp;"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.869,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 29,
+        "boxes": [
+          [
+            86.74531250000001,
+            1341.8968750000001,
+            840.8984375,
+            2011.0750000000003
+          ]
+        ]
+      }
     },
     {
       "q_number": 104,
@@ -2798,23 +3064,34 @@
       "image": "images/q_0104.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "India I. This practice is a primitive subsistence farming: II. This practice is known as Jhum in the North Eastern Hill region. III. When soil  fertility  decreases, farmers shift to a fresh patch of land: Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements regarding the   slash-and-burn   agricultural  practices in India:<div><br></div><div>I. This practice is a primitive subsistence&nbsp; farming:<br><br>II. This practice is known as Jhum in the North Eastern Hill region.<br><br>III: When   soil   fertility decreases, farmers shift to a fresh patch of land.<br><br>Which of the statements  given   above islare correct ?</div>",
       "options": {
         "a": "I only",
         "b": "III only",
-        "c": "Iand III only",
+        "c": "I and III only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.82,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 29,
+        "boxes": [
+          [
+            837.3578125,
+            180.571875,
+            1587.9703125,
+            1143.621875
+          ]
+        ]
+      }
     },
     {
       "q_number": 105,
@@ -2823,31 +3100,14 @@
       "image": "images/q_0105.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding western disturbances in the Indian climate I. These are shallow cyclonic depressions.<br><br>II. They   originate over the Caspian Sea and travel to India:<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements regarding western disturbances in the Indian climate:&nbsp;<div><br></div><div>I. These are shallow cyclonic depressions.&nbsp;<br><br>II. They originate over the Caspian Sea and travel to India.<br><br>Which of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II ((29 _ A ) s"
+        "d": "Neither I nor II"
       },
-      "table": {
-        "headers": [
-          "(c)",
-          "Both I and II"
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "These are shallow cyclonic depressions."
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "They   originate over the Caspian Sea"
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.783,
       "needs_review": false,
@@ -2856,7 +3116,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 29,
+        "boxes": [
+          [
+            847.9796875000001,
+            1260.4625,
+            1605.6734375,
+            2007.5343750000002
+          ]
+        ]
+      }
     },
     {
       "q_number": 106,
@@ -2865,18 +3136,18 @@
       "image": "images/q_0106.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding earthquake waves I P-waves are similar to sound waves. II. S-waves can travel through gaseous, liquid and solid materials:<br><br>III. The zone between 1050 and 1459 from the epicentre is identified as the shadow zone for both P- and S-waves.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding earthquake waves&nbsp;<div><br></div><div>I P-waves are similar to sound waves.&nbsp;</div><div><br></div><div>II. S-waves can travel through gaseous, liquid and solid materials:<br><br>III. The zone between 105deg and 145deg from the epicentre is identified as the shadow zone for both P- and S-waves.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
-        "b": "II and III only (c I and III only",
-        "c": "",
+        "b": "II and III only&nbsp;",
+        "c": "I and III only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.873,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2890,18 +3161,18 @@
       "image": "images/q_0107.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I At the equator; the Coriolis force is zero and here the winds blow perpendicular to the isobars. II. The Coriolis force is directly proportional to the angle of latitude.<br><br>III. The Coriolis force and the resultant wind do not blow parallel to the isobars at higher latitudes.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I. At the equator; the Coriolis force is zero and here the winds blow perpendicular to the isobars.&nbsp;</div><div><br></div><div>II. The Coriolis force is directly proportional to the angle of latitude.<br><br>III. The Coriolis force and the resultant wind do not blow parallel to the isobars at higher latitudes.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "I, II and III",
-        "b": "II and III only Iand III only",
-        "c": "",
-        "d": "Iand II only"
+        "b": "II and III only&nbsp;",
+        "c": "I and III only",
+        "d": "I and II only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.881,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2943,15 +3214,15 @@
       "question_stem_html": "The temperate forests in the Nilgiris, Anaimalai and Palani hills are called",
       "options": {
         "a": "Myristica",
-        "b": "Kar forest Devarakadu Sholas",
-        "c": "",
-        "d": ""
+        "b": "Kar forest&nbsp;",
+        "c": "Devarakadu&nbsp;",
+        "d": "Sholas"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.963,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2965,18 +3236,18 @@
       "image": "images/q_0110.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with regard to igneous rocks 1 These rocks cannot be changed into metamorphic rocks_ II. When  molten material is cooled slowly at great depths, mineral grains tend to be very small:<br><br>III. These rocks are known as primary rocks.<br><br>Which of the statements  given  above islare correct ?",
+      "question_stem_html": "Consider the following statements with regard to igneous rocks&nbsp;<div><br></div><div>1 These rocks cannot be changed into metamorphic rocks_&nbsp;</div><div><br></div><div>II. When  molten material is cooled slowly at great depths, mineral grains tend to be very small:<br><br>III. These rocks are known as primary rocks.<br><br>Which of the statements  given  above is/are correct ?</div>",
       "options": {
         "a": "Iand II only",
-        "b": "III only II and III only",
-        "c": "",
+        "b": "III only&nbsp;",
+        "c": "II and III only",
         "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.862,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2990,19 +3261,19 @@
       "image": "images/q_0111.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I The Prime Meridian is the same as the International Date Line. II. West of the International Date Line is always a day later than east of the line.<br><br>III. The Earth turns 150 of longitude in an hour_<br><br>Which of the statements given above   islare correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I. The Prime Meridian is the same as the International Date Line.&nbsp;</div><div><br></div><div>II. West of the International Date Line is always a day later than east of the line.<br><br>III. The Earth turns 150 of longitude in an hour.<br><br>Which of the statements given above   is/are correct ?</div>",
       "options": {
-        "a": "Iand II only",
-        "b": "Iand III only (c II and III only",
-        "c": "",
+        "a": "I and II only",
+        "b": "I and III only&nbsp;",
+        "c": "II and III only",
         "d": "III only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.902,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3018,15 +3289,15 @@
       "question_stem_html": "The Earth's equatorial region bulges outward, but the Earth flattens   slightly towards the polar regions due to the",
       "options": {
         "a": "Presence of a large oceanic mass in the southern hemisphere",
-        "b": "Earth's rotational force (c Earth's revolution",
-        "c": "",
+        "b": "Earth's rotational force&nbsp;",
+        "c": "Earth's revolution",
         "d": "Greater gravitational force at the equator"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.913,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3045,7 +3316,7 @@
         "a": "North-East to South-West",
         "b": "South-East to North-West",
         "c": "North-West to South-East",
-        "d": "South-West to North-East 33 _ A )"
+        "d": "South-West to North-East&nbsp;"
       },
       "table": null,
       "has_underline": false,
@@ -3061,44 +3332,22 @@
     {
       "q_number": 114,
       "page": 33,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0114.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the structure of the atmosphere I The average height of the troposphere is higher nearer the   poles than at the equator. II. The mesosphere contains the ozone layer.<br><br>III. Radio waves transmitted from the Earth are reflected to the Earth by the ionosphere.<br><br>IV . In the mesosphere, temperature decreases with an increase in altitude.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding the structure of the atmosphere&nbsp;<div><br></div><div>I The average height of the troposphere is higher nearer the   poles than at the equator.&nbsp;</div><div><br></div><div>II. The mesosphere contains the ozone layer.<br><br>III. Radio waves transmitted from the Earth are reflected to the Earth by the ionosphere.<br><br>IV . In the mesosphere, temperature decreases with an increase in altitude.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
-        "a": "Iand II only",
+        "a": "I and II only",
         "b": "II and III only",
         "c": "III and IV only",
         "d": "I,II, III and IV"
       },
-      "table": {
-        "headers": [
-          "I",
-          "The average height of the troposphere is"
-        ],
-        "rows": [
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "The mesosphere contains the ozone"
-          },
-          {
-            "label": "III",
-            "col1": "Radio waves transmitted from the",
-            "col2": ""
-          },
-          {
-            "label": "IV",
-            "col1": "In",
-            "col2": "the mesosphere, temperature"
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.912,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3108,64 +3357,22 @@
     {
       "q_number": 115,
       "page": 33,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0115.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following oceanic currents I. Oyashio<br><br>II: Canaries<br><br>III. Labrador<br><br>IV . Kuroshio V Benguela<br><br>VI. Alaska<br><br>VII: Humboldt<br><br>How many of the above are Pacific Ocean currents ?",
+      "question_stem_html": "Consider the following oceanic currents&nbsp;<div><br></div><div>I. Oyashio<br><br>II: Canaries<br><br>III. Labrador<br><br>IV . Kuroshio&nbsp;<div><br></div><div>V Benguela<br><br>VI. Alaska<br><br>VII: Humboldt<br><br>How many of the above are Pacific Ocean currents ?</div></div>",
       "options": {
         "a": "One",
         "b": "Two",
         "c": "Three",
-        "d": "Four V:AXG"
+        "d": "Four"
       },
-      "table": {
-        "headers": [
-          "V",
-          "Benguela"
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "Oyashio"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Canaries"
-          },
-          {
-            "label": "III",
-            "col1": "Labrador",
-            "col2": ""
-          },
-          {
-            "label": "IV",
-            "col1": "Kuroshio",
-            "col2": ""
-          },
-          {
-            "label": "VI",
-            "col1": "Alaska",
-            "col2": ""
-          },
-          {
-            "label": "VII",
-            "col1": "Humboldt",
-            "col2": ""
-          },
-          {
-            "label": "V",
-            "col1": "AXG",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.809,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns; row IV: could not split into two columns; row VI: could not split into two columns; row VII: could not split into two columns; row V: could not split into two columns",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3179,23 +3386,34 @@
       "image": "images/q_0116.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following I Abrasion II. Attrition I<br><br>III. Hydraulic action<br><br>IV . Solution<br><br>Which of the above are the main types of river erosion ?",
+      "question_stem_html": "Consider the following&nbsp;<div><br></div><div>I Abrasion&nbsp;</div><div><br></div><div>II. Attrition&nbsp;<br><br>III. Hydraulic action<br><br>IV . Solution<br><br>Which of the above are the main types of river erosion ?</div>",
       "options": {
         "a": "I,II and III only",
-        "b": "I, III and IV only II and IV only",
-        "c": "",
+        "b": "I, III and IV only&nbsp;",
+        "c": "II and IV only",
         "d": "I,II, III and IV"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.887,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 35,
+        "boxes": [
+          [
+            26.53125,
+            208.7125,
+            776.4812499999999,
+            887.9124999999999
+          ]
+        ]
+      }
     },
     {
       "q_number": 117,
@@ -3207,16 +3425,16 @@
       "question_stem_html": "A prolonged period of  inadequate rainfall marked with mal-distribution of the same over time and space is known as",
       "options": {
         "a": "Agricultural drought",
-        "b": "Hydrological drought (c Ecological drought",
-        "c": "",
+        "b": "Hydrological drought",
+        "c": "Ecological drought",
         "d": "Meteorological drought"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.955,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3234,7 +3452,7 @@
         "a": "Rajasthan, Uttar Pradesh, Chhattisgarh, Maharashtra and Gujarat only",
         "b": "Rajasthan, Uttar Pradesh, Jharkhand and Chhattisgarh only",
         "c": "Rajasthan, Uttar Pradesh, Jharkhand, Chhattisgarh, Maharashtra and Gujarat",
-        "d": "Rajasthan, Uttar Pradesh and Chhattisgarh only 35 _ A )"
+        "d": "Rajasthan, Uttar Pradesh and Chhattisgarh only&nbsp;"
       },
       "table": null,
       "has_underline": false,
@@ -3245,7 +3463,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 35,
+        "boxes": [
+          [
+            33.606249999999996,
+            1436.225,
+            790.63125,
+            2048.2124999999996
+          ]
+        ]
+      }
     },
     {
       "q_number": 119,
@@ -3254,10 +3483,10 @@
       "image": "images/q_0119.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the nature of rocks Rocks are aggregates  of one or more minerals<br><br>II. Granite is softer than soapstone.<br><br>III. Gabbro is black  and quartzite can be milky white<br><br>IV. Sedimentary rocks are related to foliation.<br><br>Which of the statements given above are not correct ?",
+      "question_stem_html": "Consider the following statements regarding the nature of rocks&nbsp;<div><br></div><div>I. Rocks are aggregates  of one or more minerals<br><br>II. Granite is softer than soapstone.<br><br>III. Gabbro is black  and quartzite can be milky white<br><br>IV. Sedimentary rocks are related to foliation.<br><br>Which of the statements given above are not correct ?</div>",
       "options": {
         "a": "I and II",
-        "b": "Iand III",
+        "b": "I and III",
         "c": "II and IV",
         "d": "II and III"
       },
@@ -3307,16 +3536,16 @@
       "question_stem_html": "The annual session of the Indian National Congress in December 1929 was held in",
       "options": {
         "a": "Surat",
-        "b": "Lahore (c Amritsar",
-        "c": "",
+        "b": "Lahore",
+        "c": "Amritsar",
         "d": "Tripuri"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.956,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3354,19 +3583,19 @@
       "image": "images/q_0123.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements are correct regarding the demands of the protest movement known as Luddism (1811 17) ? I A minimum wage for workers.<br><br>II. The right to form trade unions so that they could legally present their demands.<br><br>III. The use of machinery for efficient labour-saving production.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements are correct regarding the demands of the protest movement known as Luddism (1811 17) ?&nbsp;<div><br></div><div>I A minimum wage for workers.<br><br>II. The right to form trade unions so that they could legally present their demands.<br><br>III. The use of machinery for efficient labour-saving production.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "Iand II only",
-        "b": "II and III only Iand III only",
-        "c": "",
+        "b": "II and III only",
+        "c": "I and III only",
         "d": "I,II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.917,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3379,7 +3608,7 @@
       "image": "images/q_0124.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the Industrial Revolution in Britain I At the beginning of   industrialization, coal and iron ore were plentifully available in Britain.<br><br>II: The blast furnace came into use at the beginning of the 18th century:<br><br>III. Britain was lucky in possessing excellent coking coal and high-grade iron ore in the same basins.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding the Industrial Revolution in Britain&nbsp;<div><br></div><div>I: At the beginning of   industrialization, coal and iron ore were plentifully available in Britain.<br><br>II: The blast furnace came into use at the beginning of the 18th century:<br><br>III. Britain was lucky in possessing excellent coking coal and high-grade iron ore in the same basins.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
         "b": "II and III only",
@@ -3440,12 +3669,23 @@
       "has_underline": false,
       "ocr_confidence": 0.829,
       "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; 'Code' label not found - could not locate the answer grid",
+      "review_reason": "'Code' label not found - could not locate the answer grid",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 37,
+        "boxes": [
+          [
+            922.73984375,
+            1275.1875,
+            1578.04453125,
+            2029.6734375
+          ]
+        ]
+      }
     },
     {
       "q_number": 127,
