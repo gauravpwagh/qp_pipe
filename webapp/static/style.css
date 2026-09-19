@@ -138,7 +138,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   border-bottom: 1px solid var(--border);
 }
 .pane-header-label { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
-.pane-header-actions { display: flex; align-items: center; gap: 6px; }
+.pane-header-actions { display: flex; align-items: center; gap: 6px; min-width: 0; }
 .pane-collapse-btn {
   padding: 2px 9px; font-size: 15px; line-height: 1.4;
   background: none; color: var(--muted); border: 1px solid var(--border);
@@ -403,5 +403,8 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .rename-paper-btn:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
 .jobs-rename-input { width: 100%; padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
 
-.question-type-select { padding: 3px 6px; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text); }
+.question-type-select { min-width: 0; max-width: 108px; padding: 3px 4px; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text); }
 .pane.collapsed .question-type-select { display: none; }
+
+.question-number-input { width: 50px; flex: 0 0 auto; padding: 3px 6px; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text); }
+.pane.collapsed .question-number-input { display: none; }

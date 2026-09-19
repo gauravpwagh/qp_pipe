@@ -24,11 +24,13 @@ function scheduleFieldSave(fieldKey, flushFn) {
 }
 
 function flushAllPendingSaves() {
+  const inFlight = [];
   for (const { timer, flush } of pendingSaves.values()) {
     clearTimeout(timer);
-    flush();
+    inFlight.push(flush());
   }
   pendingSaves.clear();
+  return Promise.all(inFlight);
 }
 
 // ---- tab switching ----
@@ -319,7 +321,7 @@ function buildNavSequence(paper) {
   return seq;
 }
 
-async function loadPaper(paperId) {
+async function loadPaper(paperId, selectValue) {
   if (!paperId) return;
   const res = await fetch(`/api/papers/${paperId}`);
   currentPaper = await res.json();
@@ -343,7 +345,7 @@ async function loadPaper(paperId) {
   }
   document.getElementById("review-empty").hidden = true;
   document.getElementById("review-body").hidden = false;
-  if (seq.length) renderSelection(qSelect.options[0].value);
+  if (seq.length) renderSelection(selectValue || qSelect.options[0].value);
 }
 
 // Every tag/topic ever entered for this paper's variant, so typing a new
@@ -489,6 +491,9 @@ function renderQuestion(qNumber) {
   currentInstruction = null;
   document.getElementById("question-select").value = `Q:${qNumber}`;
   document.getElementById("pane-question-label").textContent = "Question";
+  const numberInput = document.getElementById("question-number-input");
+  numberInput.hidden = false;
+  numberInput.value = currentQuestion.q_number;
   const typeSelect = document.getElementById("question-type-select");
   typeSelect.hidden = false;
   typeSelect.value = currentQuestion.question_type || "standard";
@@ -605,6 +610,7 @@ function renderInstruction(instructionId) {
   document.getElementById("question-select").value = `I:${instructionId}`;
   document.getElementById("pane-question-label").textContent = "Instructions";
   document.getElementById("question-type-select").hidden = true;
+  document.getElementById("question-number-input").hidden = true;
   document.getElementById("question-body-content").hidden = true;
   document.getElementById("instruction-body").hidden = false;
   document.querySelector(".pane-notes").hidden = true;
@@ -833,6 +839,42 @@ function removeChip(field, value) {
   renderChips(field);
   saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
 }
+
+// ---- change question number ----
+document.getElementById("question-number-input").addEventListener("change", async (e) => {
+  const input = e.target;
+  const q = currentQuestion;
+  if (!q) return;
+  const newNumber = Number(input.value);
+  if (!Number.isInteger(newNumber) || newNumber === q.q_number) {
+    input.value = q.q_number;
+    return;
+  }
+  // Debounced saves already queued are addressed by the OLD number - let
+  // them land before it stops existing.
+  await flushAllPendingSaves();
+  input.disabled = true;
+  setSaveIndicator("saving");
+  try {
+    const res = await fetch(`/api/papers/${currentPaper.paper_id}/questions/${q.q_number}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ q_number: newNumber }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || "could not renumber the question");
+    // Order and instruction ranges change with the number - reload the
+    // paper and land on the renumbered question in its new position.
+    await loadPaper(currentPaper.paper_id, `Q:${newNumber}`);
+    setSaveIndicator("saved");
+  } catch (err) {
+    input.value = q.q_number;
+    setSaveIndicator("error saving");
+    alert(err.message);
+  } finally {
+    input.disabled = false;
+  }
+});
 
 // ---- change question type ----
 const TABLE_QUESTION_TYPES = ["match_the_list", "paired_table"];

@@ -248,7 +248,7 @@ Each question in the `questions` array:
 
 | field | meaning |
 |---|---|
-| `q_number`, `page` | 1..N; source PDF page |
+| `q_number`, `page` | 1..N (editable per question from the Review UI - must stay unique; renumbering re-sorts the list and updates each instruction's covered range); source PDF page |
 | `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list`, `paired_table` - the pipeline's guess; changeable per question from the Review UI's type dropdown (switching to a table type builds its table from the crop, switching away drops it) |
 | `image` | path (relative to the paper's folder) to the cropped question image |
 | `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |

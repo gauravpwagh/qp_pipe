@@ -355,7 +355,7 @@ def api_recrop_question(paper_id, q_number):
 
         images_dir = _paper_dir(paper_id) / "images"
         images_dir.mkdir(parents=True, exist_ok=True)
-        rel_name = f"q_{q_number:04d}.png"
+        rel_name = Path(question["image"]).name if question.get("image") else f"q_{q_number:04d}.png"
         try:
             _save_image_atomic(images_dir / rel_name, combined)
         except PermissionError as e:
@@ -617,11 +617,43 @@ def _change_question_type(paper_id: str, q_number: int, new_type):
     return jsonify(question)
 
 
+def _change_question_number(paper_id: str, q_number: int, new_number):
+    """Renumbers a question (e.g. to correct an OCR misread or a drifted
+    sequence). Numbers must stay unique - every URL and the Review nav address
+    a question by its number - so a number already in use is refused rather
+    than silently swapped. The image file keeps its original name (image paths
+    are stored on the question, so nothing else depends on it)."""
+    if isinstance(new_number, bool) or not isinstance(new_number, int) or not 1 <= new_number <= 9999:
+        return jsonify({"error": "q_number must be a whole number between 1 and 9999"}), 400
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "paper not found"}), 404
+        question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+        if question is None:
+            return jsonify({"error": "question not found"}), 404
+        if new_number == q_number:
+            return jsonify(question)
+        if any(q["q_number"] == new_number for q in paper["questions"]):
+            return jsonify({"error": f"Q{new_number} already exists - renumber that question first"}), 409
+        question["q_number"] = new_number
+        paper["questions"].sort(key=lambda q: q["q_number"])
+        # each instruction lists the questions it covers by number
+        for inst in paper.get("instructions", []):
+            inst["applies_to"] = sorted(
+                q["q_number"] for q in paper["questions"] if q.get("instruction_id") == inst["instruction_id"]
+            )
+        _write_paper_atomic(paper_id, paper)
+    return jsonify(question)
+
+
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>", methods=["PATCH"])
 def api_update_question(paper_id, q_number):
     body = request.get_json(force=True, silent=True) or {}
     if "question_type" in body:
         return _change_question_type(paper_id, q_number, body["question_type"])
+    if "q_number" in body:
+        return _change_question_number(paper_id, q_number, body["q_number"])
     # user_answer/explanation_html/tags/topics: the review workflow's own
     # fields. question_stem_html/passage_text_html/options: lets the user
     # correct OCR mistakes directly in the question body. A question's
