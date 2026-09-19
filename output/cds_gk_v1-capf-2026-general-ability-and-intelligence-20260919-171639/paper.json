@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 21
+    "needs_review_count": 0
   },
   "instructions": [],
   "questions": [
@@ -2738,23 +2738,34 @@
       "image": "images/q_0106.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "105. Match List-I with List-II and select the correct answer using the code given below the Lists List-I List-II (Constituent (Example) of Paint) A Pigment 1_ Zinc oxide B. Extender 2. China clay C Thinner 3 Naphthenate D Drier 4. Turpentine Code",
+      "question_stem_html": "Which of the following is/are renewable source(s) of energy?<br>1_ Fossil fuel<br>2. Biofuel<br>3. Uranium&nbsp;<div>4 Hydropower&nbsp;</div><div><br></div><div>Select the correct answer using the code given below.</div>",
       "options": {
-        "a": "8 2 3 8 < <u>3</u>",
-        "b": "",
-        "c": "B ; 2 2",
-        "d": "A D 8 3 1 106. Which of the following is/are renewable source(s) of energy?"
+        "a": "2 only",
+        "b": "3 and 4",
+        "c": "1 and 3",
+        "d": "2 and 4"
       },
       "table": null,
       "has_underline": true,
       "ocr_confidence": 0.844,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence; missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 45,
+        "boxes": [
+          [
+            848.165625,
+            216.93124999999998,
+            1570.084375,
+            1063.31875
+          ]
+        ]
+      }
     },
     {
       "q_number": 107,
@@ -2763,32 +2774,7 @@
       "image": "images/q_0107.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "1 Fossil fuel 2. Biofuel 3. Uranium 4. Hydropower Select the correct answer using the code given below.",
-      "options": {
-        "a": "2 only",
-        "b": "3 and 4",
-        "c": "1 and 3",
-        "d": "2 and 4"
-      },
-      "table": null,
-      "has_underline": false,
-      "ocr_confidence": 0.992,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
-      "explanation_html": "",
-      "tags": [],
-      "topics": [],
-      "instruction_id": null
-    },
-    {
-      "q_number": 108,
-      "page": 45,
-      "question_type": "standard",
-      "image": "images/q_0108.png",
-      "passage_label": "",
-      "passage_text_html": "",
-      "question_stem_html": "107 . Consider the following statements in the light of octane number and cetane number of fuels 1_ Cetane number is used for gasoline and octane number is used for diesel. 2. Octane number of   n-hexadecane is 100 and cetane number of isooctane is 100. Which of the statements given above is/are correct?",
+      "question_stem_html": "Consider the following statements in the light of octane number and cetane number of fuels:<br>1. Cetane number is used for gasoline and octane number is used for diesel:<br>2. Octane number of n-hexadecane is 100 and cetane number of isooctane is 100<br><br>Which of the statements given above is/are correct?",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2797,23 +2783,34 @@
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.973,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "ocr_confidence": 0.992,
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 45,
+        "boxes": [
+          [
+            837.4968749999999,
+            1138,
+            1562.9718749999997,
+            2027.0625
+          ]
+        ]
+      }
     },
     {
-      "q_number": 109,
+      "q_number": 108,
       "page": 47,
       "question_type": "standard",
-      "image": "images/q_0109.png",
+      "image": "images/q_0108.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "[PT.O. 108. Which of the following pairs of products obtained from petroleum distillation and their uses are correctly matched? 1. Petroleum ether Used as solvent 2 Petroleum jelly Used to make coating of metals 3 Petroleum wax Used as rubber solvent 4 White spirit Used for making candles Select the answer using the code given below.",
+      "question_stem_html": "108. Which of the following pairs of products obtained from petroleum distillation and their uses are correctly matched?&nbsp;<div>1. Petroleum ether: Used as solvent&nbsp;</div><div>2 Petroleum jelly: Used to make coating of metals&nbsp;</div><div>3 Petroleum wax: Used as rubber solvent&nbsp;</div><div>4 White spirit: Used for making candles&nbsp;</div><div>Select the answer using the code given below.</div>",
       "options": {
         "a": "1, 3 and 4",
         "b": "1 and 2",
@@ -2823,19 +2820,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.921,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            69.590625,
+            221.2625,
+            794.046875,
+            1102.74375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 110,
+      "q_number": 109,
       "page": 47,
       "question_type": "standard",
-      "image": "images/q_0110.png",
+      "image": "images/q_0109.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "109. Which one of the following processes is not used for the production of hydrogen gas?",
@@ -2848,44 +2856,66 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.895,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            76.728125,
+            1134.8625,
+            790.478125,
+            1548.8375
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 110,
+      "page": 47,
+      "question_type": "standard",
+      "image": "images/q_0110.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "110. Which among the following are, respectively the correct oxidation numbers of chloride ion in Cl207, Cl20, ClO3 and C1O2?",
+      "options": {
+        "a": "+7, +2, +4,+3",
+        "b": "+2, -1,-3, +4",
+        "c": "+7, +1, +3, -3",
+        "d": "+7, +1, +5, +3&nbsp;"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.854,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            73.159375,
+            1573.81875,
+            797.6156249999999,
+            2037.75625
+          ]
+        ]
+      }
     },
     {
       "q_number": 111,
       "page": 47,
       "question_type": "standard",
       "image": "images/q_0111.png",
-      "passage_label": "",
-      "passage_text_html": "",
-      "question_stem_html": "110. Which among the following are, respectively the correct oxidation numbers of chloride ion in Cl207, Cl20, ClO3 and C1Oz?",
-      "options": {
-        "a": "+7, +2, +4,+3",
-        "b": "+2, -1,-3, +4",
-        "c": "+7, +1, +3, -3",
-        "d": "+7, +1, +5, +3 111. Sound Navigation and Ranging (SONAR)"
-      },
-      "table": null,
-      "has_underline": false,
-      "ocr_confidence": 0.854,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
-      "explanation_html": "",
-      "tags": [],
-      "topics": [],
-      "instruction_id": null
-    },
-    {
-      "q_number": 112,
-      "page": 47,
-      "question_type": "standard",
-      "image": "images/q_0112.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "is  used to detect underwater objects: For this, its transmitter produces",
@@ -2898,19 +2928,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.992,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            851.146875,
+            221.2625,
+            1572.0343750000002,
+            703.04375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 113,
+      "q_number": 112,
       "page": 47,
       "question_type": "standard",
-      "image": "images/q_0113.png",
+      "image": "images/q_0112.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "112. Which combination of three resistors R, R2 and R3 has minimum total resistance? (Consider Ri = 19 Rz = 2 Q and R3 39)",
@@ -2923,19 +2964,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.827,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            854.715625,
+            806.5375,
+            1593.446875,
+            1427.5
+          ]
+        ]
+      }
     },
     {
-      "q_number": 114,
+      "q_number": 113,
       "page": 47,
       "question_type": "standard",
-      "image": "images/q_0114.png",
+      "image": "images/q_0113.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "113. If the relative density of gold is 193 and the density of water is 106 g/m 3 what will be the density of gold in SI units?",
@@ -2948,22 +3000,33 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.787,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            854.715625,
+            1516.71875,
+            1586.309375,
+            2030.61875
+          ]
+        ]
+      }
     },
     {
-      "q_number": 115,
+      "q_number": 114,
       "page": 49,
       "question_type": "standard",
-      "image": "images/q_0115.png",
+      "image": "images/q_0114.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "[PT.O. 114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and Vp' respectively. The respective straight lines of the graph make angles 300 and 600, respectively with the x-axis (time): The difference in velocities VB and VA is",
+      "question_stem_html": "114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and Vp' respectively. The respective straight lines of the graph make angles 300 and 600, respectively with the x-axis (time): The difference in velocities VB and VA is",
       "options": {
         "a": "20/13 m/s",
         "b": "2/13 m/s",
@@ -2973,19 +3036,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.721,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            87.47265625,
+            214.21875,
+            815.81640625,
+            835.453125
+          ]
+        ]
+      }
     },
     {
-      "q_number": 116,
+      "q_number": 115,
       "page": 49,
       "question_type": "standard",
-      "image": "images/q_0116.png",
+      "image": "images/q_0115.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "115. A uniform current-carrying narrow solenoid produces",
@@ -2998,13 +3072,60 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.968,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            76.76171875,
+            914,
+            826.52734375,
+            1456.6875
+          ]
+        ]
+      }
+    },
+    {
+      "q_number": 116,
+      "page": 49,
+      "question_type": "standard",
+      "image": "images/q_0116.png",
+      "passage_label": "",
+      "passage_text_html": "",
+      "question_stem_html": "116. For a particle in uniform circular motion (radius R and angular velocity @), the magnitude and direction of acceleration, respectively are",
+      "options": {
+        "a": "@R, along the radius outward",
+        "b": "@R, towards the centre of the circle",
+        "c": "@2 R, towards the centre of the circle",
+        "d": "63 R, along the linear velocity"
+      },
+      "table": null,
+      "has_underline": false,
+      "ocr_confidence": 0.887,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": null,
+      "explanation_html": "",
+      "tags": [],
+      "topics": [],
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            83.90234375,
+            1531.6640625,
+            801.53515625,
+            2045.7890625
+          ]
+        ]
+      }
     },
     {
       "q_number": 117,
@@ -3013,54 +3134,40 @@
       "image": "images/q_0117.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "116. For a particle in uniform circular motion (radius R and angular velocity @), the magnitude and direction of acceleration, respectively are",
+      "question_stem_html": "Which one among the following statements is correct?",
       "options": {
-        "a": "@R, along the radius outward",
-        "b": "@R, towards the centre of the circle",
-        "c": "@2 R, towards the centre of the circle",
-        "d": "63 R, along the linear velocity 117. Which one among the following"
+        "a": "The total mechanical energy of system is conserved if the forces, doing work on it, are conservative_",
+        "b": "The total mechanical   energy of system is conserved if the forces, doing work on it, are non conservative.",
+        "c": "The total mechanical energy of system remains constant",
+        "d": "Every force encountered in mechanics does have an associated well-defined potential energy:"
       },
       "table": null,
       "has_underline": false,
-      "ocr_confidence": 0.887,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "ocr_confidence": 0.901,
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            872.94140625,
+            221.359375,
+            1583.43359375,
+            874.7265625
+          ]
+        ]
+      }
     },
     {
       "q_number": 118,
       "page": 49,
       "question_type": "standard",
       "image": "images/q_0118.png",
-      "passage_label": "",
-      "passage_text_html": "",
-      "question_stem_html": "statements is correct?",
-      "options": {
-        "a": "The total mechanical energy of a system is conserved if the forces, doing work on it, are conservative.",
-        "b": "The total mechanical energy of system is conserved if the forces, doing work on it, are non- conservative_",
-        "c": "The total mechanical  energy of a system remains constant:",
-        "d": "Every force encountered in mechanics does have an associated well-defined potential energy."
-      },
-      "table": null,
-      "has_underline": false,
-      "ocr_confidence": 0.901,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
-      "explanation_html": "",
-      "tags": [],
-      "topics": [],
-      "instruction_id": null
-    },
-    {
-      "q_number": 119,
-      "page": 49,
-      "question_type": "standard",
-      "image": "images/q_0119.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "118. Which one of the   following does not generally obey Hooke's law?",
@@ -3073,19 +3180,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.975,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            872.94140625,
+            896.1484375,
+            1601.28515625,
+            1235.328125
+          ]
+        ]
+      }
     },
     {
-      "q_number": 120,
+      "q_number": 119,
       "page": 49,
       "question_type": "standard",
-      "image": "images/q_0120.png",
+      "image": "images/q_0119.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "119_ Which of the following statements regarding Carnot engine is/are correct? 1  It is an irreversible engine operating between two temperatures T (source) and T2 (sink): 2. Its efficiency is given by n =1-T2 /T5, where T1 is the temperature of source and T2 is the temperature of sink: Select the answer using the code given below.",
@@ -3098,22 +3216,33 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.983,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 49,
+        "boxes": [
+          [
+            869.37109375,
+            1253.1796875,
+            1594.14453125,
+            2038.6484375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 121,
+      "q_number": 120,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0121.png",
+      "image": "images/q_0120.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "[PT.O. 120. In the ideal gas equation PV = URT; relating pressure P, volume V and absolute temperature T, the quantity | is",
+      "question_stem_html": "120. In the ideal gas equation PV = URT; relating pressure P, volume V and absolute temperature T, the quantity | is",
       "options": {
         "a": "number of moles",
         "b": "number of molecules",
@@ -3123,19 +3252,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.91,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            73.19140625,
+            207.078125,
+            801.53515625,
+            696.2109375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 122,
+      "q_number": 121,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0122.png",
+      "image": "images/q_0121.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "121. Which one among the following statements is not correct?",
@@ -3148,19 +3288,30 @@
       "table": null,
       "has_underline": true,
       "ocr_confidence": 0.856,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            76.76171875,
+            756.90625,
+            812.24609375,
+            1467.3984375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 123,
+      "q_number": 122,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0123.png",
+      "image": "images/q_0122.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "122. Which one among the following transmission media is best  suited for transmission of information over large distance?",
@@ -3168,24 +3319,35 @@
         "a": "Twisted pair",
         "b": "Optical fibre",
         "c": "Thick Ethernet",
-        "d": "Thin Ethernet 123. Which one among the following devices is"
+        "d": "Thin Ethernet"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.94,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            69.62109375,
+            1553.0859375,
+            805.10546875,
+            2027.9375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 124,
+      "q_number": 123,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0124.png",
+      "image": "images/q_0123.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "used for converting digital signals into analog signals and vice versa?",
@@ -3198,19 +3360,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.905,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            855.08984375,
+            210.6484375,
+            1597.71484375,
+            803.3203125
+          ]
+        ]
+      }
     },
     {
-      "q_number": 125,
+      "q_number": 124,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0125.png",
+      "image": "images/q_0124.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "124. The binary multiplication of the numbers 12 and 10 will be",
@@ -3223,19 +3396,30 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.991,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            865.80078125,
+            871.15625,
+            1587.00390625,
+            1413.84375
+          ]
+        ]
+      }
     },
     {
-      "q_number": 126,
+      "q_number": 125,
       "page": 51,
       "question_type": "standard",
-      "image": "images/q_0126.png",
+      "image": "images/q_0125.png",
       "passage_label": "",
       "passage_text_html": "",
       "question_stem_html": "125. How many text alignments are there in Microsoft Word?",
@@ -3243,18 +3427,29 @@
         "a": "1",
         "b": "2",
         "c": "3",
-        "d": "4 [PT.O"
+        "d": "4"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.992,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 51,
+        "boxes": [
+          [
+            858.66015625,
+            1488.8203125,
+            1587.00390625,
+            2027.9375
+          ]
+        ]
+      }
     }
   ]
 }
