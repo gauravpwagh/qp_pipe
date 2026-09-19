@@ -402,3 +402,6 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .rename-paper-btn { background: none; color: var(--muted); border: 1px solid var(--border); }
 .rename-paper-btn:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
 .jobs-rename-input { width: 100%; padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
+
+.question-type-select { padding: 3px 6px; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text); }
+.pane.collapsed .question-type-select { display: none; }

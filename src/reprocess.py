@@ -15,6 +15,7 @@ from PIL import Image
 
 from .match_list import reconstruct as reconstruct_match_list
 from .ocr import ocr_image
+from .paired_table import detect as detect_paired_table, reconstruct as reconstruct_paired_table
 from .parse_questions import DIRECTIONS_RE, OPTION_LETTER_FIX, OPTION_RE, QUESTION_START_RE, _starts_new_line
 from .reading_order import order_page
 from .underline import detect_underlined_words, mark_underlines_in_text
@@ -92,6 +93,28 @@ def reprocess_match_list(image: Image.Image, q_number: int | None = None) -> dic
     boxes = ocr_image(gray)
     table, problems = reconstruct_match_list(boxes, q_number)
     return {"table": table, "problems": problems}
+
+
+def build_table(image: Image.Image, question_type: str, q_number: int | None = None) -> tuple[dict, list[str]]:
+    """Builds the table for a question the user has just switched to a
+    table-bearing type - unlike reprocess_question, leaves the stem/options
+    alone. Returns (table, problems)."""
+    if question_type == "match_the_list":
+        result = reprocess_match_list(image, q_number)
+        return result["table"], result["problems"]
+    if question_type == "paired_table":
+        boxes = ocr_image(np.array(image.convert("L")))
+        # The user chose this type, so build on a best-effort basis even when
+        # the pipeline's own (deliberately strict) auto-detection wouldn't
+        # have picked it - just say so.
+        table, problems = reconstruct_paired_table(boxes, q_number)
+        if not detect_paired_table(boxes):
+            problems = ["paired-table layout wasn't clearly detected in this image - verify the table"] + problems
+        if not table["rows"]:
+            table = {"headers": ["", ""], "rows": []}
+            problems.append("no rows found - fill the table in by hand")
+        return table, problems
+    raise ValueError(f"{question_type!r} has no table")
 
 
 def reprocess_instruction(image: Image.Image) -> dict:

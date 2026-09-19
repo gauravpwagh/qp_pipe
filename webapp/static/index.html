@@ -87,7 +87,17 @@
         <div class="pane pane-question" id="pane-question">
           <div class="pane-header">
             <span class="pane-header-label" id="pane-question-label">Question</span>
-            <button type="button" class="pane-collapse-btn" data-pane="pane-question" title="Collapse">&minus;</button>
+            <span class="pane-header-actions">
+              <select id="question-type-select" class="question-type-select" title="Question type - changes how this question is displayed and edited">
+                <option value="standard">Standard</option>
+                <option value="paired_table">Paired table</option>
+                <option value="match_the_list">Match the list</option>
+                <option value="comprehension">Comprehension</option>
+                <option value="para_jumble">Para jumble</option>
+                <option value="sentence_relation">Sentence relation</option>
+              </select>
+              <button type="button" class="pane-collapse-btn" data-pane="pane-question" title="Collapse">&minus;</button>
+            </span>
           </div>
           <div class="pane-body">
             <div id="question-body-content">

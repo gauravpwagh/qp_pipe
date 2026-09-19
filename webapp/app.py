@@ -21,7 +21,7 @@ from .variants import VARIANTS
 from src import latex_ocr, screenshot_stitch
 from src.instructions import extract_instructions
 from src.pipeline import crop_and_stack_regions
-from src.reprocess import reprocess_instruction, reprocess_question
+from src.reprocess import build_table, reprocess_instruction, reprocess_question
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -553,9 +553,75 @@ def api_variant_vocab(variant_id):
     return jsonify(_read_vocab(variant_id))
 
 
+QUESTION_TYPES = ("standard", "para_jumble", "sentence_relation", "comprehension", "match_the_list", "paired_table")
+TABLE_TYPES = ("match_the_list", "paired_table")
+
+
+def _table_fits(question_type: str, table) -> bool:
+    if not isinstance(table, dict):
+        return False
+    if question_type == "match_the_list":
+        return "list1" in table and "list2" in table
+    if question_type == "paired_table":
+        return "headers" in table and "rows" in table
+    return False
+
+
+def _change_question_type(paper_id: str, q_number: int, new_type):
+    """Lets the user override the pipeline's guess at a question's type.
+    Switching to a table-bearing type builds its table from the question's
+    crop (OCR runs outside the write lock - it takes a few seconds) unless the
+    question already holds a table of that shape; switching to any other type
+    drops the table, since `table` is only meaningful for those two types."""
+    if new_type not in QUESTION_TYPES:
+        return jsonify({"error": f"question_type must be one of {', '.join(QUESTION_TYPES)}"}), 400
+    paper = _read_paper(paper_id)
+    if paper is None:
+        return jsonify({"error": "paper not found"}), 404
+    question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+    if question is None:
+        return jsonify({"error": "question not found"}), 404
+    if question.get("question_type") == new_type:
+        return jsonify(question)
+
+    built = None
+    if new_type in TABLE_TYPES and not _table_fits(new_type, question.get("table")):
+        if not question.get("image"):
+            return jsonify({"error": "this question has no image to build a table from"}), 400
+        image_path = _paper_dir(paper_id) / question["image"]
+        if not image_path.exists():
+            return jsonify({"error": "the question's image file is missing"}), 404
+        from PIL import Image
+
+        try:
+            with Image.open(image_path) as image:
+                built = build_table(image, new_type, q_number)
+        except Exception as e:
+            return jsonify({"error": f"could not build the table: {e}"}), 500
+
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+        if question is None:
+            return jsonify({"error": "question not found"}), 404
+        question["question_type"] = new_type
+        if new_type not in TABLE_TYPES:
+            question["table"] = None
+        elif built is not None:
+            table, problems = built
+            question["table"] = table
+            if problems:
+                question["needs_review"] = True
+                question["review_reason"] = "; ".join(filter(None, [question.get("review_reason")] + problems))
+        _write_paper_atomic(paper_id, paper)
+    return jsonify(question)
+
+
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>", methods=["PATCH"])
 def api_update_question(paper_id, q_number):
     body = request.get_json(force=True, silent=True) or {}
+    if "question_type" in body:
+        return _change_question_type(paper_id, q_number, body["question_type"])
     # user_answer/explanation_html/tags/topics: the review workflow's own
     # fields. question_stem_html/passage_text_html/options: lets the user
     # correct OCR mistakes directly in the question body. A question's

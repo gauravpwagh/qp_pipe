@@ -489,6 +489,9 @@ function renderQuestion(qNumber) {
   currentInstruction = null;
   document.getElementById("question-select").value = `Q:${qNumber}`;
   document.getElementById("pane-question-label").textContent = "Question";
+  const typeSelect = document.getElementById("question-type-select");
+  typeSelect.hidden = false;
+  typeSelect.value = currentQuestion.question_type || "standard";
   document.getElementById("question-body-content").hidden = false;
   document.getElementById("instruction-body").hidden = true;
   document.querySelector(".pane-notes").hidden = false;
@@ -601,6 +604,7 @@ function renderInstruction(instructionId) {
   currentQuestion = null;
   document.getElementById("question-select").value = `I:${instructionId}`;
   document.getElementById("pane-question-label").textContent = "Instructions";
+  document.getElementById("question-type-select").hidden = true;
   document.getElementById("question-body-content").hidden = true;
   document.getElementById("instruction-body").hidden = false;
   document.querySelector(".pane-notes").hidden = true;
@@ -829,6 +833,54 @@ function removeChip(field, value) {
   renderChips(field);
   saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
 }
+
+// ---- change question type ----
+const TABLE_QUESTION_TYPES = ["match_the_list", "paired_table"];
+
+function tableFitsType(type, table) {
+  if (!table) return false;
+  if (type === "match_the_list") return "list1" in table && "list2" in table;
+  if (type === "paired_table") return "headers" in table && "rows" in table;
+  return false;
+}
+
+document.getElementById("question-type-select").addEventListener("change", async (e) => {
+  const select = e.target;
+  const q = currentQuestion;
+  const newType = select.value;
+  if (!q || newType === q.question_type) return;
+
+  const hasTable = q.table && Object.keys(q.table).length > 0;
+  if (hasTable && !tableFitsType(newType, q.table)) {
+    const what = TABLE_QUESTION_TYPES.includes(newType) ? "rebuilt from the image" : "removed";
+    if (!confirm(`Change this question's type? Its current table will be ${what} - any manual edits to it will be lost.`)) {
+      select.value = q.question_type;
+      return;
+    }
+  }
+
+  flushAllPendingSaves();
+  select.disabled = true;
+  setSaveIndicator("saving");
+  try {
+    const res = await fetch(`/api/papers/${currentPaper.paper_id}/questions/${q.q_number}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ question_type: newType }),
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error || "could not change the question type");
+    Object.assign(q, data);
+    renderQuestion(q.q_number);
+    setSaveIndicator("saved");
+  } catch (err) {
+    select.value = q.question_type;
+    setSaveIndicator("error saving");
+    alert(err.message);
+  } finally {
+    select.disabled = false;
+  }
+});
 
 async function saveQuestionField(qNumber, updates) {
   setSaveIndicator("saving");
