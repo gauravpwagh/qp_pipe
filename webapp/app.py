@@ -249,6 +249,7 @@ def api_papers():
                 "paper_id": paper["paper_id"],
                 "label": paper.get("job_name") or paper.get("source_filename", paper["paper_id"]),
                 "job_name": paper.get("job_name"),
+                "variant": paper.get("variant"),
                 "source_filename": paper.get("source_filename"),
                 "processed_at": paper.get("processed_at"),
                 "total_questions": paper.get("total_questions"),
@@ -264,6 +265,27 @@ def api_paper_detail(paper_id):
     if paper is None:
         return jsonify({"error": "not found"}), 404
     return jsonify(paper)
+
+
+@app.route("/api/papers/<paper_id>", methods=["PATCH"])
+def api_rename_paper(paper_id):
+    """Renames a job's display name only - its folder/paper_id (which every
+    stored image URL and the review page's own selection are keyed on) stays
+    exactly as it was."""
+    body = request.get_json(force=True, silent=True) or {}
+    name = body.get("job_name")
+    if not isinstance(name, str) or not name.strip():
+        return jsonify({"error": "job_name must be a non-empty string"}), 400
+    name = name.strip()
+    if len(name) > 200:
+        return jsonify({"error": "job_name is too long (200 characters max)"}), 400
+    with _write_lock:
+        paper = _read_paper(paper_id)
+        if paper is None:
+            return jsonify({"error": "not found"}), 404
+        paper["job_name"] = name
+        _write_paper_atomic(paper_id, paper)
+    return jsonify({"paper_id": paper_id, "job_name": name})
 
 
 @app.route("/api/papers/<paper_id>", methods=["DELETE"])

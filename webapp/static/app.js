@@ -40,6 +40,7 @@ function switchTab(name) {
   document.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
   document.querySelectorAll(".tab-panel").forEach((p) => p.classList.toggle("active", p.id === `tab-${name}`));
   if (name === "review") loadPapers();
+  if (name === "jobs") loadJobs();
 }
 
 // ---- Process tab ----
@@ -180,28 +181,127 @@ async function loadPapers() {
 
 document.getElementById("paper-select").addEventListener("change", (e) => loadPaper(e.target.value));
 
-document.getElementById("delete-paper-btn").addEventListener("click", async () => {
-  const select = document.getElementById("paper-select");
-  const paperId = select.value;
-  if (!paperId) return;
-  const label = select.options[select.selectedIndex] ? select.options[select.selectedIndex].textContent : paperId;
-  if (!confirm(`Delete this job permanently?\n\n${label}\n\nThis removes its saved answers, explanations, and images - it cannot be undone.`)) {
+// ---- Jobs tab (rename / delete) ----
+async function loadJobs() {
+  const res = await fetch("/api/papers");
+  const papers = await res.json();
+  const body = document.getElementById("jobs-body");
+  body.innerHTML = "";
+  document.getElementById("jobs-empty").hidden = papers.length > 0;
+  document.getElementById("jobs-table").hidden = papers.length === 0;
+  for (const p of papers) body.appendChild(renderJobRow(p));
+}
+
+function showJobsError(msg) {
+  const el = document.getElementById("jobs-error");
+  el.textContent = msg || "";
+  el.hidden = !msg;
+}
+
+function renderJobRow(p) {
+  const tr = document.createElement("tr");
+  const nameTd = document.createElement("td");
+  const nameSpan = document.createElement("span");
+  nameSpan.textContent = p.label;
+  nameTd.appendChild(nameSpan);
+
+  const cell = (text) => {
+    const td = document.createElement("td");
+    td.textContent = text;
+    return td;
+  };
+  const when = p.processed_at ? new Date(p.processed_at).toLocaleString() : "";
+  const counts = `${p.total_questions} q, ${p.needs_review_count} flagged`;
+
+  const actionsTd = document.createElement("td");
+  actionsTd.className = "jobs-actions";
+  const renameBtn = document.createElement("button");
+  renameBtn.type = "button";
+  renameBtn.className = "rename-paper-btn";
+  renameBtn.textContent = "Rename";
+  const deleteBtn = document.createElement("button");
+  deleteBtn.type = "button";
+  deleteBtn.className = "delete-paper-btn";
+  deleteBtn.title = "Delete this job permanently";
+  deleteBtn.textContent = "Delete";
+  actionsTd.append(renameBtn, deleteBtn);
+
+  renameBtn.addEventListener("click", () => startRename(p, nameTd, nameSpan, actionsTd));
+  deleteBtn.addEventListener("click", () => deleteJob(p));
+
+  tr.append(nameTd, cell(p.source_filename || ""), cell(when), cell(counts), actionsTd);
+  return tr;
+}
+
+function startRename(p, nameTd, nameSpan, actionsTd) {
+  const input = document.createElement("input");
+  input.type = "text";
+  input.className = "jobs-rename-input";
+  input.value = p.label;
+  input.maxLength = 200;
+  const saveBtn = document.createElement("button");
+  saveBtn.type = "button";
+  saveBtn.textContent = "Save";
+  const cancelBtn = document.createElement("button");
+  cancelBtn.type = "button";
+  cancelBtn.textContent = "Cancel";
+
+  nameSpan.hidden = true;
+  nameTd.append(input);
+  const normalButtons = [...actionsTd.children];
+  normalButtons.forEach((b) => (b.hidden = true));
+  actionsTd.append(saveBtn, cancelBtn);
+  input.focus();
+  input.select();
+
+  const finish = () => {
+    input.remove();
+    saveBtn.remove();
+    cancelBtn.remove();
+    nameSpan.hidden = false;
+    normalButtons.forEach((b) => (b.hidden = false));
+  };
+  const save = async () => {
+    const name = input.value.trim();
+    if (!name || name === p.label) return finish();
+    showJobsError("");
+    const res = await fetch(`/api/papers/${p.paper_id}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ job_name: name }),
+    });
+    if (!res.ok) {
+      const data = await res.json().catch(() => ({}));
+      showJobsError(data.error || "failed to rename job");
+      return;
+    }
+    await loadJobs();
+  };
+  saveBtn.addEventListener("click", save);
+  cancelBtn.addEventListener("click", finish);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") save();
+    if (e.key === "Escape") finish();
+  });
+}
+
+async function deleteJob(p) {
+  if (!confirm(`Delete this job permanently?\n\n${p.label}\n\nThis removes its saved answers, explanations, and images - it cannot be undone.`)) {
     return;
   }
-  const res = await fetch(`/api/papers/${paperId}`, { method: "DELETE" });
+  showJobsError("");
+  const res = await fetch(`/api/papers/${p.paper_id}`, { method: "DELETE" });
   if (!res.ok) {
     const data = await res.json().catch(() => ({}));
-    alert(data.error || "failed to delete job");
+    showJobsError(data.error || "failed to delete job");
     return;
   }
-  if (currentPaper && currentPaper.paper_id === paperId) {
+  if (currentPaper && currentPaper.paper_id === p.paper_id) {
     currentPaper = null;
     currentQuestion = null;
   }
-  pendingSelectPaperId = null;
-  select.value = "";
-  await loadPapers();
-});
+  await loadJobs();
+}
 
 // Interleaves each instruction into the question sequence right before the
 // first question it applies to (e.g. Q7, I1, Q8, Q9) - the natural reading

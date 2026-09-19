@@ -13,6 +13,7 @@
     <nav class="tabs">
       <button class="tab-btn active" data-tab="process">Process</button>
       <button class="tab-btn" data-tab="review">Review</button>
+      <button class="tab-btn" data-tab="jobs">Jobs</button>
       <button class="tab-btn" data-tab="latex">LaTeX Scratchpad</button>
     </nav>
   </header>
@@ -54,7 +55,6 @@
           Paper
           <select id="paper-select"></select>
         </label>
-        <button type="button" id="delete-paper-btn" class="delete-paper-btn" title="Delete this job permanently">Delete job</button>
         <label>
           Question
           <select id="question-select"></select>
@@ -135,6 +135,18 @@
 
           <div id="save-indicator" class="save-indicator"></div>
         </div>
+      </div>
+    </section>
+
+    <section id="tab-jobs" class="tab-panel">
+      <div class="card jobs-card">
+        <h2>Jobs</h2>
+        <div id="jobs-empty" class="jobs-empty" hidden>No jobs yet - process a PDF first.</div>
+        <table id="jobs-table" class="jobs-table" hidden>
+          <thead><tr><th>Name</th><th>Source PDF</th><th>Processed</th><th>Questions</th><th></th></tr></thead>
+          <tbody id="jobs-body"></tbody>
+        </table>
+        <div id="jobs-error" class="error" hidden></div>
       </div>
     </section>
 

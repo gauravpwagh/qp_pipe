@@ -390,3 +390,14 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 }
 .format-toolbar button:hover { background: rgba(255, 255, 255, 0.15); opacity: 1; }
 .format-toolbar button.active { background: var(--accent); }
+
+.jobs-card { max-width: 980px; }
+.jobs-table { border-collapse: collapse; width: 100%; font-size: 13px; }
+.jobs-table th, .jobs-table td { border-bottom: 1px solid var(--border); padding: 8px; text-align: left; vertical-align: middle; }
+.jobs-table th { color: var(--muted); font-weight: 600; }
+.jobs-empty { color: var(--muted); font-size: 13px; }
+.jobs-actions { white-space: nowrap; }
+.jobs-actions button { margin-right: 6px; padding: 6px 10px; font-size: 12px; }
+.rename-paper-btn { background: none; color: var(--muted); border: 1px solid var(--border); }
+.rename-paper-btn:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+.jobs-rename-input { width: 100%; padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
