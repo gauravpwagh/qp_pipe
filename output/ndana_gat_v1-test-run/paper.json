@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 13
+    "needs_review_count": 0
   },
   "instructions": [
     {
@@ -3663,7 +3663,7 @@
         "a": "I-D, II-C, III-B, IV-A",
         "b": "I-C, II-D, III-A, IV-B",
         "c": "I-D, II-C, III-A, IV-B",
-        "d": "I-C , II-D, III-B, IV-A ::' ~n."
+        "d": "I-C , II-D, III-B, IV-A"
       },
       "table": {
         "list1": [
@@ -3732,11 +3732,11 @@
       "image": "images/q_0127.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with regard to the types of land listed in the Amarakosha. I Devamatrika refers to land watered by rain_<br><br>II. Aprahata refers to fallow land.<br><br>III. Pankila refers to highly fertile land:<br><br>Which of the statements given above   islare correct ?",
+      "question_stem_html": "Consider the following statements with regard to the types of land listed in the Amarakosha.&nbsp;<div><br></div><div>I Devamatrika refers to land watered by rain_<br><br>II. Aprahata refers to fallow land.<br><br>III. Pankila refers to highly fertile land:<br><br>Which of the statements given above   is/are correct ?</div>",
       "options": {
         "a": "I and II only",
         "b": "II only",
-        "c": "Iand III only",
+        "c": "I and III only",
         "d": "I, II and III"
       },
       "table": null,
@@ -3757,23 +3757,34 @@
       "image": "images/q_0128.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the role of political parties in modern democracies I In most democracies, elections are fought mainly among the candidates put up by political parties. II. Political   parties put forward different policies and programmes and the voters choose from them.<br><br>III. Political parties shape public opinion.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding the role of political parties in modern democracies:<div><br></div><div>I. In most democracies, elections are fought mainly among the candidates put up by political parties.&nbsp;<div><br></div><div>II. Political   parties put forward different policies and programmes and the voters choose from them.<br><br>III. Political parties shape public opinion.<br><br>Which of the statements given above are correct ?</div></div>",
       "options": {
-        "a": "Iand II only (b II and III only Iand III only",
-        "b": "",
-        "c": "",
-        "d": "I, II and III (39 _ A )"
+        "a": "Iand II only&nbsp;",
+        "b": "II and III only",
+        "c": "&nbsp;I and III only",
+        "d": "I, II and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.872,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 39,
+        "boxes": [
+          [
+            61.98828125,
+            1055.5718749999999,
+            823.55859375,
+            2026.13125
+          ]
+        ]
+      }
     },
     {
       "q_number": 129,
@@ -3782,7 +3793,7 @@
       "image": "images/q_0129.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with regard to the Lahore Session I The Congress decided to observe Independence Day on 26 January 1930.<br><br>II. It was decided to hoist the National Flag and sing   patriotic songs at different venues.<br><br>III: Gandhiji   suggested that the event be held synchronously in all the places.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements with regard to the Lahore Session:<div><br></div><div>&nbsp;I The Congress decided to observe Independence Day on 26 January 1930.<br><br>II. It was decided to hoist the National Flag and sing   patriotic songs at different venues.<br><br>III: Gandhiji   suggested that the event be held synchronously in all the places.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
         "b": "II and III only",
@@ -3807,19 +3818,19 @@
       "image": "images/q_0130.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I The Kailasanatha temple of Kanchi is the earliest Pallava temple hewn from solid rock: II. The Vaikuntha Perumal temple at Kanchi is a rare Pallava temple dedicated to Lord Vishnu_<br><br>Which of the statements given above  islare correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I. The Kailasanatha temple of Kanchi is the earliest Pallava temple hewn from solid rock:&nbsp;</div><div>II. The Vaikuntha Perumal temple at Kanchi is a rare Pallava temple dedicated to Lord Vishnu_<br><br>Which of the statements given above  islare correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II oc."
+        "d": "Neither I nor II"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.794,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3828,45 +3839,23 @@
     {
       "q_number": 131,
       "page": 41,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0131.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following pairs with reference to the Constitution of India I Part V The Union<br><br>II. Part X The Scheduled and Tribal Areas<br><br>III. Part XII Relations between the Union and the States<br><br>IV. Part XIV Amendment of the Constitution How many of the   pairs given above are correctly matched ?",
+      "question_stem_html": "Consider the following pairs with reference to the Constitution of India&nbsp;<div><br></div><div>I Part V The Union<br><br>II. Part X The Scheduled and Tribal Areas<br><br>III. Part XII Relations between the Union and the States<br><br>IV. Part XIV Amendment of the Constitution&nbsp;<div><br></div><div>How many of the   pairs given above are correctly matched ?</div></div>",
       "options": {
         "a": "One",
-        "b": "Two (c Three",
-        "c": "",
+        "b": "Two&nbsp;",
+        "c": "Three",
         "d": "All four"
       },
-      "table": {
-        "headers": [
-          "I Part V",
-          "The Union"
-        ],
-        "rows": [
-          {
-            "label": "II",
-            "col1": "Part X",
-            "col2": "The Scheduled and"
-          },
-          {
-            "label": "III",
-            "col1": "Part XII",
-            "col2": "Relations between the"
-          },
-          {
-            "label": "IV",
-            "col1": "Part XIV",
-            "col2": "Amendment of the"
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.942,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3879,7 +3868,7 @@
       "image": "images/q_0132.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "132. With reference to the  Panchsheel, which of the following islare correct ? I. Mutual respect for territorial integrity and sovereignty II. Mutual non-interference III: Collective security against non-aggression IV. Peaceful co-existence Select the answer using the code given below",
+      "question_stem_html": "132. With reference to the  Panchsheel, which of the following islare correct ?&nbsp;<div><br></div><div>I. Mutual respect for territorial integrity and sovereignty&nbsp;</div><div><br></div><div>II. Mutual non-interference&nbsp;</div><div><br></div><div>III: Collective security against non-aggression&nbsp;</div><div><br></div><div>IV. Peaceful co-existence&nbsp;</div><div><br></div><div>Select the answer using the code given below</div>",
       "options": {
         "a": "I only",
         "b": "I,II and III",
@@ -3889,13 +3878,24 @@
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.746,
-      "needs_review": true,
-      "review_reason": "question number not detected by OCR; number inferred from sequence",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 41,
+        "boxes": [
+          [
+            62.015625,
+            1183.6125,
+            816.834375,
+            2037.65625
+          ]
+        ]
+      }
     },
     {
       "q_number": 133,
@@ -3904,18 +3904,18 @@
       "image": "images/q_0133.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements related to national integration I The expression of regional issues is not a part of democratic politics.<br><br>II. Nation-building is an ongoing process<br><br>III. Regional  imbalance is associated with India's development experience.<br><br>IV . Regions together form the nation.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements related to national integration&nbsp;<div><br></div><div>I The expression of regional issues is not a part of democratic politics.<br><br>II. Nation-building is an ongoing process<br><br>III. Regional  imbalance is associated with India's development experience.<br><br>IV . Regions together form the nation.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "II, III and IV",
-        "b": "I, II and IV III and IV only",
-        "c": "",
+        "b": "I, II and IV&nbsp;",
+        "c": "III and IV only",
         "d": "II and III only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.898,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3929,19 +3929,19 @@
       "image": "images/q_0134.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding UN reforms I India demands an expanded  Security Council:<br><br>II. India does not  support an increase in non-permanent members.<br><br>III. The majority of the UN General Assembly members are from developing countries_<br><br>Which of the statements   given above  islare correct ?",
+      "question_stem_html": "Consider the following statements regarding UN reforms&nbsp;<div><br></div><div>I India demands an expanded  Security Council:<br><br>II. India does not  support an increase in non-permanent members.<br><br>III. The majority of the UN General Assembly members are from developing countries_<br><br>Which of the statements   given above  islare correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Iand II",
-        "d": "I and III To:::;"
+        "d": "I and III"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.849,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3979,19 +3979,19 @@
       "image": "images/q_0136.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the PESA Act, 1996 I Gram Sabhas have the power to declare Scheduled Areas.<br><br>II. Gram Sabhas have the powers related to the management of community resources_<br><br>III. The PESA applies to all States except areas under the Fifth Schedule.<br><br>Which of the statements given above  islare not correct ?",
+      "question_stem_html": "Consider the following statements regarding the PESA Act, 1996&nbsp;<div><br></div><div>I Gram Sabhas have the power to declare Scheduled Areas.<br><br>II. Gram Sabhas have the powers related to the management of community resources_<br><br>III. The PESA applies to all States except areas under the Fifth Schedule.<br><br>Which of the statements given above  islare not correct ?</div>",
       "options": {
         "a": "Iand II",
-        "b": "II and III (c I and III",
-        "c": "",
+        "b": "II and III&nbsp;",
+        "c": "I and III",
         "d": "II only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.869,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -4007,16 +4007,16 @@
       "question_stem_html": "Which one of the   following is neither a constitutional nor a statutory body ?",
       "options": {
         "a": "Finance Commission",
-        "b": "NITI Aayog National Green Tribunal",
-        "c": "",
+        "b": "NITI Aayog&nbsp;",
+        "c": "National Green Tribunal",
         "d": "Union Public Service Commission"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.966,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -4031,16 +4031,16 @@
       "passage_text_html": "",
       "question_stem_html": "Which one of the following committees recommended constitutional   recognition for local bodies ?",
       "options": {
-        "a": "K Hanumanthaiah Committee Veerappa Moily Committee PK Thungon Committee",
-        "b": "",
-        "c": "",
+        "a": "K Hanumanthaiah Committee&nbsp;",
+        "b": "Veerappa Moily Committee",
+        "c": "&nbsp;PK Thungon Committee",
         "d": "Kasturirangan Committee"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.911,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -4056,16 +4056,16 @@
       "passage_text_html": "",
       "question_stem_html": "The anti-defection provisions were incorporated in the Constitution through which one of the following Constitutional Amendments ?",
       "options": {
-        "a": "50th Amendment (b 52nd Amendment 58th Amendment",
-        "b": "",
-        "c": "",
+        "a": "50th Amendment&nbsp;",
+        "b": "52nd Amendment&nbsp;",
+        "c": "58th Amendment",
         "d": "61st Amendment"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.926,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -4075,101 +4075,74 @@
     {
       "q_number": 140,
       "page": 43,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0140.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the Neighbourhood First Policy I. India   provides high-impact  community development projects to Afghanistan: II. Bhutan is India' s key maritime neighbour and vital partner in Vision MAHASAGAR<br><br>III. India launched Operation Brahma to provide  relief following an earthquake in Myanmar.<br><br>Which of the statements given above are correct ?",
+      "question_stem_html": "Consider the following statements regarding the Neighbourhood First Policy&nbsp;<div><br></div><div>I. India   provides high-impact  community development projects to Afghanistan:&nbsp;</div><div><br></div><div>II. Bhutan is India' s key maritime neighbour and vital partner in Vision MAHASAGAR<br><br>III. India launched Operation Brahma to provide  relief following an earthquake in Myanmar.<br><br>Which of the statements given above are correct ?</div>",
       "options": {
         "a": "Iand II only",
         "b": "Iand III only",
         "c": "II and III only",
-        "d": "I, II and III 43 _ A ) :p13"
+        "d": "I, II and III"
       },
-      "table": {
-        "headers": [
-          "a",
-          "in Myanmar."
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "India   provides high-impact  community"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Bhutan is India' s key maritime"
-          },
-          {
-            "label": "III",
-            "col1": "India launched Operation Brahma to",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.801,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 43,
+        "boxes": [
+          [
+            846.85703125,
+            1166.859375,
+            1603.5476562499998,
+            2036.6999999999998
+          ]
+        ]
+      }
     },
     {
       "q_number": 141,
       "page": 45,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0141.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "India has engaged in an agreement to supply BrahMos missiles to which of the following countries ? I I Indonesia<br><br>II. Philippines<br><br>III: Singapore<br><br>IV . Vietnam Select the correct answer using the code given below",
+      "question_stem_html": "India has engaged in an agreement to supply BrahMos missiles to which of the following countries ? I&nbsp;<div><br></div><div>I Indonesia<br><br>II. Philippines<br><br>III: Singapore<br><br>IV . Vietnam&nbsp;</div><div><br></div><div>Select the correct answer using the code given below</div>",
       "options": {
         "a": "I,II and III",
         "b": "I, III and IV",
         "c": "I, II and IV",
         "d": "II and IV only"
       },
-      "table": {
-        "headers": [
-          "countries ?",
-          "I"
-        ],
-        "rows": [
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Philippines"
-          },
-          {
-            "label": "III",
-            "col1": "",
-            "col2": ""
-          },
-          {
-            "label": "III",
-            "col1": "Singapore",
-            "col2": ""
-          },
-          {
-            "label": "IV",
-            "col1": "",
-            "col2": "Vietnam"
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.903,
-      "needs_review": true,
-      "review_reason": "row III: could not split into two columns; row III: could not split into two columns",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 45,
+        "boxes": [
+          [
+            23.0140625,
+            134.54375000000002,
+            766.5453125000001,
+            902.8593750000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 142,
@@ -4181,20 +4154,31 @@
       "question_stem_html": "Ramanujan Fellowship is an initiative of the Department of Science Technology, Government of India: It was launched under the",
       "options": {
         "a": "Research, Development and Innovation Fund",
-        "b": "Anusandhan National Research I Foundation National Quantum Mission National Supercomputing Mission",
-        "c": "",
-        "d": ""
+        "b": "Anusandhan National Research Foundation&nbsp;",
+        "c": "National Quantum Mission&nbsp;",
+        "d": "National Supercomputing Mission"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.922,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 45,
+        "boxes": [
+          [
+            19.473437500000003,
+            973.6718750000001,
+            773.6265625000001,
+            1554.3343750000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 143,
@@ -4208,18 +4192,29 @@
         "a": "France",
         "b": "Somalia",
         "c": "Sri Lanka",
-        "d": "Saudi Arabia TFDD-B-AGT 45 _ A )"
+        "d": "Saudi Arabia"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.904,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 45,
+        "boxes": [
+          [
+            23.0140625,
+            1593.2812500000002,
+            773.6265625000001,
+            1996.9125000000004
+          ]
+        ]
+      }
     },
     {
       "q_number": 144,
@@ -4228,7 +4223,7 @@
       "image": "images/q_0144.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the 'Green Nobel' It is given every alternate year.<br><br>II. In 2026, six winners were   chosen and one of the winners is from Asia.<br><br>III. All the winners of 2026 are women_<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements regarding the 'Green Nobel'&nbsp;<div><br></div><div>I. It is given every alternate year.<br><br>II. In 2026, six winners were   chosen and one of the winners is from Asia.<br><br>III. All the winners of 2026 are women_<br><br>Which of the statements given above islare correct ?</div>",
       "options": {
         "a": "Ionly",
         "b": "II only",
@@ -4253,7 +4248,7 @@
       "image": "images/q_0145.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which two countries   signed a $ 2+6   billion uranium supply agreement in March 2026 ?",
+      "question_stem_html": "Which two countries   signed a $ 2.6   billion uranium supply agreement in March 2026 ?",
       "options": {
         "a": "India and Russia",
         "b": "India and Canada",
@@ -4278,12 +4273,12 @@
       "image": "images/q_0146.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding Exercise DUSTLIK-2026 It is a joint military exercise between India and UAE:<br><br>II. Its aim is to foster military cooperation and enhance combined capabilities to execute joint operations in semi-mountainous terrain:<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements regarding Exercise DUSTLIK-2026:&nbsp;<div><br></div><div>I. It is a joint military exercise between India and UAE:<br><br>II. Its aim is to foster military cooperation and enhance combined capabilities to execute joint operations in semi-mountainous terrain:<br><br>Which of the statements given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II 03r"
+        "d": "Neither I nor II"
       },
       "table": null,
       "has_underline": false,
@@ -4299,44 +4294,22 @@
     {
       "q_number": 147,
       "page": 47,
-      "question_type": "paired_table",
+      "question_type": "standard",
       "image": "images/q_0147.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Vayu Shakti-2026' islare correct ? I. The Vayu Shakti-2026 exercise took place in Jaisalmer; Rajasthan. II. Advanced fighter aircraft of the Indian Air Force, including Rafale, HAL Tejas and Mirage 2000 carried out strikes<br><br>III. Boeing Apache and Boeing Chinook helicopters participated in this exercise_<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about Vayu Shakti-2026' is/are correct ?&nbsp;<div><br></div><div>I. The Vayu Shakti-2026 exercise took place in Jaisalmer; Rajasthan.&nbsp;</div><div><br></div><div>II. Advanced fighter aircraft of the Indian Air Force, including Rafale, HAL Tejas and Mirage 2000 carried out strikes<br><br>III. Boeing Apache and Boeing Chinook helicopters participated in this exercise_<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,II and III",
-        "b": "Iand III only II and III only",
-        "c": "",
+        "b": "Iand III only&nbsp;",
+        "c": "II and III only",
         "d": "I only"
       },
-      "table": {
-        "headers": [
-          "",
-          ""
-        ],
-        "rows": [
-          {
-            "label": "I",
-            "col1": "",
-            "col2": "The Vayu Shakti-2026 exercise took"
-          },
-          {
-            "label": "II",
-            "col1": "",
-            "col2": "Advanced fighter aircraft of the Indian"
-          },
-          {
-            "label": "III",
-            "col1": "Boeing Apache and Boeing Chinook",
-            "col2": ""
-          }
-        ]
-      },
+      "table": null,
       "has_underline": false,
       "ocr_confidence": 0.848,
-      "needs_review": true,
-      "review_reason": "missing option(s); row III: could not split into two columns; column headers not detected",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -4350,12 +4323,12 @@
       "image": "images/q_0148.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements related to water governance is/are correct ? I River Basin   Management (RBM) is Central Sector Scheme under the Ministry of Jal Shakti, Government of India_<br><br>II. The major objectives of the RBM Scheme focus on promoting the use   of water for domestic use_<br><br>III. The Brahmaputra Board is one of the key implementing agencies of the RBM:<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements related to water governance is/are correct ?&nbsp;<div><br></div><div>I River Basin   Management (RBM) is Central Sector Scheme under the Ministry of Jal Shakti, Government of India_<br><br>II. The major objectives of the RBM Scheme focus on promoting the use   of water for domestic use_<br><br>III. The Brahmaputra Board is one of the key implementing agencies of the RBM:<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1, II and III",
         "b": "Iand III only",
         "c": "II and III only",
-        "d": "II only TFDD-B-AGT (47 _ A )"
+        "d": "II only&nbsp;"
       },
       "table": null,
       "has_underline": false,
@@ -4366,7 +4339,18 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 47,
+        "boxes": [
+          [
+            40.68125,
+            1001.1125,
+            790.6312499999999,
+            1966.85
+          ]
+        ]
+      }
     },
     {
       "q_number": 149,
@@ -4375,18 +4359,18 @@
       "image": "images/q_0149.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements regarding the Khelo India Tribal Games islare correct ? I The inaugural edition of the Khelo India Tribal Games was organized in two States Jharkhand and Odisha.<br><br>II. Morveer was the official mascot of these games<br><br>III. The Khelo India Tribal Games are part of the Khelo India Scheme.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements regarding the Khelo India Tribal Games islare correct ?&nbsp;<div><br></div><div>I The inaugural edition of the Khelo India Tribal Games was organized in two States Jharkhand and Odisha.<br><br>II. Morveer was the official mascot of these games<br><br>III. The Khelo India Tribal Games are part of the Khelo India Scheme.<br><br>Select the answer using the code given below</div>",
       "options": {
-        "a": "I,II and III (b Iand II only II and III only",
-        "b": "",
-        "c": "",
+        "a": "I,II and III",
+        "b": "&nbsp;(b Iand II only",
+        "c": "&nbsp;II and III only",
         "d": "III only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.925,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -4400,12 +4384,12 @@
       "image": "images/q_0150.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements I Over 60% of defence equipment sourced by the Armed Forces   of India is now produced domestically.<br><br>II: The Indian defence   focus is on scale, resilience and indigenous capability.<br><br>Which of the statements given above is/are correct ?",
+      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I Over 60% of defence equipment sourced by the Armed Forces   of India is now produced domestically.<br><br>II: The Indian defence   focus is on scale, resilience and indigenous capability.<br><br>Which of the statements given above is/are correct ?</div>",
       "options": {
         "a": "I only",
         "b": "II only",
         "c": "Both I and II",
-        "d": "Neither I nor II :;"
+        "d": "Neither I nor II"
       },
       "table": null,
       "has_underline": false,
