@@ -39,6 +39,7 @@ body {
   padding: 8px 16px;
   border: 1px solid var(--border);
   background: var(--card-bg);
+  color: var(--text);
   border-radius: var(--radius);
   cursor: pointer;
   font-size: 14px;
