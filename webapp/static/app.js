@@ -160,8 +160,7 @@ async function loadPapers() {
   for (const p of papers) {
     const opt = document.createElement("option");
     opt.value = p.paper_id;
-    const when = p.processed_at ? new Date(p.processed_at).toLocaleString() : "";
-    opt.textContent = `${p.label} (${p.total_questions} q, ${p.needs_review_count} flagged) - ${when}`;
+    opt.textContent = p.label;
     select.appendChild(opt);
   }
 
