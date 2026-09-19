@@ -426,6 +426,10 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                     )
                 builder.add(letter, opt_match.group(2), line)
                 builder.raw_lines.append(text)
+                # options always follow a list/statements block, so a match-list
+                # variant with no "Code" header (never clearing suppression via
+                # MATCH_LIST_END_RE) still re-enables question detection here.
+                builder.suppress_new_question = False
                 continue
 
             # continuation line

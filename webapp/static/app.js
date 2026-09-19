@@ -416,6 +416,10 @@ function renderQuestion(qNumber) {
   }
 
   const isMatchList = currentQuestion.question_type === "match_the_list" && currentQuestion.table;
+  // A match-the-list question can also come without a "Code" answer grid,
+  // just ordinary (a)-(d) text answers ("I-D, II-C, ...") - then only the two
+  // lists are tabulated and the normal options render below them.
+  const isListOnly = isMatchList && !currentQuestion.table.code_table;
   // Unlike match_the_list, a paired_table doesn't replace the stem/options
   // - it's a "Read the following pairs :"-style table embedded inside an
   // otherwise-standard question, so the normal stem and (a)-(d) options
@@ -432,13 +436,14 @@ function renderQuestion(qNumber) {
   const optionsBlock = document.getElementById("options-block");
   const tableBlock = document.getElementById("table-block");
 
-  if (isMatchList) {
+  if (isMatchList && !isListOnly) {
     optionsBlock.hidden = true;
     tableBlock.hidden = false;
     tableBlock.innerHTML = renderMatchListTable(currentQuestion.table);
   } else {
-    tableBlock.hidden = !isPairedTable;
+    tableBlock.hidden = !isPairedTable && !isListOnly;
     if (isPairedTable) tableBlock.innerHTML = renderPairedTable(currentQuestion.table);
+    if (isListOnly) tableBlock.innerHTML = renderMatchListTable(currentQuestion.table);
     optionsBlock.hidden = false;
     optionsBlock.innerHTML = "";
     for (const letter of ["a", "b", "c", "d"]) {
@@ -591,6 +596,11 @@ function renderMatchListTable(table) {
           .join("")}</tr>`
     )
     .join("");
+  if (!table.code_table) {
+    return `
+    <h4>List I / List II</h4>
+    <table><thead><tr><th>List I</th><th>List II</th></tr></thead><tbody>${rows1.join("")}</tbody></table>`;
+  }
   return `
     <h4>List I / List II</h4>
     <table><thead><tr><th>List I</th><th>List II</th></tr></thead><tbody>${rows1.join("")}</tbody></table>

@@ -16,9 +16,18 @@ from .ocr import Box
 from .parse_questions import OPTION_LETTER_FIX, OPTION_RE
 from .reading_order import _cluster_rows
 
-LIST1_ITEM_RE = re.compile(r"^([A-D])\s*[\.\-_,:]?\s*(.*)$")
-LIST2_ITEM_RE = re.compile(r"^([1-4])\s*[\.\-_,:]?\s*(.*)$")
-CODE_LABEL_RE = re.compile(r"^code\b", re.IGNORECASE)
+# Either list can be labelled with Roman numerals, letters or numbers
+# depending on the paper (e.g. "I-IV" for events against "A-D" for years), so
+# each column's style is inferred from its own rows - see _infer_label_style.
+LABEL_STYLES = {
+    "roman": (re.compile(r"^(IV|III|II|I)(?![A-Za-z])\s*[\.\-_,:]?\s*(.*)$"), ["I", "II", "III", "IV"]),
+    "letter": (re.compile(r"^([A-D])(?![A-Za-z])\s*[\.\-_,:]?\s*(.*)$"), ["A", "B", "C", "D"]),
+    "number": (re.compile(r"^([1-4])\s*[\.\-_,:]?\s*(.*)$"), ["1", "2", "3", "4"]),
+}
+# "Select the answer using the code given below" can OCR as a box starting
+# at "code" - that's not the answer-grid's own "Code" label.
+CODE_LABEL_RE = re.compile(r"^code\b(?!\s+(?:given|below))", re.IGNORECASE)
+OPTIONS_START_RE = re.compile(r"^select\b", re.IGNORECASE)
 HEADER_WORDS = {"list", "word", "term", "meaning", "code"}
 NUMBER_RE = re.compile(r"\d+")
 
@@ -28,6 +37,10 @@ def _row_text(row: list[Box]) -> str:
 
 
 def _looks_like_header(text: str) -> bool:
+    if re.match(r"^match\b", text.strip(), re.IGNORECASE):
+        return True  # the "Match List I with List II :" intro sentence
+    if re.fullmatch(r"\(\s*[A-Za-z][A-Za-z /]{2,}\)", text.strip()):
+        return True  # a column sub-heading such as "(Event)" / "(Year)"
     stripped = re.sub(r"[^a-zA-Z]", "", text).lower()
     return any(w in stripped for w in HEADER_WORDS) and len(stripped) < 20
 
@@ -44,6 +57,34 @@ def _split_columns(boxes: list[Box]) -> tuple[list[Box], list[Box]]:
     left = [b for b in boxes if b.x0 <= threshold]
     right = [b for b in boxes if b.x0 > threshold]
     return left, right
+
+
+def _infer_label_style(boxes: list[Box], default: str) -> str:
+    """Whichever label style the most of this column's rows actually start
+    with; `default` when none match at all (e.g. every label OCR'd away)."""
+    counts = {name: 0 for name in LABEL_STYLES}
+    for row in _cluster_rows(boxes):
+        text = _row_text(row)
+        if not text or _looks_like_header(text):
+            continue
+        for name, (regex, _) in LABEL_STYLES.items():
+            if regex.match(text):
+                counts[name] += 1
+    best = max(counts, key=counts.get)
+    return best if counts[best] > 0 else default
+
+
+def _find_options_start_y(boxes: list[Box]) -> float | None:
+    """For a match-the-list question with no "Code" answer grid: the top of
+    whichever comes first below the lists - a "Select ..." instruction line
+    or the first "(a)" option."""
+    ys = []
+    for b in boxes:
+        text = b.text.strip()
+        m = OPTION_RE.match(text)
+        if OPTIONS_START_RE.match(text) or (m and m.group(1).lower() == "a"):
+            ys.append(b.y0)
+    return min(ys) if ys else None
 
 
 def _extract_items(boxes: list[Box], item_re: re.Pattern, labels_order: list[str]) -> tuple[list[dict], list[str]]:
@@ -73,7 +114,7 @@ def _extract_items(boxes: list[Box], item_re: re.Pattern, labels_order: list[str
         if m:
             if current:
                 segments.append(current)
-            label = m.group(1).upper() if item_re is LIST1_ITEM_RE else m.group(1)
+            label = m.group(1).upper()
             current = {"label": label, "rows": [(m.group(2).strip(), y0)]}
         elif current:
             current["rows"].append((text, y0))
@@ -256,17 +297,24 @@ def reconstruct(boxes: list[Box], q_number: int | None = None) -> tuple[dict, li
         marker_re = re.compile(rf"^0*{q_number}\s*[\.\-_,:]?\s*$")
         boxes = [b for b in boxes if not marker_re.match(b.text.strip())]
     code_idx = next((i for i, b in enumerate(boxes) if CODE_LABEL_RE.match(b.text.strip())), None)
-    if code_idx is None:
-        return {}, ["'Code' label not found - could not locate the answer grid"]
+    if code_idx is not None:
+        split_y = boxes[code_idx].y0
+    else:
+        # No "Code" answer grid: the answer options are ordinary (a)-(d)
+        # text answers, which the question's own options fields already
+        # hold - only the two lists need reconstructing here.
+        split_y = _find_options_start_y(boxes)
+        if split_y is None:
+            return {}, ["neither a 'Code' label nor the answer options were found - could not locate where the lists end"]
 
-    code_y0 = boxes[code_idx].y0
-    list_boxes = [b for b in boxes if b.y0 < code_y0]
-    code_boxes = [b for b in boxes if b.y0 >= code_y0]
+    list_boxes = [b for b in boxes if b.y0 < split_y]
+    code_boxes = [b for b in boxes if b.y0 >= split_y] if code_idx is not None else []
 
     left_col, right_col = _split_columns(list_boxes)
-    list1, list1_notes = _extract_items(left_col, LIST1_ITEM_RE, ["A", "B", "C", "D"])
-    list2, list2_notes = _extract_items(right_col, LIST2_ITEM_RE, ["1", "2", "3", "4"])
-    code_table, code_notes = _extract_code_table(code_boxes)
+    style1 = LABEL_STYLES[_infer_label_style(left_col, "letter")]
+    style2 = LABEL_STYLES[_infer_label_style(right_col, "number")]
+    list1, list1_notes = _extract_items(left_col, *style1)
+    list2, list2_notes = _extract_items(right_col, *style2)
 
     problems.extend(f"List I: {n}" for n in list1_notes)
     problems.extend(f"List II: {n}" for n in list2_notes)
@@ -274,6 +322,11 @@ def reconstruct(boxes: list[Box], q_number: int | None = None) -> tuple[dict, li
         problems.append(f"List I: expected 4 items, found {len(list1)}")
     if len(list2) != 4:
         problems.append(f"List II: expected 4 items, found {len(list2)}")
+
+    if code_idx is None:
+        return {"list1": list1, "list2": list2, "code_table": None}, problems
+
+    code_table, code_notes = _extract_code_table(code_boxes)
     if len(code_table["rows"]) != 4:
         problems.append(f"Code table: expected 4 rows, found {len(code_table['rows'])}")
     problems.extend(code_notes)

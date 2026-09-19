@@ -254,8 +254,8 @@ Each question in the `questions` array:
 | `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |
 | `instruction_id` | `null`, or the `instructions` entry this question shares a Directions block with |
 | `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
-| `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list`) |
-| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`); for `paired_table`: `{headers: [left, right], rows: [{label, col1, col2}, ...]}` (see `src/paired_table.py`); else `null` |
+| `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list` with a Code grid; filled as usual for one without) |
+| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`; `code_table` is `null` when the question has no Code grid and instead ordinary text answers, and either list may be labelled I-IV, A-D or 1-4); for `paired_table`: `{headers: [left, right], rows: [{label, col1, col2}, ...]}` (see `src/paired_table.py`); else `null` |
 | `ocr_confidence`, `needs_review`, `review_reason` | as in the CSV schema below |
 | `user_answer`, `explanation_html`, `tags` | filled in by the review UI - `null`/`""`/`[]` until then |
 
