@@ -16,7 +16,7 @@ Built and validated against three 2026 exam booklets:
   time.
 - `QP-NDANA-II-26-GENERAL-ABILITY-TEST-140926.pdf` - NDA & NA General
   Ability Test, 150 questions / 52 pages: an all-English "Part A"
-  (Q1-100) followed by a bilingual "Part B" (Q101-150, alternating
+  (Q1-50, pages 2-7) followed by a bilingual "Part B" (Q51-150, pages 8-47, alternating
   Hindi/English pages like the GK booklet). See `src/variant_ndana_gat.py`
   and "NDA/NA GAT: Part A/Part B page numbers" below - unlike the GK
   booklet, the bilingual split doesn't start on page 2, so the boundary
