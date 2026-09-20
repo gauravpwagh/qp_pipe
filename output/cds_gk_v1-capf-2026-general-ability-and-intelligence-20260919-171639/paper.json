@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 0
+    "needs_review_count": 1
   },
   "instructions": [],
   "questions": [
@@ -502,12 +502,18 @@
         "c": "1 4 2 3",
         "d": "1 2 4 3"
       },
-      "table": null,
+      "table": {
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": []
+      },
       "has_underline": false,
       "ocr_confidence": 0.864,
-      "needs_review": false,
-      "review_reason": "",
-      "user_answer": "d",
+      "needs_review": true,
+      "review_reason": "List I: item 'A' label not detected by OCR - inferred from position, verify text; List II: item '1' label not detected by OCR - inferred from position, verify text; List I: expected 4 items, found 1; List II: expected 4 items, found 1; expected 4 answer-grid rows, found 17; Code table row (a): missing value(s) - [None, None, None, None]; Code table row (b): missing value(s) - [None, None, None, None]; Code table row (c): missing value(s) - [None, None, None, None]; Code table row (d): missing value(s) - ['13', '2003', None, None]; paired-table layout wasn't clearly detected in this image - verify the table; no table rows detected; no rows found - fill the table in by hand",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1453,7 +1459,7 @@
       "image": "images/q_0057.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "There is a question followed by two statements Iand II Question If X and y are integers, can we find Ix - yl uniquely?<br><br>I. t2 +y2 =25<br><br>II. +2 y2 = 7 Which one of the  following options is correct?",
+      "question_stem_html": "There is a question followed by two statements 1 and II&nbsp;<div>Question: If X and y are integers, can we find |x yl uniquely?</div><div>&nbsp; <span class=\"math-token\" data-type=\"formula\" data-mark=\"m1\" data-latex=\"\\begin{array}{r l}{1.}&amp;{{}x^{2}+y^{2}=25}\\\\ {\\Pi.}&amp;{{}x^{2}-y^{2}=7}\\end{array}\" contenteditable=\"false\"></span>&nbsp;<div>Which one of the following options is correct?</div></div>",
       "options": {
         "a": "The question can be answered using one of these statements alone, but cannot be answered using the other statement",
         "b": "The question can be answered using either statement alone",
@@ -1469,7 +1475,31 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 25,
+        "boxes": [
+          [
+            115.984375,
+            667.35625,
+            854.715625,
+            1627.35
+          ]
+        ],
+        "marks": [
+          {
+            "id": "m1",
+            "type": "formula",
+            "box": [
+              205.203125,
+              906.4625,
+              490.703125,
+              1024.23125
+            ],
+            "latex": "\\begin{array}{r l}{1.}&{{}x^{2}+y^{2}=25}\\\\ {\\Pi.}&{{}x^{2}-y^{2}=7}\\end{array}"
+          }
+        ]
+      }
     },
     {
       "q_number": 58,
@@ -1678,7 +1708,7 @@
       "image": "images/q_0066.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The smaller angle made by the hour and the minute hands is noted when it was<br><br>1.30 PM. In which of the following intervals of time will the smaller angle between these hands again be the same?",
+      "question_stem_html": "The smaller angle made by the hour and the minute hands is noted when it was&nbsp;1.30 PM. In which of the following intervals of time will the smaller angle between these hands again be the same?",
       "options": {
         "a": "1.44 PM and 1.45 PM",
         "b": "1.45 PM and 1:46 PM",
@@ -1728,7 +1758,7 @@
       "image": "images/q_0068.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A rectangular wall is   partitioned into 5 rectangular   parts as shown in <u>the</u> following   diagram. If you have <u>three</u> different colours to paint the wall and if no two adjacent parts are to be painted with the same colour, in how many different ways can one paint the wall?",
+      "question_stem_html": "A rectangular wall is   partitioned into 5 rectangular   parts as shown in the following   diagram_ If   you have three different colours to paint the wall and if no two adjacent parts are to be painted with the same colour, in how many different ways can one paint the wall? <img class=\"diagram-token\" src=\"images/diagrams/q_0068_m1.png\" data-mark=\"m1\" alt=\"diagram\">",
       "options": {
         "a": "16",
         "b": "17",
@@ -1736,7 +1766,7 @@
         "d": "19"
       },
       "table": null,
-      "has_underline": true,
+      "has_underline": false,
       "ocr_confidence": 0.941,
       "needs_review": false,
       "review_reason": "",
@@ -1754,6 +1784,19 @@
             857.15703125,
             1026.45
           ]
+        ],
+        "marks": [
+          {
+            "id": "m1",
+            "type": "diagram",
+            "box": [
+              108.70390625,
+              520.353125,
+              846.4648437500001,
+              752.0171875
+            ],
+            "file": "images/diagrams/q_0068_m1.png"
+          }
         ]
       }
     },
@@ -1764,7 +1807,7 @@
       "image": "images/q_0069.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Suppose 1 &lt; x, y 2 &lt; 9 are integers such that x &gt; 2. Let &amp; and 8 be the three-digit numbers given by &amp; xyz and 8 zyx SO that X, y; 2 are the digits as they are shown. Set Y = &amp; B: How many of the following statements are always true?&nbsp;<div><br></div><div>I. 2 does not divide Y:<br><br>II . 3 divides Y<br><br>III. 5 does not divide Y:&nbsp;<div><br></div><div>IV 7 does not divide Y:<br><br>V. 11 divides Y:<br><br>VI. 13 does not divide Y:&nbsp;</div><div><br></div><div>Select the correct answer .</div></div>",
+      "question_stem_html": "Suppose 1 &lt; x, y, z &lt; 9 are integers such that x &gt; 2. Let &amp; and 8 be the three-digit numbers given by &amp; xyz and 8 zyx SO that X, y; 2 are the digits as they are shown. Set Y = &amp; B: How many of the following statements are always true?&nbsp;<div><br></div><div>I. 2 does not divide Y:<br><br>II . 3 divides Y<br><br>III. 5 does not divide Y:&nbsp;<div><br></div><div>IV 7 does not divide Y:<br><br>V. 11 divides Y:<br><br>VI. 13 does not divide Y:&nbsp;</div><div><br></div><div>Select the correct answer .</div></div>",
       "options": {
         "a": "3",
         "b": "4",
@@ -1785,27 +1828,164 @@
     {
       "q_number": 70,
       "page": 29,
-      "question_type": "standard",
+      "question_type": "grid_table",
       "image": "images/q_0070.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "P, Q, R and S are four places. To travel from P to R, one travels via Q and to travel from P to S; one travels via both Q and R Between P and Q, there are 3 routes; between Q and R, there are 4 routes; and between R and $ there are 5 routes. The time taken to travel through these routes is exhibited on the following chart in hours for specific vehicle Routes Between Between Between P and Q Q and R R and $ 2 2 2 3<br><br>1.5 2 3 2<br><br>2.5 ^ 4 2 3 731, 5 35 there if How many possible routes are the journey takes exactly 7 hours?",
+      "question_stem_html": "P, Q, R and S are four places. To travel from P to R, one travels via Q and to travel from P to S; one travels via both Q and R Between P and Q, there are 3 routes; between Q and R, there are 4 routes; and between R and S, there are 5 routes. The time taken to travel through these routes is exhibited on the following chart in hours for a specific vehicle",
       "options": {
         "a": "10",
         "b": "11",
         "c": "12",
-        "d": "13 [P.T.O."
+        "d": "13"
       },
-      "table": null,
+      "table": {
+        "header": true,
+        "rows": [
+          [
+            {
+              "cs": 1,
+              "html": "Routes",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "Between P and Q",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "Between Q and R",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "Between R and $",
+              "rs": 1
+            }
+          ],
+          [
+            {
+              "cs": 1,
+              "html": "1",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "1",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            }
+          ],
+          [
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "3",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "1.5",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            }
+          ],
+          [
+            {
+              "cs": 1,
+              "html": "3",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "4",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2.5",
+              "rs": 1
+            }
+          ],
+          [
+            {
+              "cs": 1,
+              "html": "4",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "...",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "2",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "3",
+              "rs": 1
+            }
+          ],
+          [
+            {
+              "cs": 1,
+              "html": "5",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "...",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "...",
+              "rs": 1
+            },
+            {
+              "cs": 1,
+              "html": "3.5",
+              "rs": 1
+            }
+          ]
+        ]
+      },
       "has_underline": false,
       "ocr_confidence": 0.845,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "stem_after_table_html": "How many possible routes are there if the journey takes exactly 7 hours?"
     },
     {
       "q_number": 71,

@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 20
+    "needs_review_count": 11
   },
   "instructions": [],
   "questions": [
@@ -57,7 +57,7 @@
       "ocr_confidence": 0.88,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "c",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -132,7 +132,7 @@
       "ocr_confidence": 0.896,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "c",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -907,7 +907,7 @@
       "ocr_confidence": 0.901,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "c",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1045,7 +1045,7 @@
       "image": "images/q_0042.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to Large  Language Models   (LLMs) used in machine learning is/are correct ? 13 LLMs assign   probabilities to the next possible words and then   pick the one with the highest probability 2 LLMs process data through mathematical optimization to minimise prediction errors: 3_ LLMs produce unbiased outputs.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to Large  Language Models   (LLMs) used in machine learning is/are correct ?&nbsp;<div>1. LLMs assign   probabilities to the next possible words and then   pick the one with the highest probability&nbsp;</div><div>2 LLMs process data through mathematical optimization to minimise prediction errors: 3 LLMs produce unbiased outputs.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "1 and 2 only",
@@ -1057,10 +1057,12 @@
       "ocr_confidence": 0.876,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null
     },
     {
@@ -1070,7 +1072,7 @@
       "image": "images/q_0043.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to stealth technology is/are correct ? 1. Stealth objects have very small radar cross-section and are coated with Radar Absorbing Material. 2 Stealth objects can be detected   using specific frequencies_ 3 Stealth objects are coated with metamaterials to increase the scattering of electromagnetic radiation:<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to stealth technology is/are correct ?&nbsp;<div>1. Stealth objects have very small radar cross-section and are coated with Radar Absorbing Material.&nbsp;</div><div>2 Stealth objects can be detected   using specific frequencies_&nbsp;</div><div>3 Stealth objects are coated with metamaterials to increase the scattering of electromagnetic radiation:<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 and 3 only",
@@ -1095,7 +1097,7 @@
       "image": "images/q_0044.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to Black Boxes used in modern aircrafts islare correct ? 1, They carry a beacon emitting red light pulses to facilitate underwater detection_ 2_ They record both the cockpit voice and flight data: 3_ Their memory units are made   using either stainless steel or titanium_<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to Black Boxes used in modern aircrafts is/are correct ?&nbsp;<div>1, They carry a beacon emitting red light pulses to facilitate underwater detection_&nbsp;</div><div>2. They record both the cockpit voice and flight data:&nbsp;</div><div>3. Their memory units are made   using either stainless steel or titanium.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 and 3 only",
@@ -1145,18 +1147,18 @@
       "image": "images/q_0046.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with regard to involvement of private entities in India's space programme 1 The   Indian National  Space Promotion and Authorisation Centre (IN-SPACe) is an autonomous agency formed to facilitate participation of private entities. 2_ Agnikul Cosmos   launched the world s first flight using 3D-printed rocket engine. 3 Skyroot Aerospace has developed liquid fuel for GSLV.<br><br>Which of the statements  given above is/are correct ?",
+      "question_stem_html": "Consider the following statements with regard to involvement of private entities in India's space programme&nbsp;<div>1 The   Indian National  Space Promotion and Authorisation Centre (IN-SPACe) is an autonomous agency formed to facilitate participation of private entities.&nbsp;</div><div>2_ Agnikul Cosmos   launched the world s first flight using 3D-printed rocket engine.&nbsp;</div><div>3 Skyroot Aerospace has developed liquid fuel for GSLV.<br><br>Which of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "1 only",
-        "b": "2 and 3 only 1 and 2 only",
-        "c": "",
+        "b": "2 and 3 only",
+        "c": "1 and 2 only",
         "d": "1,2 and 3"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.886,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1170,7 +1172,7 @@
       "image": "images/q_0047.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to drone swarms islare correct ? 13 They use Terahertz band of frequency to communicate with the command centre_ 2 Individual drones in the swarm can communicate with other drones in the swarm 3 GPS Spoofing is a commonly used technique to counter drone swarm attack:<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to drone swarms islare correct ?&nbsp;<div>1. They use Terahertz band of frequency to communicate with the command centre_&nbsp;</div><div>2 Individual drones in the swarm can communicate with other drones in the swarm&nbsp;</div><div>3 GPS Spoofing is a commonly used technique to counter drone swarm attack:<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 and 3 only (c 1 and 2 only",
@@ -1195,7 +1197,7 @@
       "image": "images/q_0048.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to GenomeIndia Project islare correct ? 1 It is part of the   Human Genome Project 2_ The project is funded by the Department of Biotechnology (DBT), Government of India. 3 Its primary aim is to build a catalogue of genetic diversity of the Indian population.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to GenomeIndia Project is/are correct ?&nbsp;<div>1 It is part of the   Human Genome Project&nbsp;</div><div>2_ The project is funded by the Department of Biotechnology (DBT), Government of India.&nbsp;</div><div>3 Its primary aim is to build a catalogue of genetic diversity of the Indian population.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 and 3 only",
@@ -1220,22 +1222,24 @@
       "image": "images/q_0049.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to the National Quantum Mission (NQM) islare correct ? 1. It aims at developing intermediate-scale quantum computers with 50 1000 physical qubits. 2. Its implementation includes setting up of   four Thematic Hubs (T-Hubs) in academic and national ReD institutes across India_<br><br>Select the answer using- the code given below",
+      "question_stem_html": "Which of the following statements with regard to the National Quantum Mission (NQM) islare correct ?&nbsp;<div>1. It aims at developing intermediate-scale quantum computers with 50 1000 physical qubits.&nbsp;</div><div>2. Its implementation includes setting up of   four Thematic Hubs (T-Hubs) in academic and national ReD institutes across India_<br><br>Select the answer using- the code given below</div>",
       "options": {
         "a": "1 only",
-        "b": "2 only Both 1 and 2",
-        "c": "",
+        "b": "2 only&nbsp;",
+        "c": "Both 1 and 2",
         "d": "Neither 1 nor 2"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.943,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null
     },
     {
@@ -1245,7 +1249,7 @@
       "image": "images/q_0050.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to India s Deep Ocean Mission islare correct ? 1 It was launched by the   Ministry of Ports, Shipping and Waterways, Government of India. 2_ Matsya-6000 has been designed to carry 3 people for deep sea exploration. 3_ Samudrayaan is a project under this mission.<br><br>Select the answer using- the code given below",
+      "question_stem_html": "Which of the following statements with regard to India s Deep Ocean Mission islare correct ?<div>&nbsp;1 It was launched by the   Ministry of Ports, Shipping and Waterways, Government of India.&nbsp;</div><div>2_ Matsya-6000 has been designed to carry 3 people for deep sea exploration.&nbsp;</div><div>3. Samudrayaan is a project under this mission.<br><br>Select the answer using- the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 and 3 only",
@@ -1295,7 +1299,7 @@
       "image": "images/q_0052.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "In a multi-ethnic district where both economic competition and historical grievances frequently led to community tensions, a flashpoint has arisen with a Government decision to allocate land for waste management facility near a tribal   hamlet; sparking   protests  by the  tribal community, which claimed that the land was sacred and critical to their cultural identity. At the same time, urban residents and local industries supported the project,  citing severe solid waste challenges and health concerns due to lack of a proper disposal site. The conflict has escalated with road   blockades, social media campaigns, and allegations of police excesses. As a responsible Government official, <u>you</u> <u>are</u> tasked with resolving the situation through mediation, ensuring a sustainable outcome that balances environmental needs, tribal rights, and urban public health Consider the following statements with reference to the above 1 A successful conflict resolution  process must begin with acknowledging the cultural concerns of the protesting tribal community before  discussing   technical alternatives. 2 The Government should move ahead with the project without delay to address urban health concerns, which outweigh the sentiments of a small group. 3 Creating a multi-stakeholder   dialogue platform including tribal leaders, environmental experts, and municipal representatives to build mutual understanding and help de-escalate tensions Conducting an independent Environmental and Social Impact Assessment (ESIA) and sharing findings   transparently <u>with</u> both   sides to facilitate evidence-based decision- making:<br><br>Which of the statements given  above would contribute to the resolution process ?",
+      "question_stem_html": "In a multi-ethnic district where both economic competition and historical grievances frequently led to community tensions, a flashpoint has arisen with a Government decision to allocate land for waste management facility near a tribal   hamlet; sparking   protests  by the  tribal community, which claimed that the land was sacred and critical to their cultural identity. At the same time, urban residents and local industries supported the project,  citing severe solid waste challenges and health concerns due to lack of a proper disposal site. The conflict has escalated with road   blockades, social media campaigns, and allegations of police excesses. As a responsible Government official, <u>you</u> <u>are</u> tasked with resolving the situation through mediation, ensuring a sustainable outcome that balances environmental needs, tribal rights, and urban public health.&nbsp;<div><br></div><div>Consider the following statements with reference to the above&nbsp;</div><div>1 A successful conflict resolution  process must begin with acknowledging the cultural concerns of the protesting tribal community before  discussing   technical alternatives.&nbsp;</div><div>2 The Government should move ahead with the project without delay to address urban health concerns, which outweigh the sentiments of a small group.&nbsp;</div><div>3 Creating a multi-stakeholder   dialogue platform including tribal leaders, environmental experts, and municipal representatives to build mutual understanding and help de-escalate tensions&nbsp;</div><div>4. Conducting an independent Environmental and Social Impact Assessment (ESIA) and sharing findings   transparently <u>with</u> both   sides to facilitate evidence-based decision- making:<br><br>Which of the statements given  above would contribute to the resolution process ?</div>",
       "options": {
         "a": "1,3 and 4 only",
         "b": "2, 3 and 4 only",
@@ -1320,11 +1324,11 @@
       "image": "images/q_0053.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Ms. X is a mid-level civil service official working in the urban development department of a major city. Recently, she was involved in approving a contract for a public infrastructure project ~ a new community park: During the approval process, she received a piece of   confidential information indicating that one of the shortlisted contractors had a history of poor workmanship and allegations of corruption in other cities, though nothing had been legally proven. The Head of the Department, Mr. Y, advised her not to disclose this information to the project committee or the public because it could delay the project and damage the citys reputation: However, Ms. X believed that withholding such information compromised transparency and public trust: What amongst the following should Ms. X do 2 now 1. Immediately disclose the information to the project committee and the public 2_ Recommend removing the contractor from the shortlist to protect the project' s integrity 3_ Propose a limited disclosure to an oversight committee, while keeping the information confidential from the public for the time being<br><br>Select the answer using the code given below",
+      "question_stem_html": "Ms. X is a mid-level civil service official working in the urban development department of a major city. Recently, she was involved in approving a contract for a public infrastructure project ~ a new community park: During the approval process, she received a piece of   confidential information indicating that one of the shortlisted contractors had a history of poor workmanship and allegations of corruption in other cities, though nothing had been legally proven. The Head of the Department, Mr. Y, advised her not to disclose this information to the project committee or the public because it could delay the project and damage the citys reputation: However, Ms. X believed that withholding such information compromised transparency and public trust:&nbsp;<div><br></div><div>What amongst the following should Ms. X do 2 now&nbsp;</div><div>1. Immediately disclose the information to the project committee and the public&nbsp;</div><div>2_ Recommend removing the contractor from the shortlist to protect the project' s integrity&nbsp;</div><div>3_ Propose a limited disclosure to an oversight committee, while keeping the information confidential from the public for the time being<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2 only",
-        "b": "3 only (c 2 and 3 only",
-        "c": "",
+        "b": "3 only&nbsp;",
+        "c": "2 and 3 only",
         "d": "1,2 and 3 ."
       },
       "table": null,
@@ -1332,7 +1336,7 @@
       "ocr_confidence": 0.868,
       "needs_review": true,
       "review_reason": "missing option(s)",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1347,17 +1351,17 @@
       "passage_text_html": "",
       "question_stem_html": "X was addressing a seminar on the meaning of the term Iaw' as provided under Article 13, Part III of the Constitution of India. X explained that the meaning of the term law' in the Constitution of India was very comprehensive. It included ordinances, orders and even rules and  regulations: Y pointed out that the term law in Article 13 also included custom or usage having in the territory of India the force of law, to which X was not convinced: Based on the above, select the correct conclusion from the options given below",
       "options": {
-        "a": "X is correct in the interpretation of law, including the view on non-inclusion  of custom_ The view of Y that Ilaw included custom is not correct",
-        "b": "",
+        "a": "X is correct in the interpretation of law, including the view on non-inclusion  of custom_&nbsp;",
+        "b": "The view of Y that Ilaw included custom is not correct",
         "c": "The views of both X and Y are correct:",
         "d": "The view of only Y is correct."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.843,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1370,18 +1374,18 @@
       "image": "images/q_0055.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with reference to the Constitution of India 1 There is no Article in the Constitution of India that specifies that the Constitution   of India will be   officially called the 'Constitution of India' . 2 There is no Article in the Constitution of India that specifies that the Indian Independence Act, 1947 and the Government of  India  Act, 1935   stand repealed. 3 There is no Article in the Constitution of India that mentions 26th January, 1950 as the date of the commencement of the Constitution of India. Which one of the following conclusions based on the above statements is correct 2",
+      "question_stem_html": "Consider the following statements with reference to the Constitution of India 1 There is no Article in the Constitution of India that specifies that the Constitution of India will be   officially called the 'Constitution of India' . 2. There is no Article in the Constitution of India that specifies that the Indian Independence Act, 1947 and the Government of   India Act, 1935   stand repealed: 3 There is no Article in the Constitution of India that mentions 26th January, 1950 as the date of the commencement of the Constitution of India. Which one of the following conclusions based on the above statements is correct 2",
       "options": {
-        "a": "All three statements are correct. There is no correct statement_ There are two correct statements that include statement 3_",
-        "b": "",
-        "c": "",
-        "d": "There is only one correct statement_"
+        "a": "All three statements are correct.",
+        "b": "There is no correct statement_",
+        "c": "There are two correct statements that include statement 3-",
+        "d": "There is only one correct statement."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.881,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1395,18 +1399,18 @@
       "image": "images/q_0056.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to the persons with disabilities in India islare correct ? 13 The Rights of Persons with Disabilities Act; an Act passed by the Parliament of India in 2018, mandates reservation in education and employment, places a legal duty on Governments to ensure accessibility and non-discrimination. 2 The  Sugamya Bharat Abhiyan  focuses on achieving universal accessibility for Persons with Disabilities across three key domains built infrastructure, transport systems and information and communication technology. 3 The National Divyangjan  Finance and Development   Corporation (NDFDC) is a public sector organisation set up by the Ministry of Corporate Affairs as not-for-profit company to promote entrepreneurship among Persons with Disabilities (PwDs).<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to the persons with disabilities in India islare correct ? 1 The Rights of Persons with Disabilities Act; an Act passed by the Parliament of India in 2018, mandates reservation in education and employment, places a legal duty on Governments to ensure accessibility and non-discrimination. 2 The  Sugamya Bharat Abhiyan  focuses on achieving universal accessibility for Persons with Disabilities across three key domains built infrastructure, transport systems and information and communication technology. 3 The National Divyangjan Finance  and Development   Corporation (NDFDC) is a public sector organisation set up by the Ministry of   Corporate Affairs as not-for-profit company to promote entrepreneurship among Persons with Disabilities (PwDs).<br><br>Select the answer using the code given below",
       "options": {
-        "a": "1 and 2 (b 2 only",
-        "b": "",
+        "a": "1 and 2",
+        "b": "2 only",
         "c": "1 and 3",
         "d": "1 only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.883,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1420,18 +1424,18 @@
       "image": "images/q_0057.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the provisions pertaining to the Scheduled Castes and the Scheduled Tribes in India 1. Provisions regarding the administration of the Tribal Areas in the States of Assam, Meghalaya, Tripura and Mizoram are given in the Fifth Schedule of the Constitution of India. 2 Some tribes of India are entitled to exemption from paying Income Tax on certain incomes 3 The Constitution of India provides  for reservation of seats in Panchayats  for women belonging to the Scheduled Castes and the Scheduled Tribes. Which one of the following conclusions based on the above statements is correct ?",
+      "question_stem_html": "Consider the following statements about the provisions pertaining to the Scheduled Castes and the Scheduled Tribes in India 1 Provisions regarding the administration of the Tribal Areas in the States of Assam, Meghalaya, Tripura and Mizoram are given in the Fifth Schedule of the Constitution of India: 2. Some tribes of India are entitled to exemption from paying Income Tax on certain incomes_ 3_ The Constitution  of India  provides  for reservation of seats in Panchayats  for women belonging to the Scheduled Castes and the Scheduled Tribes. Which one of the following conclusions based on the above statements is correct ?",
       "options": {
-        "a": "There are two correct statements, that include statement 2. There are two correct statements, that are statements 1 and 3 There is only one correct statement_",
-        "b": "",
-        "c": "",
+        "a": "There are two correct statements, that include statement 2.",
+        "b": "There are two correct statements, that are statements 1 and 3",
+        "c": "There is only one correct statement_",
         "d": "All three statements are correct."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.902,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1445,18 +1449,18 @@
       "image": "images/q_0058.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements in respect of questions  asked by the Members  in the Parliament of India 13 Unstarred questions are those to which Member desires an oral answer in the House _ 2 Starred questions are those to which a Member desires a written answer. 3 No supplementary question can be asked on an unstarred question: Which one of the following conclusions based on the above statements is correct ?",
+      "question_stem_html": "Consider the following statements in respect of questions asked by the Members   in the Parliament of India 1 Unstarred questions are those to which a Member desires an oral answer in the House. 2 Starred questions are those to which a Member desires a written answer. 3 No supplementary question can be asked on an unstarred question. Which one of the following conclusions based on the above statements is correct 2",
       "options": {
-        "a": "All the three statements are correct. (b There are two correct statements, that include statement 2. There is only one correct statement_",
-        "b": "",
-        "c": "",
+        "a": "All the three statements are correct_",
+        "b": "There are two correct statements, that include statement 2_",
+        "c": "There is only one correct statement:",
         "d": "There is no correct statement."
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.865,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -1782,6 +1786,30 @@
         "d": "1 2 3"
       },
       "table": {
+        "list1": [
+          {
+            "label": "A",
+            "text": "Mangdechhu 1 Maldives Hydroelectric Project"
+          },
+          {
+            "label": "B",
+            "text": "Restoration of Stor 2_ Afghanistan Palace"
+          },
+          {
+            "label": "C",
+            "text": "District Hospital at 3 Bhutan Dickoya"
+          },
+          {
+            "label": "D",
+            "text": "Institute of Security Sri Lanka and Law Enforcement Studies"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "the"
+          }
+        ],
         "code_table": {
           "headers": [
             "A",
@@ -1827,31 +1855,7 @@
               ]
             }
           ]
-        },
-        "list1": [
-          {
-            "label": "A",
-            "text": "Mangdechhu&nbsp; Hydroelectric Project"
-          },
-          {
-            "label": "B",
-            "text": "Restoration of Stor&nbsp; Palace"
-          },
-          {
-            "label": "C",
-            "text": "District Hospital at&nbsp; Dickoya"
-          },
-          {
-            "label": "D",
-            "text": "Institute of Security&nbsp; and Law Enforcement Studies"
-          }
-        ],
-        "list2": [
-          {
-            "label": "1",
-            "text": "Maldives"
-          }
-        ]
+        }
       },
       "has_underline": false,
       "ocr_confidence": 0.928,
@@ -1936,7 +1940,7 @@
         "a": "1",
         "b": "2",
         "c": "3",
-        "d": ""
+        "d": "4"
       },
       "table": null,
       "has_underline": false,
@@ -1964,42 +1968,6 @@
         "d": "2 3"
       },
       "table": {
-        "list1": [
-          {
-            "label": "A",
-            "text": "UNMIL"
-          },
-          {
-            "label": "B",
-            "text": "MINURCAT"
-          },
-          {
-            "label": "C",
-            "text": "MINUSTAH"
-          },
-          {
-            "label": "D",
-            "text": "UNMISET"
-          }
-        ],
-        "list2": [
-          {
-            "label": "1",
-            "text": "3 2007 2010"
-          },
-          {
-            "label": "2",
-            "text": "2002 2005"
-          },
-          {
-            "label": "3",
-            "text": "2003 2018"
-          },
-          {
-            "label": "4",
-            "text": "2004 2017"
-          }
-        ],
         "code_table": {
           "headers": [
             "A",
@@ -2045,7 +2013,43 @@
               ]
             }
           ]
-        }
+        },
+        "list1": [
+          {
+            "label": "A",
+            "text": "UNMIL"
+          },
+          {
+            "label": "B",
+            "text": "MINURCAT"
+          },
+          {
+            "label": "C",
+            "text": "MINUSTAH"
+          },
+          {
+            "label": "D",
+            "text": "UNMISET"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "2007 2010"
+          },
+          {
+            "label": "2",
+            "text": "2002 2005"
+          },
+          {
+            "label": "3",
+            "text": "2003 2018"
+          },
+          {
+            "label": "4",
+            "text": "2004 2017"
+          }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.932,
@@ -2075,11 +2079,11 @@
         "list1": [
           {
             "label": "A",
-            "text": "BIMSTEC Cultural 1. NOIDA Industries Observatory"
+            "text": "BIMSTEC Cultural 1 NOIDA Industries Observatory"
           },
           {
             "label": "B",
-            "text": "BIMSTEC Energy 2 Bengaluru Centre"
+            "text": "BIMSTEC Energy 2. Bengaluru Centre"
           },
           {
             "label": "C",
@@ -2087,7 +2091,7 @@
           },
           {
             "label": "D",
-            "text": "BIMSTEC Technology 4_ Thimphu Transfer Facility"
+            "text": "BIMSTEC Technology 4 Thimphu Transfer Facility"
           }
         ],
         "list2": [
@@ -2117,9 +2121,9 @@
               "option": "b",
               "values": [
                 "3",
-                "1",
+                null,
                 "2",
-                "4"
+                null
               ]
             },
             {
@@ -2134,8 +2138,8 @@
             {
               "option": "d",
               "values": [
-                "4",
-                "1",
+                null,
+                null,
                 "2",
                 "3"
               ]
@@ -2146,7 +2150,7 @@
       "has_underline": false,
       "ocr_confidence": 0.952,
       "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'answer using the code given below the Lists (BIMSTEC (Location) Centre / Establishment)'; List II: item '1' label not detected by OCR - inferred from position, verify text; List II: expected 4 items, found 1; Code table row (a): missing value(s) - ['3', '2', None, None]; Code table row (d): column B not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source",
+      "review_reason": "List I: discarded unlabeled text (not a missing item): 'answer using the code given below the Lists (BIMSTEC (Location) Centre / Establishment)'; List II: item '1' label not detected by OCR - inferred from position, verify text; List II: expected 4 items, found 1; Code table row (a): missing value(s) - ['3', '2', None, None]; Code table row (b): missing value(s) - ['3', None, '2', None]; Code table row (c): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): missing value(s) - [None, None, '2', '3']",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2160,18 +2164,18 @@
       "image": "images/q_0073.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the following   pairs is not correctly matched ? (Indian Army (Headquarters Corps) (a 3 Corps Dimapur",
+      "question_stem_html": "Which one of the   following   pairs is not correctly matched ? (Indian Army Corps)",
       "options": {
-        "a": "",
-        "b": "4 Corps Tezpur (c 14 Corps Leh",
+        "a": "3 Corps",
+        "b": "4 Corps 14 Corps",
         "c": "",
-        "d": "33 Corps Srinagar"
+        "d": "33 Corps (Headquarters) Dimapur Tezpur Leh Srinagar"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.968,
       "needs_review": true,
-      "review_reason": "missing option(s)",
+      "review_reason": "reprocess: missing option(s) c",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2393,22 +2397,24 @@
       "image": "images/q_0079.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about DHRUV64 islare correct ? 1 It is the third chip fabricated under the DIR-V Programme with an overall aim to enable the creation of microprocessors for India: 2 It is India's first homegrown 1-0 GHz,<br><br>64-bit dual-core microprocessor.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about DHRUV64 islare correct ?&nbsp;<div>1 It is the third chip fabricated under the DIR-V Programme with an overall aim to enable the creation of microprocessors for India:&nbsp;</div><div>2 It is India's first homegrown 1-0 GHz, 64-bit dual-core microprocessor.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
-        "b": "2 only (c Both 1 and 2",
-        "c": "",
+        "b": "2 only&nbsp;",
+        "c": "Both 1 and 2",
         "d": "Neither 1 nor 2"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.936,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null
     },
     {
@@ -2731,16 +2737,16 @@
       "passage_text_html": "",
       "question_stem_html": "A bond whose   proceeds are used only to finance Or refinance a combination of both environmental and social projects is called",
       "options": {
-        "a": "Green Bond Social Bond Sustainability Bond",
-        "b": "",
-        "c": "",
+        "a": "Green Bond",
+        "b": "Social Bond",
+        "c": "Sustainability Bond",
         "d": "Sovereign Bond"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.907,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
