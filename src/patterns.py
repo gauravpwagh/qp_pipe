@@ -34,8 +34,9 @@ QUESTION_START_LOOSE_RE = re.compile(r"^(\d{1,3})\s+(?=[A-Z][a-z])(.*)$")
 DIRECTIONS_RE = re.compile(r"^directions?\s*[:.]?\s*(.*)$", re.IGNORECASE)
 PASSAGE_RE = re.compile(r"^passage\b\s*(.*)$", re.IGNORECASE)
 
-# "Directions (for the next 05 items that follow)" - a fixed, distinctive
-# phrase, safe to treat as a genuine heading regardless of column width or
+# "Directions (for the next 05 items that follow)" / "Directions for the
+# following 5 (five) items" / "Directions for the next 2 (two) items" - a
+# fixed, distinctive phrase, safe to treat as a genuine heading regardless of column width or
 # trailing punctuation (both of which OCR gets inconsistently across
 # otherwise-identical repeats of this exact heading - seen in practice:
 # only 1 of 6 real occurrences in one booklet had its trailing colon
@@ -43,7 +44,17 @@ PASSAGE_RE = re.compile(r"^passage\b\s*(.*)$", re.IGNORECASE)
 # parse_questions.py - since some booklets print this heading only for a
 # batch of N questions and never repeat or explicitly close it before the
 # next, differently-instructed section begins.
-DIRECTIONS_ITEM_COUNT_RE = re.compile(r"for the next\s+(\d+)\s+items?\s+that\s+follow", re.IGNORECASE)
+DIRECTIONS_ITEM_COUNT_RE = re.compile(
+    r"for the (?:next|following)\s+(\d+|one|two|three|four|five|six|seven|eight|nine|ten)\s+(?:\(\s*\w+\s*\)\s+)?items?",
+    re.IGNORECASE,
+)
+_NUMBER_WORDS = {"one": 1, "two": 2, "three": 3, "four": 4, "five": 5, "six": 6, "seven": 7, "eight": 8, "nine": 9, "ten": 10}
+
+
+def item_count(match: "re.Match") -> int:
+    """The N of a DIRECTIONS_ITEM_COUNT_RE match ("5", "five")."""
+    raw = match.group(1).lower()
+    return int(raw) if raw.isdigit() else _NUMBER_WORDS[raw]
 
 # "Spot the error" questions (a fixed, verbatim boilerplate in CDS/NDA
 # papers) describe the sentence's own parts as "(a), (b) and (c)" inline
@@ -82,7 +93,11 @@ MATCH_LIST_END_RE = re.compile(r"\bcode\b", re.IGNORECASE)
 # real question. New-question detection is suppressed for the whole
 # block, from the intro phrase to its standard closing trailer (the same
 # phrases _NEW_LINE_TRIGGERS already recognizes for stem formatting).
-STATEMENTS_INTRO_RE = re.compile(r"the following (?:statements?|pairs?)", re.IGNORECASE)
+# ("conclusions", "assumptions", ... too: the same numbered-list shape with a different noun)
+STATEMENTS_INTRO_RE = re.compile(
+    r"the following (?:statements?|pairs?|conclusions?|assumptions?|inferences?|arguments?|propositions?)",
+    re.IGNORECASE,
+)
 STATEMENTS_END_RE = re.compile(
     r"select the answer|which of the (?:above\s+)?statements?|how many of the above|which of the above",
     re.IGNORECASE,

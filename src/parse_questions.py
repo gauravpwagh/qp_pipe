@@ -7,6 +7,7 @@ from dataclasses import dataclass, field
 
 from .patterns import (
     DIRECTIONS_ITEM_COUNT_RE,
+    item_count,
     DIRECTIONS_RE,
     OPTION_LETTER_FIX,
     OPTION_RE,
@@ -63,6 +64,13 @@ RESYNC_WINDOW = 10
 # How far right of its column's leftmost line a bare question number may sit
 # and still count as the question's own number (px; list numerals indent ~70px+).
 BARE_NUMBER_MARGIN_TOL = 30
+
+# The same idea for a number OCR'd with NO punctuation at all ("13 Sport is more..." for the
+# statement "1. Sport is more..."): a real question number sits near its column's left margin,
+# a numbered statement inside a stem is indented well past it (seen: ~30px vs ~115px), so a
+# punctuation-less match that far in is a statement, not a question. Wider than the bare-number
+# tolerance because a question number is itself indented a little from the text margin.
+LOOSE_NUMBER_MARGIN_TOL = 60
 
 FIELD_NAMES = ("stem", "a", "b", "c", "d")
 
@@ -250,10 +258,20 @@ class Builder:
         if self.forced_review_reason:
             q.needs_review = True
             q.review_reason = self.forced_review_reason
-        if not all([q.option_a, q.option_b, q.option_c, q.option_d]):
+        if not all([q.option_a, q.option_b, q.option_c, q.option_d]) and not _directions_define_options(self.directions):
             q.needs_review = True
             q.review_reason = (q.review_reason + "; missing option(s)").strip("; ")
         return q
+
+
+_DIRECTIONS_OPTIONS_RE = re.compile(r"\(\s*a\s*\).*\(\s*[b6]\s*\).*\(\s*c\s*\).*\(\s*d\s*\)", re.IGNORECASE | re.DOTALL)
+
+
+def _directions_define_options(directions: str) -> bool:
+    """Some sections state the four answer choices once, in their Directions
+    ("(a) Select this option if ..."), and every item under them carries none
+    of its own - so an empty option there isn't a missed one."""
+    return bool(_DIRECTIONS_OPTIONS_RE.search(directions or ""))
 
 
 def _is_footer(line: Line, page_height: float) -> bool:
@@ -303,6 +321,7 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
 
     def start_new_question(page_num: int, q_number: int, stem_prefix: str, line: Line, forced_reason: str = ""):
         nonlocal builder, expected_num, current_directions, directions_remaining
+        nonlocal current_passage_label, current_passage_text
         finalize_current()
         builder = Builder(q_number, page_num, current_directions, current_passage_label, current_passage_text)
         builder.start_y = line.y0
@@ -311,7 +330,11 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
         if directions_remaining is not None:
             directions_remaining -= 1
             if directions_remaining <= 0:
+                # the block covered exactly this many items: it, and any passage
+                # it introduced ("Read the following passage..."), ends here
                 current_directions = ""
+                current_passage_label = ""
+                current_passage_text = ""
                 directions_remaining = None
         if stem_prefix:
             builder.add("stem", stem_prefix.strip(), line)
@@ -368,7 +391,11 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
             # expected_num/RESYNC_WINDOW, so a coincidental match against
             # ordinary prose still can't masquerade as a real question
             # unless its number also happens to fall in the plausible range.
-            q_match = QUESTION_START_RE.match(text) or QUESTION_START_LOOSE_RE.match(text)
+            q_match = QUESTION_START_RE.match(text)
+            if q_match is None:
+                q_match = QUESTION_START_LOOSE_RE.match(text)
+                if q_match is not None and line.x0 > column_margin.get(line.kind, line.x0) + LOOSE_NUMBER_MARGIN_TOL:
+                    q_match = None
             # While the active question is inside its own List I/List II
             # table (see MATCH_LIST_START_RE/MATCH_LIST_END_RE), a
             # number-looking token found there is table noise, not a real
@@ -443,10 +470,11 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
                 current_directions = dir_match.group(1)
                 collecting = "directions"
                 count_match = DIRECTIONS_ITEM_COUNT_RE.search(text)
-                directions_remaining = int(count_match.group(1)) if count_match else None
+                directions_remaining = item_count(count_match) if count_match else None
                 continue
 
-            pas_match = PASSAGE_RE.match(text) if line.kind == "FULL" else None
+            is_bare_passage_heading = text.lower().rstrip(" :.-") == "passage"
+            pas_match = PASSAGE_RE.match(text) if (line.kind == "FULL" or is_bare_passage_heading) else None
             if pas_match and len(text) < 40:
                 finalize_current()
                 current_passage_label = text
