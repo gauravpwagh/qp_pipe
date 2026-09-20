@@ -933,6 +933,25 @@ function removeChip(field, value) {
   saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
 }
 
+// ---- "working on it" notice for the slow rebuilds (reading a table, re-reading a question) ----
+// Shown at the top of the Question pane; the content below is made inert while it
+// runs so a manual edit made mid-rebuild can't be silently overwritten by the result.
+function setQuestionBusy(message) {
+  document.getElementById("question-busy").hidden = !message;
+  document.getElementById("question-busy-text").textContent = message || "";
+  for (const id of ["question-body-content", "instruction-body"]) {
+    const el = document.getElementById(id);
+    el.inert = !!message;
+    el.classList.toggle("busy", !!message);
+  }
+}
+
+function busyMessageFor(qNumber, questionType) {
+  return questionType === "grid_table"
+    ? `Q${qNumber}: reading the table - finding its ruling lines and reading every cell. This can take up to a minute...`
+    : `Q${qNumber}: re-reading the question from its image...`;
+}
+
 // ---- change question number ----
 document.getElementById("question-number-input").addEventListener("change", async (e) => {
   const input = e.target;
@@ -1007,6 +1026,14 @@ document.getElementById("question-type-select").addEventListener("change", async
   flushAllPendingSaves();
   select.disabled = true;
   setSaveIndicator("saving");
+  const buildsTable = TABLE_QUESTION_TYPES.includes(newType) && !tableFitsType(newType, q.table);
+  if (buildsTable) {
+    setQuestionBusy(
+      newType === "grid_table"
+        ? busyMessageFor(q.q_number, "grid_table")
+        : `Q${q.q_number}: building the table from the image...`
+    );
+  }
   try {
     const res = await fetch(`/api/papers/${currentPaper.paper_id}/questions/${q.q_number}`, {
       method: "PATCH",
@@ -1023,6 +1050,7 @@ document.getElementById("question-type-select").addEventListener("change", async
     setSaveIndicator("error saving");
     alert(err.message);
   } finally {
+    setQuestionBusy(null);
     select.disabled = false;
   }
 });
@@ -2274,6 +2302,11 @@ function initReprocess() {
 
     btn.disabled = true;
     btn.textContent = "Reprocessing...";
+    setQuestionBusy(
+      currentInstruction
+        ? "Re-reading the instruction from its image..."
+        : busyMessageFor(currentQuestion.q_number, currentQuestion.question_type)
+    );
     try {
       const url = currentInstruction
         ? `/api/papers/${currentPaper.paper_id}/instructions/${currentInstruction.instruction_id}/reprocess`
@@ -2294,6 +2327,7 @@ function initReprocess() {
     } catch (err) {
       alert(err.message);
     } finally {
+      setQuestionBusy(null);
       btn.disabled = false;
       btn.textContent = originalLabel;
     }

@@ -442,3 +442,7 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .grid-table th { background: #f0f2f5; }
 .grid-table [contenteditable="true"]:focus { background: var(--accent-bg); outline: 1px dashed var(--accent); }
 .grid-table-controls { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+
+.question-busy { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 10px; background: var(--accent-bg); border: 1px solid var(--accent); border-radius: 6px; font-size: 13px; }
+.question-busy .spinner { flex-shrink: 0; }
+#question-body-content.busy, #instruction-body.busy { opacity: 0.45; pointer-events: none; }
