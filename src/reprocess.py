@@ -14,7 +14,7 @@ import numpy as np
 from PIL import Image
 
 from .match_list import reconstruct as reconstruct_match_list
-from .ocr import ocr_image
+from .ocr import Box, ocr_image
 from .paired_table import detect as detect_paired_table, reconstruct as reconstruct_paired_table
 from .parse_questions import DIRECTIONS_RE, OPTION_LETTER_FIX, OPTION_RE, QUESTION_START_RE, _starts_new_line
 from .reading_order import order_page
@@ -51,7 +51,44 @@ def _join_with_breaks(entries: list[tuple[str, frozenset]]) -> str:
 def reprocess_standard(image: Image.Image, q_number: int | None = None) -> dict:
     """Returns {question_stem_html, options: {a,b,c,d}}."""
     lines, _ = _ordered_lines(image)
+    return _split_stem_options(lines, q_number)
 
+
+def _center_inside(b: Box, box: list, pad: float = 4.0) -> bool:
+    cx, cy = (b.x0 + b.x1) / 2, (b.y0 + b.y1) / 2
+    return box[0] - pad <= cx <= box[2] + pad and box[1] - pad <= cy <= box[3] + pad
+
+
+def reprocess_with_marks(image: Image.Image, q_number: int | None, marks: list[dict]) -> dict:
+    """Like reprocess_standard, but for a crop that carries the user's formula
+    / chemistry / diagram marks. `marks`: [{"box": [x0,y0,x1,y1] in THIS
+    image's coordinates, "html": the inline token}]. OCR boxes inside a mark
+    are dropped (EasyOCR turns maths into garbage), and each mark joins the
+    reading order as a placeholder word at its own position - so a formula
+    sits inline mid-sentence, or on the option line it belongs to - which is
+    swapped for its HTML once stem and options have been split."""
+    gray = np.array(image.convert("L"))
+    kept = [b for b in ocr_image(gray) if not any(_center_inside(b, m["box"]) for m in marks)]
+    placeholders = []
+    for i, m in enumerate(marks):
+        placeholder = f"\u27e6{i}\u27e7"
+        placeholders.append((placeholder, m["html"]))
+        x0, y0, x1, y1 = m["box"]
+        kept.append(Box(x0, y0, x1, y1, placeholder, 1.0))
+
+    lines = order_page(kept, gray.shape[1])
+    for line in lines:
+        underlined = detect_underlined_words(gray, line)
+        line.underlined_words = frozenset(w for w in underlined if "\u27e6" not in w)
+
+    result = _split_stem_options(lines, q_number)
+    for placeholder, token in placeholders:
+        result["question_stem_html"] = result["question_stem_html"].replace(placeholder, token)
+        result["options"] = {k: v.replace(placeholder, token) for k, v in result["options"].items()}
+    return result
+
+
+def _split_stem_options(lines, q_number: int | None) -> dict:
     stem_entries: list[tuple[str, frozenset]] = []
     option_entries: dict[str, list[tuple[str, frozenset]]] = {"a": [], "b": [], "c": [], "d": []}
     current_option: str | None = None
@@ -141,7 +178,7 @@ def reprocess_instruction(image: Image.Image) -> dict:
     return {"text_html": _join_with_breaks(entries)}
 
 
-def reprocess_question(image: Image.Image, question_type: str, q_number: int) -> dict:
+def reprocess_question(image: Image.Image, question_type: str, q_number: int, marks: list[dict] | None = None) -> dict:
     """Dispatches on the question's existing type - reprocess refreshes
     that type's content, it never re-classifies the type itself (a fluke
     OCR read on a tight crop could otherwise flip a standard question into
@@ -155,7 +192,7 @@ def reprocess_question(image: Image.Image, question_type: str, q_number: int) ->
             "review_reason": "; ".join(problems),
         }
 
-    result = reprocess_standard(image, q_number)
+    result = reprocess_with_marks(image, q_number, marks) if marks else reprocess_standard(image, q_number)
     missing = [letter for letter, text in result["options"].items() if not text]
     return {
         "question_stem_html": result["question_stem_html"],

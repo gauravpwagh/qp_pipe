@@ -9,6 +9,7 @@ import threading
 
 _model = None
 _model_lock = threading.Lock()
+_infer_lock = threading.Lock()  # one conversion at a time - the model isn't known to be thread-safe
 
 
 def _get_model():
@@ -24,4 +25,5 @@ def _get_model():
 
 def image_to_latex(pil_image) -> str:
     model = _get_model()
-    return model(pil_image)
+    with _infer_lock:
+        return model(pil_image)

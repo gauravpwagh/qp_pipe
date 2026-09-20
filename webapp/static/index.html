@@ -231,7 +231,18 @@
       <p class="image-editor-hint">
         Drag on the page below to mark this question's area. Draw more than one region for a question
         split across a column break or the page - they'll be stacked into one image, in the order drawn.
+        Then switch to Formula, Chemistry or Diagram and mark those areas inside it: formulas are read
+        into LaTeX for you to check, diagrams are kept as pictures, and both are placed inline in the
+        question text. Saving marks rebuilds the stem and options from the image.
       </p>
+      <div id="image-editor-mode" class="image-editor-mode" hidden>
+        <span>Draw:</span>
+        <label class="mode-crop"><input type="radio" name="ie-mode" value="crop" checked> Question area</label>
+        <label class="mode-formula"><input type="radio" name="ie-mode" value="formula"> Formula</label>
+        <label class="mode-chemistry"><input type="radio" name="ie-mode" value="chemistry"> Chemistry</label>
+        <label class="mode-diagram"><input type="radio" name="ie-mode" value="diagram"> Diagram</label>
+        <span class="image-editor-mode-hint">Formulas, chemistry and diagrams go inside the question area.</span>
+      </div>
       <div id="image-editor-error" class="error" hidden></div>
       <div class="image-editor-body">
         <div class="image-editor-canvas-wrap">
@@ -241,6 +252,10 @@
           <h4>Regions</h4>
           <div id="image-editor-region-list" class="image-editor-region-list"></div>
           <button type="button" id="image-editor-clear-btn">Clear all</button>
+          <div id="image-editor-marks-section" hidden>
+            <h4>Formulas, chemistry &amp; diagrams</h4>
+            <div id="image-editor-mark-list" class="image-editor-mark-list"></div>
+          </div>
           <h4>Preview</h4>
           <div id="image-editor-preview" class="image-editor-preview"></div>
         </div>
@@ -259,6 +274,7 @@
   </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/mhchem.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/quill/1.3.7/quill.min.js"></script>
   <script src="app.js"></script>
 </body>

@@ -408,3 +408,19 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 
 .question-number-input { width: 50px; flex: 0 0 auto; padding: 3px 6px; font-size: 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--card-bg); color: var(--text); }
 .pane.collapsed .question-number-input { display: none; }
+
+.math-token { display: inline-block; max-width: 100%; overflow-x: auto; padding: 0 3px; vertical-align: middle; cursor: default; user-select: all; }
+.diagram-token { display: inline-block; max-width: 100%; vertical-align: middle; border: 1px solid var(--border); border-radius: 4px; margin: 2px 0; }
+.image-editor-mode { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; font-size: 13px; margin: 0 0 8px; padding: 0 20px; }
+.image-editor-mode label { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; }
+.image-editor-mode .mode-crop { border-left: 4px solid #2563eb; }
+.image-editor-mode .mode-formula { border-left: 4px solid #7c3aed; }
+.image-editor-mode .mode-chemistry { border-left: 4px solid #0d9488; }
+.image-editor-mode .mode-diagram { border-left: 4px solid #d97706; }
+.image-editor-mode-hint { color: var(--muted); font-size: 12px; }
+.image-editor-mark-list { display: flex; flex-direction: column; gap: 10px; margin-bottom: 8px; }
+.mark-row { border: 1px solid var(--border); border-left: 4px solid var(--accent); border-radius: 6px; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+.mark-row-head { display: flex; align-items: center; justify-content: space-between; font-size: 12px; font-weight: 600; }
+.mark-thumb { max-width: 100%; border: 1px solid var(--border); background: white; }
+.mark-latex { width: 100%; font-family: Consolas, monospace; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; }
+.mark-preview { min-height: 24px; padding: 4px 6px; background: #fafbfc; border: 1px dashed var(--border); border-radius: 6px; overflow-x: auto; }

@@ -6,6 +6,52 @@ let currentInstruction = null; // current instruction object (reference into cur
 let pendingSelectPaperId = null; // set right after a process job finishes
 let jobPollTimer = null;
 
+// ---- inline formula / chemistry / diagram tokens (see src/marks.py) ----
+// Stored in the stem/option HTML as <span class="math-token" data-type data-latex>
+// and <img class="diagram-token" src="images/diagrams/...">. The span is
+// rendered with KaTeX (+ mhchem for chemistry) only for display - it is
+// emptied again before saving, so the rendered markup never reaches
+// paper.json - and a diagram's relative src is expanded to the paper's
+// image route for display and shrunk back on save.
+function renderMathTo(el, latex, type) {
+  if (typeof katex === "undefined") {
+    el.textContent = latex;
+    return;
+  }
+  // Chemistry is written in mhchem syntax; a bare "H2SO4" is wrapped for the
+  // user, an explicit \ce{...} is left alone.
+  const source = type === "chemistry" && !/\\ce\s*\{/.test(latex) ? `\\ce{${latex}}` : latex;
+  try {
+    katex.render(source, el, { throwOnError: false, displayMode: false });
+  } catch (err) {
+    el.textContent = latex;
+  }
+}
+
+function renderMathTokens(container) {
+  container.querySelectorAll("span.math-token").forEach((el) => {
+    renderMathTo(el, el.dataset.latex || "", el.dataset.type);
+  });
+}
+
+function paperAssetPrefix() {
+  return `/api/papers/${currentPaper.paper_id}/`;
+}
+
+function setEditableHtml(el, html) {
+  const prefix = paperAssetPrefix();
+  el.innerHTML = (html || "").split('src="images/diagrams/').join(`src="${prefix}images/diagrams/`);
+  renderMathTokens(el);
+}
+
+function serializeEditable(el) {
+  const clone = el.cloneNode(true);
+  clone.querySelectorAll("span.math-token").forEach((n) => {
+    n.innerHTML = "";
+  });
+  return clone.innerHTML.split(`${paperAssetPrefix()}images/diagrams/`).join("images/diagrams/");
+}
+
 // Independently-debounced saves per editable field (stem, directions,
 // passage, explanation, each option) - a question can have several fields
 // mid-edit at once, each needs its own timer, and switching questions must
@@ -538,7 +584,7 @@ function renderQuestion(qNumber) {
   // List/Code text the table below already presents cleanly - showing both
   // is confusing, so hide the raw version once we have a real table.
   stemEl.hidden = isMatchList;
-  stemEl.innerHTML = currentQuestion.question_stem_html || "";
+  setEditableHtml(stemEl, currentQuestion.question_stem_html);
 
   const optionsBlock = document.getElementById("options-block");
   const tableBlock = document.getElementById("table-block");
@@ -564,7 +610,7 @@ function renderQuestion(qNumber) {
       const textSpan = document.createElement("span");
       textSpan.className = "option-text";
       textSpan.contentEditable = "true";
-      textSpan.innerHTML = currentQuestion.options[letter] || "";
+      setEditableHtml(textSpan, currentQuestion.options[letter]);
       // Editing the text shouldn't also register a click-to-select on the
       // card it lives inside.
       textSpan.addEventListener("mousedown", (e) => e.stopPropagation());
@@ -575,9 +621,9 @@ function renderQuestion(qNumber) {
         // and back, or clicking the card to select it as the answer) would
         // otherwise redraw from the stale pre-edit value and the edit
         // would visually vanish, even though it saved fine.
-        currentQuestion.options[letter] = textSpan.innerHTML;
+        currentQuestion.options[letter] = serializeEditable(textSpan);
         scheduleFieldSave(`option_${letter}`, () =>
-          saveQuestionField(currentQuestion.q_number, { options: { [letter]: textSpan.innerHTML } })
+          saveQuestionField(currentQuestion.q_number, { options: { [letter]: serializeEditable(textSpan) } })
         );
       });
 
@@ -979,8 +1025,8 @@ function initEditableFields() {
       // re-render before the debounced save lands (switching questions and
       // back) would otherwise redraw from the stale pre-edit value and the
       // edit would visually vanish, even though it saved fine.
-      currentQuestion[field] = el.innerHTML;
-      scheduleFieldSave(key, () => saveQuestionField(currentQuestion.q_number, { [field]: el.innerHTML }));
+      currentQuestion[field] = serializeEditable(el);
+      scheduleFieldSave(key, () => saveQuestionField(currentQuestion.q_number, { [field]: serializeEditable(el) }));
     });
   }
 }
@@ -1404,6 +1450,12 @@ function initPaneCollapse() {
 // column break or the page needs more than one), Save re-crops server-side
 // (src/pipeline.py's crop_and_stack_regions, the same stacking logic the
 // pipeline itself uses) and overwrites the question's image.
+//
+// For a question, the user can also mark formula / chemistry / diagram areas
+// inside those regions (src/marks.py): a formula is read into editable LaTeX
+// with pix2tex as soon as it is drawn; chemistry is typed in mhchem syntax
+// (pix2tex is available as a draft); a diagram is kept as a picture. Saving
+// then rebuilds the stem and options with each mark placed inline.
 function initImageEditor() {
   const overlay = document.getElementById("image-editor-overlay");
   const canvas = document.getElementById("image-editor-canvas");
@@ -1417,25 +1469,40 @@ function initImageEditor() {
   const statusEl = document.getElementById("image-editor-status");
   const errorEl = document.getElementById("image-editor-error");
   const editBtn = document.getElementById("edit-image-btn");
+  const modeEl = document.getElementById("image-editor-mode");
+  const marksSection = document.getElementById("image-editor-marks-section");
+  const markListEl = document.getElementById("image-editor-mark-list");
 
   const MAX_W = 900;
   const MAX_H = 640;
+  const MODE_STYLE = {
+    crop: { color: "#2563eb", tag: "", name: "Region" },
+    formula: { color: "#7c3aed", tag: "F", name: "Formula" },
+    chemistry: { color: "#0d9488", tag: "C", name: "Chemistry" },
+    diagram: { color: "#d97706", tag: "D", name: "Diagram" },
+  };
 
   let pageImage = null; // HTMLImageElement, the full source page
   let displayScale = 1;
   let regions = []; // [{x,y,w,h}], SOURCE-page pixel coords, in draw order
+  let marks = []; // [{id,type,x,y,w,h,latex,busy,error}], same coords
+  let markSeq = 0;
+  let hadMarks = false; // the question already had marks when the editor opened
+  let mode = "crop";
   let dragStart = null; // {x,y} in canvas pixel coordinates
 
   // Works on whichever of currentQuestion/currentInstruction is active, so
   // the one "Edit image" tool serves both (an instruction has no `page`
   // field of its own - it's inferred from the first question it applies
   // to, since that's the page its Directions header actually sits on).
+  // Only a question supports marks.
   function getEditTarget() {
     if (currentInstruction) {
       const firstQ = currentPaper.questions.find((q) => q.q_number === currentInstruction.applies_to[0]);
       return {
         page: firstQ ? firstQ.page : null,
         imageRegions: currentInstruction.image_regions,
+        supportsMarks: false,
         recropUrl: `/api/papers/${currentPaper.paper_id}/instructions/${currentInstruction.instruction_id}/recrop`,
         apply: (data) => {
           currentInstruction.image = data.image;
@@ -1447,10 +1514,12 @@ function initImageEditor() {
       return {
         page: currentQuestion.page,
         imageRegions: currentQuestion.image_regions,
+        supportsMarks: true,
         recropUrl: `/api/papers/${currentPaper.paper_id}/questions/${currentQuestion.q_number}/recrop`,
         apply: (data) => {
-          currentQuestion.image = data.image;
-          currentQuestion.image_regions = data.image_regions;
+          // marks rebuild the stem/options too, so take the whole question
+          Object.assign(currentQuestion, data);
+          renderQuestion(currentQuestion.q_number);
         },
       };
     }
@@ -1462,16 +1531,40 @@ function initImageEditor() {
     return `/api/papers/${currentPaper.paper_id}/page_images/page_${pageNum}.png`;
   }
 
+  function setMode(newMode) {
+    mode = newMode;
+    canvas.style.cursor = "crosshair";
+    for (const radio of modeEl.querySelectorAll('input[name="ie-mode"]')) radio.checked = radio.value === mode;
+  }
+  modeEl.addEventListener("change", (e) => {
+    if (e.target && e.target.name === "ie-mode") mode = e.target.value;
+  });
+
   function openEditor() {
     const target = getEditTarget();
     if (!target || !target.page) return;
     errorEl.hidden = true;
     statusEl.textContent = "";
     regions = [];
+    marks = [];
+    markSeq = 0;
+    hadMarks = false;
+    setMode("crop");
+    modeEl.hidden = !target.supportsMarks;
+    marksSection.hidden = !target.supportsMarks;
     // Reuse the last manual selection as a starting point, but only if it
     // was drawn on this same page - otherwise start blank.
     if (target.imageRegions && target.imageRegions.page === target.page) {
       regions = target.imageRegions.boxes.map(([x0, y0, x1, y1]) => ({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 }));
+      if (target.supportsMarks) {
+        marks = (target.imageRegions.marks || []).map((m) => {
+          const [x0, y0, x1, y1] = m.box;
+          const n = parseInt(String(m.id).replace(/\D/g, ""), 10);
+          if (Number.isFinite(n)) markSeq = Math.max(markSeq, n);
+          return { id: m.id, type: m.type, x: x0, y: y0, w: x1 - x0, h: y1 - y0, latex: m.latex || "", busy: false, error: "" };
+        });
+        hadMarks = marks.length > 0;
+      }
     }
     const img = new Image();
     img.onload = () => {
@@ -1481,6 +1574,7 @@ function initImageEditor() {
       canvas.height = Math.round(img.naturalHeight * displayScale);
       redraw();
       renderRegionList();
+      renderMarkList();
       overlay.hidden = false;
     };
     img.onerror = () => {
@@ -1496,7 +1590,7 @@ function initImageEditor() {
     pageImage = null;
   }
 
-  function drawRegion(r, label, color) {
+  function drawBox(r, label, color) {
     const rx = r.x * displayScale;
     const ry = r.y * displayScale;
     const rw = r.w * displayScale;
@@ -1504,18 +1598,29 @@ function initImageEditor() {
     ctx.strokeStyle = color;
     ctx.lineWidth = 2;
     ctx.strokeRect(rx, ry, rw, rh);
-    ctx.fillStyle = color;
-    ctx.fillRect(rx, ry, 20, 16);
-    ctx.fillStyle = "white";
     ctx.font = "11px sans-serif";
-    ctx.fillText(String(label), rx + 6, ry + 12);
+    const text = String(label);
+    const tagW = Math.max(20, ctx.measureText(text).width + 12);
+    ctx.fillStyle = color;
+    ctx.fillRect(rx, ry, tagW, 16);
+    ctx.fillStyle = "white";
+    ctx.fillText(text, rx + 6, ry + 12);
+  }
+
+  function markLabel(m) {
+    const same = marks.filter((x) => x.type === m.type);
+    return `${MODE_STYLE[m.type].tag}${same.indexOf(m) + 1}`;
   }
 
   function redraw(dragRect) {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.drawImage(pageImage, 0, 0, canvas.width, canvas.height);
-    regions.forEach((r, i) => drawRegion(r, i + 1, "#2563eb"));
-    if (dragRect) drawRegion(dragRect, regions.length + 1, "#059669");
+    regions.forEach((r, i) => drawBox(r, i + 1, MODE_STYLE.crop.color));
+    marks.forEach((m) => drawBox(m, markLabel(m), MODE_STYLE[m.type].color));
+    if (dragRect) {
+      const label = mode === "crop" ? regions.length + 1 : `${MODE_STYLE[mode].tag}+`;
+      drawBox(dragRect, label, mode === "crop" ? "#059669" : MODE_STYLE[mode].color);
+    }
   }
 
   function canvasPoint(e) {
@@ -1556,10 +1661,62 @@ function initImageEditor() {
       redraw(); // an accidental click/tiny drag - not a real region
       return;
     }
-    regions.push({ x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale });
-    redraw();
-    renderRegionList();
+    const rect = { x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale };
+    if (mode === "crop") {
+      regions.push(rect);
+      redraw();
+      renderRegionList();
+      renderMarkList();
+    } else {
+      addMark(mode, rect);
+    }
   });
+
+  function insideSomeRegion(r) {
+    const cx = r.x + r.w / 2;
+    const cy = r.y + r.h / 2;
+    return regions.some((g) => cx >= g.x && cx <= g.x + g.w && cy >= g.y && cy <= g.y + g.h);
+  }
+
+  function addMark(type, rect) {
+    if (!insideSomeRegion(rect)) {
+      errorEl.textContent = "Draw the question's area first (Question area), then mark formulas, chemistry and diagrams inside it.";
+      errorEl.hidden = false;
+      redraw();
+      return;
+    }
+    errorEl.hidden = true;
+    const mark = { id: `m${++markSeq}`, type, ...rect, latex: "", busy: false, error: "" };
+    marks.push(mark);
+    redraw();
+    renderMarkList();
+    // A formula is read straight away; chemistry is typed by the user (the
+    // pix2tex draft is one click away), a diagram needs no reading.
+    if (type === "formula") convertMark(mark);
+  }
+
+  async function convertMark(mark) {
+    const target = getEditTarget();
+    if (!target) return;
+    mark.busy = true;
+    mark.error = "";
+    renderMarkList();
+    try {
+      const res = await fetch(`/api/papers/${currentPaper.paper_id}/latex_region`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ page: target.page, box: [mark.x, mark.y, mark.x + mark.w, mark.y + mark.h] }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "could not read the formula");
+      mark.latex = data.latex;
+    } catch (err) {
+      mark.error = err.message;
+    } finally {
+      mark.busy = false;
+      renderMarkList();
+    }
+  }
 
   function renderRegionList() {
     regionListEl.innerHTML = "";
@@ -1575,12 +1732,114 @@ function initImageEditor() {
         regions.splice(i, 1);
         redraw();
         renderRegionList();
+        renderMarkList();
       });
       row.append(label, removeBtn);
       regionListEl.appendChild(row);
     });
-    saveBtn.disabled = regions.length === 0;
+    updateSaveState();
     renderPreview();
+  }
+
+  function thumbnailFor(m) {
+    const c = document.createElement("canvas");
+    const scale = Math.min(1, 240 / Math.max(1, m.w), 90 / Math.max(1, m.h));
+    c.width = Math.max(1, Math.round(m.w * scale));
+    c.height = Math.max(1, Math.round(m.h * scale));
+    c.getContext("2d").drawImage(pageImage, m.x, m.y, m.w, m.h, 0, 0, c.width, c.height);
+    c.className = "mark-thumb";
+    return c;
+  }
+
+  function renderMarkList() {
+    markListEl.innerHTML = "";
+    if (!marks.length) {
+      const empty = document.createElement("div");
+      empty.className = "image-editor-preview-empty";
+      empty.textContent = "None yet - pick Formula, Chemistry or Diagram above and draw on the page.";
+      markListEl.appendChild(empty);
+    }
+    marks.forEach((m) => {
+      const row = document.createElement("div");
+      row.className = "mark-row";
+      row.style.borderLeftColor = MODE_STYLE[m.type].color;
+
+      const head = document.createElement("div");
+      head.className = "mark-row-head";
+      const title = document.createElement("span");
+      title.textContent = `${MODE_STYLE[m.type].name} ${markLabel(m)}`;
+      const removeBtn = document.createElement("button");
+      removeBtn.type = "button";
+      removeBtn.textContent = "Remove";
+      removeBtn.addEventListener("click", () => {
+        marks.splice(marks.indexOf(m), 1);
+        redraw();
+        renderMarkList();
+      });
+      head.append(title, removeBtn);
+      row.append(head, thumbnailFor(m));
+
+      if (!insideSomeRegion(m)) {
+        const warn = document.createElement("div");
+        warn.className = "error";
+        warn.textContent = "Outside every question area - move or remove it.";
+        row.appendChild(warn);
+      }
+
+      if (m.type !== "diagram") {
+        const textarea = document.createElement("textarea");
+        textarea.className = "mark-latex";
+        textarea.rows = 2;
+        textarea.value = m.latex;
+        textarea.placeholder =
+          m.type === "chemistry" ? "e.g. \\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}" : m.busy ? "Reading the formula..." : "LaTeX";
+        textarea.disabled = m.busy;
+        const preview = document.createElement("div");
+        preview.className = "mark-preview";
+        const refresh = () => {
+          preview.innerHTML = "";
+          if (m.latex.trim()) renderMathTo(preview, m.latex, m.type);
+        };
+        textarea.addEventListener("input", () => {
+          m.latex = textarea.value;
+          refresh();
+          updateSaveState();
+        });
+        refresh();
+        row.append(textarea, preview);
+
+        if (m.busy) {
+          const status = document.createElement("div");
+          status.className = "save-indicator saving";
+          status.textContent = "Reading the formula (the first one loads the model and can take a minute)...";
+          row.appendChild(status);
+        }
+        if (m.error) {
+          const err = document.createElement("div");
+          err.className = "error";
+          err.textContent = m.error;
+          row.appendChild(err);
+        }
+        if (m.type === "chemistry" || m.error) {
+          const readBtn = document.createElement("button");
+          readBtn.type = "button";
+          readBtn.className = "secondary-btn";
+          readBtn.textContent = m.type === "chemistry" ? "Read with pix2tex (draft)" : "Try again";
+          readBtn.disabled = m.busy;
+          readBtn.addEventListener("click", () => convertMark(m));
+          row.appendChild(readBtn);
+        }
+      }
+      markListEl.appendChild(row);
+    });
+    updateSaveState();
+  }
+
+  function updateSaveState() {
+    const marksReady = marks.every(
+      (m) => !m.busy && insideSomeRegion(m) && (m.type === "diagram" || m.latex.trim().length > 0)
+    );
+    saveBtn.disabled = regions.length === 0 || !marksReady;
   }
 
   function renderPreview() {
@@ -1611,8 +1870,10 @@ function initImageEditor() {
 
   clearBtn.addEventListener("click", () => {
     regions = [];
+    marks = [];
     redraw();
     renderRegionList();
+    renderMarkList();
   });
 
   closeBtn.addEventListener("click", closeEditor);
@@ -1624,15 +1885,33 @@ function initImageEditor() {
   saveBtn.addEventListener("click", async () => {
     const target = getEditTarget();
     if (!regions.length || !target) return;
+    const rebuildsText = target.supportsMarks && (marks.length > 0 || hadMarks);
+    if (
+      rebuildsText &&
+      !confirm(
+        "Saving formula/diagram marks rebuilds this question's stem and options from the image - any manual edits to that text will be replaced. Continue?"
+      )
+    ) {
+      return;
+    }
     saveBtn.disabled = true;
-    statusEl.textContent = "Saving...";
+    statusEl.textContent = rebuildsText ? "Saving and rebuilding the text..." : "Saving...";
     errorEl.hidden = true;
     const boxes = regions.map((r) => [r.x, r.y, r.x + r.w, r.y + r.h]);
+    const payload = { page: target.page, boxes };
+    if (target.supportsMarks) {
+      payload.marks = marks.map((m) => ({
+        id: m.id,
+        type: m.type,
+        box: [m.x, m.y, m.x + m.w, m.y + m.h],
+        ...(m.type === "diagram" ? {} : { latex: m.latex.trim() }),
+      }));
+    }
     try {
       const res = await fetch(target.recropUrl, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page: target.page, boxes }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "recrop failed");
@@ -1645,7 +1924,7 @@ function initImageEditor() {
       errorEl.hidden = false;
       statusEl.textContent = "";
     } finally {
-      saveBtn.disabled = regions.length === 0;
+      updateSaveState();
     }
   });
 

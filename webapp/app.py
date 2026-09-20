@@ -19,9 +19,10 @@ from werkzeug.utils import secure_filename
 from . import jobs
 from .variants import VARIANTS
 from src import latex_ocr, screenshot_stitch
+from src import marks as marks_mod
 from src.instructions import extract_instructions
 from src.pipeline import crop_and_stack_regions
-from src.reprocess import build_table, reprocess_instruction, reprocess_question
+from src.reprocess import build_table, reprocess_instruction, reprocess_question, reprocess_with_marks
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -338,12 +339,81 @@ def _crop_regions_or_error(paper_id: str, body: dict):
     return combined, None
 
 
+@app.route("/api/papers/<paper_id>/latex_region", methods=["POST"])
+def api_latex_region(paper_id):
+    """Reads one marked formula area of a page with pix2tex (the Edit-image
+    modal calls this as soon as a formula is drawn, so the user only has to
+    check/correct the LaTeX)."""
+    body = request.get_json(force=True, silent=True) or {}
+    crop, err = _crop_regions_or_error(paper_id, {"page": body.get("page"), "boxes": [body.get("box")]})
+    if err:
+        return err
+    from PIL import ImageOps
+
+    # pix2tex reads a formula better with a little white margin around it
+    image = ImageOps.expand(crop.convert("RGB"), border=10, fill="white")
+    try:
+        latex = latex_ocr.image_to_latex(image)
+    except Exception as e:
+        return jsonify({"error": f"conversion failed: {e}"}), 500
+    return jsonify({"latex": latex})
+
+
+def _diagram_file_in_paper(paper_id: str, rel: str) -> Path | None:
+    """The absolute path of a stored diagram file, or None if `rel` isn't a
+    plain file directly under this paper's images/diagrams folder."""
+    diagrams_dir = (_paper_dir(paper_id) / "images" / "diagrams").resolve()
+    path = (_paper_dir(paper_id) / rel).resolve()
+    return path if path.parent == diagrams_dir else None
+
+
 @app.route("/api/papers/<paper_id>/questions/<int:q_number>/recrop", methods=["POST"])
 def api_recrop_question(paper_id, q_number):
+    """Re-crops the question's image from the drawn region(s). If the body
+    also carries formula/chemistry/diagram `marks` (see src/marks.py), or the
+    question had marks that are now being cleared, the stem and options are
+    rebuilt from the new crop as well - OCR with the marked areas masked out,
+    each mark placed inline at its position."""
     body = request.get_json(force=True, silent=True) or {}
     combined, err = _crop_regions_or_error(paper_id, body)
     if err:
         return err
+
+    clean_marks = None
+    if body.get("marks") is not None:
+        clean_marks, mark_err = marks_mod.validate_marks(body["marks"], body["boxes"])
+        if mark_err:
+            return jsonify({"error": mark_err}), 400
+
+    paper = _read_paper(paper_id)
+    if paper is None:
+        return jsonify({"error": "paper not found"}), 404
+    question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
+    if question is None:
+        return jsonify({"error": "question not found"}), 404
+    prev_marks = (question.get("image_regions") or {}).get("marks") or []
+    rebuild = clean_marks is not None and (bool(clean_marks) or bool(prev_marks))
+
+    rebuilt = None
+    diagram_crops = {}
+    if rebuild:
+        from PIL import Image
+
+        page_path = _paper_dir(paper_id) / "page_images" / f"page_{body['page']:03d}.png"
+        base = Path(question["image"]).stem if question.get("image") else f"q_{q_number:04d}"
+        items = []
+        try:
+            with Image.open(page_path) as page_img:
+                for m in clean_marks:
+                    if m["type"] == "diagram":
+                        m["file"] = f"images/diagrams/{base}_{m['id']}.png"
+                        x0, y0, x1, y1 = (int(round(v)) for v in m["box"])
+                        diagram_crops[m["file"]] = page_img.crop((x0, y0, x1, y1)).copy()
+            for m in clean_marks:
+                items.append({"box": marks_mod.to_crop_box(m["box"], body["boxes"]), "html": marks_mod.token_html(m)})
+            rebuilt = reprocess_with_marks(combined, q_number, items)
+        except Exception as e:
+            return jsonify({"error": f"could not rebuild the question text: {e}"}), 500
 
     with _write_lock:
         paper = _read_paper(paper_id)
@@ -358,13 +428,38 @@ def api_recrop_question(paper_id, q_number):
         rel_name = Path(question["image"]).name if question.get("image") else f"q_{q_number:04d}.png"
         try:
             _save_image_atomic(images_dir / rel_name, combined)
+            if rebuild:
+                (images_dir / "diagrams").mkdir(exist_ok=True)
+                for rel, crop in diagram_crops.items():
+                    _save_image_atomic(_paper_dir(paper_id) / rel, crop)
         except PermissionError as e:
             return jsonify({"error": f"could not save the image (file busy, try again): {e}"}), 409
 
         question["image"] = f"images/{rel_name}"
         # Remembered so re-opening the editor later starts from the last
         # manual selection instead of blank.
-        question["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
+        regions = {"page": body["page"], "boxes": body["boxes"]}
+        if clean_marks:
+            regions["marks"] = clean_marks
+        question["image_regions"] = regions
+
+        if rebuild:
+            question["question_stem_html"] = rebuilt["question_stem_html"]
+            question["options"] = rebuilt["options"]
+            question["has_underline"] = "<u>" in (
+                rebuilt["question_stem_html"] + "".join(rebuilt["options"].values())
+            )
+            missing = [k for k, v in rebuilt["options"].items() if not v]
+            question["needs_review"] = bool(missing)
+            question["review_reason"] = f"marks rebuild: missing option(s) {', '.join(missing)}" if missing else ""
+            # drop diagram files no mark points at any more
+            keep = set(diagram_crops)
+            for m in prev_marks:
+                old = m.get("file")
+                if m.get("type") == "diagram" and old and old not in keep:
+                    old_path = _diagram_file_in_paper(paper_id, old)
+                    if old_path is not None:
+                        old_path.unlink(missing_ok=True)
         _write_paper_atomic(paper_id, paper)
 
     return jsonify(question)
@@ -395,9 +490,22 @@ def api_reprocess_question(paper_id, q_number):
 
         from PIL import Image
 
+        # A question with formula/diagram marks must be re-read with them
+        # (masked out, placed inline) or Reprocess would wipe every token.
+        mark_items = None
+        saved = question.get("image_regions") or {}
+        if saved.get("marks") and saved.get("boxes"):
+            mark_items = []
+            for m in saved["marks"]:
+                crop_box = marks_mod.to_crop_box(m["box"], saved["boxes"])
+                if crop_box is not None:
+                    mark_items.append({"box": crop_box, "html": marks_mod.token_html(m)})
+
         try:
             with Image.open(image_path) as image:
-                result = reprocess_question(image, question.get("question_type", "standard"), q_number)
+                result = reprocess_question(
+                    image, question.get("question_type", "standard"), q_number, mark_items or None
+                )
         except Exception as e:
             return jsonify({"error": f"reprocess failed: {e}"}), 500
 

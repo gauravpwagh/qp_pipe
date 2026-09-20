@@ -251,7 +251,7 @@ Each question in the `questions` array:
 | `q_number`, `page` | 1..N (editable per question from the Review UI - must stay unique; renumbering re-sorts the list and updates each instruction's covered range); source PDF page |
 | `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list`, `paired_table` - the pipeline's guess; changeable per question from the Review UI's type dropdown (switching to a table type builds its table from the crop, switching away drops it) |
 | `image` | path (relative to the paper's folder) to the cropped question image |
-| `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time |
+| `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time; optionally also `marks: [{id, type: "formula"\|"chemistry"\|"diagram", box, latex?, file?}]` - see "Formulas, chemistry and diagrams" below |
 | `instruction_id` | `null`, or the `instructions` entry this question shares a Directions block with |
 | `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
 | `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list` with a Code grid; filled as usual for one without) |
@@ -311,6 +311,32 @@ Each question in the `questions` array:
 8. `pipeline.py` - orchestrates the above; `run_pipeline` writes the CSVs +
    QA report (CLI), `run_pipeline_json` writes `paper.json` + image crops
    (web app, see `webapp/`).
+
+### Formulas, chemistry and diagrams
+
+Entirely manual, per question, in the Review tab's **Edit** (image) modal - the
+one-go pipeline never creates them. After drawing the question's area, switch
+the modal's "Draw" mode to **Formula**, **Chemistry** or **Diagram** and mark
+those areas inside it (`src/marks.py`):
+
+- **Formula** - read into LaTeX with pix2tex the moment it is drawn; the LaTeX
+  is editable with a live KaTeX preview.
+- **Chemistry** - typed in mhchem syntax (`\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}`;
+  a bare `H2SO4` is wrapped for you). pix2tex isn't trained on reactions, so
+  it's only offered as a draft via a button.
+- **Diagram** - cropped from the full-resolution page into
+  `images/diagrams/`, kept as a picture.
+
+Saving rebuilds the question's stem and options from the crop image with the
+marked areas masked out of OCR and each mark placed inline at its position (a
+formula can sit mid-sentence, or on the option line it belongs to); a confirm
+warns that manual text edits are replaced. Reprocess honours saved marks.
+In `question_stem_html` / `options` a formula or chemistry mark is stored as
+`<span class="math-token" data-type="formula|chemistry" data-latex="...">` and a
+diagram as `<img class="diagram-token" src="images/diagrams/...">` (a path
+relative to the job folder); the page renders the spans with KaTeX + mhchem.
+Removing every mark and saving rebuilds plain OCR text and deletes the
+diagram files.
 
 ## Known limitations
 
