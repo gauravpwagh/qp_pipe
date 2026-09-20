@@ -789,7 +789,13 @@ def api_update_question(paper_id, q_number):
     table_update = body.get("table")
     if not isinstance(table_update, dict):
         table_update = None
-    if not updates and not options_update and not table_update:
+    # {mark_id: {latex, type}} - an inline edit of a formula/chemistry token
+    # in the text also updates the stored mark, so the Edit-image modal (and
+    # a rebuild from its marks) doesn't fall back to the stale LaTeX.
+    marks_update = body.get("marks_update")
+    if not isinstance(marks_update, dict):
+        marks_update = None
+    if not updates and not options_update and not table_update and not marks_update:
         return jsonify({"error": "no recognized fields in body"}), 400
 
     with _write_lock:
@@ -806,6 +812,16 @@ def api_update_question(paper_id, q_number):
             )
         if table_update:
             question["table"] = table_update
+        if marks_update:
+            for m in (question.get("image_regions") or {}).get("marks") or []:
+                change = marks_update.get(m.get("id"))
+                if not isinstance(change, dict) or m.get("type") == "diagram":
+                    continue
+                latex = change.get("latex")
+                if isinstance(latex, str) and latex.strip() and len(latex) <= 4000:
+                    m["latex"] = latex.strip()
+                if change.get("type") in ("formula", "chemistry"):
+                    m["type"] = change["type"]
         _write_paper_atomic(paper_id, paper)
         if "tags" in updates or "topics" in updates:
             _remember_vocab(paper.get("variant", paper_id), updates.get("tags"), updates.get("topics"))

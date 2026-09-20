@@ -584,6 +584,8 @@ function renderQuestion(qNumber) {
   // List/Code text the table below already presents cleanly - showing both
   // is confusing, so hide the raw version once we have a real table.
   stemEl.hidden = isMatchList;
+  document.getElementById("insert-row").hidden = isMatchList && !isListOnly;
+  closeFormulaPopover();
   setEditableHtml(stemEl, currentQuestion.question_stem_html);
 
   const optionsBlock = document.getElementById("options-block");
@@ -615,6 +617,7 @@ function renderQuestion(qNumber) {
       // card it lives inside.
       textSpan.addEventListener("mousedown", (e) => e.stopPropagation());
       textSpan.addEventListener("click", (e) => e.stopPropagation());
+      textSpan.addEventListener("click", onTokenClick);
       textSpan.addEventListener("input", () => {
         // Keep local state in sync immediately, not just the server - a
         // re-render before the debounced save lands (switching questions
@@ -1931,6 +1934,202 @@ function initImageEditor() {
   editBtn.addEventListener("click", openEditor);
 }
 
+// ---- inline formula editing: click a formula/chemistry token to edit its
+// LaTeX, or insert a new one at the cursor of the stem / an option ----
+// A token is a non-editable <span class="math-token"> (see renderMathTokens),
+// so the browser already deletes it as one unit with Backspace/Delete; this
+// adds the click-to-edit popover and the insert buttons. Every change is
+// pushed through the field's normal "input" handler so it is saved exactly
+// like typed text.
+let formulaPopoverState = null; // {mode: "edit", token, container} | {mode: "insert", container, range}
+let lastCaret = null; // {container, range}: the last selection inside the stem or an option
+
+function editableFieldOf(node) {
+  const el = node && (node.nodeType === Node.TEXT_NODE ? node.parentElement : node);
+  const field = el && el.closest ? el.closest("#question-stem, .option-text") : null;
+  return field && field.isContentEditable ? field : null;
+}
+
+function onTokenClick(e) {
+  const token = e.target.closest ? e.target.closest("span.math-token") : null;
+  if (!token) return;
+  e.preventDefault();
+  e.stopPropagation();
+  openFormulaPopover({ mode: "edit", token, container: editableFieldOf(token) });
+}
+
+function closeFormulaPopover() {
+  formulaPopoverState = null;
+  const pop = document.getElementById("formula-popover");
+  if (pop) pop.hidden = true;
+}
+
+function refreshFormulaPreview() {
+  const preview = document.getElementById("formula-preview");
+  const latex = document.getElementById("formula-latex").value;
+  preview.innerHTML = "";
+  if (latex.trim()) renderMathTo(preview, latex, document.getElementById("formula-type").value);
+  document.getElementById("formula-apply-btn").disabled = !latex.trim();
+}
+
+function openFormulaPopover(state, initialType) {
+  if (!state.container) return;
+  formulaPopoverState = state;
+  const pop = document.getElementById("formula-popover");
+  const typeEl = document.getElementById("formula-type");
+  const latexEl = document.getElementById("formula-latex");
+  const editing = state.mode === "edit";
+  typeEl.value = editing ? state.token.dataset.type || "formula" : initialType || "formula";
+  latexEl.value = editing ? state.token.dataset.latex || "" : "";
+  latexEl.placeholder = typeEl.value === "chemistry" ? "e.g. \\ce{H2SO4 + 2NaOH -> Na2SO4 + 2H2O}" : "LaTeX, e.g. \\frac{a}{b}";
+  document.getElementById("formula-delete-btn").hidden = !editing;
+  pop.hidden = false;
+  refreshFormulaPreview();
+
+  let anchor = editing ? state.token.getBoundingClientRect() : state.range.getBoundingClientRect();
+  if (!anchor || (anchor.width === 0 && anchor.height === 0)) anchor = state.container.getBoundingClientRect();
+  const w = pop.offsetWidth;
+  const h = pop.offsetHeight;
+  const left = Math.min(Math.max(8, anchor.left), Math.max(8, window.innerWidth - w - 8));
+  let top = anchor.bottom + 8;
+  if (top + h > window.innerHeight - 8) top = Math.max(8, anchor.top - h - 8);
+  pop.style.left = `${left}px`;
+  pop.style.top = `${top}px`;
+  latexEl.focus();
+  latexEl.select();
+}
+
+// An inline edit must also reach the stored mark, or the Edit-image modal
+// would show (and a rebuild would restore) the LaTeX from before the edit.
+function syncMarkFromToken(token, oldLatex, oldType, latex, type) {
+  const marks = (currentQuestion && currentQuestion.image_regions && currentQuestion.image_regions.marks) || [];
+  const mark = token.dataset.mark
+    ? marks.find((m) => m.id === token.dataset.mark)
+    : marks.find((m) => m.type !== "diagram" && m.type === oldType && m.latex === oldLatex);
+  if (!mark) return;
+  mark.latex = latex;
+  mark.type = type;
+  saveQuestionField(currentQuestion.q_number, { marks_update: { [mark.id]: { latex, type } } });
+}
+
+function insertFormulaToken(state, latex, type) {
+  const container = state.container;
+  const token = document.createElement("span");
+  token.className = "math-token";
+  token.dataset.type = type;
+  token.dataset.latex = latex;
+  token.setAttribute("contenteditable", "false");
+  renderMathTo(token, latex, type);
+
+  let range = state.range;
+  if (!range || !container.contains(range.startContainer)) {
+    range = document.createRange();
+    range.selectNodeContents(container);
+    range.collapse(false);
+  }
+  range.deleteContents();
+  range.insertNode(token);
+  // keep somewhere to type after the token (a non-editable span at the very
+  // end of a field otherwise leaves no caret position)
+  let after = token.nextSibling;
+  if (!after || after.nodeType !== Node.TEXT_NODE || !/^[\s\u00a0]/.test(after.textContent)) {
+    after = document.createTextNode("\u00a0");
+    token.after(after);
+  }
+  container.focus();
+  const caret = document.createRange();
+  caret.setStart(after, Math.min(1, after.length));
+  caret.collapse(true);
+  const selection = window.getSelection();
+  selection.removeAllRanges();
+  selection.addRange(caret);
+  container.dispatchEvent(new Event("input", { bubbles: true }));
+}
+
+function applyFormulaPopover() {
+  const state = formulaPopoverState;
+  if (!state) return;
+  const latex = document.getElementById("formula-latex").value.trim();
+  const type = document.getElementById("formula-type").value;
+  if (!latex) return;
+  if (state.mode === "edit") {
+    const token = state.token;
+    const oldLatex = token.dataset.latex || "";
+    const oldType = token.dataset.type;
+    token.dataset.latex = latex;
+    token.dataset.type = type;
+    token.innerHTML = "";
+    renderMathTo(token, latex, type);
+    syncMarkFromToken(token, oldLatex, oldType, latex, type);
+    state.container.dispatchEvent(new Event("input", { bubbles: true }));
+  } else {
+    insertFormulaToken(state, latex, type);
+  }
+  closeFormulaPopover();
+}
+
+function deleteFormulaFromPopover() {
+  const state = formulaPopoverState;
+  if (!state || state.mode !== "edit") return;
+  const container = state.container;
+  state.token.remove();
+  container.dispatchEvent(new Event("input", { bubbles: true }));
+  closeFormulaPopover();
+}
+
+function openInsertFormula(type) {
+  let container = null;
+  let range = null;
+  if (lastCaret && lastCaret.container.isConnected && !lastCaret.container.closest("[hidden]")) {
+    ({ container, range } = lastCaret);
+  } else {
+    const stem = document.getElementById("question-stem");
+    container = stem && !stem.hidden ? stem : document.querySelector("#options-block .option-text");
+    if (container) {
+      range = document.createRange();
+      range.selectNodeContents(container);
+      range.collapse(false);
+    }
+  }
+  if (container) openFormulaPopover({ mode: "insert", container, range }, type);
+}
+
+function initFormulaEditor() {
+  document.getElementById("question-stem").addEventListener("click", onTokenClick);
+
+  document.addEventListener("selectionchange", () => {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+    const container = editableFieldOf(selection.anchorNode);
+    if (container) lastCaret = { container, range: selection.getRangeAt(0).cloneRange() };
+  });
+
+  // mousedown + preventDefault so pressing an insert button doesn't blur
+  // the field and lose the cursor position it inserts at
+  for (const [id, type] of [["insert-formula-btn", "formula"], ["insert-chemistry-btn", "chemistry"]]) {
+    const btn = document.getElementById(id);
+    btn.addEventListener("mousedown", (e) => e.preventDefault());
+    btn.addEventListener("click", () => openInsertFormula(type));
+  }
+
+  const latexEl = document.getElementById("formula-latex");
+  latexEl.addEventListener("input", refreshFormulaPreview);
+  document.getElementById("formula-type").addEventListener("change", refreshFormulaPreview);
+  latexEl.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) applyFormulaPopover();
+    if (e.key === "Escape") closeFormulaPopover();
+  });
+  document.getElementById("formula-apply-btn").addEventListener("click", applyFormulaPopover);
+  document.getElementById("formula-cancel-btn").addEventListener("click", closeFormulaPopover);
+  document.getElementById("formula-delete-btn").addEventListener("click", deleteFormulaFromPopover);
+  document.addEventListener("mousedown", (e) => {
+    const pop = document.getElementById("formula-popover");
+    if (pop.hidden || pop.contains(e.target)) return;
+    if (e.target.closest && (e.target.closest("span.math-token") || e.target.closest("#insert-row"))) return;
+    closeFormulaPopover();
+  });
+}
+
 // ---- floating Bold/Underline toolbar for editable question-body text ----
 // Select some text inside the stem/directions/passage/options (all
 // contenteditable, see initEditableFields()) and a small toolbar pops up
@@ -2053,4 +2252,5 @@ initLatexScratchpad();
 initPaneCollapse();
 initImageEditor();
 initFormatToolbar();
+initFormulaEditor();
 initReprocess();

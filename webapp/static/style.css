@@ -424,3 +424,15 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .mark-thumb { max-width: 100%; border: 1px solid var(--border); background: white; }
 .mark-latex { width: 100%; font-family: Consolas, monospace; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; resize: vertical; }
 .mark-preview { min-height: 24px; padding: 4px 6px; background: #fafbfc; border: 1px dashed var(--border); border-radius: 6px; overflow-x: auto; }
+
+.math-token { cursor: pointer; }
+.math-token:hover { background: var(--accent-bg); border-radius: 4px; }
+.insert-row { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; font-size: 12px; color: var(--muted); }
+.insert-row button { padding: 3px 9px; font-size: 12px; background: none; color: var(--muted); border: 1px solid var(--border); }
+.insert-row button:hover { color: var(--accent); border-color: var(--accent); opacity: 1; }
+.formula-popover { position: fixed; z-index: 1200; width: 340px; max-width: calc(100vw - 16px); background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); padding: 12px; display: flex; flex-direction: column; gap: 8px; }
+.formula-popover[hidden] { display: none; }
+.formula-popover select { padding: 4px 6px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; align-self: flex-start; }
+.formula-popover-actions { display: flex; align-items: center; gap: 6px; }
+.formula-popover-actions .spacer { flex: 1; }
+.formula-popover-actions button { padding: 6px 12px; font-size: 12px; }

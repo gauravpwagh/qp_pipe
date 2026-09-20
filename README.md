@@ -338,6 +338,14 @@ relative to the job folder); the page renders the spans with KaTeX + mhchem.
 Removing every mark and saving rebuilds plain OCR text and deletes the
 diagram files.
 
+**Editing in the review panes.** Click a formula or chemistry token in the
+stem or an option to open a small editor (LaTeX box, live preview, Formula /
+Chemistry switch, Apply / Cancel / Delete); "Insert at cursor" adds a new one
+where the cursor is. Backspace/Delete on a token removes it as one unit.
+Changes save like typed text, and an edit to a token that came from a mark also
+updates the stored mark (`marks_update` on the question PATCH), so the
+Edit-image modal shows the corrected LaTeX.
+
 ## Known limitations
 
 - **OCR is not perfect.** This is a photocopy-quality scan. A question gets

@@ -97,6 +97,6 @@ def token_html(mark: dict) -> str:
             f'data-mark="{mark["id"]}" alt="diagram">'
         )
     return (
-        f'<span class="math-token" data-type="{mark["type"]}" '
+        f'<span class="math-token" data-type="{mark["type"]}" data-mark="{mark["id"]}" '
         f'data-latex="{html.escape(mark["latex"], quote=True)}" contenteditable="false"></span>'
     )
