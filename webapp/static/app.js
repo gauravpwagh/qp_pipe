@@ -579,12 +579,16 @@ function renderQuestion(qNumber) {
   // both still render; the table is just shown alongside them for a
   // cleaner read than the flattened OCR text alone.
   const isPairedTable = currentQuestion.question_type === "paired_table" && currentQuestion.table;
+  const isGridTable = currentQuestion.question_type === "grid_table" && currentQuestion.table && currentQuestion.table.rows;
   const stemEl = document.getElementById("question-stem");
   // the raw OCR'd stem for match-the-list questions is just the jumbled
   // List/Code text the table below already presents cleanly - showing both
   // is confusing, so hide the raw version once we have a real table.
   stemEl.hidden = isMatchList;
   document.getElementById("insert-row").hidden = isMatchList && !isListOnly;
+  const afterTableEl = document.getElementById("stem-after-table");
+  afterTableEl.hidden = !isGridTable;
+  if (isGridTable) setEditableHtml(afterTableEl, currentQuestion.stem_after_table_html);
   closeFormulaPopover();
   setEditableHtml(stemEl, currentQuestion.question_stem_html);
 
@@ -596,7 +600,8 @@ function renderQuestion(qNumber) {
     tableBlock.hidden = false;
     tableBlock.innerHTML = renderMatchListTable(currentQuestion.table);
   } else {
-    tableBlock.hidden = !isPairedTable && !isListOnly;
+    tableBlock.hidden = !isPairedTable && !isListOnly && !isGridTable;
+    if (isGridTable) renderGridTable(tableBlock, currentQuestion.table);
     if (isPairedTable) tableBlock.innerHTML = renderPairedTable(currentQuestion.table);
     if (isListOnly) tableBlock.innerHTML = renderMatchListTable(currentQuestion.table);
     optionsBlock.hidden = false;
@@ -793,6 +798,45 @@ function updateMatchListCode(rowIndex, colIndex, value) {
 // A "Read the following pairs :" style table (src/paired_table.py) - two
 // labelled columns, one row per Roman numeral, embedded in the stem
 // rather than replacing it like match_the_list's table does.
+// A ruled table (src/grid_table.py): editable cells, with the merged cells'
+// row/column spans kept. `table` = {header, rows: [[{html, rs, cs}, ...], ...]}.
+function renderGridTable(container, table) {
+  container.innerHTML = "";
+  const controls = document.createElement("label");
+  controls.className = "grid-table-controls";
+  const headerBox = document.createElement("input");
+  headerBox.type = "checkbox";
+  headerBox.checked = !!table.header;
+  headerBox.addEventListener("change", () => {
+    table.header = headerBox.checked;
+    renderGridTable(container, table);
+    scheduleFieldSave("table_header", () => saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table }));
+  });
+  controls.append(headerBox, " First row is a header");
+
+  const tableEl = document.createElement("table");
+  tableEl.className = "grid-table";
+  (table.rows || []).forEach((row, r) => {
+    const tr = document.createElement("tr");
+    row.forEach((cell, c) => {
+      const el = document.createElement(table.header && r === 0 ? "th" : "td");
+      if (cell.rs > 1) el.rowSpan = cell.rs;
+      if (cell.cs > 1) el.colSpan = cell.cs;
+      el.contentEditable = "true";
+      el.innerHTML = cell.html || "";
+      el.addEventListener("input", () => {
+        cell.html = el.innerHTML;
+        scheduleFieldSave(`table_cell_${r}_${c}`, () =>
+          saveQuestionField(currentQuestion.q_number, { table: currentQuestion.table })
+        );
+      });
+      tr.appendChild(el);
+    });
+    tableEl.appendChild(tr);
+  });
+  container.append(controls, tableEl);
+}
+
 function renderPairedTable(table) {
   const headers = table.headers || ["", ""];
   const rows = table.rows || [];
@@ -926,12 +970,13 @@ document.getElementById("question-number-input").addEventListener("change", asyn
 });
 
 // ---- change question type ----
-const TABLE_QUESTION_TYPES = ["match_the_list", "paired_table"];
+const TABLE_QUESTION_TYPES = ["match_the_list", "paired_table", "grid_table"];
 
 function tableFitsType(type, table) {
   if (!table) return false;
   if (type === "match_the_list") return "list1" in table && "list2" in table;
   if (type === "paired_table") return "headers" in table && "rows" in table;
+  if (type === "grid_table") return "header" in table && "rows" in table;
   return false;
 }
 
@@ -942,7 +987,16 @@ document.getElementById("question-type-select").addEventListener("change", async
   if (!q || newType === q.question_type) return;
 
   const hasTable = q.table && Object.keys(q.table).length > 0;
-  if (hasTable && !tableFitsType(newType, q.table)) {
+  if (newType === "grid_table" && !tableFitsType(newType, q.table)) {
+    if (
+      !confirm(
+        "Change this question to a Grid table? The table is detected from the image, and the stem, the text below the table and the options are rebuilt around it - any manual edits to them will be lost."
+      )
+    ) {
+      select.value = q.question_type;
+      return;
+    }
+  } else if (hasTable && !tableFitsType(newType, q.table)) {
     const what = TABLE_QUESTION_TYPES.includes(newType) ? "rebuilt from the image" : "removed";
     if (!confirm(`Change this question's type? Its current table will be ${what} - any manual edits to it will be lost.`)) {
       select.value = q.question_type;
@@ -1018,6 +1072,7 @@ function initEditableFields() {
   const bindings = [
     { id: "question-stem", field: "question_stem_html", key: "stem" },
     { id: "passage-text", field: "passage_text_html", key: "passage" },
+    { id: "stem-after-table", field: "stem_after_table_html", key: "stem_after" },
   ];
   for (const { id, field, key } of bindings) {
     const el = document.getElementById(id);

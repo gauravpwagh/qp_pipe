@@ -249,13 +249,13 @@ Each question in the `questions` array:
 | field | meaning |
 |---|---|
 | `q_number`, `page` | 1..N (editable per question from the Review UI - must stay unique; renumbering re-sorts the list and updates each instruction's covered range); source PDF page |
-| `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list`, `paired_table` - the pipeline's guess; changeable per question from the Review UI's type dropdown (switching to a table type builds its table from the crop, switching away drops it) |
+| `question_type` | `standard`, `para_jumble`, `sentence_relation`, `comprehension`, `match_the_list`, `paired_table`, `grid_table` - the pipeline's guess; changeable per question from the Review UI's type dropdown (switching to a table type builds its table from the crop, switching away drops it) |
 | `image` | path (relative to the paper's folder) to the cropped question image |
 | `image_regions` | `null` until the Review UI's "Edit image" tool is used on this question, then `{page, boxes: [[x0,y0,x1,y1], ...]}` in source-page pixel coordinates - the last manually-drawn crop, reloaded to pre-fill the editor next time; optionally also `marks: [{id, type: "formula"\|"chemistry"\|"diagram", box, latex?, file?}]` - see "Formulas, chemistry and diagrams" below |
 | `instruction_id` | `null`, or the `instructions` entry this question shares a Directions block with |
 | `passage_label`, `passage_text_html`, `question_stem_html` | OCR'd text; underlined words wrapped `<u>word</u>` |
 | `options` | `{a, b, c, d}` option text (empty/unused for `match_the_list` with a Code grid; filled as usual for one without) |
-| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`; `code_table` is `null` when the question has no Code grid and instead ordinary text answers, and either list may be labelled I-IV, A-D or 1-4); for `paired_table`: `{headers: [left, right], rows: [{label, col1, col2}, ...]}` (see `src/paired_table.py`); else `null` |
+| `table` | for `match_the_list`: `{list1, list2, code_table}` (see `src/match_list.py`; `code_table` is `null` when the question has no Code grid and instead ordinary text answers, and either list may be labelled I-IV, A-D or 1-4); for `paired_table`: `{headers: [left, right], rows: [{label, col1, col2}, ...]}` (see `src/paired_table.py`); for `grid_table`: `{header: bool, rows: [[{html, rs, cs}, ...], ...]}` (see `src/grid_table.py`; each row lists only the cells that start in it, `rs`/`cs` are row/column spans); else `null` |
 | `ocr_confidence`, `needs_review`, `review_reason` | as in the CSV schema below |
 | `user_answer`, `explanation_html`, `tags` | filled in by the review UI - `null`/`""`/`[]` until then |
 
@@ -378,6 +378,19 @@ Edit-image modal shows the corrected LaTeX.
   numeral row labels, not a keyword), so a plain vertical list of
   statements ("Consider the following: I. ... II. ...") is correctly left
   alone as a standard question.
+- **Ruled ("all borders drawn") tables** (`src/grid_table.py`) are built on
+  request: choose **Grid table** in the question's type dropdown (or Reprocess a
+  question already of that type). The ruling lines are found with OpenCV, giving
+  the rows and columns (a missing separator between two cells means a merged
+  cell, kept as a row/column span); the table is OCR'd once and each word goes to
+  the cell holding its centre, with words that cross a border re-read segment by
+  segment. The text above the table is the stem, the text below it (before the
+  options) is `stem_after_table_html`, and the options are the usual (a)-(d).
+  Cells are editable in the review pane. Never done automatically by the one-go
+  pipeline - it needs the ruling lines to be reasonably intact (a badly broken or
+  strongly tilted scan can miss lines or merge cells wrongly; those cases are
+  flagged for review), and a table split across a column or page break is not
+  handled.
 - **Spotting-errors-style questions** (a sentence divided into labelled
   segments, "No error" as a possible answer) weren't part of the original
   layout survey and aren't specially parsed - they'll come through with

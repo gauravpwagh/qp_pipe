@@ -436,3 +436,9 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .formula-popover-actions { display: flex; align-items: center; gap: 6px; }
 .formula-popover-actions .spacer { flex: 1; }
 .formula-popover-actions button { padding: 6px 12px; font-size: 12px; }
+
+.grid-table { border-collapse: collapse; width: 100%; font-size: 13px; margin-bottom: 8px; }
+.grid-table th, .grid-table td { border: 1px solid var(--border); padding: 6px 8px; text-align: left; vertical-align: top; }
+.grid-table th { background: #f0f2f5; }
+.grid-table [contenteditable="true"]:focus { background: var(--accent-bg); outline: 1px dashed var(--accent); }
+.grid-table-controls { display: flex; align-items: center; gap: 6px; font-size: 12px; color: var(--muted); margin-bottom: 6px; }

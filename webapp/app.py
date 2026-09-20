@@ -22,7 +22,13 @@ from src import latex_ocr, screenshot_stitch
 from src import marks as marks_mod
 from src.instructions import extract_instructions
 from src.pipeline import crop_and_stack_regions
-from src.reprocess import build_table, reprocess_instruction, reprocess_question, reprocess_with_marks
+from src.reprocess import (
+    build_table,
+    reprocess_grid_table,
+    reprocess_instruction,
+    reprocess_question,
+    reprocess_with_marks,
+)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 OUTPUT_DIR = BASE_DIR / "output"
@@ -661,8 +667,16 @@ def api_variant_vocab(variant_id):
     return jsonify(_read_vocab(variant_id))
 
 
-QUESTION_TYPES = ("standard", "para_jumble", "sentence_relation", "comprehension", "match_the_list", "paired_table")
-TABLE_TYPES = ("match_the_list", "paired_table")
+QUESTION_TYPES = (
+    "standard",
+    "para_jumble",
+    "sentence_relation",
+    "comprehension",
+    "match_the_list",
+    "paired_table",
+    "grid_table",
+)
+TABLE_TYPES = ("match_the_list", "paired_table", "grid_table")
 
 
 def _table_fits(question_type: str, table) -> bool:
@@ -672,6 +686,8 @@ def _table_fits(question_type: str, table) -> bool:
         return "list1" in table and "list2" in table
     if question_type == "paired_table":
         return "headers" in table and "rows" in table
+    if question_type == "grid_table":
+        return "header" in table and "rows" in table
     return False
 
 
@@ -693,6 +709,7 @@ def _change_question_type(paper_id: str, q_number: int, new_type):
         return jsonify(question)
 
     built = None
+    grid_built = None
     if new_type in TABLE_TYPES and not _table_fits(new_type, question.get("table")):
         if not question.get("image"):
             return jsonify({"error": "this question has no image to build a table from"}), 400
@@ -703,7 +720,12 @@ def _change_question_type(paper_id: str, q_number: int, new_type):
 
         try:
             with Image.open(image_path) as image:
-                built = build_table(image, new_type, q_number)
+                if new_type == "grid_table":
+                    grid_built = reprocess_grid_table(image, q_number)
+                else:
+                    built = build_table(image, new_type, q_number)
+        except ValueError as e:
+            return jsonify({"error": f"could not build the table: {e}"}), 400
         except Exception as e:
             return jsonify({"error": f"could not build the table: {e}"}), 500
 
@@ -715,12 +737,27 @@ def _change_question_type(paper_id: str, q_number: int, new_type):
         question["question_type"] = new_type
         if new_type not in TABLE_TYPES:
             question["table"] = None
+        elif grid_built is not None:
+            # the flattened table text sat in the stem - rebuild stem, table, text below it and options together
+            question["table"] = grid_built["table"]
+            question["question_stem_html"] = grid_built["question_stem_html"]
+            question["stem_after_table_html"] = grid_built["stem_after_table_html"]
+            question["options"] = grid_built["options"]
+            missing = [k for k, v in grid_built["options"].items() if not v]
+            problems = list(grid_built["problems"]) + ([f"missing option(s) {', '.join(missing)}"] if missing else [])
+            question["needs_review"] = bool(problems)
+            question["review_reason"] = "; ".join(problems)
         elif built is not None:
             table, problems = built
             question["table"] = table
             if problems:
                 question["needs_review"] = True
                 question["review_reason"] = "; ".join(filter(None, [question.get("review_reason")] + problems))
+        if new_type != "grid_table":
+            # leaving a grid table: its text below the table folds back into the stem
+            after = question.pop("stem_after_table_html", None)
+            if after:
+                question["question_stem_html"] = (question.get("question_stem_html") or "") + "<br><br>" + after
         _write_paper_atomic(paper_id, paper)
     return jsonify(question)
 
@@ -775,6 +812,7 @@ def api_update_question(paper_id, q_number):
         "tags",
         "topics",
         "question_stem_html",
+        "stem_after_table_html",
         "passage_text_html",
         "needs_review",
         "review_reason",

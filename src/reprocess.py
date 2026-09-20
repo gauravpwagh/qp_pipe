@@ -13,6 +13,7 @@ question or instruction - much simpler, no boundary detection needed, just
 import numpy as np
 from PIL import Image
 
+from .grid_table import deskew, find_grid, read_grid
 from .match_list import reconstruct as reconstruct_match_list
 from .ocr import Box, ocr_image
 from .paired_table import detect as detect_paired_table, reconstruct as reconstruct_paired_table
@@ -154,6 +155,39 @@ def build_table(image: Image.Image, question_type: str, q_number: int | None = N
     raise ValueError(f"{question_type!r} has no table")
 
 
+def reprocess_grid_table(image: Image.Image, q_number: int | None = None) -> dict:
+    """A question that holds a ruled table: builds the table (src/grid_table.py),
+    then reads the text around it with the table area blanked out - the text
+    above it is the stem, the text below it (before the options) goes in
+    stem_after_table_html, and the options are the usual (a)-(d). Raises
+    ValueError if the image has no ruled grid."""
+    # straightened first: a slightly rotated scan otherwise breaks the ruling lines apart
+    gray = deskew(np.array(image.convert("L")))
+    grid = find_grid(gray)
+    if grid is None:
+        raise ValueError("no ruled table (at least two horizontal and two vertical lines) was found in this image")
+    table, problems = read_grid(gray, grid)
+
+    x0, y0, x1, y1 = grid["bbox"]
+    pad = 8
+    masked = gray.copy()
+    masked[max(0, y0 - pad) : y1 + pad, max(0, x0 - pad) : x1 + pad] = int(np.percentile(gray, 90))
+    lines = order_page(ocr_image(masked), masked.shape[1])
+    for line in lines:
+        line.underlined_words = detect_underlined_words(masked, line)
+    above = [line for line in lines if line.y0 < y0]
+    below = [line for line in lines if line.y0 >= y0]
+    top = _split_stem_options(above, q_number)
+    rest = _split_stem_options(below, None)
+    return {
+        "table": table,
+        "problems": problems,
+        "question_stem_html": top["question_stem_html"],
+        "stem_after_table_html": rest["question_stem_html"],
+        "options": rest["options"],
+    }
+
+
 def reprocess_instruction(image: Image.Image) -> dict:
     """Returns {text_html}."""
     lines, _ = _ordered_lines(image)
@@ -183,6 +217,19 @@ def reprocess_question(image: Image.Image, question_type: str, q_number: int, ma
     that type's content, it never re-classifies the type itself (a fluke
     OCR read on a tight crop could otherwise flip a standard question into
     something else, a confusing side effect)."""
+    if question_type == "grid_table":
+        result = reprocess_grid_table(image, q_number)
+        missing = [k for k, v in result["options"].items() if not v]
+        problems = list(result["problems"]) + ([f"missing option(s) {', '.join(missing)}"] if missing else [])
+        return {
+            "table": result["table"],
+            "question_stem_html": result["question_stem_html"],
+            "stem_after_table_html": result["stem_after_table_html"],
+            "options": result["options"],
+            "needs_review": bool(problems),
+            "review_reason": "; ".join(problems),
+        }
+
     if question_type == "match_the_list":
         result = reprocess_match_list(image, q_number)
         problems = result["problems"]
