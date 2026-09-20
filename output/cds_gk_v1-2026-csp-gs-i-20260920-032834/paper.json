@@ -1566,11 +1566,11 @@
     {
       "q_number": 63,
       "page": 33,
-      "question_type": "paired_table",
+      "question_type": "grid_table",
       "image": "images/q_0063.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "With reference to the organisations under the Government of India, consider the following details SL. Organisation Function Controlling No. 1 Central Economic Union <u>Ministry</u> To coordinatel Ministry of between Home Intelligence various law Affairs Bureau <u>(CEIB)</u> enforcement agencies 2 Serious Fraud To Ministry of investigate Finance Investigation | complex Office (SFIO)  corporate 3 Central Bureau of frauds To preserve Ministry of values in Personnel, Investigation| public life (CBI) Public and ensure Grievances the health of and Pension the national <u>economy</u> In how many of the above rows are the given details correctly matched ?",
+      "question_stem_html": "With reference to the organisations under the Government of India, consider the following details",
       "options": {
         "a": "1",
         "b": "2",
@@ -1578,11 +1578,97 @@
         "d": "None"
       },
       "table": {
-        "headers": [
-          "",
-          ""
-        ],
-        "rows": []
+        "header": true,
+        "rows": [
+          [
+            {
+              "html": "SL. No.",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Organisation",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Function",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Controlling Union Ministry",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "1",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Central Economic Intelligence Bureau (CEIB)",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "To coordinate between various law enforcement agencies",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Ministry of Home Affairs",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "2 _",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Serious Fraud Investigation Office (SFIO)",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "To investigate complex corporate frauds",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Ministry of Finance",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "3",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Central Bureau of Investigation (CBI)",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "To preserve values in public life and ensure the health of the national economy",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Ministry of Personnel, Public Grievances and Pension",
+              "rs": 1,
+              "cs": 1
+            }
+          ]
+        ]
       },
       "has_underline": true,
       "ocr_confidence": 0.945,
@@ -1603,7 +1689,8 @@
             1983.146875
           ]
         ]
-      }
+      },
+      "stem_after_table_html": "In how many of the above rows are the given details correctly matched ?"
     },
     {
       "q_number": 64,
@@ -2788,11 +2875,11 @@
     {
       "q_number": 98,
       "page": 51,
-      "question_type": "paired_table",
+      "question_type": "grid_table",
       "image": "images/q_0098.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "With reference to different Committees in India, consider the following details Sl. Committee Objective No.| 1 RN. Organization under which it was formed Comprehensive Insurance Malhotra reforms of Regulatory Committee Insurance and sector in India Development Authority of India<br><br>2. L.C. Gupta Preparing a Securities Committee roadmap for and the Exchange introduction of | Board of derivatives India trading in India 3 Urjit R: Preparing a Patel Reserve roadmap for Bank of Committee |reforming bank India lending to the Housing sector YH Preparing a Reserve Malegam roadmap for Bank of Committee reforms in India Microfinance sector in India In which of the above rows are all the details correctly matched ?",
+      "question_stem_html": "With reference to different Committees in India, consider the following details",
       "options": {
         "a": "2 only",
         "b": "2 and 3",
@@ -2800,11 +2887,119 @@
         "d": "2 and 4"
       },
       "table": {
-        "headers": [
-          "",
-          ""
-        ],
-        "rows": []
+        "header": true,
+        "rows": [
+          [
+            {
+              "html": "SL. No.",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Committee",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Objective",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Organization under which it was formed",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "1.",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "RN. Malhotra Committee",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Comprehensive reforms of Insurance sector in India",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Insurance Regulatory and Development Authority of India",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "2\"",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "L.C. Gupta Committee",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Preparing a roadmap for the introduction of derivatives trading in India",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Securities and Exchange Board of India",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "3",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Urjit R. Patel Committee",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Preparing a roadmap for reform ing bank lending to the Housing sector",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Reserve Bank of India",
+              "rs": 1,
+              "cs": 1
+            }
+          ],
+          [
+            {
+              "html": "4.",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "YH Malegam Committee",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Preparing a roadmap for reforms in Microfinance sector in India",
+              "rs": 1,
+              "cs": 1
+            },
+            {
+              "html": "Reserve Bank of India",
+              "rs": 1,
+              "cs": 1
+            }
+          ]
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.901,
@@ -2814,7 +3009,8 @@
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "stem_after_table_html": "In which of the above rows are all the details correctly matched ?"
     },
     {
       "q_number": 99,
