@@ -446,3 +446,12 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .question-busy { display: flex; align-items: center; gap: 10px; padding: 10px 12px; margin-bottom: 10px; background: var(--accent-bg); border: 1px solid var(--accent); border-radius: 6px; font-size: 13px; }
 .question-busy .spinner { flex-shrink: 0; }
 #question-body-content.busy, #instruction-body.busy { opacity: 0.45; pointer-events: none; }
+
+.insert-row { flex-wrap: wrap; }
+.symbol-palette { position: fixed; z-index: 1200; width: 340px; max-width: calc(100vw - 16px); max-height: min(70vh, 460px); overflow-y: auto; background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); padding: 10px 12px; }
+.symbol-palette[hidden] { display: none; }
+.symbol-group-title { font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; margin: 8px 0 4px; }
+.symbol-group-title:first-child { margin-top: 0; }
+.symbol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 4px; }
+.symbol-grid button { padding: 4px 0; font-size: 16px; line-height: 1.2; background: #fafbfc; color: var(--text); border: 1px solid var(--border); border-radius: 6px; }
+.symbol-grid button:hover { background: var(--accent-bg); border-color: var(--accent); opacity: 1; }

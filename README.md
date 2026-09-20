@@ -342,7 +342,12 @@ diagram files.
 stem or an option to open a small editor (LaTeX box, live preview, Formula /
 Chemistry switch, Apply / Cancel / Delete); "Insert at cursor" adds a new one
 where the cursor is. Backspace/Delete on a token removes it as one unit.
-Changes save like typed text, and an edit to a token that came from a mark also
+The **Ω Symbols** button opens a palette of Greek letters and maths symbols
+(α β γ π θ ≤ ≥ ≠ ± × ÷ √ ∑ ∫ ∞ ° superscripts/subscripts …) inserted as plain
+Unicode at the cursor in the stem, an option, the text below a table, the
+passage or a table cell - the OCR model is English-only and can't produce
+these, so this is the quick way to put them back; recently used symbols come
+first. Changes save like typed text, and an edit to a token that came from a mark also
 updates the stored mark (`marks_update` on the question PATCH), so the
 Edit-image modal shows the corrected LaTeX.
 

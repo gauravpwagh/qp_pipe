@@ -590,6 +590,7 @@ function renderQuestion(qNumber) {
   afterTableEl.hidden = !isGridTable;
   if (isGridTable) setEditableHtml(afterTableEl, currentQuestion.stem_after_table_html);
   closeFormulaPopover();
+  closeSymbolPalette();
   setEditableHtml(stemEl, currentQuestion.question_stem_html);
 
   const optionsBlock = document.getElementById("options-block");
@@ -2213,6 +2214,144 @@ function initFormulaEditor() {
   });
 }
 
+// ---- symbol palette: Greek letters and maths symbols, inserted as plain Unicode ----
+// The OCR model is English-only and can't produce these (it drops or swaps them
+// for lookalikes), so this is the quick way to put them back. They are ordinary
+// text characters - no LaTeX - so they save and export like any other text.
+const SYMBOL_GROUPS = [
+  ["Greek", [["α", "alpha"], ["β", "beta"], ["γ", "gamma"], ["δ", "delta"], ["ε", "epsilon"], ["ζ", "zeta"], ["η", "eta"], ["θ", "theta"], ["λ", "lambda"], ["μ", "mu"], ["ν", "nu"], ["ξ", "xi"], ["π", "pi"], ["ρ", "rho"], ["σ", "sigma"], ["τ", "tau"], ["φ", "phi"], ["χ", "chi"], ["ψ", "psi"], ["ω", "omega"], ["Γ", "Gamma"], ["Δ", "Delta"], ["Θ", "Theta"], ["Λ", "Lambda"], ["Ξ", "Xi"], ["Π", "Pi"], ["Σ", "Sigma"], ["Φ", "Phi"], ["Ψ", "Psi"], ["Ω", "Omega"]]],
+  ["Relations", [["≤", "less than or equal"], ["≥", "greater than or equal"], ["≠", "not equal"], ["≈", "approximately"], ["≡", "identical / congruent"], ["∝", "proportional"], ["≪", "much less than"], ["≫", "much greater than"], ["<", "less than"], [">", "greater than"], ["∈", "element of"], ["∉", "not an element of"], ["⊂", "subset"], ["⊆", "subset or equal"], ["∪", "union"], ["∩", "intersection"], ["∅", "empty set"]]],
+  ["Operators", [["±", "plus or minus"], ["∓", "minus or plus"], ["×", "times"], ["÷", "divide"], ["−", "minus"], ["·", "dot"], ["√", "square root"], ["∛", "cube root"], ["∑", "sum"], ["∏", "product"], ["∫", "integral"], ["∂", "partial"], ["∇", "nabla"], ["∞", "infinity"], ["∴", "therefore"], ["∵", "because"], ["∀", "for all"], ["∃", "there exists"]]],
+  ["Arrows & logic", [["→", "right arrow"], ["←", "left arrow"], ["↔", "both ways"], ["⇒", "implies"], ["⇐", "implied by"], ["⇔", "if and only if"], ["↑", "up arrow"], ["↓", "down arrow"], ["⊥", "perpendicular"], ["∥", "parallel"], ["∠", "angle"], ["△", "triangle"]]],
+  ["Scripts", [["⁰", "superscript 0"], ["¹", "superscript 1"], ["²", "squared"], ["³", "cubed"], ["⁴", "superscript 4"], ["⁵", "superscript 5"], ["⁶", "superscript 6"], ["⁷", "superscript 7"], ["⁸", "superscript 8"], ["⁹", "superscript 9"], ["⁺", "superscript plus"], ["⁻", "superscript minus"], ["ⁿ", "superscript n"], ["₀", "subscript 0"], ["₁", "subscript 1"], ["₂", "subscript 2"], ["₃", "subscript 3"], ["₄", "subscript 4"], ["₅", "subscript 5"], ["₆", "subscript 6"], ["₇", "subscript 7"], ["₈", "subscript 8"], ["₉", "subscript 9"], ["ₓ", "subscript x"]]],
+  ["Units & misc", [["°", "degree"], ["′", "prime / minutes"], ["″", "double prime / seconds"], ["℃", "degrees Celsius"], ["Å", "angstrom"], ["µ", "micro"], ["Ω", "ohm"], ["%", "percent"], ["‰", "per mille"], ["½", "one half"], ["⅓", "one third"], ["¼", "one quarter"], ["¾", "three quarters"], ["‖", "norm / parallel"], ["•", "bullet"]]],
+];
+const SYMBOL_FIELDS = "#question-stem, .option-text, #stem-after-table, #passage-text, #table-block td, #table-block th";
+const RECENT_SYMBOLS_KEY = "qp.recentSymbols";
+let lastSymbolCaret = null; // {field, range}: the last cursor position inside any question-text field
+
+function symbolFieldOf(node) {
+  const el = node && (node.nodeType === Node.TEXT_NODE ? node.parentElement : node);
+  const field = el && el.closest ? el.closest(SYMBOL_FIELDS) : null;
+  return field && field.isContentEditable ? field : null;
+}
+
+function loadRecentSymbols() {
+  try {
+    const list = JSON.parse(localStorage.getItem(RECENT_SYMBOLS_KEY) || "[]");
+    return Array.isArray(list) ? list.filter((s) => typeof s === "string").slice(0, 12) : [];
+  } catch (err) {
+    return [];
+  }
+}
+
+function rememberSymbol(symbol) {
+  const recent = [symbol, ...loadRecentSymbols().filter((s) => s !== symbol)].slice(0, 12);
+  try {
+    localStorage.setItem(RECENT_SYMBOLS_KEY, JSON.stringify(recent));
+  } catch (err) {
+    /* storage unavailable - the palette just doesn't remember */
+  }
+}
+
+function insertSymbol(symbol) {
+  const selection = window.getSelection();
+  let field = symbolFieldOf(document.activeElement);
+  if (!field || !selection.rangeCount || !field.contains(selection.anchorNode)) {
+    // the field lost focus (e.g. the palette's own search/scroll) - go back to where the cursor was
+    if (lastSymbolCaret && lastSymbolCaret.field.isConnected && lastSymbolCaret.field.contains(lastSymbolCaret.range.startContainer)) {
+      field = lastSymbolCaret.field;
+      field.focus();
+      selection.removeAllRanges();
+      selection.addRange(lastSymbolCaret.range);
+    } else {
+      field = document.getElementById("question-stem");
+      if (!field || field.hidden) return;
+      field.focus();
+      const range = document.createRange();
+      range.selectNodeContents(field);
+      range.collapse(false);
+      selection.removeAllRanges();
+      selection.addRange(range);
+    }
+  }
+  // insertText keeps the browser's undo history and fires the field's normal
+  // "input" event, so the symbol saves exactly like typed text
+  document.execCommand("insertText", false, symbol);
+  rememberSymbol(symbol);
+}
+
+function closeSymbolPalette() {
+  const palette = document.getElementById("symbol-palette");
+  if (palette) palette.hidden = true;
+}
+
+function buildSymbolPalette() {
+  const palette = document.getElementById("symbol-palette");
+  palette.innerHTML = "";
+  const groups = [];
+  const recent = loadRecentSymbols();
+  if (recent.length) groups.push(["Recent", recent.map((s) => [s, "recently used"])]);
+  groups.push(...SYMBOL_GROUPS);
+  for (const [title, symbols] of groups) {
+    const heading = document.createElement("div");
+    heading.className = "symbol-group-title";
+    heading.textContent = title;
+    const grid = document.createElement("div");
+    grid.className = "symbol-grid";
+    for (const [symbol, name] of symbols) {
+      const btn = document.createElement("button");
+      btn.type = "button";
+      btn.textContent = symbol;
+      btn.title = `${symbol}  ${name}`;
+      // mousedown + preventDefault: keep the cursor in the field it inserts into
+      btn.addEventListener("mousedown", (e) => e.preventDefault());
+      btn.addEventListener("click", () => insertSymbol(symbol));
+      grid.appendChild(btn);
+    }
+    palette.append(heading, grid);
+  }
+}
+
+function toggleSymbolPalette() {
+  const palette = document.getElementById("symbol-palette");
+  if (!palette.hidden) {
+    closeSymbolPalette();
+    return;
+  }
+  closeFormulaPopover();
+  buildSymbolPalette();
+  palette.hidden = false;
+  const anchor = document.getElementById("insert-symbol-btn").getBoundingClientRect();
+  const w = palette.offsetWidth;
+  const h = palette.offsetHeight;
+  palette.style.left = `${Math.min(Math.max(8, anchor.left), Math.max(8, window.innerWidth - w - 8))}px`;
+  let top = anchor.bottom + 6;
+  if (top + h > window.innerHeight - 8) top = Math.max(8, window.innerHeight - h - 8);
+  palette.style.top = `${top}px`;
+}
+
+function initSymbolPalette() {
+  const btn = document.getElementById("insert-symbol-btn");
+  btn.addEventListener("mousedown", (e) => e.preventDefault());
+  btn.addEventListener("click", toggleSymbolPalette);
+
+  document.addEventListener("selectionchange", () => {
+    const selection = window.getSelection();
+    if (!selection || selection.rangeCount === 0) return;
+    const field = symbolFieldOf(selection.anchorNode);
+    if (field) lastSymbolCaret = { field, range: selection.getRangeAt(0).cloneRange() };
+  });
+  document.addEventListener("mousedown", (e) => {
+    const palette = document.getElementById("symbol-palette");
+    if (palette.hidden || palette.contains(e.target) || btn.contains(e.target)) return;
+    closeSymbolPalette();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSymbolPalette();
+  });
+}
+
 // ---- floating Bold/Underline toolbar for editable question-body text ----
 // Select some text inside the stem/directions/passage/options (all
 // contenteditable, see initEditableFields()) and a small toolbar pops up
@@ -2342,4 +2481,5 @@ initPaneCollapse();
 initImageEditor();
 initFormatToolbar();
 initFormulaEditor();
+initSymbolPalette();
 initReprocess();

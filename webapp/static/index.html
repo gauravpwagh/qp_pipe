@@ -115,6 +115,7 @@
                 <span>Insert:</span>
                 <button type="button" id="insert-formula-btn" title="Insert a LaTeX formula where the cursor is">&fnof;x Formula</button>
                 <button type="button" id="insert-chemistry-btn" title="Insert a chemical formula or reaction (mhchem) where the cursor is">Chemistry</button>
+                <button type="button" id="insert-symbol-btn" title="Insert a Greek letter or maths symbol (&alpha; &ge; &radic; ...) where the cursor is">&Omega; Symbols</button>
               </div>
               <div id="question-stem" class="question-stem"></div>
 
@@ -278,6 +279,8 @@
       </div>
     </div>
   </div>
+
+  <div id="symbol-palette" class="symbol-palette" hidden></div>
 
   <div id="formula-popover" class="formula-popover" hidden>
     <select id="formula-type" title="What this is">
