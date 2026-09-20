@@ -2788,18 +2788,24 @@
     {
       "q_number": 98,
       "page": 51,
-      "question_type": "standard",
+      "question_type": "paired_table",
       "image": "images/q_0098.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "With reference to different Committees in India, consider the following details Sl. Committee Objective Organization No. under which it was formed 1 RN. Comprehensive  Insurance Malhotra reforms of Regulatory Committee Insurance and sector in India Development Authority of India<br><br>2. L.C. Gupta Preparing a Securities Committee roadmap for and the Exchange introduction of Board of derivatives India trading in India 3 Urjit R. Preparing a Reserve Patel roadmap for Bank of Committee reforming bank India lending to the Housing sector YH Preparing a Reserve Malegam roadmap for Bank of Committee reforms in India Microfinance sector in India In which of the above rows are all the details correctly matched ?",
+      "question_stem_html": "With reference to different Committees in India, consider the following details Sl. Committee Objective No.| 1 RN. Organization under which it was formed Comprehensive Insurance Malhotra reforms of Regulatory Committee Insurance and sector in India Development Authority of India<br><br>2. L.C. Gupta Preparing a Securities Committee roadmap for and the Exchange introduction of | Board of derivatives India trading in India 3 Urjit R: Preparing a Patel Reserve roadmap for Bank of Committee |reforming bank India lending to the Housing sector YH Preparing a Reserve Malegam roadmap for Bank of Committee reforms in India Microfinance sector in India In which of the above rows are all the details correctly matched ?",
       "options": {
         "a": "2 only",
         "b": "2 and 3",
         "c": "1,3 and 4",
         "d": "2 and 4"
       },
-      "table": null,
+      "table": {
+        "headers": [
+          "",
+          ""
+        ],
+        "rows": []
+      },
       "has_underline": false,
       "ocr_confidence": 0.901,
       "needs_review": false,
