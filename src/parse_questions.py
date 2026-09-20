@@ -23,8 +23,14 @@ from .patterns import (
 from .reading_order import Line
 from .underline import mark_underlines_in_text
 
-FOOTER_Y_FRAC = 0.90  # lines starting below this fraction of page height are header/footer noise
+FOOTER_Y_FRAC = 0.90  # bare page-number lines starting below this fraction of page height are footer noise
+# A booklet-code / page-marker footer is distinctive enough to trust higher up the page - one booklet's
+# footer sits at ~89.5% of the page height, just above FOOTER_Y_FRAC, and dragged every last-in-column
+# question's crop down over it.
+FOOTER_CODE_Y_FRAC = 0.85
 PURE_NUMBER_RE = re.compile(r"^\d{1,4}$")
+# a booklet's page marker such as "( 5 - A )" (any dash variant)
+PAGE_MARKER_RE = re.compile(r"^\(?\s*\d{1,3}\s*[-\u2013\u2014_]\s*[A-Z]{1,2}\s*\)?$")
 
 # A stem often embeds its own numbered/lettered sub-statements (plain "1. ...",
 # para-jumble "S1: ..." fixed sentences, "P : ..." code-labelled sentences) and
@@ -53,6 +59,10 @@ def _starts_new_line(text: str) -> bool:
 # unlikely to land more than this far past the true expected number)
 # can't get mistaken for a legitimate new question.
 RESYNC_WINDOW = 10
+
+# How far right of its column's leftmost line a bare question number may sit
+# and still count as the question's own number (px; list numerals indent ~70px+).
+BARE_NUMBER_MARGIN_TOL = 30
 
 FIELD_NAMES = ("stem", "a", "b", "c", "d")
 
@@ -127,6 +137,7 @@ class Builder:
         self.forced_review_reason = ""
         self.start_y = 0.0
         self.start_kind = ""
+        self.start_line: Line | None = None
         self.suppress_options = False
         self.suppress_new_question = False
 
@@ -148,6 +159,14 @@ class Builder:
         the top of the next (same page) produces two, and the caller (image
         cropping) can render both instead of silently cutting one off."""
         groups: dict[tuple[int, str], list[Fragment]] = {}
+        if self.start_line is not None:
+            # The question's own number is often a separate line with no
+            # text of its own (so no Fragment) - without this, the crop starts
+            # at the stem and cuts the printed number off.
+            ln = self.start_line
+            groups.setdefault((ln.page, ln.kind), []).append(
+                Fragment("", ln.y0, ln.conf, frozenset(), ln.x0, ln.x1, ln.y1, ln.page, ln.kind)
+            )
         for frags in self.fields.values():
             for f in frags:
                 groups.setdefault((f.page, f.kind), []).append(f)
@@ -238,13 +257,14 @@ class Builder:
 
 
 def _is_footer(line: Line, page_height: float) -> bool:
-    if line.y0 < FOOTER_Y_FRAC * page_height:
-        return False
     text = line.text.strip()
-    if PURE_NUMBER_RE.match(text):
+    if line.y0 >= FOOTER_Y_FRAC * page_height and PURE_NUMBER_RE.match(text):
         return True
-    if len(text) <= 20 and "-" in text and text.upper() == text:
-        return True  # booklet code footer, e.g. "BFVS-F-GNE" / "A - BFVS-F-GNE"
+    if line.y0 >= FOOTER_CODE_Y_FRAC * page_height:
+        if PAGE_MARKER_RE.match(text):
+            return True
+        if len(text) <= 20 and re.search(r"[-\u2013\u2014]", text) and text.upper() == text:
+            return True  # booklet code footer, e.g. "BFVS-F-GNE" / "A - BFVS-F-GNE"
     return False
 
 
@@ -287,6 +307,7 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
         builder = Builder(q_number, page_num, current_directions, current_passage_label, current_passage_text)
         builder.start_y = line.y0
         builder.start_kind = line.kind
+        builder.start_line = line
         if directions_remaining is not None:
             directions_remaining -= 1
             if directions_remaining <= 0:
@@ -306,12 +327,39 @@ def parse_document(pages: dict[int, tuple[list[Line], float]]) -> tuple[list[Que
 
     for page_num in sorted(pages.keys()):
         lines, page_height = pages[page_num]
-        for line in lines:
+        # Leftmost x of each column's lines - a question's own number sits at
+        # this margin, unlike an indented list numeral inside a stem.
+        column_margin: dict[str, float] = {}
+        for ln in lines:
+            column_margin[ln.kind] = min(ln.x0, column_margin.get(ln.kind, ln.x0))
+        for line_idx, line in enumerate(lines):
             if _is_footer(line, page_height):
                 continue
             text = line.text.strip()
             if not text:
                 continue
+
+            # A question number OCR'd with its period dropped ("1" instead of
+            # "1.") and set far enough from its text to be split into a line
+            # of its own matches neither pattern below. Accept it only when it
+            # is exactly the expected number, at its column's left margin, and
+            # the very next line starts on the same row with the question's
+            # own text - so an indented list numeral (or a stray digit in a
+            # table) can't pass for one.
+            if (
+                text.isdigit()
+                and int(text) == expected_num
+                and not (builder is not None and builder.suppress_new_question)
+                and line_idx + 1 < len(lines)
+                and line.x0 <= column_margin.get(line.kind, line.x0) + BARE_NUMBER_MARGIN_TOL
+            ):
+                nxt = lines[line_idx + 1]
+                nxt_text = nxt.text.strip()
+                if abs(nxt.y0 - line.y0) < 3 and nxt.x0 > line.x1 and nxt_text[:1].isupper():
+                    start_new_question(page_num, expected_num, "", line)
+                    builder.raw_lines.append(text)
+                    collecting = None
+                    continue
 
             # Loose fallback catches a question number OCR'd with its
             # trailing punctuation dropped entirely (e.g. "54 Which of the

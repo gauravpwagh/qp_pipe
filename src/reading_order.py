@@ -153,10 +153,15 @@ def classify_lines(lines: list[Line], page_width: float) -> None:
         width_frac = (line.x1 - line.x0) / page_width
         if width_frac > FULL_WIDTH_FRAC:
             line.kind = "FULL"
+        elif line.x0 >= RIGHT_EDGE_FRAC * page_width:
+            # Checked before the LEFT test: a narrow line that starts in the
+            # right column (e.g. a lone question number like "4." at ~49% of
+            # page width, seen on a booklet whose gutter sits left of centre)
+            # also ends before LEFT_EDGE_FRAC, and testing LEFT first filed
+            # it under the left column.
+            line.kind = "RIGHT"
         elif line.x1 <= LEFT_EDGE_FRAC * page_width:
             line.kind = "LEFT"
-        elif line.x0 >= RIGHT_EDGE_FRAC * page_width:
-            line.kind = "RIGHT"
         else:
             # centered but not wide enough to be "full" by area -> treat as
             # a standalone heading, safest to emit on its own
