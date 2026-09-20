@@ -455,3 +455,9 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .symbol-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(34px, 1fr)); gap: 4px; }
 .symbol-grid button { padding: 4px 0; font-size: 16px; line-height: 1.2; background: #fafbfc; color: var(--text); border: 1px solid var(--border); border-radius: 6px; }
 .symbol-grid button:hover { background: var(--accent-bg); border-color: var(--accent); opacity: 1; }
+
+.image-editor-pagenav { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; padding: 0 20px; margin: 0 0 8px; font-size: 13px; }
+.image-editor-pagenav button { padding: 4px 10px; font-size: 12px; }
+.image-editor-page-label { font-weight: 600; min-width: 140px; }
+.image-editor-allpages { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: 12px; }
+.page-chip { padding: 1px 7px; font-size: 11px; background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); border-radius: 10px; margin-left: 4px; }

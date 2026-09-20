@@ -241,12 +241,21 @@
         <button type="button" id="image-editor-close-btn" class="modal-close-btn" title="Close">&times;</button>
       </div>
       <p class="image-editor-hint">
-        Drag on the page below to mark this question's area. Draw more than one region for a question
-        split across a column break or the page - they'll be stacked into one image, in the order drawn.
+        Drag on the page below to mark this question's area. A question that continues in another
+        column or on another page: draw its first part, use Next page (or Prev page), and draw the rest -
+        every region is stacked into one image in the order you drew it.
         Then switch to Formula, Chemistry or Diagram and mark those areas inside it: formulas are read
         into LaTeX for you to check, diagrams are kept as pictures, and both are placed inline in the
         question text. Saving marks rebuilds the stem and options from the image.
       </p>
+      <div class="image-editor-pagenav">
+        <button type="button" id="image-editor-prev-page" class="secondary-btn">&larr; Prev page</button>
+        <span id="image-editor-page-label" class="image-editor-page-label"></span>
+        <button type="button" id="image-editor-next-page" class="secondary-btn">Next page &rarr;</button>
+        <label class="image-editor-allpages" title="Also step through the pages read as instructions, rough work or the other language">
+          <input type="checkbox" id="image-editor-all-pages"> Show all pages
+        </label>
+      </div>
       <div id="image-editor-mode" class="image-editor-mode" hidden>
         <span>Draw:</span>
         <label class="mode-crop"><input type="radio" name="ie-mode" value="crop" checked> Question area</label>

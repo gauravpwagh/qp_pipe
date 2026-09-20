@@ -231,6 +231,16 @@ def run_pipeline_json(
                 "explanation_html": "",
                 "tags": [],
                 "topics": [],
+                # the regions the crop above was cut from (one per page/column it
+                # spans), so the Edit-image modal opens on the automatic selection
+                "image_regions": {
+                    "regions": [
+                        {"page": int(bb.page), "box": [round(float(v), 1) for v in (bb.x0, bb.y0, bb.x1, bb.y1)]}
+                        for bb in bb_list
+                    ]
+                }
+                if bb_list
+                else None,
             }
         )
 
@@ -253,6 +263,9 @@ def run_pipeline_json(
         "source_pdf": "source.pdf" if (paper_dir_p / "source.pdf").exists() else None,
         "processed_at": datetime.now(timezone.utc).isoformat(),
         "total_questions": len(questions),
+        # pages the pipeline read as question content (not instructions/rough
+        # work/skipped-language pages) - the Edit-image modal's next/prev page
+        "content_pages": sorted(content_pages),
         "qa": {
             "sequence_ok": not warnings,
             "warnings": warnings,

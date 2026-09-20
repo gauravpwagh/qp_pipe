@@ -1531,12 +1531,14 @@ function initPaneCollapse() {
   });
 }
 
-// ---- Edit image: redraw a question's crop region(s) from the full page ----
-// Opens the question's full source page in a modal; the user drags one or
-// more rectangles marking the true area(s) (a question split across a
-// column break or the page needs more than one), Save re-crops server-side
+// ---- Edit image: redraw a question's crop region(s) from the full page(s) ----
+// Opens the question's source page in a modal; the user drags one or more
+// rectangles marking the true area(s), Save re-crops server-side
 // (src/pipeline.py's crop_and_stack_regions, the same stacking logic the
-// pipeline itself uses) and overwrites the question's image.
+// pipeline itself uses) and overwrites the question's image. A question or
+// instruction can run onto another page (or column): every region carries its
+// own page, prev/next page buttons move between pages, and the regions are
+// stacked into one image in the order they were drawn.
 //
 // For a question, the user can also mark formula / chemistry / diagram areas
 // inside those regions (src/marks.py): a formula is read into editable LaTeX
@@ -1559,6 +1561,10 @@ function initImageEditor() {
   const modeEl = document.getElementById("image-editor-mode");
   const marksSection = document.getElementById("image-editor-marks-section");
   const markListEl = document.getElementById("image-editor-mark-list");
+  const prevPageBtn = document.getElementById("image-editor-prev-page");
+  const nextPageBtn = document.getElementById("image-editor-next-page");
+  const pageLabelEl = document.getElementById("image-editor-page-label");
+  const allPagesBox = document.getElementById("image-editor-all-pages");
 
   const MAX_W = 900;
   const MAX_H = 640;
@@ -1569,10 +1575,13 @@ function initImageEditor() {
     diagram: { color: "#d97706", tag: "D", name: "Diagram" },
   };
 
-  let pageImage = null; // HTMLImageElement, the full source page
+  const pageImages = new Map(); // page number -> loaded HTMLImageElement
+  let pageList = []; // the pages prev/next walk, ascending
+  let currentPage = null;
+  let targetPage = null; // the question's own page - where the editor starts if nothing is stored
   let displayScale = 1;
-  let regions = []; // [{x,y,w,h}], SOURCE-page pixel coords, in draw order
-  let marks = []; // [{id,type,x,y,w,h,latex,busy,error}], same coords
+  let regions = []; // [{page,x,y,w,h}], SOURCE-page pixel coords, in draw (= stacking) order
+  let marks = []; // [{id,type,page,x,y,w,h,latex,busy,error}], same coords
   let markSeq = 0;
   let hadMarks = false; // the question already had marks when the editor opened
   let mode = "crop";
@@ -1613,10 +1622,82 @@ function initImageEditor() {
     return null;
   }
 
+  // Stored regions come in two shapes: {regions: [{page, box}], marks} and, for
+  // a job edited before question text could span pages, {page, boxes, marks}.
+  function normalizeStored(ir) {
+    if (!ir) return { regions: [], marks: [] };
+    if (Array.isArray(ir.regions)) return { regions: ir.regions, marks: ir.marks || [] };
+    return {
+      regions: (ir.boxes || []).map((box) => ({ page: ir.page, box })),
+      marks: (ir.marks || []).map((m) => ({ ...m, page: m.page ?? ir.page })),
+    };
+  }
+
   function pageImageUrl(page) {
     const pageNum = String(page).padStart(3, "0");
     return `/api/papers/${currentPaper.paper_id}/page_images/page_${pageNum}.png`;
   }
+
+  function loadPageImage(page) {
+    if (pageImages.has(page)) return Promise.resolve(pageImages.get(page));
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.onload = () => {
+        pageImages.set(page, img);
+        resolve(img);
+      };
+      img.onerror = () => reject(new Error(`Could not load the image of page ${page}.`));
+      img.src = pageImageUrl(page);
+    });
+  }
+
+  // The pages the prev/next buttons walk: the pages the pipeline read as
+  // content when it recorded them (so a bilingual booklet's Hindi pages and
+  // the rough-work pages are skipped), else every page image; "Show all pages"
+  // widens it, and any page already holding a region or mark is always in it.
+  function computePageList() {
+    const available = currentPaper.available_pages || [];
+    const content = currentPaper.content_pages;
+    const base = allPagesBox.checked || !content || !content.length ? available : content;
+    // the page being looked at stays reachable even if "Show all pages" was just unticked
+    const used = [targetPage, currentPage, ...regions.map((r) => r.page), ...marks.map((m) => m.page)];
+    pageList = [...new Set([...base, ...used])].filter((p) => Number.isInteger(p)).sort((a, b) => a - b);
+  }
+
+  function updatePageNav() {
+    const idx = pageList.indexOf(currentPage);
+    prevPageBtn.disabled = idx <= 0;
+    nextPageBtn.disabled = idx === -1 || idx >= pageList.length - 1;
+    const here = regions.filter((r) => r.page === currentPage).length;
+    pageLabelEl.textContent = `Page ${currentPage}` + (here ? ` (${here} region${here > 1 ? "s" : ""} here)` : "");
+  }
+
+  async function showPage(page) {
+    try {
+      const img = await loadPageImage(page);
+      currentPage = page;
+      displayScale = Math.min(1, MAX_W / img.naturalWidth, MAX_H / img.naturalHeight);
+      canvas.width = Math.round(img.naturalWidth * displayScale);
+      canvas.height = Math.round(img.naturalHeight * displayScale);
+      redraw();
+      updatePageNav();
+    } catch (err) {
+      errorEl.textContent = err.message;
+      errorEl.hidden = false;
+    }
+  }
+
+  function stepPage(delta) {
+    const idx = pageList.indexOf(currentPage);
+    const next = pageList[idx + delta];
+    if (next !== undefined) showPage(next);
+  }
+  prevPageBtn.addEventListener("click", () => stepPage(-1));
+  nextPageBtn.addEventListener("click", () => stepPage(1));
+  allPagesBox.addEventListener("change", () => {
+    computePageList();
+    updatePageNav();
+  });
 
   function setMode(newMode) {
     mode = newMode;
@@ -1627,7 +1708,7 @@ function initImageEditor() {
     if (e.target && e.target.name === "ie-mode") mode = e.target.value;
   });
 
-  function openEditor() {
+  async function openEditor() {
     const target = getEditTarget();
     if (!target || !target.page) return;
     errorEl.hidden = true;
@@ -1636,45 +1717,47 @@ function initImageEditor() {
     marks = [];
     markSeq = 0;
     hadMarks = false;
+    targetPage = target.page;
+    allPagesBox.checked = false;
     setMode("crop");
     modeEl.hidden = !target.supportsMarks;
     marksSection.hidden = !target.supportsMarks;
-    // Reuse the last manual selection as a starting point, but only if it
-    // was drawn on this same page - otherwise start blank.
-    if (target.imageRegions && target.imageRegions.page === target.page) {
-      regions = target.imageRegions.boxes.map(([x0, y0, x1, y1]) => ({ x: x0, y: y0, w: x1 - x0, h: y1 - y0 }));
-      if (target.supportsMarks) {
-        marks = (target.imageRegions.marks || []).map((m) => {
-          const [x0, y0, x1, y1] = m.box;
-          const n = parseInt(String(m.id).replace(/\D/g, ""), 10);
-          if (Number.isFinite(n)) markSeq = Math.max(markSeq, n);
-          return { id: m.id, type: m.type, x: x0, y: y0, w: x1 - x0, h: y1 - y0, latex: m.latex || "", busy: false, error: "" };
-        });
-        hadMarks = marks.length > 0;
-      }
+
+    const stored = normalizeStored(target.imageRegions);
+    regions = stored.regions.map((r) => {
+      const [x0, y0, x1, y1] = r.box;
+      return { page: r.page, x: x0, y: y0, w: x1 - x0, h: y1 - y0 };
+    });
+    if (target.supportsMarks) {
+      marks = stored.marks.map((m) => {
+        const [x0, y0, x1, y1] = m.box;
+        const n = parseInt(String(m.id).replace(/\D/g, ""), 10);
+        if (Number.isFinite(n)) markSeq = Math.max(markSeq, n);
+        return { id: m.id, type: m.type, page: m.page, x: x0, y: y0, w: x1 - x0, h: y1 - y0, latex: m.latex || "", busy: false, error: "" };
+      });
+      hadMarks = marks.length > 0;
     }
-    const img = new Image();
-    img.onload = () => {
-      pageImage = img;
-      displayScale = Math.min(1, MAX_W / img.naturalWidth, MAX_H / img.naturalHeight);
-      canvas.width = Math.round(img.naturalWidth * displayScale);
-      canvas.height = Math.round(img.naturalHeight * displayScale);
-      redraw();
-      renderRegionList();
-      renderMarkList();
-      overlay.hidden = false;
-    };
-    img.onerror = () => {
-      errorEl.textContent = "Could not load this question's page image.";
+
+    computePageList();
+    const startPage = regions.length ? regions[0].page : targetPage;
+    try {
+      // every page holding a region or mark must be loaded up front: the
+      // preview and the mark thumbnails draw from them
+      await Promise.all([...new Set([startPage, ...regions.map((r) => r.page), ...marks.map((m) => m.page)])].map(loadPageImage));
+    } catch (err) {
+      errorEl.textContent = err.message;
       errorEl.hidden = false;
       overlay.hidden = false;
-    };
-    img.src = pageImageUrl(target.page);
+      return;
+    }
+    await showPage(startPage);
+    renderRegionList();
+    renderMarkList();
+    overlay.hidden = false;
   }
 
   function closeEditor() {
     overlay.hidden = true;
-    pageImage = null;
   }
 
   function drawBox(r, label, color) {
@@ -1700,10 +1783,17 @@ function initImageEditor() {
   }
 
   function redraw(dragRect) {
+    const img = pageImages.get(currentPage);
+    if (!img) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(pageImage, 0, 0, canvas.width, canvas.height);
-    regions.forEach((r, i) => drawBox(r, i + 1, MODE_STYLE.crop.color));
-    marks.forEach((m) => drawBox(m, markLabel(m), MODE_STYLE[m.type].color));
+    ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+    // numbered by draw order across ALL pages - that is the stacking order
+    regions.forEach((r, i) => {
+      if (r.page === currentPage) drawBox(r, i + 1, MODE_STYLE.crop.color);
+    });
+    marks.forEach((m) => {
+      if (m.page === currentPage) drawBox(m, markLabel(m), MODE_STYLE[m.type].color);
+    });
     if (dragRect) {
       const label = mode === "crop" ? regions.length + 1 : `${MODE_STYLE[mode].tag}+`;
       drawBox(dragRect, label, mode === "crop" ? "#059669" : MODE_STYLE[mode].color);
@@ -1725,7 +1815,7 @@ function initImageEditor() {
     dragStart = canvasPoint(e);
   });
   canvas.addEventListener("mousemove", (e) => {
-    if (!dragStart || !pageImage) return;
+    if (!dragStart || !pageImages.get(currentPage)) return;
     const cur = canvasPoint(e);
     const x0 = Math.min(dragStart.x, cur.x);
     const y0 = Math.min(dragStart.y, cur.y);
@@ -1734,7 +1824,7 @@ function initImageEditor() {
     redraw({ x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale });
   });
   window.addEventListener("mouseup", (e) => {
-    if (!dragStart || !pageImage || overlay.hidden) {
+    if (!dragStart || !pageImages.get(currentPage) || overlay.hidden) {
       dragStart = null;
       return;
     }
@@ -1748,10 +1838,11 @@ function initImageEditor() {
       redraw(); // an accidental click/tiny drag - not a real region
       return;
     }
-    const rect = { x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale };
+    const rect = { page: currentPage, x: x0 / displayScale, y: y0 / displayScale, w: (x1 - x0) / displayScale, h: (y1 - y0) / displayScale };
     if (mode === "crop") {
       regions.push(rect);
       redraw();
+      updatePageNav();
       renderRegionList();
       renderMarkList();
     } else {
@@ -1759,15 +1850,16 @@ function initImageEditor() {
     }
   });
 
+  // a mark belongs to a region on its own page
   function insideSomeRegion(r) {
     const cx = r.x + r.w / 2;
     const cy = r.y + r.h / 2;
-    return regions.some((g) => cx >= g.x && cx <= g.x + g.w && cy >= g.y && cy <= g.y + g.h);
+    return regions.some((g) => g.page === r.page && cx >= g.x && cx <= g.x + g.w && cy >= g.y && cy <= g.y + g.h);
   }
 
   function addMark(type, rect) {
     if (!insideSomeRegion(rect)) {
-      errorEl.textContent = "Draw the question's area first (Question area), then mark formulas, chemistry and diagrams inside it.";
+      errorEl.textContent = "Draw the question's area on this page first (Question area), then mark formulas, chemistry and diagrams inside it.";
       errorEl.hidden = false;
       redraw();
       return;
@@ -1783,8 +1875,6 @@ function initImageEditor() {
   }
 
   async function convertMark(mark) {
-    const target = getEditTarget();
-    if (!target) return;
     mark.busy = true;
     mark.error = "";
     renderMarkList();
@@ -1792,7 +1882,7 @@ function initImageEditor() {
       const res = await fetch(`/api/papers/${currentPaper.paper_id}/latex_region`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ page: target.page, box: [mark.x, mark.y, mark.x + mark.w, mark.y + mark.h] }),
+        body: JSON.stringify({ page: mark.page, box: [mark.x, mark.y, mark.x + mark.w, mark.y + mark.h] }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "could not read the formula");
@@ -1811,13 +1901,21 @@ function initImageEditor() {
       const row = document.createElement("div");
       row.className = "image-editor-region-row";
       const label = document.createElement("span");
-      label.textContent = `Region ${i + 1}`;
+      label.textContent = `Region ${i + 1} `;
+      const pageBtn = document.createElement("button");
+      pageBtn.type = "button";
+      pageBtn.className = "page-chip";
+      pageBtn.textContent = `page ${r.page}`;
+      pageBtn.title = "Go to this page";
+      pageBtn.addEventListener("click", () => showPage(r.page));
+      label.appendChild(pageBtn);
       const removeBtn = document.createElement("button");
       removeBtn.type = "button";
       removeBtn.textContent = "Remove";
       removeBtn.addEventListener("click", () => {
         regions.splice(i, 1);
         redraw();
+        updatePageNav();
         renderRegionList();
         renderMarkList();
       });
@@ -1833,7 +1931,8 @@ function initImageEditor() {
     const scale = Math.min(1, 240 / Math.max(1, m.w), 90 / Math.max(1, m.h));
     c.width = Math.max(1, Math.round(m.w * scale));
     c.height = Math.max(1, Math.round(m.h * scale));
-    c.getContext("2d").drawImage(pageImage, m.x, m.y, m.w, m.h, 0, 0, c.width, c.height);
+    const img = pageImages.get(m.page);
+    if (img) c.getContext("2d").drawImage(img, m.x, m.y, m.w, m.h, 0, 0, c.width, c.height);
     c.className = "mark-thumb";
     return c;
   }
@@ -1854,7 +1953,14 @@ function initImageEditor() {
       const head = document.createElement("div");
       head.className = "mark-row-head";
       const title = document.createElement("span");
-      title.textContent = `${MODE_STYLE[m.type].name} ${markLabel(m)}`;
+      title.textContent = `${MODE_STYLE[m.type].name} ${markLabel(m)} `;
+      const pageBtn = document.createElement("button");
+      pageBtn.type = "button";
+      pageBtn.className = "page-chip";
+      pageBtn.textContent = `page ${m.page}`;
+      pageBtn.title = "Go to this page";
+      pageBtn.addEventListener("click", () => showPage(m.page));
+      title.appendChild(pageBtn);
       const removeBtn = document.createElement("button");
       removeBtn.type = "button";
       removeBtn.textContent = "Remove";
@@ -1869,7 +1975,7 @@ function initImageEditor() {
       if (!insideSomeRegion(m)) {
         const warn = document.createElement("div");
         warn.className = "error";
-        warn.textContent = "Outside every question area - move or remove it.";
+        warn.textContent = "Outside every question area on its page - move or remove it.";
         row.appendChild(warn);
       }
 
@@ -1930,7 +2036,7 @@ function initImageEditor() {
   }
 
   function renderPreview() {
-    if (!regions.length || !pageImage) {
+    if (!regions.length || regions.some((r) => !pageImages.get(r.page))) {
       previewEl.innerHTML = `<div class="image-editor-preview-empty">Draw at least one region to preview.</div>`;
       return;
     }
@@ -1946,7 +2052,7 @@ function initImageEditor() {
     cctx.fillRect(0, 0, width, height);
     let y = 0;
     for (const crop of crops) {
-      cctx.drawImage(pageImage, crop.r.x, crop.r.y, crop.w, crop.h, 0, y, crop.w, crop.h);
+      cctx.drawImage(pageImages.get(crop.r.page), crop.r.x, crop.r.y, crop.w, crop.h, 0, y, crop.w, crop.h);
       y += crop.h + gap;
     }
     previewEl.innerHTML = "";
@@ -1959,6 +2065,7 @@ function initImageEditor() {
     regions = [];
     marks = [];
     redraw();
+    updatePageNav();
     renderRegionList();
     renderMarkList();
   });
@@ -1984,12 +2091,12 @@ function initImageEditor() {
     saveBtn.disabled = true;
     statusEl.textContent = rebuildsText ? "Saving and rebuilding the text..." : "Saving...";
     errorEl.hidden = true;
-    const boxes = regions.map((r) => [r.x, r.y, r.x + r.w, r.y + r.h]);
-    const payload = { page: target.page, boxes };
+    const payload = { regions: regions.map((r) => ({ page: r.page, box: [r.x, r.y, r.x + r.w, r.y + r.h] })) };
     if (target.supportsMarks) {
       payload.marks = marks.map((m) => ({
         id: m.id,
         type: m.type,
+        page: m.page,
         box: [m.x, m.y, m.x + m.w, m.y + m.h],
         ...(m.type === "diagram" ? {} : { latex: m.latex.trim() }),
       }));

@@ -271,6 +271,12 @@ def api_paper_detail(paper_id):
     paper = _read_paper(paper_id)
     if paper is None:
         return jsonify({"error": "not found"}), 404
+    # which page images exist - the Edit-image modal walks these to reach a
+    # question's continuation on another page. Response only, never saved.
+    pages_dir = _paper_dir(paper_id) / "page_images"
+    paper["available_pages"] = (
+        sorted(int(p.stem.split("_")[1]) for p in pages_dir.glob("page_*.png")) if pages_dir.is_dir() else []
+    )
     return jsonify(paper)
 
 
@@ -322,27 +328,50 @@ def api_paper_page_image(paper_id, filename):
     return send_from_directory(_paper_dir(paper_id) / "page_images", filename)
 
 
+def _parse_regions(body: dict):
+    """The crop regions in a request body - the current {regions: [{page, box}]}
+    or the older single-page {page, boxes: [...]}. Returns (regions, None) or
+    (None, error_response)."""
+    if isinstance(body.get("regions"), list):
+        raw = body["regions"]
+    elif isinstance(body.get("boxes"), list) and isinstance(body.get("page"), int):
+        raw = [{"page": body["page"], "box": b} for b in body["boxes"]]
+    else:
+        raw = None
+    if not raw:
+        return None, (jsonify({"error": "expected {regions: [{page: int, box: [x0,y0,x1,y1]}, ...]}"}), 400)
+    regions = []
+    for r in raw:
+        page, box = (r.get("page"), r.get("box")) if isinstance(r, dict) else (None, None)
+        if not isinstance(page, int) or isinstance(page, bool):
+            return None, (jsonify({"error": "each region needs its page number"}), 400)
+        if not (isinstance(box, list) and len(box) == 4 and all(isinstance(v, (int, float)) for v in box)):
+            return None, (jsonify({"error": "each region box must be [x0,y0,x1,y1]"}), 400)
+        regions.append({"page": page, "box": [float(v) for v in box]})
+    return regions, None
+
+
+def _page_image_path(paper_id: str, page: int) -> Path:
+    return _paper_dir(paper_id) / "page_images" / f"page_{page:03d}.png"
+
+
 def _crop_regions_or_error(paper_id: str, body: dict):
-    """Shared by the question and instruction recrop routes: validate the
-    {page, boxes} body, load that page's stored image, and produce the
-    stacked crop. Returns (combined_image, None) on success or
-    (None, (response, status)) on failure."""
-    page = body.get("page")
-    boxes = body.get("boxes")
-    if not isinstance(page, int) or not isinstance(boxes, list) or not boxes:
-        return None, (jsonify({"error": "expected {page: int, boxes: [[x0,y0,x1,y1], ...]}"}), 400)
-    for b in boxes:
-        if not (isinstance(b, list) and len(b) == 4 and all(isinstance(v, (int, float)) for v in b)):
-            return None, (jsonify({"error": "each box must be [x0,y0,x1,y1]"}), 400)
-
-    page_image_path = _paper_dir(paper_id) / "page_images" / f"page_{page:03d}.png"
-    if not page_image_path.exists():
-        return None, (jsonify({"error": f"no stored page image for page {page}"}), 404)
-
-    combined = crop_and_stack_regions([(page_image_path, tuple(float(v) for v in b)) for b in boxes])
+    """Shared by the recrop routes: read the regions from the body, load each
+    one's stored page image, and produce the stacked crop. Returns
+    (combined_image, regions, None) on success or (None, None, (response, status))."""
+    regions, err = _parse_regions(body)
+    if err:
+        return None, None, err
+    crops = []
+    for r in regions:
+        path = _page_image_path(paper_id, r["page"])
+        if not path.exists():
+            return None, None, (jsonify({"error": f"no stored page image for page {r['page']}"}), 404)
+        crops.append((path, tuple(r["box"])))
+    combined = crop_and_stack_regions(crops)
     if combined is None:
-        return None, (jsonify({"error": "could not crop the given region(s)"}), 400)
-    return combined, None
+        return None, None, (jsonify({"error": "could not crop the given region(s)"}), 400)
+    return combined, regions, None
 
 
 @app.route("/api/papers/<paper_id>/latex_region", methods=["POST"])
@@ -351,7 +380,9 @@ def api_latex_region(paper_id):
     modal calls this as soon as a formula is drawn, so the user only has to
     check/correct the LaTeX)."""
     body = request.get_json(force=True, silent=True) or {}
-    crop, err = _crop_regions_or_error(paper_id, {"page": body.get("page"), "boxes": [body.get("box")]})
+    crop, _regions, err = _crop_regions_or_error(
+        paper_id, {"regions": [{"page": body.get("page"), "box": body.get("box")}]}
+    )
     if err:
         return err
     from PIL import ImageOps
@@ -381,13 +412,13 @@ def api_recrop_question(paper_id, q_number):
     rebuilt from the new crop as well - OCR with the marked areas masked out,
     each mark placed inline at its position."""
     body = request.get_json(force=True, silent=True) or {}
-    combined, err = _crop_regions_or_error(paper_id, body)
+    combined, regions, err = _crop_regions_or_error(paper_id, body)
     if err:
         return err
 
     clean_marks = None
     if body.get("marks") is not None:
-        clean_marks, mark_err = marks_mod.validate_marks(body["marks"], body["boxes"])
+        clean_marks, mark_err = marks_mod.validate_marks(body["marks"], regions)
         if mark_err:
             return jsonify({"error": mark_err}), 400
 
@@ -397,7 +428,7 @@ def api_recrop_question(paper_id, q_number):
     question = next((q for q in paper["questions"] if q["q_number"] == q_number), None)
     if question is None:
         return jsonify({"error": "question not found"}), 404
-    prev_marks = (question.get("image_regions") or {}).get("marks") or []
+    prev_marks = (marks_mod.normalize_image_regions(question.get("image_regions")) or {}).get("marks") or []
     rebuild = clean_marks is not None and (bool(clean_marks) or bool(prev_marks))
 
     rebuilt = None
@@ -405,18 +436,17 @@ def api_recrop_question(paper_id, q_number):
     if rebuild:
         from PIL import Image
 
-        page_path = _paper_dir(paper_id) / "page_images" / f"page_{body['page']:03d}.png"
         base = Path(question["image"]).stem if question.get("image") else f"q_{q_number:04d}"
         items = []
         try:
-            with Image.open(page_path) as page_img:
-                for m in clean_marks:
-                    if m["type"] == "diagram":
-                        m["file"] = f"images/diagrams/{base}_{m['id']}.png"
-                        x0, y0, x1, y1 = (int(round(v)) for v in m["box"])
+            for m in clean_marks:
+                if m["type"] == "diagram":
+                    m["file"] = f"images/diagrams/{base}_{m['id']}.png"
+                    x0, y0, x1, y1 = (int(round(v)) for v in m["box"])
+                    with Image.open(_page_image_path(paper_id, m["page"])) as page_img:
                         diagram_crops[m["file"]] = page_img.crop((x0, y0, x1, y1)).copy()
             for m in clean_marks:
-                items.append({"box": marks_mod.to_crop_box(m["box"], body["boxes"]), "html": marks_mod.token_html(m)})
+                items.append({"box": marks_mod.to_crop_box(m, regions), "html": marks_mod.token_html(m)})
             rebuilt = reprocess_with_marks(combined, q_number, items)
         except Exception as e:
             return jsonify({"error": f"could not rebuild the question text: {e}"}), 500
@@ -444,10 +474,10 @@ def api_recrop_question(paper_id, q_number):
         question["image"] = f"images/{rel_name}"
         # Remembered so re-opening the editor later starts from the last
         # manual selection instead of blank.
-        regions = {"page": body["page"], "boxes": body["boxes"]}
+        saved_regions = {"regions": regions}
         if clean_marks:
-            regions["marks"] = clean_marks
-        question["image_regions"] = regions
+            saved_regions["marks"] = clean_marks
+        question["image_regions"] = saved_regions
 
         if rebuild:
             question["question_stem_html"] = rebuilt["question_stem_html"]
@@ -499,11 +529,11 @@ def api_reprocess_question(paper_id, q_number):
         # A question with formula/diagram marks must be re-read with them
         # (masked out, placed inline) or Reprocess would wipe every token.
         mark_items = None
-        saved = question.get("image_regions") or {}
-        if saved.get("marks") and saved.get("boxes"):
+        saved = marks_mod.normalize_image_regions(question.get("image_regions"))
+        if saved and saved["marks"] and saved["regions"]:
             mark_items = []
             for m in saved["marks"]:
-                crop_box = marks_mod.to_crop_box(m["box"], saved["boxes"])
+                crop_box = marks_mod.to_crop_box(m, saved["regions"])
                 if crop_box is not None:
                     mark_items.append({"box": crop_box, "html": marks_mod.token_html(m)})
 
@@ -543,7 +573,7 @@ def api_update_instruction(paper_id, instruction_id):
 @app.route("/api/papers/<paper_id>/instructions/<instruction_id>/recrop", methods=["POST"])
 def api_recrop_instruction(paper_id, instruction_id):
     body = request.get_json(force=True, silent=True) or {}
-    combined, err = _crop_regions_or_error(paper_id, body)
+    combined, regions, err = _crop_regions_or_error(paper_id, body)
     if err:
         return err
 
@@ -564,7 +594,7 @@ def api_recrop_instruction(paper_id, instruction_id):
             return jsonify({"error": f"could not save the image (file busy, try again): {e}"}), 409
 
         inst["image"] = f"images/{rel_name}"
-        inst["image_regions"] = {"page": body["page"], "boxes": body["boxes"]}
+        inst["image_regions"] = {"regions": regions}
         _write_paper_atomic(paper_id, paper)
 
     return jsonify(inst)
@@ -851,7 +881,12 @@ def api_update_question(paper_id, q_number):
         if table_update:
             question["table"] = table_update
         if marks_update:
-            for m in (question.get("image_regions") or {}).get("marks") or []:
+            stored = question.get("image_regions")
+            if isinstance(stored, dict) and "regions" not in stored:
+                # an older single-page record: bring it to the current shape so the
+                # marks being updated (and their page) are written back consistently
+                stored = question["image_regions"] = marks_mod.normalize_image_regions(stored) or stored
+            for m in (stored or {}).get("marks") or []:
                 change = marks_update.get(m.get("id"))
                 if not isinstance(change, dict) or m.get("type") == "diagram":
                     continue
