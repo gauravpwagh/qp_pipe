@@ -1098,7 +1098,7 @@
       "image": "images/q_0043.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Public Interest Litigation (PIL)   is/are correct? 1: In  India, it adheres to the strict requirements imposed by the doctrine of locus standi:&nbsp;<div><br></div><div>2 Letters to judges may be treated as petitions.<br><br>3_ M. C Mehta vs Union of India was a PIL that expanded the scope of Article 21 and Article 32 of the Constitution of India:<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "Which of the following statements about Public Interest Litigation (PIL)   is/are correct? 1. In  India, it adheres to the strict requirements imposed by the doctrine of locus standi.<div>2. Letters to judges may be treated as petitions.</div><div>3. M. C Mehta vs Union of India was a PIL that expanded the scope of Article 21 and Article 32 of the Constitution of India:<br><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 , 2 and 3",
         "b": "2 and 3 only",
@@ -1185,7 +1185,7 @@
       "ocr_confidence": 0.852,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "d",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1309,7 +1309,7 @@
       "image": "images/q_0051.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following are a part of the basic features' of the Constitution of India as drawn from various decisions of the Supreme Court? 1 Effective access to justice 2 Rule of Law 3 Limitations upon the amending power under Article 368 Select the correct answer using the code given below",
+      "question_stem_html": "Which of the following are a part of the basic features' of the Constitution of India as drawn from various decisions of the Supreme Court?&nbsp;<div>1 Effective access to justice&nbsp;</div><div>2 Rule of Law&nbsp;</div><div>3 Limitations upon the amending power under Article 368&nbsp;</div><div>Select the correct answer using the code given below</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1 and 3 only",
@@ -1334,7 +1334,7 @@
       "image": "images/q_0052.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about the Convention on the Elimination of All Forms of Discrimination against Women are correct? 1 The Convention was the culmi- nation of more than thirty   years of work by the United Nations Commission on the Status of Women:<br><br>2 . The Convention devotes major attention to women's reproductive rights. 3 The implementation of the Convention is monitored by the Committee on Human Rights.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about the Convention on the Elimination of All Forms of Discrimination against Women are correct?&nbsp;<div><br></div><div>1 The Convention was the culmination of more than thirty   years of work by the United Nations Commission on the Status of Women.<br>2 . The Convention devotes major attention to women's reproductive rights.&nbsp;</div><div>3 The implementation of the Convention is monitored by the Committee on Human Rights.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1 and 3 only",
@@ -1384,7 +1384,7 @@
       "image": "images/q_0054.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about human rights is/are correct? 1 The first   generation rights were traditional civil and political rights:<br><br>2. The second   generation rights are solidarity rights:<br><br>Select the answer using the code given below.",
+      "question_stem_html": "Which of the following statements about human rights is/are correct?&nbsp;<div>1 The first   generation rights were traditional civil and political rights:<br>2. The second   generation rights are solidarity rights:<br><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -1508,12 +1508,12 @@
       "image": "images/q_0058.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A metallic cylindrical disc of radius 7 cm is melted and 22 square-shaped solids of the same thickness are made. If [ cm is the side length of these squares, then (in cm)",
+      "question_stem_html": "A metallic cylindrical disc of radius 7 cm is melted and 22 square-shaped solids of the same thickness are made. If l cm is the side length of these squares, then (in cm)",
       "options": {
-        "a": "2.5 <1<2.6",
-        "b": "2.6 <1<2.7",
-        "c": "2.7 <1<2.8 '",
-        "d": "2.8 <1<2.9"
+        "a": "2.5 &lt;l&lt;2.6",
+        "b": "2.6 &lt;l&lt;2.7",
+        "c": "2.7 &lt;l&lt;2.8 '",
+        "d": "2.8 &lt;l&lt;2.9"
       },
       "table": null,
       "has_underline": false,
@@ -1583,7 +1583,7 @@
       "image": "images/q_0061.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A large pot X contains 3 litres mixture consisting of milk and water in the ratio 3<br><br>2. Another pot Y contains 100 litres mixture consisting of milk and water in the ratio 9 : 1 How many litres of mixture from pot Y are to be poured into pot X to get a mixture with the ratio of milk to water as 17 : 3 in pot X?",
+      "question_stem_html": "A large pot X contains 3 litres mixture consisting of milk and water in the ratio 3:2. Another pot Y contains 100 litres mixture consisting of milk and water in the ratio 9 : 1 How many litres of mixture from pot Y are to be poured into pot X to get a mixture with the ratio of milk to water as 17 : 3 in pot X?",
       "options": {
         "a": "9",
         "b": "12",
@@ -1608,11 +1608,11 @@
       "image": "images/q_0062.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A person X has to make <u>a</u> payment of 856 He has twenty-five < 2 coins <u>and</u> nine < 5 coins. In how many different ways can he make this payment?",
+      "question_stem_html": "A person X has to make <u>a</u> payment of Rs. 56 He has twenty-five Rs. 2 coins <u>and</u> nine Rs. 5 coins. In how many different ways can he make this payment?",
       "options": {
         "a": "3",
         "b": "4",
-        "c": "5 :",
+        "c": "5",
         "d": "6"
       },
       "table": null,
@@ -1633,7 +1633,7 @@
       "image": "images/q_0063.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "There are three rooms (I, II and III) with occupancy capacity of three each: P, Q, R; Sand T are five friends R and $ occupied <u>room</u> <u>I;</u> T occupied <u>room</u> <u>II.</u> In how many different ways can P and Q occupy the rooms if there is no additional restriction?",
+      "question_stem_html": "There are three rooms (I, II and III) with occupancy capacity of three each: P, Q, R, S and T are five friends R and S occupied <u>room</u> <u>I;</u> T occupied <u>room</u> <u>II.</u> In how many different ways can P and Q occupy the rooms if there is no additional restriction?",
       "options": {
         "a": "8",
         "b": "7",
@@ -1807,7 +1807,7 @@
       "image": "images/q_0069.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Suppose 1 &lt; x, y, z &lt; 9 are integers such that x &gt; 2. Let &amp; and 8 be the three-digit numbers given by &amp; xyz and 8 zyx SO that X, y; 2 are the digits as they are shown. Set Y = &amp; B: How many of the following statements are always true?&nbsp;<div><br></div><div>I. 2 does not divide Y:<br><br>II . 3 divides Y<br><br>III. 5 does not divide Y:&nbsp;<div><br></div><div>IV 7 does not divide Y:<br><br>V. 11 divides Y:<br><br>VI. 13 does not divide Y:&nbsp;</div><div><br></div><div>Select the correct answer .</div></div>",
+      "question_stem_html": "Suppose 1 ≤ x, y, z ≤ 9 are integers such that x &gt; 2. Let α and β be the three-digit numbers given by α = xyz and β =&nbsp;&nbsp;zyx SO that X, y; 2 are the digits as they are shown. Set γ= α − β: How many of the following statements are always true?&nbsp;<div>I. 2 does not divide γ</div><div>II. 3 divides γ<br>III. 5 does not divide γ<div>IV. 7 does not divide γ<br>V. 11 divides γ<br>VI. 13 does not divide γ</div><div><br></div><div>Select the correct answer .</div></div>",
       "options": {
         "a": "3",
         "b": "4",
@@ -2221,12 +2221,12 @@
       "image": "images/q_0079.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one among the   following capital cities of the Union Territories of India is located at coordinates 11.620 North and 92.720 East?",
+      "question_stem_html": "Which one among the   following capital cities of the Union Territories of India is located at coordinates 11.62⁰ North and 92.72⁰ East?",
       "options": {
         "a": "Sri Vijaya Puram",
         "b": "Kavaratti",
         "c": "Puducherry",
-        "d": "Chandigarh PT.O"
+        "d": "Chandigarh"
       },
       "table": null,
       "has_underline": false,
@@ -2550,7 +2550,7 @@
       "options": {
         "a": "1 only",
         "b": "1, 2 and 3",
-        "c": "2 and 3 only '1 ;",
+        "c": "2 and 3 only",
         "d": "3 only"
       },
       "table": null,
@@ -2558,7 +2558,7 @@
       "ocr_confidence": 0.87,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2601,7 +2601,7 @@
         "a": "1-2-3",
         "b": "1-3-2",
         "c": "3-2-1",
-        "d": "2-3-1 TARP-A-GAT/82A 41"
+        "d": "2-3-1&nbsp;"
       },
       "table": null,
       "has_underline": true,
@@ -2624,7 +2624,7 @@
       "question_stem_html": "Which one of the  following statements about the catalytic conversion of nitrogen gas by nitrogenase enzyme in root nodules of   leguminous plants is not correct?",
       "options": {
         "a": "It needs ATP (Adenosine Tri- Phosphate) supply.",
-        "b": "It converts Nz (nitrogen gas) to NHA (ammonium ion) first.",
+        "b": "It converts N₂ (nitrogen gas) to NH₄⁺ (ammonium ion) first.",
         "c": "It needs hydrogen supply from reduced NADP (Nicotinamide Adenine Dinucleotide Phosphate):",
         "d": "It needs aerobic condition for the process."
       },
@@ -2676,7 +2676,7 @@
         "a": "Haldane effect",
         "b": "Allee effect",
         "c": "Bohr effect",
-        "d": "Eagle effect [PT.O."
+        "d": "Eagle effect"
       },
       "table": null,
       "has_underline": false,
@@ -2751,7 +2751,7 @@
         "a": "Auxin",
         "b": "Cytokinin",
         "c": "Gibberellin",
-        "d": "Abscisic acid TARP-A-GAT/82A 43"
+        "d": "Abscisic acid&nbsp;"
       },
       "table": null,
       "has_underline": false,
@@ -2848,9 +2848,9 @@
       "passage_text_html": "",
       "question_stem_html": "<u>Which</u> one of the following statements is correct?",
       "options": {
-        "a": "The number of electrons in alpha (a) particle is 2.",
+        "a": "The number of electrons in alpha (α) particle is 2.",
         "b": "The coordination number of EDTA is 6",
-        "c": "The charge of beta (B) particle is +2.",
+        "c": "The charge of beta (β) particle is +2.",
         "d": "Both carbon and silicon form ionic compounds."
       },
       "table": null,
@@ -3062,12 +3062,12 @@
       "image": "images/q_0110.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "110. Which among the following are, respectively the correct oxidation numbers of chloride ion in Cl207, Cl20, ClO3 and C1O2?",
+      "question_stem_html": "Which among the following are, respectively the correct oxidation numbers of chloride ion in&nbsp;<span class=\"math-token\" data-type=\"chemistry\" data-mark=\"m4\" data-latex=\"\\operatorname{Cl}_{2}O_{7},\\operatorname{Cl}_{2}O,\" contenteditable=\"false\"></span> <span class=\"math-token\" data-type=\"chemistry\" data-mark=\"m3\" data-latex=\"\\operatorname{ClO}_{3}^{-}{\\mathrm{~and~}}\\operatorname{ClO}_{2}^{-}\" contenteditable=\"false\"></span>",
       "options": {
-        "a": "+7, +2, +4,+3",
+        "a": "+7, +2, +4, +3",
         "b": "+2, -1,-3, +4",
         "c": "+7, +1, +3, -3",
-        "d": "+7, +1, +5, +3&nbsp;"
+        "d": "+7, +1, +5, +3"
       },
       "table": null,
       "has_underline": false,
@@ -3088,6 +3088,30 @@
             797.6156249999999,
             2037.75625
           ]
+        ],
+        "marks": [
+          {
+            "id": "m3",
+            "type": "chemistry",
+            "box": [
+              183.790625,
+              1695.15625,
+              447.87812499999995,
+              1745.11875
+            ],
+            "latex": "\\operatorname{ClO}_{3}^{-}{\\mathrm{~and~}}\\operatorname{ClO}_{2}^{-}"
+          },
+          {
+            "id": "m4",
+            "type": "chemistry",
+            "box": [
+              579.921875,
+              1659.46875,
+              786.909375,
+              1716.56875
+            ],
+            "latex": "\\operatorname{Cl}_{2}O_{7},\\operatorname{Cl}_{2}O,"
+          }
         ]
       }
     },
@@ -3098,7 +3122,7 @@
       "image": "images/q_0111.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "is  used to detect underwater objects: For this, its transmitter produces",
+      "question_stem_html": "Sound Navigation and Ranging (SONAR) is used to detect underwater objects For this, its transmitter produces",
       "options": {
         "a": "microwaves",
         "b": "visible light",
@@ -3134,12 +3158,12 @@
       "image": "images/q_0112.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "112. Which combination of three resistors R, R2 and R3 has minimum total resistance? (Consider Ri = 19 Rz = 2 Q and R3 39)",
+      "question_stem_html": "112. Which combination of three resistors R1, R2 and R3 has minimum total resistance? (Consider R1= 1Ω R2 = 2Ω and R3 =3Ω)",
       "options": {
         "a": "When all are connected in parallel",
         "b": "When all are connected in series",
-        "c": "When Ri and Rz are connected in parallel and R3 is in series of them",
-        "d": "When Ri and R3 are connected in parallel and Rz is in series of them"
+        "c": "When R1 and R2 are connected in parallel and R3 is in series of them",
+        "d": "When R1 and R3 are connected in parallel and R2 is in series of them"
       },
       "table": null,
       "has_underline": false,
@@ -3170,19 +3194,19 @@
       "image": "images/q_0113.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "113. If the relative density of gold is 193 and the density of water is 106 g/m 3 what will be the density of gold in SI units?",
+      "question_stem_html": "113. If the relative density of gold is 193 and the density of water is 10e6 g/m 3 what will be the density of gold in SI units?",
       "options": {
-        "a": "1930 kg/m?",
-        "b": "19300 kg/m3 3",
-        "c": "193000 kg/m",
-        "d": "1.93x 106 kglm?"
+        "a": "1930 kg/m³",
+        "b": "19300 kg/m³",
+        "c": "193000 kg/m³",
+        "d": "1.93x 10e6 kg/m³"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.787,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3206,10 +3230,10 @@
       "image": "images/q_0114.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and Vp' respectively. The respective straight lines of the graph make angles 300 and 600, respectively with the x-axis (time): The difference in velocities VB and VA is",
+      "question_stem_html": "114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and VB respectively. The respective straight lines of the graph make angles 300 and 600, respectively with the x-axis (time): The difference in velocities VB and VA is",
       "options": {
-        "a": "20/13 m/s",
-        "b": "2/13 m/s",
+        "a": "20/√3 m/s",
+        "b": "2/√3 m/s",
         "c": "3 m/s",
         "d": "1 m/ s"
       },
@@ -3278,12 +3302,12 @@
       "image": "images/q_0116.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "116. For a particle in uniform circular motion (radius R and angular velocity @), the magnitude and direction of acceleration, respectively are",
+      "question_stem_html": "116. For a particle in uniform circular motion (radius R and angular velocity ω), the magnitude and direction of acceleration, respectively are",
       "options": {
-        "a": "@R, along the radius outward",
-        "b": "@R, towards the centre of the circle",
-        "c": "@2 R, towards the centre of the circle",
-        "d": "63 R, along the linear velocity"
+        "a": "ωR, along the radius outward",
+        "b": "ωR, towards the centre of the circle",
+        "c": "ω²R, towards the centre of the circle",
+        "d": "ω³R, along the linear velocity"
       },
       "table": null,
       "has_underline": false,
@@ -3386,7 +3410,7 @@
       "image": "images/q_0119.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "119_ Which of the following statements regarding Carnot engine is/are correct? 1  It is an irreversible engine operating between two temperatures T (source) and T2 (sink): 2. Its efficiency is given by n =1-T2 /T5, where T1 is the temperature of source and T2 is the temperature of sink: Select the answer using the code given below.",
+      "question_stem_html": "119_ Which of the following statements regarding Carnot engine is/are correct?&nbsp;<div>1  It is an irreversible engine operating between two temperatures T (source) and T2 (sink):&nbsp;</div><div>2. Its efficiency is given by η =1-T2 /T1, where T1 is the temperature of source and T2 is the temperature of sink:&nbsp;</div><div><br></div><div>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -3422,7 +3446,7 @@
       "image": "images/q_0120.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "120. In the ideal gas equation PV = URT; relating pressure P, volume V and absolute temperature T, the quantity | is",
+      "question_stem_html": "120. In the ideal gas equation PV = μRT; relating pressure P, volume V and absolute temperature T, the quantity μ&nbsp;is",
       "options": {
         "a": "number of moles",
         "b": "number of molecules",
@@ -3473,7 +3497,9 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,
@@ -3506,10 +3532,12 @@
       "ocr_confidence": 0.94,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,
@@ -3542,10 +3570,12 @@
       "ocr_confidence": 0.905,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,
@@ -3578,10 +3608,12 @@
       "ocr_confidence": 0.991,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,
@@ -3614,10 +3646,12 @@
       "ocr_confidence": 0.992,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "d",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Computer"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,

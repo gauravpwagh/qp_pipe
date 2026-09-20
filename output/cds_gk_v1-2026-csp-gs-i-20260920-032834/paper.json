@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 11
+    "needs_review_count": 4
   },
   "instructions": [],
   "questions": [
@@ -1424,7 +1424,7 @@
       "image": "images/q_0057.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the provisions pertaining to the Scheduled Castes and the Scheduled Tribes in India 1 Provisions regarding the administration of the Tribal Areas in the States of Assam, Meghalaya, Tripura and Mizoram are given in the Fifth Schedule of the Constitution of India: 2. Some tribes of India are entitled to exemption from paying Income Tax on certain incomes_ 3_ The Constitution  of India  provides  for reservation of seats in Panchayats  for women belonging to the Scheduled Castes and the Scheduled Tribes. Which one of the following conclusions based on the above statements is correct ?",
+      "question_stem_html": "Consider the following statements about the provisions pertaining to the Scheduled Castes and the Scheduled Tribes in India&nbsp;<div>1 Provisions regarding the administration of the Tribal Areas in the States of Assam, Meghalaya, Tripura and Mizoram are given in the Fifth Schedule of the Constitution of India:&nbsp;</div><div>2. Some tribes of India are entitled to exemption from paying Income Tax on certain incomes_&nbsp;</div><div>3_ The Constitution  of India  provides  for reservation of seats in Panchayats  for women belonging to the Scheduled Castes and the Scheduled Tribes.&nbsp;</div><div><br></div><div>Which one of the following conclusions based on the above statements is correct ?</div>",
       "options": {
         "a": "There are two correct statements, that include statement 2.",
         "b": "There are two correct statements, that are statements 1 and 3",
@@ -1449,7 +1449,7 @@
       "image": "images/q_0058.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements in respect of questions asked by the Members   in the Parliament of India 1 Unstarred questions are those to which a Member desires an oral answer in the House. 2 Starred questions are those to which a Member desires a written answer. 3 No supplementary question can be asked on an unstarred question. Which one of the following conclusions based on the above statements is correct 2",
+      "question_stem_html": "Consider the following statements in respect of questions asked by the Members   in the Parliament of India&nbsp;<div>1 Unstarred questions are those to which a Member desires an oral answer in the House.&nbsp;</div><div>2 Starred questions are those to which a Member desires a written answer.&nbsp;</div><div>3 No supplementary question can be asked on an unstarred question.&nbsp;</div><div>Which one of the following conclusions based on the above statements is correct?</div>",
       "options": {
         "a": "All the three statements are correct_",
         "b": "There are two correct statements, that include statement 2_",
@@ -1474,7 +1474,7 @@
       "image": "images/q_0059.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the Committee on the Welfare of Scheduled Castes and Scheduled Tribes of the Parliament of India 1. Although members of  this Committee elected from both Houses of are Parliament; the Chairperson of this Committee is <u>appointed</u> by the Chairman of the Rajya Sabha. 2 Twenty members are elected by the Rajya  Sabha and ten members by the Lok Sabha: 3 No Minister , except for the Union Minister of Social Justice and Empowerment, is eligible to be a member of this Committee. Members are elected for a fixed term of two years from the date they enter their office_ Which one of the following conclusions based on the above statements is correct ?",
+      "question_stem_html": "Consider the following statements about the Committee on the Welfare of Scheduled Castes and Scheduled Tribes of the Parliament of India&nbsp;<div>1. Although members of  this Committee elected from both Houses of are Parliament; the Chairperson of this Committee is <u>appointed</u> by the Chairman of the Rajya Sabha.&nbsp;</div><div>2 Twenty members are elected by the Rajya  Sabha and ten members by the Lok Sabha:&nbsp;</div><div>3 No Minister , except for the Union Minister of Social Justice and Empowerment, is eligible to be a member of this Committee. Members are elected for a fixed term of two years from the date they enter their office_&nbsp;</div><div>Which one of the following conclusions based on the above statements is correct ?</div>",
       "options": {
         "a": "There are four correct statements.",
         "b": "There is only one correct statement, that is statement 2.",
@@ -1499,7 +1499,7 @@
       "image": "images/q_0060.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about Mission Sudarshan Chakra of India 1. It aims to enhance India's air defence, ballistic missile defence and aerial offensive capabilities. 2 This Mission is being designed to enhance rapid, precise, and   powerful defence responses, reinforcing India s strategic autonomy 3 One of the aims of this Mission is to cover all public places of India by <u>an</u> expanded nationwide security shield by 2035 .<br><br>Which of the statements  given above  islare correct ?",
+      "question_stem_html": "Consider the following statements about Mission Sudarshan Chakra of India&nbsp;<div>1. It aims to enhance India's air defence, ballistic missile defence and aerial offensive capabilities.&nbsp;</div><div>2 This Mission is being designed to enhance rapid, precise, and   powerful defence responses, reinforcing India s strategic autonomy&nbsp;</div><div>3 One of the aims of this Mission is to cover all public places of India by <u>an</u> expanded nationwide security shield by 2035 .<br><br>Which of the statements  given above  islare correct ?</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "1 and 2 only",
@@ -1524,7 +1524,7 @@
       "image": "images/q_0061.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about river bridges connecting India with neighbouring countries 1 Maitri Setu' , built over Feni river, connects Ramgarh in India with Sabroom in Bangladesh. 2 Jhulaghat   suspension bridge connects India with Myanmar. 3 Mechi bridge and its approaches connect Panitanki Bypass in India with Kakarvitta in Nepal:<br><br>Which of the statements  given above  islare correct ?",
+      "question_stem_html": "Consider the following statements about river bridges connecting India with neighbouring countries&nbsp;<div>1 Maitri Setu' , built over Feni river, connects Ramgarh in India with Sabroom in Bangladesh.&nbsp;</div><div>2 Jhulaghat   suspension bridge connects India with Myanmar.&nbsp;</div><div>3 Mechi bridge and its approaches connect Panitanki Bypass in India with Kakarvitta in Nepal:<br><br>Which of the statements  given above  islare correct ?</div>",
       "options": {
         "a": "1 and 2",
         "b": "2 and 3",
@@ -1549,7 +1549,7 @@
       "image": "images/q_0062.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following   statements about a Zero First Information Report (Zero FIR) under the Bharatiya Nagarik Suraksha Sanhita (BNSS) , 2023 isl/are correct ? 13 A Zero FIR can be lodged at police station, even though the place of commission of a cognizablelnon-cognizable offence is outside the territorial   jurisdiction of that police station. 2 The Officer-in-Charge of the police station where a Zero FIR has been lodged may, with the permission of the competent authority, initiate preliminary enquiry. 3 Under Zero FIR; it is obligatory for the informant to furnish information electronically.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following   statements about a Zero First Information Report (Zero FIR) under the Bharatiya Nagarik Suraksha Sanhita (BNSS) , 2023 isl/are correct ?&nbsp;<div>1. A Zero FIR can be lodged at police station, even though the place of commission of a cognizablelnon-cognizable offence is outside the territorial   jurisdiction of that police station.&nbsp;</div><div>2 The Officer-in-Charge of the police station where a Zero FIR has been lodged may, with the permission of the competent authority, initiate preliminary enquiry.&nbsp;</div><div>3 Under Zero FIR; it is obligatory for the informant to furnish information electronically.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "2 and 3 only",
@@ -1703,7 +1703,7 @@
       "image": "images/q_0064.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following international conventions have not been ratified by India ? 1 Employment Policy Convention 2 Abolition of Forced Labour Convention 3 International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families Geneva Convention Relative to the Protection of Civilian Persons in Time of War<br><br>5 _ Convention on Reduction of Statelessness<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following international conventions have not been ratified by India ?&nbsp;<div>1 Employment Policy Convention&nbsp;</div><div>2 Abolition of Forced Labour Convention&nbsp;</div><div>3 International Convention on the Protection of the Rights of All Migrant Workers and Members of Their Families&nbsp;</div><div>4. Geneva Convention Relative to the Protection of Civilian Persons in Time of War<br>5 _ Convention on Reduction of Statelessness<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "2 and 4",
         "b": "1 and 2",
@@ -1728,7 +1728,7 @@
       "image": "images/q_0065.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with respect to the AI Impact Summit, 2026 held in New Delhi 1 The Summits intellectual framework was based on three foundational Sutras People, Planning, and Progress. 2 The Preamble of the Summit stresses Democratising AI Resources, which acknowledges the Charter Democratic Diffusion of Al as & binding framework to . support  locally relevant innovation and strengthen  resilient AI ecosystems while respecting national laws. 3 The New Delhi Declaration on AI Impact was structured around seven Chakras (Pillars) , which included Access for Social Empowerment, AI for Science, and Secure and Trusted AI.<br><br>Which of the statements  given above islare correct ?",
+      "question_stem_html": "Consider the following statements with respect to the AI Impact Summit, 2026 held in New Delhi&nbsp;<div>1 The Summits intellectual framework was based on three foundational Sutras People, Planning, and Progress.&nbsp;</div><div>2 The Preamble of the Summit stresses Democratising AI Resources, which acknowledges the Charter Democratic Diffusion of Al as &amp; binding framework to . support  locally relevant innovation and strengthen  resilient AI ecosystems while respecting national laws.&nbsp;</div><div>3 The New Delhi Declaration on AI Impact was structured around seven Chakras (Pillars) , which included Access for Social Empowerment, AI for Science, and Secure and Trusted AI.<br><br>Which of the statements  given above is/are correct ?</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "1 and 2 only",
@@ -1753,7 +1753,7 @@
       "image": "images/q_0066.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following  connectivity projects islare a part of cooperation between India and the ASEAN member countries ? 1 Kaladan Multi-Modal Transit Transport Project 2 IMT Trilateral Highway 3_ Agartala-Akhaura Rail Line<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following  connectivity projects is/are a part of cooperation between India and the ASEAN member countries ?&nbsp;<div>1 Kaladan Multi-Modal Transit Transport Project&nbsp;</div><div>2 IMT Trilateral Highway&nbsp;</div><div>3_ Agartala-Akhaura Rail Line<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2",
         "b": "2 and 3",
@@ -1789,25 +1789,37 @@
         "list1": [
           {
             "label": "A",
-            "text": "Mangdechhu 1 Maldives Hydroelectric Project"
+            "text": "Mangdechhu Hydroelectric Project"
           },
           {
             "label": "B",
-            "text": "Restoration of Stor 2_ Afghanistan Palace"
+            "text": "Restoration of Stor Palace"
           },
           {
             "label": "C",
-            "text": "District Hospital at 3 Bhutan Dickoya"
+            "text": "District Hospital at Dickoya"
           },
           {
             "label": "D",
-            "text": "Institute of Security Sri Lanka and Law Enforcement Studies"
+            "text": "Institute of Security and Law Enforcement Studies"
           }
         ],
         "list2": [
           {
             "label": "1",
-            "text": "the"
+            "text": "Maldives"
+          },
+          {
+            "label": "2",
+            "text": "Afghanistan"
+          },
+          {
+            "label": "3",
+            "text": "Bhutan"
+          },
+          {
+            "label": "4",
+            "text": "Sri Lanka"
           }
         ],
         "code_table": {
@@ -1871,9 +1883,9 @@
         "boxes": [
           [
             822.9726562499999,
-            953.8593749999999,
-            1576.0195312499998,
-            2022.46875
+            961.0312499999999,
+            1568.8476562499998,
+            2033.2265625
           ]
         ]
       }
@@ -1885,7 +1897,7 @@
       "image": "images/q_0068.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following items of defence hardware islare manufactured in India ? 1_ Su-30 MKI Fighter Jets 2 T-90 MK-III Tanks 3 Akula Class Submarine<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following items of defence hardware is/are manufactured in India ?&nbsp;<div>1_ Su-30 MKI Fighter Jets&nbsp;</div><div>2 T-90 MK-III Tanks&nbsp;</div><div>3 Akula Class Submarine<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2",
         "b": "1and 3",
@@ -1935,7 +1947,7 @@
       "image": "images/q_0070.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following UN organisationsl agencies 1 World Food Programme 2_ United Nations Children's Fund 3_ United Nations High Commissioner for Refugees 4 International Labour Organisation<br><br>How many of the above hashhave been awarded the Nobel Prize twice ?",
+      "question_stem_html": "Consider the following UN organisationsl agencies&nbsp;<div>1 World Food Programme&nbsp;</div><div>2_ United Nations Children's Fund&nbsp;</div><div>3_ United Nations High Commissioner for Refugees&nbsp;</div><div>4 International Labour Organisation<br><br>How many of the above has/have been awarded the Nobel Prize twice ?</div>",
       "options": {
         "a": "1",
         "b": "2",
@@ -1980,35 +1992,35 @@
               "option": "a",
               "values": [
                 "3",
-                null,
-                null,
+                "4",
+                "1",
                 "2"
               ]
             },
             {
               "option": "b",
               "values": [
-                "4",
                 "3",
                 "1",
+                "4",
                 "2"
               ]
             },
             {
               "option": "c",
               "values": [
-                null,
                 "2",
-                null,
+                "1",
+                "4",
                 "3"
               ]
             },
             {
               "option": "d",
               "values": [
-                null,
                 "2",
-                null,
+                "4",
+                "1",
                 "3"
               ]
             }
@@ -2053,8 +2065,8 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.932,
-      "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'answer using the code given below the Lists (UN Peacekeeping Operation)'; List II: discarded unlabeled text (not a missing item): 'with List II and select the (Period of Operation)'; Code table row (a): missing value(s) - ['3', None, None, '2']; Code table row (b): column A not detected by OCR - inferred as 4 (every row here is a permutation of 1-4), verify against source; Code table row (c): missing value(s) - [None, '2', None, '3']; Code table row (d): missing value(s) - [None, '2', None, '3']",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2076,30 +2088,6 @@
         "d": "4 2 3"
       },
       "table": {
-        "list1": [
-          {
-            "label": "A",
-            "text": "BIMSTEC Cultural 1 NOIDA Industries Observatory"
-          },
-          {
-            "label": "B",
-            "text": "BIMSTEC Energy 2. Bengaluru Centre"
-          },
-          {
-            "label": "C",
-            "text": "BIMSTEC Centre 3 Colombo for Weather and Climate"
-          },
-          {
-            "label": "D",
-            "text": "BIMSTEC Technology 4 Thimphu Transfer Facility"
-          }
-        ],
-        "list2": [
-          {
-            "label": "1",
-            "text": "the"
-          }
-        ],
         "code_table": {
           "headers": [
             "A",
@@ -2113,17 +2101,17 @@
               "values": [
                 "3",
                 "2",
-                null,
-                null
+                "1",
+                "4"
               ]
             },
             {
               "option": "b",
               "values": [
                 "3",
-                null,
+                "1",
                 "2",
-                null
+                "4"
               ]
             },
             {
@@ -2138,24 +2126,71 @@
             {
               "option": "d",
               "values": [
-                null,
-                null,
+                "4",
+                "1",
                 "2",
                 "3"
               ]
             }
           ]
-        }
+        },
+        "list1": [
+          {
+            "label": "A",
+            "text": "BIMSTEC Cultural Industries Observatory"
+          },
+          {
+            "label": "B",
+            "text": "BIMSTEC Energy Centre"
+          },
+          {
+            "label": "C",
+            "text": "BIMSTEC Centre for Weather and Climate"
+          },
+          {
+            "label": "D",
+            "text": "BIMSTEC Technology Transfer Facility"
+          }
+        ],
+        "list2": [
+          {
+            "label": "1",
+            "text": "NOIDA"
+          },
+          {
+            "label": "2",
+            "text": "Bengaluru"
+          },
+          {
+            "label": "3",
+            "text": "Colombo"
+          },
+          {
+            "label": "4",
+            "text": "Thimphu"
+          }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.952,
-      "needs_review": true,
-      "review_reason": "List I: discarded unlabeled text (not a missing item): 'answer using the code given below the Lists (BIMSTEC (Location) Centre / Establishment)'; List II: item '1' label not detected by OCR - inferred from position, verify text; List II: expected 4 items, found 1; Code table row (a): missing value(s) - ['3', '2', None, None]; Code table row (b): missing value(s) - ['3', None, '2', None]; Code table row (c): column C not detected by OCR - inferred as 1 (every row here is a permutation of 1-4), verify against source; Code table row (d): missing value(s) - [None, None, '2', '3']",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
-      "instruction_id": null
+      "instruction_id": null,
+      "image_regions": {
+        "page": 39,
+        "boxes": [
+          [
+            44.78515625,
+            179.140625,
+            804.3414062500001,
+            1390.1312500000001
+          ]
+        ]
+      }
     },
     {
       "q_number": 73,
@@ -2164,19 +2199,19 @@
       "image": "images/q_0073.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the   following   pairs is not correctly matched ? (Indian Army Corps)",
+      "question_stem_html": "Which one of the   following   pairs is not correctly matched ? (Indian Army Corps)&nbsp;<span style=\"font-size: 14px; font-weight: 400;\">&nbsp;(Headquarters)&nbsp; &nbsp;</span>",
       "options": {
-        "a": "3 Corps",
-        "b": "4 Corps 14 Corps",
-        "c": "",
-        "d": "33 Corps (Headquarters) Dimapur Tezpur Leh Srinagar"
+        "a": "3 Corps Dimapur",
+        "b": "4 Corps&nbsp; Tezpur",
+        "c": "14 Corps Leh",
+        "d": "33 Corps Srinagar"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.968,
-      "needs_review": true,
-      "review_reason": "reprocess: missing option(s) c",
-      "user_answer": null,
+      "needs_review": false,
+      "review_reason": "",
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2189,7 +2224,7 @@
       "image": "images/q_0074.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with respect to the   Revamped Rashtriya Gram Swaraj Abhiyan (RGSA) islare correct ? 13 The period of its implementation is 1st April, 2021 to 31st March, 2026. 2 The key objective of the Revamped RGSA is to develop the governance capabilities of the Panchayati Raj Institutions to deliver on the Sustainable Development Goals. 3 The share of the Central funding for the Revamped RGSA is 100% for all States and Union Territories.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with respect to the   Revamped Rashtriya Gram Swaraj Abhiyan (RGSA) islare correct ?&nbsp;<div>1. The period of its implementation is 1st April, 2021 to 31st March, 2026.&nbsp;</div><div>2. The key objective of the Revamped RGSA is to develop the governance capabilities of the Panchayati Raj Institutions to deliver on the Sustainable Development Goals.&nbsp;</div><div>3. The share of the Central funding for the Revamped RGSA is 100% for all States and Union Territories.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2",
         "b": "2 only",
@@ -2214,7 +2249,7 @@
       "image": "images/q_0075.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following countries are members of the European Union ? 13 Belarus 2 Poland 3_ Germany 4 Switzerland<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following countries are members of the European Union ?&nbsp;<div>1. Belarus&nbsp;</div><div>2 Poland&nbsp;</div><div>3_ Germany&nbsp;</div><div>4 Switzerland<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 4",
         "b": "1 and 4 only",
@@ -2247,6 +2282,52 @@
         "d": "2 3"
       },
       "table": {
+        "code_table": {
+          "headers": [
+            "A",
+            "B",
+            "C",
+            "D"
+          ],
+          "rows": [
+            {
+              "option": "a",
+              "values": [
+                "3",
+                "1",
+                "2",
+                "4"
+              ]
+            },
+            {
+              "option": "b",
+              "values": [
+                "3",
+                "2",
+                "1",
+                "4"
+              ]
+            },
+            {
+              "option": "c",
+              "values": [
+                "4",
+                "2",
+                "1",
+                "3"
+              ]
+            },
+            {
+              "option": "d",
+              "values": [
+                "4",
+                "1",
+                "2",
+                "3"
+              ]
+            }
+          ]
+        },
         "list1": [
           {
             "label": "A",
@@ -2268,7 +2349,7 @@
         "list2": [
           {
             "label": "1",
-            "text": "3 To seek information on unidentified bodies"
+            "text": "To seek information on unidentified bodies"
           },
           {
             "label": "2",
@@ -2282,58 +2363,12 @@
             "label": "4",
             "text": "To identify and trace criminal assets"
           }
-        ],
-        "code_table": {
-          "headers": [
-            "A",
-            "B",
-            "C",
-            "D"
-          ],
-          "rows": [
-            {
-              "option": "a",
-              "values": [
-                "3",
-                null,
-                "2",
-                null
-              ]
-            },
-            {
-              "option": "b",
-              "values": [
-                "3",
-                "2",
-                null,
-                null
-              ]
-            },
-            {
-              "option": "c",
-              "values": [
-                null,
-                "2",
-                null,
-                "3"
-              ]
-            },
-            {
-              "option": "d",
-              "values": [
-                null,
-                null,
-                "2",
-                "3"
-              ]
-            }
-          ]
-        }
+        ]
       },
       "has_underline": false,
       "ocr_confidence": 0.914,
-      "needs_review": true,
-      "review_reason": "match-the-list layout, raw text may be jumbled - verify against source PDF; List I: discarded unlabeled text (not a missing item): 'answer using the code given below the Lists (INTERPOL Notice)'; List II: discarded unlabeled text (not a missing item): 'I with List II and select the'; Code table row (a): missing value(s) - ['3', None, '2', None]; Code table row (b): missing value(s) - ['3', '2', None, None]; Code table row (c): missing value(s) - [None, '2', None, '3']; Code table row (d): missing value(s) - [None, None, '2', '3']",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2347,7 +2382,7 @@
       "image": "images/q_0077.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements in relation to NIRANTAR (National Institute for Research and Application of Natural Resources to Transform, Adapt and Build Resilience) , a platform of institutions under the Ministry of Environment, Forest and Climate Change, is/are correct ? 1_ Ecosystem Survey and Analysis is a vertical under this   platform, the  lead institute of which is Botanical Survey of India, Kolkata 2. Research and Management of Ecosystem Service is a vertical under this platform, the lead institute of which is Central Zoo Authority, New Delhi. 3 Capacity Development Support is a vertical under this   platform, the lead institute of which is Indian Institute of Forest Management; Bhopal.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements in relation to NIRANTAR (National Institute for Research and Application of Natural Resources to Transform, Adapt and Build Resilience) , a platform of institutions under the Ministry of Environment, Forest and Climate Change, is/are correct ?&nbsp;<div>1_ Ecosystem Survey and Analysis is a vertical under this   platform, the  lead institute of which is Botanical Survey of India, Kolkata&nbsp;</div><div>2. Research and Management of Ecosystem Service is a vertical under this platform, the lead institute of which is Central Zoo Authority, New Delhi.&nbsp;</div><div>3 Capacity Development Support is a vertical under this   platform, the lead institute of which is Indian Institute of Forest Management; Bhopal.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "1 and 3 only",
@@ -2372,18 +2407,18 @@
       "image": "images/q_0078.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The Chancellor of the Federal   Republic of Germany visited India in January, 2026 Which of the following islare not correct in terms of outcomes of this visit ? 1 Signing of a Memorandum of Understanding between the All India Institute of Ayurveda and the University of Hamburg 2. Signing of a Memorandum of Understanding on Youth Hockey Development between Hockey India and the German Hockey Federation 3 Establishment of a bilateral   dialogue mechanism on the Indo-Pacific 4 Opening of an Honorary Consul of Germany in Lucknow<br><br>Select the answer using the code given below",
+      "question_stem_html": "The Chancellor of the Federal   Republic of Germany visited India in January, 2026 Which of the following islare not correct in terms of outcomes of this visit ?&nbsp;<div>1 Signing of a Memorandum of Understanding between the All India Institute of Ayurveda and the University of Hamburg&nbsp;</div><div>2. Signing of a Memorandum of Understanding on Youth Hockey Development between Hockey India and the German Hockey Federation&nbsp;</div><div>3 Establishment of a bilateral   dialogue mechanism on the Indo-Pacific&nbsp;</div><div>4 Opening of an Honorary Consul of Germany in Lucknow<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "2 and 3",
-        "b": "1 and 4 (c 3 and 4",
-        "c": "",
+        "b": "1 and 4&nbsp;",
+        "c": "3 and 4",
         "d": "1 only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.935,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2397,7 +2432,7 @@
       "image": "images/q_0079.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about DHRUV64 islare correct ?&nbsp;<div>1 It is the third chip fabricated under the DIR-V Programme with an overall aim to enable the creation of microprocessors for India:&nbsp;</div><div>2 It is India's first homegrown 1-0 GHz, 64-bit dual-core microprocessor.<br><br>Select the answer using the code given below</div>",
+      "question_stem_html": "Which of the following statements about DHRUV64 is/are correct ?&nbsp;<div>1 It is the third chip fabricated under the DIR-V Programme with an overall aim to enable the creation of microprocessors for India:&nbsp;</div><div>2 It is India's first homegrown 1-0 GHz, 64-bit dual-core microprocessor.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 only&nbsp;",
@@ -2424,7 +2459,7 @@
       "image": "images/q_0080.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "The Bureau of Indian Standard (BIS) recently introduced a national   standard to test and assess bomb disposal   system. Which of the following statements with regard to this system islare correct ? 1 The new standard is known as IS 19445 2025. 2_ It will improve interoperability of equipment across agencies. 3 It was developed by  TBRL, DRDO in collaboration with the 30th Central Scientific Research Institute, Russia:<br><br>Select the answer using the code given below",
+      "question_stem_html": "The Bureau of Indian Standard (BIS) recently introduced a national   standard to test and assess bomb disposal   system. Which of the following statements with regard to this system islare correct ?&nbsp;<div>1 The new standard is known as IS 19445 2025.&nbsp;</div><div>2_ It will improve interoperability of equipment across agencies.&nbsp;</div><div>3 It was developed by  TBRL, DRDO in collaboration with the 30th Central Scientific Research Institute, Russia:<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "2 and 3 only",
@@ -2474,7 +2509,7 @@
       "image": "images/q_0082.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to the Grand Slam Tennis Tournaments is/are correct ? 1_ The tournaments have a shared governance structure establishing the partnership among the four Grand Slam tournaments_ 2 They are open for entry to all internationally ranked tennis players above the age of 14. 3 There is a limitation on the number of Wild Cards' a player may receive to compete in a Grand Slam Tournament.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to the Grand Slam Tennis Tournaments is/are correct ?&nbsp;<div>1_ The tournaments have a shared governance structure establishing the partnership among the four Grand Slam tournaments_&nbsp;</div><div>2 They are open for entry to all internationally ranked tennis players above the age of 14.&nbsp;</div><div>3 There is a limitation on the number of Wild Cards' a player may receive to compete in a Grand Slam Tournament.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "2 and 3 only",
@@ -2535,7 +2570,7 @@
       "image": "images/q_0084.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to India's indigenous new high resolution weather model, the Bharat Forecast System_ islare correct ? 1 Its objective is to generate forecasts at the Panchayats cluster level. 2 It was developed by IIT Delhi.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements with regard to India's indigenous new high resolution weather model, the Bharat Forecast System_ is/are correct ?&nbsp;<div>1 Its objective is to generate forecasts at the Panchayats cluster level.&nbsp;</div><div>2 It was developed by IIT Delhi.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2560,7 +2595,7 @@
       "image": "images/q_0085.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with regard to the film Boong 1 The film has  recently won the British Academy of Film and Television Arts (BAFTA) Award in the Children's and Family Film category. 2 The film is   directed by   Lakshmipriya Devi. 3 This is the first Indian film to win a BAFTA award in the Children s and Family Film category.<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements with regard to the film Boong&nbsp;<div>1 The film has  recently won the British Academy of Film and Television Arts (BAFTA) Award in the Children's and Family Film category.&nbsp;</div><div>2 The film is   directed by   Lakshmipriya Devi.&nbsp;</div><div>3 This is the first Indian film to win a BAFTA award in the Children s and Family Film category.<br><br>Which of the statements given above islare correct ?</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "2 and 3 only",
@@ -2585,7 +2620,7 @@
       "image": "images/q_0086.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements regarding the features of blockchain   technology are correct ? 1 Records stored in the database may be made visible to relevant stakeholders without risk of alteration_ 2 Copies of the entire database are stored on multiple   computers on a network, syncing within seconds_ 3_ Consortium blockchain is a blend of public and private blockchains allowing selective data access. Mathematical algorithms make it impossible to change or delete any data once recorded and accepted.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements regarding the features of blockchain   technology are correct ?&nbsp;<div>1 Records stored in the database may be made visible to relevant stakeholders without risk of alteration_&nbsp;</div><div>2 Copies of the entire database are stored on multiple   computers on a network, syncing within seconds_&nbsp;</div><div>3_ Consortium blockchain is a blend of public and private blockchains allowing selective data access.&nbsp;</div><div>4. Mathematical algorithms make it impossible to change or delete any data once recorded and accepted.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 3",
         "b": "2 and 4 only",
@@ -2710,7 +2745,7 @@
       "image": "images/q_0091.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the   following statements about Real-World Assets (RWA) Tokenization are correct ?<br><br>1. Tokenization <u>is</u> the   process of turning real world assets into digital tokens using blockchain technology.<br><br>2. Tokenization of real world assets offers 24 x 7 access, promoting financial inclusion 3 Tokenization of   real world assets will allow the access to high growth investment opportunities for individuals in India.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the   following statements about Real-World Assets (RWA) Tokenization are correct ?<br>1. Tokenization <u>is</u> the   process of turning real world assets into digital tokens using blockchain technology.<br>2. Tokenization of real world assets offers 24 x 7 access, promoting financial inclusion&nbsp;<div>3. Tokenization of   real world assets will allow the access to high growth investment opportunities for individuals in India.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 3",
         "b": "2 and 3 only",
@@ -2760,18 +2795,18 @@
       "image": "images/q_0093.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Mlxchange's role in Micro, Small & Medium Enterprises (MSMEs) financing is/are correct ? 1 Mlxchange provides collateral based loans to MSMEs. 2 Mlxchange facilitates discounting of invoices and Bills of   Exchange for MSMEs 3 Mlxchange functions as a credit rating agency for MSMEs.<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about Mlxchange's role in Micro, Small &amp; Medium Enterprises (MSMEs) financing is/are correct ?&nbsp;<div>1 Mlxchange provides collateral based loans to MSMEs.&nbsp;</div><div>2 Mlxchange facilitates discounting of invoices and Bills of   Exchange for MSMEs&nbsp;</div><div>3 Mlxchange functions as a credit rating agency for MSMEs.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1,2 and 3",
-        "b": "2 only (c 2 and 3 only",
-        "c": "",
-        "d": "1 only Which one of the following best describes the"
+        "b": "2 only&nbsp;",
+        "c": "2 and 3 only",
+        "d": "1 only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.91,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -2810,7 +2845,7 @@
       "image": "images/q_0095.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Rare Earth Elements (REEs) and Critical Minerals islare correct ? 1 Modern technological innovations including Artificial Intelligence, robotics and space exploration extensively utilise Rare Earth Elements (REEs). 2 China has the highest share in mining of REEs followed by India. 3 The Government of India launched the National Critical Mineral Mission (NCMM) in 2025 to establish a robust framework for self-reliance in the critical mineral sector. Rare Earth Elements are set of 13 metallic elements<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about Rare Earth Elements (REEs) and Critical Minerals is/are correct ?&nbsp;<div>1 Modern technological innovations including Artificial Intelligence, robotics and space exploration extensively utilise Rare Earth Elements (REEs).&nbsp;</div><div>2 China has the highest share in mining of REEs followed by India.&nbsp;</div><div>3 The Government of India launched the National Critical Mineral Mission (NCMM) in 2025 to establish a robust framework for self-reliance in the critical mineral sector.&nbsp;</div><div>4. Rare Earth Elements are set of 13 metallic elements<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 3 only",
         "b": "3 only",
@@ -2835,7 +2870,7 @@
       "image": "images/q_0096.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about insurance in aviation sector is/are correct ? 13 'Aviation Hull Insurance' covers the physical aircraft,  including the body, engine, and on-board equipment: 2 Under the Montreal Convention over 130 countries, adopted in 1999 by including India, airlines are strictly liable to pay compensation to the familylnominee of every deceased passenger without requiring the family to prove fault:<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about insurance in aviation sector is/are correct ?&nbsp;<div>1. Aviation Hull Insurance' covers the physical aircraft,  including the body, engine, and on-board equipment:&nbsp;</div><div>2 Under the Montreal Convention over 130 countries, adopted in 1999 by including India, airlines are strictly liable to pay compensation to the family/nominee of every deceased passenger without requiring the family to prove fault:<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2860,7 +2895,7 @@
       "image": "images/q_0097.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>Which</u> <u>of</u> the <u>following</u> statements about Crowdfunding is/are correct ? 1 Crowdfunding is solicitation of <u>funds</u> <u>(small</u> amount) from multiple investors through a web-based platform or social networking site for & specific project<br><br>2. Small and Medium Enterprises   (SMEs) are able to raise funds at lower cost <u>of</u> <u>capital</u> without undergoing rigorous procedures.<br><br>Select the answer using the code given below",
+      "question_stem_html": "<u>Which</u> <u>of</u> the <u>following</u> statements about Crowdfunding is/are correct ?&nbsp;<div>1 Crowdfunding is solicitation of <u>funds</u> <u>(small</u> amount) from multiple investors through a web-based platform or social networking site for &amp; specific project<br>2. Small and Medium Enterprises   (SMEs) are able to raise funds at lower cost <u>of</u> <u>capital</u> without undergoing rigorous procedures.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2897,112 +2932,112 @@
         "rows": [
           [
             {
+              "cs": 1,
               "html": "SL. No.",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Committee",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Objective",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Organization under which it was formed",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             }
           ],
           [
             {
+              "cs": 1,
               "html": "1.",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "RN. Malhotra Committee",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Comprehensive reforms of Insurance sector in India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Insurance Regulatory and Development Authority of India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             }
           ],
           [
             {
+              "cs": 1,
               "html": "2\"",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "L.C. Gupta Committee",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Preparing a roadmap for the introduction of derivatives trading in India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Securities and Exchange Board of India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             }
           ],
           [
             {
+              "cs": 1,
               "html": "3",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Urjit R. Patel Committee",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
-              "html": "Preparing a roadmap for reform ing bank lending to the Housing sector",
-              "rs": 1,
-              "cs": 1
+              "cs": 1,
+              "html": "Preparing a roadmap for reforming bank lending to the Housing sector",
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Reserve Bank of India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             }
           ],
           [
             {
+              "cs": 1,
               "html": "4.",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "YH Malegam Committee",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Preparing a roadmap for reforms in Microfinance sector in India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             },
             {
+              "cs": 1,
               "html": "Reserve Bank of India",
-              "rs": 1,
-              "cs": 1
+              "rs": 1
             }
           ]
         ]
@@ -3014,7 +3049,9 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Economy"
+      ],
       "instruction_id": null,
       "stem_after_table_html": "In which of the above rows are all the details correctly matched ?"
     },
@@ -3025,18 +3062,18 @@
       "image": "images/q_0099.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the Non-Banking Financial Companies  (NBFCs) in India 1 NBFCs cannot accept demand deposits. 2_ All the NBFCs operating in India have to be registered with the RBI: 3 NBFCs form part of the payment and settlement system and can issue cheque drawn on itself: 4 Deposit insurance facility of Deposit Insurance and Credit Guarantee Corporation (DICGC) is not available to the depositors of deposit taking NBFCs.<br><br>Which of the statements   given above islare correct ?",
+      "question_stem_html": "Consider the following statements about the Non-Banking Financial Companies  (NBFCs) in India&nbsp;<div>1 NBFCs cannot accept demand deposits.&nbsp;</div><div>2. All the NBFCs operating in India have to be registered with the RBI:&nbsp;</div><div>3 NBFCs form part of the payment and settlement system and can issue cheque drawn on itself:&nbsp;</div><div>4 Deposit insurance facility of Deposit Insurance and Credit Guarantee Corporation (DICGC) is not available to the depositors of deposit taking NBFCs.<br><br>Which of the statements   given above islare correct ?</div>",
       "options": {
         "a": "1 and 4",
-        "b": "1,2 and 3 (c 4 only",
-        "c": "",
+        "b": "1,2 and 3&nbsp;",
+        "c": "4 only",
         "d": "2, 3 and 4"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.875,
-      "needs_review": true,
-      "review_reason": "missing option(s)",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -3050,7 +3087,7 @@
       "image": "images/q_0100.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about Multidimensional Poverty Index (MPI) 1 MPI is   calculated   using   Alkire-Foster methodology. 2 MPI   calculated by NITI Aayog has a total of twelve indicators. 3 Maternal Health and Bank Account are common indicators in the MPI of NITI Aayog and MPI of United Nations Development Programme (UNDP).<br><br>Which of the statements given above islare correct ?",
+      "question_stem_html": "Consider the following statements about Multidimensional Poverty Index (MPI)&nbsp;<div>1 MPI is   calculated   using   Alkire-Foster methodology.&nbsp;</div><div>2 MPI   calculated by NITI Aayog has a total of twelve indicators.&nbsp;</div><div>3 Maternal Health and Bank Account are common indicators in the MPI of NITI Aayog and MPI of United Nations Development Programme (UNDP).<br><br>Which of the statements given above islare correct ?</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1,2 and 3",
