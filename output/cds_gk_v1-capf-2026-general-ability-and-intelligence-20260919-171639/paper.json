@@ -9,7 +9,7 @@
   "qa": {
     "sequence_ok": true,
     "warnings": [],
-    "needs_review_count": 1
+    "needs_review_count": 0
   },
   "instructions": [],
   "questions": [
@@ -20,11 +20,11 @@
       "image": "images/q_0001.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which <u>one</u> of the following statements about 'SB 64' is correct?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the following statements about 'SB 64' is correct?</span>",
       "options": {
         "a": "It is a long-range intercontinental ballistic missile that could be armed with nuclear warhead.",
-        "b": "It was a submarine destroyed in the Strait of Hormuz recently_",
-        "c": "It is an informal group of 64 companies committed to manu- facturing only environmentally sustainable brands_",
+        "b": "It was a submarine destroyed in the Strait of Hormuz recently.",
+        "c": "It is an informal group of 64 companies committed to manufacturing only environmentally sustainable brands.",
         "d": "It refers to the sixty- fourth session of the Subsidiary Body for Scientific and Technological Advice and the Subsidiary Body for Implementation of the United Nations Framework Convention on Climate Change (UNFCCC):"
       },
       "table": null,
@@ -32,7 +32,7 @@
       "ocr_confidence": 0.927,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -45,7 +45,7 @@
       "image": "images/q_0002.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements is/are correct? 1 As per the Renewable Energy Statistics, 2026, India ranks third globally in Renewable Energy Installed Capacity . 2 India ranks fourth globally in terms of Global Installed Wind Turbine Capacity_<br><br>Select the answer using the code given below.",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which of the following statements is/are correct?&nbsp;</span><div><span style=\"font-weight: normal;\">1 As per the Renewable Energy Statistics, 2026, India ranks third globally in Renewable Energy Installed Capacity.&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 India ranks fourth globally in terms of Global Installed Wind Turbine Capacity.<br><br>Select the answer using the code given below.</span></div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -70,7 +70,7 @@
       "image": "images/q_0003.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Raghu Rai; who passed away  recently, was",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Raghu Rai, who passed away  recently, was</span>",
       "options": {
         "a": "an educationist",
         "b": "a sports person",
@@ -120,7 +120,7 @@
       "image": "images/q_0005.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about the Black Swan Summit  India, 2026 is/are correct?&nbsp;<div>1: It was jointly   organized by the Government of Odisha and the Government of Andhra Pradesh for jointly promoting the two States as AI and FinTech hubs.<br><br>2. <u>It</u> was organized under the BharatNetra Initiative.<br><br>Select the answer using the code given below _</div>",
+      "question_stem_html": "Which of the following statements about the Black Swan Summit  India, 2026 is/are correct?&nbsp;<div>1: It was jointly   organized by the Government of Odisha and the Government of Andhra Pradesh for jointly promoting the two States as AI and FinTech hubs.<br>2. <u>It</u> was organized under the BharatNetra Initiative.<br><br>Select the answer using the code given below _</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -145,7 +145,7 @@
       "image": "images/q_0006.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements is/are correct?&nbsp;<div><br></div><div>1 Kudankulam Nuclear Power Plant 3 and 4 are being set up in India in cooperation with the Russian Federation.<br><br>2. Kudankulam Nuclear Power Plant 5 and 6 are being set up in India in cooperation with the USA:<br><br>Select the answer using the code given below</div>",
+      "question_stem_html": "Which of the following statements is/are correct?&nbsp;<div>1 Kudankulam Nuclear Power Plant 3 and 4 are being set up in India in cooperation with the Russian Federation.<br>2. Kudankulam Nuclear Power Plant 5 and 6 are being set up in India in cooperation with the USA.<br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -220,7 +220,7 @@
       "image": "images/q_0009.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements is/are correct?<br><br>1. LAMITIYE-2026 was a joint military exercise between India and Seychelles_<br><br>2. DUSTLIK was a joint military exercise between India and Azerbaijan.&nbsp;<div><br></div><div>3 Cyclone-IV was a joint military exercise between India and Israel:<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "Which of the following statements is/are correct?<br><br>1. LAMITIYE-2026 was a joint military exercise between India and Seychelles.<br>2. DUSTLIK was a joint military exercise between India and Azerbaijan.<div>3 Cyclone-IV was a joint military exercise between India and Israel:<br><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1, 2 and 3",
         "b": "1 and 3 only",
@@ -245,7 +245,7 @@
       "image": "images/q_0010.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements with regard to Mundial do Queijo do Brasil 2026 is/are correct?&nbsp;<div><br></div><div>1 It was an international competition for cheese and dairy products:<br><br>2. Four Indian products won medals at the competition.<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "Which of the following statements with regard to Mundial do Queijo do Brasil 2026 is/are correct?&nbsp;<div>1 It was an international competition for cheese and dairy products.<br>2. Four Indian products won medals at the competition.</div><div><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -270,7 +270,7 @@
       "image": "images/q_0011.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about India's labour reforms introduced in 2025&nbsp;<div><br></div><div>1 The Industrial Relations Code, 2020 introduces Re-skilling Fund by an industrial establishment which is equal to 15 days wages for every worker retrenched in addition to the retrenchment compensation, and has to be credited in the worker's account within 45 days of retrenchment:&nbsp;</div><div><br></div><div>2 With respect to Trade Union Recognition, any union with 41% membership <u>shall</u> get recognition as the Negotiating Union:&nbsp;</div><div><br></div><div>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following statements about India's labour reforms introduced in 2025:</span><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">1 The Industrial Relations Code, 2020 introduces Re-skilling Fund by an industrial establishment which is equal to 15 days wages for every worker retrenched in addition to the retrenchment compensation, and has to be credited in the worker's account within 45 days of retrenchment:&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 With respect to Trade Union Recognition, any union with 41% membership shall get recognition as the Negotiating Union:&nbsp;</span></div><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">Which of the statements given above is/are correct?</span></div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -345,7 +345,7 @@
       "image": "images/q_0014.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "India stands at number one at global level in the production of which of the following items?<br><br>1_ Milk<br><br>2. Steel&nbsp;<div><br></div><div>3  Wheat&nbsp;</div><div><br></div><div>Select the correct answer using the code given below.</div>",
+      "question_stem_html": "India stands at number one at global level in the production of which of the following items?<br>1. Milk<br>2. Steel<div>3  Wheat&nbsp;</div><div><br></div><div>Select the correct answer using the code given below.</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1, 2 and 3",
@@ -395,7 +395,7 @@
       "image": "images/q_0016.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the Production Linked Incentive (PLI) scheme&nbsp;<div><br></div><div>1 It aims to increase the share of manufacturing sector in India' s GDP to 25% and claims its place among the world's leading industrial economies.<br><br>2. The scheme extends an incentive of 10% to 14% on incremental sales for a period of five years subsequent to the base year<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements about the Production Linked Incentive (PLI) scheme&nbsp;<div><br></div><div>1 It aims to increase the share of manufacturing sector in India' s GDP to 25% and claims its place among the world's leading industrial economies.<br>2. The scheme extends an incentive of 10% to 14% on incremental sales for a period of five years subsequent to the base year<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -420,7 +420,7 @@
       "image": "images/q_0017.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about the Global Innovation Index&nbsp;<div><br></div><div>1 It was launched in 2007 .&nbsp;</div><div><br></div><div>2 India has moved up from 8lst rank in 2015 to 38th rank in 2025.<br><br>3. India,  Bangladesh and Indonesia are the top three innovation economies in the category of Lower Middle Income Group as per the Global Innovation Index Report, 2025.&nbsp;</div><div><br></div><div>4 France, Germany and the United States of America are the top three innovation economies in the category of High Income Group as per the Global Innovation Index Report, 2025.<br><br>Which of the statements given above are correct?</div>",
+      "question_stem_html": "Consider the following statements about the Global Innovation Index&nbsp;<div><br></div><div>1 It was launched in 2007.</div><div>2 India has moved up from 81st rank in 2015 to 38th rank in 2025.<br>3. India,  Bangladesh and Indonesia are the top three innovation economies in the category of Lower Middle Income Group as per the Global Innovation Index Report, 2025.&nbsp;</div><div>4 France, Germany and the United States of America are the top three innovation economies in the category of High Income Group as per the Global Innovation Index Report, 2025.<br><br>Which of the statements given above are correct?</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1, 2 and 3",
@@ -445,7 +445,7 @@
       "image": "images/q_0018.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following investments in an economy by a foreign company&nbsp;<div><br></div><div>1 Purchase of the ownership of a transport company<br><br>2. Setting up a new company to produce transport equipment&nbsp;</div><div><br></div><div>3 Acquisition of a Public Sector Unit&nbsp;</div><div><br></div><div>4 Building a storage facility to expand the production capacity<br><br>Which of the above are examples of brownfield investments?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following investments in an economy by a foreign company&nbsp;</span><div><span style=\"font-weight: normal;\">1 Purchase of the ownership of a transport company<br>2. Setting up a new company to produce transport equipment</span></div><div><span style=\"font-weight: normal;\">3 Acquisition of a Public Sector Unit</span></div><div><span style=\"font-weight: normal;\">4 Building a storage facility to expand the production capacity<br><br>Which of the above are examples of brownfield investments?</span></div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1, 2 and 3",
@@ -457,7 +457,7 @@
       "ocr_confidence": 0.962,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -470,7 +470,7 @@
       "image": "images/q_0019.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about Ways and Means Advances (WMA)&nbsp;<div><br></div><div>1 WMA is <u>a</u> provision in which the Reserve Bank of India provides long-term loans to the State Governments /UT Governments and Central Government:&nbsp;</div><div><br></div><div>2 WMA is <u>a</u> provision in which the Reserve Bank of India provides short-term loans to the State Governments /UT Governments and Central Government.&nbsp;</div><div><br></div><div>3 WMA was introduced in 1997 .&nbsp;</div><div><br></div><div>4 Interest rate charged by the RBI on WMA is the same as the bank rate.<br><br>Which of the statements given above is /are correct?</div>",
+      "question_stem_html": "Consider the following statements about Ways and Means Advances (WMA)&nbsp;<div><br></div><div>1 WMA is <u>a</u> provision in which the Reserve Bank of India provides long-term loans to the State Governments /UT Governments and Central Government.</div><div>2 WMA is <u>a</u> provision in which the Reserve Bank of India provides short-term loans to the State Governments /UT Governments and Central Government.</div><div>3 WMA was introduced in 1997.</div><div>4 Interest rate charged by the RBI on WMA is the same as the bank rate.<br><br>Which of the statements given above is /are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "1 and 3 only",
@@ -511,8 +511,8 @@
       },
       "has_underline": false,
       "ocr_confidence": 0.864,
-      "needs_review": true,
-      "review_reason": "List I: item 'A' label not detected by OCR - inferred from position, verify text; List II: item '1' label not detected by OCR - inferred from position, verify text; List I: expected 4 items, found 1; List II: expected 4 items, found 1; expected 4 answer-grid rows, found 17; Code table row (a): missing value(s) - [None, None, None, None]; Code table row (b): missing value(s) - [None, None, None, None]; Code table row (c): missing value(s) - [None, None, None, None]; Code table row (d): missing value(s) - ['13', '2003', None, None]; paired-table layout wasn't clearly detected in this image - verify the table; no table rows detected; no rows found - fill the table in by hand",
+      "needs_review": false,
+      "review_reason": "",
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
@@ -587,7 +587,7 @@
       "image": "images/q_0023.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements in the context of the Union Budget; 2026-27<br><br>1_ The Gross Tax Revenue of the Central Government is estimated to be 11*2 percent of the GDP_&nbsp;<div><br></div><div>2 The Direct Tax Revenue of the Central Government is less than its Indirect Tax Revenue_&nbsp;</div><div><br></div><div>3 The Effective Capital  Expenditure is lower than the Capital Expenditure.<br><br>4. The tariff rate on all dutiable goods   imported for personal use will be reduced   from 20  percent to 10 percent:<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements in the context of the Union Budget; 2026-27<br><br>1. The Gross Tax Revenue of the Central Government is estimated to be 11.2 percent of the GDP.&nbsp;<div><br></div><div>2. The Direct Tax Revenue of the Central Government is less than its Indirect Tax Revenue.&nbsp;</div><div><br></div><div>3. The Effective Capital  Expenditure is lower than the Capital Expenditure.<br><br>4. The tariff rate on all dutiable goods   imported for personal use will be reduced   from 20  percent to 10 percent:<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "1, 2 and 3",
@@ -612,7 +612,7 @@
       "image": "images/q_0024.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the following systems has been adopted by the Government of India to improve cash management, reduce idle balance, enhance trans- parency and strengthen expenditure efficiency as a major   public financial management system reform?",
+      "question_stem_html": "Which one of the following systems has been adopted by the Government of India to improve cash management, reduce idle balance, enhance transparency and strengthen expenditure efficiency as a major   public financial management system reform?",
       "options": {
         "a": "Paper-Based Clearing System",
         "b": "Decentralized Account Management System",
@@ -674,7 +674,7 @@
       "ocr_confidence": 0.911,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -687,7 +687,7 @@
       "image": "images/q_0027.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements<br><br>1. The first book in the Tamil  script was printed in 1578_<br><br>2. The first printing press at Bombay was imported from England by the efforts of Bhimji Parikh-<br><br>Which of the statements given above is/are correct?",
+      "question_stem_html": "Consider the following statements<br><br>1. The first book in the Tamil  script was printed in 1578.<br>2. The first printing press at Bombay was imported from England by the efforts of Bhimji Parikh.<br><br>Which of the statements given above is/are correct?",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -712,7 +712,7 @@
       "image": "images/q_0028.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Match List-I with List-II and select the correct answer using the code given below the Lists&nbsp;<div><br></div><div>List-I (Sufi Work)&nbsp;</div><div>A Kashf-ul Mahjub&nbsp;</div><div>B. Fawa'id-al Fu'ad&nbsp;</div><div>C Siyar-ul Auliya&nbsp;</div><div>D Maktubat-i Imam Rabbani&nbsp;</div><div><br></div><div><span style=\"font-size: 14px; font-weight: 400;\">List-II (Nature of Composition)&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">13 Biographical accounts of saints&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">2 Manuals dealing with Sufi thought</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">3. Letters of Shaikh Ahmad Sirhindi&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">4 Conversations of Shaikh Nizamuddin Auliya</span></div>",
+      "question_stem_html": "Match List-I with List-II and select the correct answer using the code given below the Lists&nbsp;<div><br></div><div>List-I (Sufi Work)&nbsp;</div><div>A Kashf-ul Mahjub&nbsp;</div><div>B. Fawa'id-al Fu'ad&nbsp;</div><div>C Siyar-ul Auliya&nbsp;</div><div>D Maktubat-i Imam Rabbani&nbsp;</div><div><br></div><div><span style=\"font-size: 14px; font-weight: 400;\">List-II (Nature of Composition)&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">1. Biographical accounts of saints&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">2 Manuals dealing with Sufi thought</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">3. Letters of Shaikh Ahmad Sirhindi&nbsp;</span></div><div><span style=\"font-size: 14px; font-weight: 400;\">4 Conversations of Shaikh Nizamuddin Auliya</span></div>",
       "options": {
         "a": "3412",
         "b": "3142",
@@ -835,7 +835,7 @@
       "ocr_confidence": 0.936,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -898,7 +898,7 @@
       "image": "images/q_0035.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Who among the  following Vedic deities was considered the guardian of compacts and marriages?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Who among the  following Vedic deities was considered the guardian of compacts and marriages?</span>",
       "options": {
         "a": "Marut",
         "b": "Varuna",
@@ -928,7 +928,7 @@
         "a": "Rigveda",
         "b": "Atharvaveda",
         "c": "Samaveda",
-        "d": "Yajurveda [PT.O_"
+        "d": "Yajurveda"
       },
       "table": null,
       "has_underline": false,
@@ -998,7 +998,7 @@
       "image": "images/q_0039.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Arrange the following events in the correct chronological order<br><br>1_ Formation of the Azad Hind Government<br><br>2. Setting-up of the Indian Legion<br><br>3. Beginning of the INA trials<br><br>4_ The Bombay Naval Strike<br><br>Select the answer using the code given below",
+      "question_stem_html": "Arrange the following events in the correct chronological order<br>1. Formation of the Azad Hind Government<br>2. Setting-up of the Indian Legion<br>3. Beginning of the INA trials<br>4. The Bombay Naval Strike<br><br>Select the answer using the code given below",
       "options": {
         "a": "2-1-3-4",
         "b": "3-1-4-2",
@@ -1010,7 +1010,7 @@
       "ocr_confidence": 0.84,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1023,7 +1023,7 @@
       "image": "images/q_0040.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Who among the following was appointed by the Constituent Assembly of India as Head of the Sub-Committee for North- East Frontier (Assam) Tribal and Excluded Areas?",
+      "question_stem_html": "Who among the following was appointed by the Constituent Assembly of India as Head of the Sub-Committee for North-East Frontier (Assam) Tribal and Excluded Areas?",
       "options": {
         "a": "Gopinath Bordoloi",
         "b": "Rupnath Brahma",
@@ -1098,7 +1098,7 @@
       "image": "images/q_0043.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Public Interest Litigation (PIL)   is/are correct? 1. In  India, it adheres to the strict requirements imposed by the doctrine of locus standi.<div>2. Letters to judges may be treated as petitions.</div><div>3. M. C Mehta vs Union of India was a PIL that expanded the scope of Article 21 and Article 32 of the Constitution of India:<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "Which of the following statements about Public Interest Litigation (PIL)   is/are correct? 1. In  India, it adheres to the strict requirements imposed by the doctrine of locus standi.<div>2. Letters to judges may be treated as petitions.</div><div>3. M. C Mehta vs Union of India was a PIL that expanded the scope of Article 21 and Article 32 of the Constitution of India.<br><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 , 2 and 3",
         "b": "2 and 3 only",
@@ -1123,7 +1123,7 @@
       "image": "images/q_0044.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the   following statements in respect of the election of the President of India is/are correct?<br><br>1. By convention, the Secretary General, Lok Sabha or the Secretary General, Rajya Sabha is <u>appointed</u> as the Returning Officer by rotation.&nbsp;<div>2 Members of the Electoral   College can vote according to their wish and are not bound by any party whip.&nbsp;</div><div>3 The provisions of NOTA are applicable_<br><br>Select the answer using the code given below</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which of the   following statements in respect of the election of the President of India is/are correct?<br>1. By convention, the Secretary General, Lok Sabha or the Secretary General, Rajya Sabha is appointed as the Returning Officer by rotation.&nbsp;</span><div><span style=\"font-weight: normal;\">2 Members of the Electoral   College can vote according to their wish and are not bound by any party whip.&nbsp;</span></div><div><span style=\"font-weight: normal;\">3 The provisions of NOTA are applicable.<br><br>Select the answer using the code given below</span></div>",
       "options": {
         "a": "1 and 2&nbsp;",
         "b": "2 and 3",
@@ -1173,7 +1173,7 @@
       "image": "images/q_0046.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which among the   following subjects is not included in the Ninth  Schedule of the Constitution of India?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which among the   following subjects is not included in the Ninth  Schedule of the Constitution of India?</span>",
       "options": {
         "a": "The Monopolies and Restrictive Trade Practices Act, 1969",
         "b": "The General Insurance Business (Nationalization) Act, 1972",
@@ -1334,7 +1334,7 @@
       "image": "images/q_0052.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about the Convention on the Elimination of All Forms of Discrimination against Women are correct?&nbsp;<div><br></div><div>1 The Convention was the culmination of more than thirty   years of work by the United Nations Commission on the Status of Women.<br>2 . The Convention devotes major attention to women's reproductive rights.&nbsp;</div><div>3 The implementation of the Convention is monitored by the Committee on Human Rights.<br><br>Select the answer using the code given below</div>",
+      "question_stem_html": "Which of the following statements about the Convention on the Elimination of All Forms of Discrimination against Women are correct?&nbsp;<div>1 The Convention was the culmination of more than thirty   years of work by the United Nations Commission on the Status of Women.<br>2 . The Convention devotes major attention to women's reproductive rights.&nbsp;</div><div>3 The implementation of the Convention is monitored by the Committee on Human Rights.<br><br>Select the answer using the code given below</div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1 and 3 only",
@@ -1409,7 +1409,7 @@
       "image": "images/q_0055.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about Article 20(1) of the Constitution of India is/are correct?<br><br>1_ It contains a provision against ex post facto legislation.<br><br>2. A legislation shall not be competent to make a criminal law retrospective<br><br>Select the answer using the code given below",
+      "question_stem_html": "Which of the following statements about Article 20(1) of the Constitution of India is/are correct?<br>1. It contains a provision against ex post facto legislation.<br>2. A legislation shall not be competent to make a criminal law retrospective<br><br>Select the answer using the code given below",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -1459,7 +1459,7 @@
       "image": "images/q_0057.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "There is a question followed by two statements 1 and II&nbsp;<div>Question: If X and y are integers, can we find |x yl uniquely?</div><div>&nbsp; <span class=\"math-token\" data-type=\"formula\" data-mark=\"m1\" data-latex=\"\\begin{array}{r l}{1.}&amp;{{}x^{2}+y^{2}=25}\\\\ {\\Pi.}&amp;{{}x^{2}-y^{2}=7}\\end{array}\" contenteditable=\"false\"></span>&nbsp;<div>Which one of the following options is correct?</div></div>",
+      "question_stem_html": "There is a question followed by two statements I and II&nbsp;<div>Question: If X and y are integers, can we find |x yl uniquely?</div><div>&nbsp; <span class=\"math-token\" data-type=\"formula\" data-mark=\"m1\" data-latex=\"\\begin{array}{r l}{1.}&amp;{{}x^{2}+y^{2}=25}\\\\ {\\Pi.}&amp;{{}x^{2}-y^{2}=7}\\end{array}\" contenteditable=\"false\"></span>&nbsp;<div>Which one of the following options is correct?</div></div>",
       "options": {
         "a": "The question can be answered using one of these statements alone, but cannot be answered using the other statement",
         "b": "The question can be answered using either statement alone",
@@ -1512,7 +1512,7 @@
       "options": {
         "a": "2.5 &lt;l&lt;2.6",
         "b": "2.6 &lt;l&lt;2.7",
-        "c": "2.7 &lt;l&lt;2.8 '",
+        "c": "2.7 &lt;l&lt;2.8",
         "d": "2.8 &lt;l&lt;2.9"
       },
       "table": null,
@@ -1533,7 +1533,7 @@
       "image": "images/q_0059.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "In a club, there are 58 members. Among   them , 25 members drink tea, 23 members drink coffee and only 7 members drink both tea and coffee: What is the ratio of the number of members who drink tea or coffee but not both, to the number of members who drink neither tea nor coffee?",
+      "question_stem_html": "In a club, there are 58 members. Among   them, 25 members drink tea, 23 members drink coffee and only 7 members drink both tea and coffee: What is the ratio of the number of members who drink tea or coffee but not both, to the number of members who drink neither tea nor coffee?",
       "options": {
         "a": "1 : 2",
         "b": "1 : 3",
@@ -1608,7 +1608,7 @@
       "image": "images/q_0062.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "A person X has to make <u>a</u> payment of Rs. 56 He has twenty-five Rs. 2 coins <u>and</u> nine Rs. 5 coins. In how many different ways can he make this payment?",
+      "question_stem_html": "A person X has to make <u>a</u> payment of Rs. 56 He has twenty-five Rs. 2 coins and nine Rs. 5 coins. In how many different ways can he make this payment?",
       "options": {
         "a": "3",
         "b": "4",
@@ -1620,7 +1620,7 @@
       "ocr_confidence": 0.85,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1670,7 +1670,7 @@
       "ocr_confidence": 0.988,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -1695,7 +1695,7 @@
       "ocr_confidence": 0.937,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2096,12 +2096,12 @@
       "image": "images/q_0074.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding Industrial Corridors in India&nbsp;<div>1 They are linear development zones_&nbsp;</div><div>2 They connect all major <u>State</u> <u>capitals</u> <u>through</u> <u>an</u> <u>integrated</u> network of roads, railways, ports and airports:&nbsp;</div><div>3 They promote acceleration of industrial growth:<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements regarding Industrial Corridors in India&nbsp;<div>1 They are linear development zones_&nbsp;</div><div>2 They connect all major State capitals through an integrated network of roads, railways, ports and airports:&nbsp;</div><div>3 They promote acceleration of industrial growth:<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 and 2",
         "b": "1 and 3",
-        "c": "3 only 1",
-        "d": "only"
+        "c": "3 only",
+        "d": "1 only"
       },
       "table": null,
       "has_underline": true,
@@ -2121,19 +2121,19 @@
       "image": "images/q_0075.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding cyclones in India<br><br>1 _ More cyclones occur in the Bay of Bengal than in the Arabian Sea:&nbsp;<div><br></div><div>2 On an average, 12 to 15  tropical cyclones form every year_<br><br>3_ Tropical cyclones occur continu- ously throughout the year.<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements regarding cyclones in India<br>1. More cyclones occur in the Bay of Bengal than in the Arabian Sea:&nbsp;<div>2 On an average, 12 to 15  tropical cyclones form every year_</div><div>3. Tropical cyclones occur continuously throughout the year.<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "1 and 3",
         "c": "2 and 3",
-        "d": "2 only [PT.O."
+        "d": "2 only"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.905,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "d",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2146,7 +2146,7 @@
       "image": "images/q_0076.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about a geographical feature&nbsp;<div><br></div><div>1 The feature is in close proximity to the Malacca Strait:<br><br>2. The Government of India pro - posed an international container transhipment port in this region.&nbsp;</div><div><br></div><div>3 The region is one of the most critical nesting grounds for the endangered leatherback sea turtle<br><br>4_ The region is home to dense forest, rich coral reefs and sea grass meadows. Which one among the following geographical features is described above?</div>",
+      "question_stem_html": "Consider the following statements about a geographical feature:<div>1 The feature is in close proximity to the Malacca Strait.<br>2. The Government of India pro - posed an international container transhipment port in this region.&nbsp;</div><div>3 The region is one of the most critical nesting grounds for the endangered leatherback sea turtle.<br>4_ The region is home to dense forest, rich coral reefs and sea grass meadows.&nbsp;</div><div>Which one among the following geographical features is described above?</div>",
       "options": {
         "a": "Galathea Bay",
         "b": "Gulf of Mannar",
@@ -2171,7 +2171,7 @@
       "image": "images/q_0077.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>1 A great circle is the largest possible circle that can be drawn on the surface of the sphere.&nbsp;</div><div><br></div><div>2 Every great circle divides the Earth into equal halves_<br><br>Which of the statements   given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements&nbsp;<div>1 A great circle is the largest possible circle that can be drawn on the surface of the sphere.&nbsp;</div><div>2 Every great circle divides the Earth into equal halves.<br>Which of the statements   given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2196,7 +2196,7 @@
       "image": "images/q_0078.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>1 GPS uses signals  from a network of satellites to determine a position on the Earth:<br><br>2. The GPS receiver calculates the distances from satellites to triangulate the exact location by the use of latitude.<br><br>Which of the statements  given  above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements:<div>1 GPS uses signals  from a network of satellites to determine a position on the Earth.<br>2. The GPS receiver calculates the distances from satellites to triangulate the exact location by the use of latitude.<br><br>Which of the statements  given  above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2246,7 +2246,7 @@
       "image": "images/q_0080.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about a cloud form&nbsp;<div><br></div><div>1. These are made up of ice crystals rather than droplets of water.<br><br>2. They are thin, stringy, white clouds that trail like feathers across the sky.&nbsp;</div><div><br></div><div>3 These clouds are formed at very high altitudes~normally between 6000 metres and 10000 metres:&nbsp;</div><div><br></div><div>Which one among the   following cloud forms is described above?</div>",
+      "question_stem_html": "Consider the following statements about a cloud form:<div>1. These are made up of ice crystals rather than droplets of water.<br>2. They are thin, stringy, white clouds that trail like feathers across the sky.</div><div>3 These clouds are formed at very high altitudes~normally between 6000 metres and 10000 metres.</div><div><br></div><div>Which one among the   following cloud forms is described above?</div>",
       "options": {
         "a": "Cirrus",
         "b": "Stratus",
@@ -2271,7 +2271,7 @@
       "image": "images/q_0081.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>1 Many urban and suburban areas experience a higher temperature than surrounding rural areas known as urban heat islands:&nbsp;</div><div>2 The reduction in urban green cover and the increase of built-up hard surface is the only cause of urban heat island_<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements&nbsp;<div>1 Many urban and suburban areas experience a higher temperature than surrounding rural areas known as urban heat islands:&nbsp;</div><div>2 The reduction in urban green cover and the increase of built-up hard surface is the only cause of urban heat island_<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2296,7 +2296,7 @@
       "image": "images/q_0082.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding the Andaman and Nicobar Islands<br><br>1. There are 836 islands/islets/rocky outcrops_&nbsp;<div>2 The group of islands is divided by the Ten Degree Channel<br>3. The Union   Territory is home to tribes such as Koya, Malmi; Melacheri and Aminidivi:&nbsp;</div><div>4 There are more than two major ports in the Andaman and Nicobar Islands.<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements regarding the Andaman and Nicobar Islands:<br>1. There are 836 islands/islets/rocky outcrops_&nbsp;<div>2 The group of islands is divided by the Ten Degree Channel<br>3. The Union   Territory is home to tribes such as Koya, Malmi; Melacheri and Aminidivi:&nbsp;</div><div>4 There are more than two major ports in the Andaman and Nicobar Islands.<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "1 and 2 only",
@@ -2321,12 +2321,12 @@
       "image": "images/q_0083.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following rivers of India<br><br>I. Sharavathi<br><br>II. Periyar<br><br>III. Mandovi<br><br>IV . Daman Ganga<br><br>How many of the above are west- flowing rivers?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following rivers of India<br>I. Sharavathi<br>II. Periyar<br>III. Mandovi<br>IV . Daman Ganga<br><br>How many of the above are west- flowing rivers?</span>",
       "options": {
         "a": "1",
         "b": "2",
         "c": "3",
-        "d": "4 [PT.O_"
+        "d": "4"
       },
       "table": null,
       "has_underline": false,
@@ -2336,7 +2336,9 @@
       "user_answer": null,
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Geography"
+      ],
       "instruction_id": null
     },
     {
@@ -2346,7 +2348,7 @@
       "image": "images/q_0084.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements 0&nbsp;<div>1 India's total electricity  generation in the last four years (2022-23 to 2025-26) has witnessed an increasing trend.&nbsp;</div><div>2 The average availability of electricity in both rural and urban areas has increased in the last 12 years_<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following statements:&nbsp;</span><div><span style=\"font-weight: normal;\">1 India's total electricity  generation in the last four years (2022-23 to 2025-26) has witnessed an increasing trend.&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 The average availability of electricity in both rural and urban areas has increased in the last 12 years.<br><br>Which of the statements given above is/are correct?</span></div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2371,7 +2373,7 @@
       "image": "images/q_0085.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements with respect to ports in India&nbsp;<div>1. There are 12 major ports in operation in the country_<br><br>2. The major ports are under the administrative control of the Ministry of Ports, Shipping and Waterways, whereas the non-major ports are under the jurisdiction of respective State Maritime Boards/ State Governments.<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "Consider the following statements with respect to ports in India&nbsp;<div>1. There are 12 major ports in operation in the country.<br>2. The major ports are under the administrative control of the Ministry of Ports, Shipping and Waterways, whereas the non-major ports are under the jurisdiction of respective State Maritime Boards/ State Governments.<br><br>Which of the statements given above is/are correct?</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2401,7 +2403,7 @@
         "a": "Natural selection can only occur if <u>there</u> <u>is</u> no variation amongst members of the same species.",
         "b": "Over time, natural selection can increase the   frequency of adapta- tions that are favourable in a given environment:",
         "c": "Species tend to overproduce beyond what the environment can support:",
-        "d": "Mutation, meiosis and sexual reproduction cause variation between individuals of a species. 4<'"
+        "d": "Mutation, meiosis and sexual reproduction cause variation between individuals of a species."
       },
       "table": null,
       "has_underline": true,
@@ -2421,12 +2423,12 @@
       "image": "images/q_0087.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the  following Sustainable Development Goals (SDGs) talks about protecting and restoring terrestrial ecosystems, sustainably managing forests, combating desertification, halting and reversing land degradation and stopping biodiversity loss?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the  following Sustainable Development Goals (SDGs) talks about protecting and restoring terrestrial ecosystems, sustainably managing forests, combating desertification, halting and reversing land degradation and stopping biodiversity loss?</span>",
       "options": {
         "a": "SDG 5",
         "b": "SDG 13",
         "c": "SDG 15",
-        "d": "SDG 16 [PT.O_"
+        "d": "SDG 16"
       },
       "table": null,
       "has_underline": false,
@@ -2446,7 +2448,7 @@
       "image": "images/q_0088.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements regarding biodiversity conservation&nbsp;<div>1 In situ conservation refers to conservation of species in their natural habitats_&nbsp;</div><div>2 Nature reserves are areas specifically designed for wildlife conservation<br>3_ Captive  breeding of animals is an in situ conservation measure.<br><br>Which of the statements given above is/are correct?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following statements regarding biodiversity conservation&nbsp;</span><div><span style=\"font-weight: normal;\">1 In situ conservation refers to conservation of species in their natural habitats_&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Nature reserves are areas specifically designed for wildlife conservation<br>3. Captive  breeding of animals is an in situ conservation measure.<br><br>Which of the statements given above is/are correct?</span></div>",
       "options": {
         "a": "1 only",
         "b": "1 and 2",
@@ -2471,7 +2473,7 @@
       "image": "images/q_0089.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements about genetic engineering&nbsp;<div>1 The technique of genetic engineering involves creation of recombinant DNA, use of gene cloning and gene transfer.&nbsp;</div><div>2 Restriction enzymes cut DNA at specific locations<br>3_ Restriction enzymes split the entire double-stranded DNA into two strands<br><br>Which of the statements   given above is/are correct?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following statements about genetic engineering&nbsp;</span><div><span style=\"font-weight: normal;\">1 The technique of genetic engineering involves creation of recombinant DNA, use of gene cloning and gene transfer.&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Restriction enzymes cut DNA at specific locations<br>3_ Restriction enzymes split the entire double-stranded DNA into two strands<br><br>Which of the statements   given above is/are correct?</span></div>",
       "options": {
         "a": "1 only",
         "b": "1 and 2",
@@ -2496,7 +2498,7 @@
       "image": "images/q_0090.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about eutrophication is/are correct?&nbsp;<div>1 Eutrophication takes place in young lakes when the water is cold and clear.&nbsp;</div><div>2 Eutrophication is caused by nutrient enrichment in water bodies<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which of the following statements about eutrophication is/are correct?&nbsp;</span><div><span style=\"font-weight: normal;\">1 Eutrophication takes place in young lakes when the water is cold and clear.&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Eutrophication is caused by nutrient enrichment in water bodies.</span><br><br>Select the answer using the code given below.</div>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2526,14 +2528,14 @@
         "a": "Equatorial region",
         "b": "Arctic region",
         "c": "Antarctic region",
-        "d": "Tropical region PT.O_"
+        "d": "Tropical region"
       },
       "table": null,
       "has_underline": false,
       "ocr_confidence": 0.889,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2546,7 +2548,7 @@
       "image": "images/q_0092.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following is / are the basic step(s) in genetically   modifying an organism?&nbsp;<div>1  Identification of DNA with desirable genes&nbsp;</div><div>2 Introduction of the identified DNA into the host&nbsp;</div><div>3 Maintenance of introduced DNA in the host and transfer of the DNA to its progeny&nbsp;</div><div><br></div><div>Select the correct answer using the code given below.</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which of the following is / are the basic step(s) in genetically   modifying an organism?&nbsp;</span><div><span style=\"font-weight: normal;\">1  Identification of DNA with desirable genes&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Introduction of the identified DNA into the host&nbsp;</span></div><div><span style=\"font-weight: normal;\">3 Maintenance of introduced DNA in the host and transfer of the DNA to its progeny&nbsp;</span></div><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">Select the correct answer using the code given below.</span></div>",
       "options": {
         "a": "1 only",
         "b": "1, 2 and 3",
@@ -2558,7 +2560,7 @@
       "ocr_confidence": 0.87,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": "c",
+      "user_answer": null,
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -2571,7 +2573,7 @@
       "image": "images/q_0093.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the following factors is responsible for the spread of myxomatosis ~a severe viral disease among rabbits?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the following factors is responsible for the spread of myxomatosis ~a severe viral disease among rabbits?</span>",
       "options": {
         "a": "Higher water temperature",
         "b": "Higher soil temperature",
@@ -2596,7 +2598,7 @@
       "image": "images/q_0094.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following stages of insulin production procedure through gene technology<br><br>1. <u>Isolation</u> <u>of</u> insulin coding gene from humans<br><br>2. Inserting the insulin   coding gene into a plasmid vector<br><br>3_ Inserting the recombinant plasmid vector into the bacterium (E. coli )<div><u><br></u></div><div><u>Which</u> of the following is a correct sequence of the above?</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following stages of insulin production procedure through gene technology<br><br>1. Isolation of insulin coding gene from humans<br>2. Inserting the insulin   coding gene into a plasmid vector<br>3. Inserting the recombinant plasmid vector into the bacterium (E. coli )</span><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">Which of the following is a correct sequence of the above?</span></div>",
       "options": {
         "a": "1-2-3",
         "b": "1-3-2",
@@ -2621,7 +2623,7 @@
       "image": "images/q_0095.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the  following statements about the catalytic conversion of nitrogen gas by nitrogenase enzyme in root nodules of   leguminous plants is not correct?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the  following statements about the catalytic conversion of nitrogen gas by nitrogenase enzyme in root nodules of   leguminous plants is not correct?</span>",
       "options": {
         "a": "It needs ATP (Adenosine Tri- Phosphate) supply.",
         "b": "It converts N₂ (nitrogen gas) to NH₄⁺ (ammonium ion) first.",
@@ -2746,7 +2748,7 @@
       "image": "images/q_0100.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which one of the following plant hormones promotes stomatal closure during drought stress?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the following plant hormones promotes stomatal closure during drought stress?</span>",
       "options": {
         "a": "Auxin",
         "b": "Cytokinin",
@@ -2771,7 +2773,7 @@
       "image": "images/q_0101.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Which of the following statements about nuclear fuel are correct?&nbsp;<div><br></div><div>1 Spent fuel is highly radioactive.<br>2. Fuel has to be enriched_<br>3. Failure of the control system can lead to a meltdown:<br><br>Select the answer using the code given below.</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which of the following statements about nuclear fuel are correct?&nbsp;</span><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">1 Spent fuel is highly radioactive.<br>2. Fuel has to be enriched.<br>3. Failure of the control system can lead to a meltdown:<br><br>Select the answer using the code given below.</span></div>",
       "options": {
         "a": "1 and 2 only",
         "b": "1, 2 and 3",
@@ -2796,7 +2798,7 @@
       "image": "images/q_0102.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Match List-I with List-II and select the correct answer using the code given below the Lists&nbsp;<div>List-I (Biological Molecule)&nbsp;</div><div>A. Insulin&nbsp;</div><div>B. Haemoglobin&nbsp;</div><div>C. Amino acids&nbsp;</div><div>&nbsp;D Cholesterol&nbsp;</div><div><br></div><div>List-I (Function/ Property)&nbsp;</div><div>1 Monomer units of proteins&nbsp;</div><div>2 High concentration linked to circulatory system diseases<br>3. Carries oxygen</div><div>4 Controls the&nbsp;<span style=\"font-size: 14px;\">concentration of glucose in blood</span><span style=\"font-size: 14px;\">&nbsp;</span></div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Match List-I with List-II and select the correct answer using the code given below the Lists&nbsp;</span><div><span style=\"font-weight: normal;\">List-I (Biological Molecule)&nbsp;</span></div><div><span style=\"font-weight: normal;\">A. Insulin&nbsp;</span></div><div><span style=\"font-weight: normal;\">B. Haemoglobin&nbsp;</span></div><div><span style=\"font-weight: normal;\">C. Amino acids&nbsp;</span></div><div><span style=\"font-weight: normal;\">&nbsp;D Cholesterol&nbsp;</span></div><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">List-I (Function/ Property)&nbsp;</span></div><div><span style=\"font-weight: normal;\">1 Monomer units of proteins&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 High concentration linked to circulatory system diseases<br>3. Carries oxygen</span></div><div><span style=\"font-weight: normal;\">4 Controls the&nbsp;<span style=\"font-size: 14px;\">concentration of glucose in blood</span><span style=\"font-size: 14px;\">&nbsp;</span></span></div>",
       "options": {
         "a": "2134",
         "b": "2314",
@@ -2821,7 +2823,7 @@
       "image": "images/q_0103.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "With reference to fossil  fuels, consider the following statements<br><br>1. Coal is the most abundant fossil fuel and has high  specific energy and energy density. 2 The action of heat and pressure <u>changes</u> <u>plant</u> matter in stages from anthracite to bituminous to lignite coal:<br><br>Which of the statements given above is/are correct?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">With reference to fossil  fuels, consider the following statements<br><br>1. Coal is the most abundant fossil fuel and has high  specific energy and energy density. 2 The action of heat and pressure changes plant matter in stages from anthracite to bituminous to lignite coal.<br><br>Which of the statements given above is/are correct?</span>",
       "options": {
         "a": "1 only",
         "b": "2 only",
@@ -2846,7 +2848,7 @@
       "image": "images/q_0104.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "<u>Which</u> one of the following statements is correct?",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Which one of the following statements is correct?</span>",
       "options": {
         "a": "The number of electrons in alpha (α) particle is 2.",
         "b": "The coordination number of EDTA is 6",
@@ -2858,10 +2860,12 @@
       "ocr_confidence": 0.819,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Chemistry"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 45,
@@ -2990,7 +2994,7 @@
       "image": "images/q_0108.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "108. Which of the following pairs of products obtained from petroleum distillation and their uses are correctly matched?&nbsp;<div>1. Petroleum ether: Used as solvent&nbsp;</div><div>2 Petroleum jelly: Used to make coating of metals&nbsp;</div><div>3 Petroleum wax: Used as rubber solvent&nbsp;</div><div>4 White spirit: Used for making candles&nbsp;</div><div>Select the answer using the code given below.</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">108. Which of the following pairs of products obtained from petroleum distillation and their uses are correctly matched?&nbsp;</span><div><span style=\"font-weight: normal;\">1. Petroleum ether: Used as solvent&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Petroleum jelly: Used to make coating of metals&nbsp;</span></div><div><span style=\"font-weight: normal;\">3 Petroleum wax: Used as rubber solvent&nbsp;</span></div><div><span style=\"font-weight: normal;\">4 White spirit: Used for making candles</span>&nbsp;</div><div>Select the answer using the code given below.</div>",
       "options": {
         "a": "1, 3 and 4",
         "b": "1 and 2",
@@ -3122,7 +3126,7 @@
       "image": "images/q_0111.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Sound Navigation and Ranging (SONAR) is used to detect underwater objects For this, its transmitter produces",
+      "question_stem_html": "Sound Navigation and Ranging (SONAR) is used to detect underwater objects. For this, its transmitter produces",
       "options": {
         "a": "microwaves",
         "b": "visible light",
@@ -3134,10 +3138,12 @@
       "ocr_confidence": 0.992,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Physics"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 47,
@@ -3170,10 +3176,12 @@
       "ocr_confidence": 0.827,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Physics"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 47,
@@ -3194,7 +3202,7 @@
       "image": "images/q_0113.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "113. If the relative density of gold is 193 and the density of water is 10e6 g/m 3 what will be the density of gold in SI units?",
+      "question_stem_html": "113. If the relative density of gold is 19.3 and the density of water is 10e6 g/m 3 what will be the density of gold in SI units?",
       "options": {
         "a": "1930 kg/m³",
         "b": "19300 kg/m³",
@@ -3230,7 +3238,7 @@
       "image": "images/q_0114.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and VB respectively. The respective straight lines of the graph make angles 300 and 600, respectively with the x-axis (time): The difference in velocities VB and VA is",
+      "question_stem_html": "114. Velocity (m/s)-time (s) graph is plotted for the motion of two cars A and B for 10 s, when the cars are initially at rest and acquire   final velocities as VA and VB respectively. The respective straight lines of the graph make angles 30⁰ and 60⁰, respectively with the x-axis (time): The difference in velocities VB and VA is",
       "options": {
         "a": "20/√3 m/s",
         "b": "2/√3 m/s",
@@ -3242,7 +3250,7 @@
       "ocr_confidence": 0.721,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3278,7 +3286,7 @@
       "ocr_confidence": 0.968,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -3314,10 +3322,12 @@
       "ocr_confidence": 0.887,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Physics"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 49,
@@ -3340,7 +3350,7 @@
       "passage_text_html": "",
       "question_stem_html": "Which one among the following statements is correct?",
       "options": {
-        "a": "The total mechanical energy of system is conserved if the forces, doing work on it, are conservative_",
+        "a": "The total mechanical energy of system is conserved if the forces, doing work on it, are conservative.",
         "b": "The total mechanical   energy of system is conserved if the forces, doing work on it, are non conservative.",
         "c": "The total mechanical energy of system remains constant",
         "d": "Every force encountered in mechanics does have an associated well-defined potential energy:"
@@ -3386,10 +3396,12 @@
       "ocr_confidence": 0.975,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Physics"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 49,
@@ -3422,10 +3434,12 @@
       "ocr_confidence": 0.983,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "b",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Physics"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 49,
@@ -3458,10 +3472,12 @@
       "ocr_confidence": 0.91,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
-      "topics": [],
+      "topics": [
+        "Chemistry"
+      ],
       "instruction_id": null,
       "image_regions": {
         "page": 51,
@@ -3494,7 +3510,7 @@
       "ocr_confidence": 0.856,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "c",
       "explanation_html": "",
       "tags": [],
       "topics": [

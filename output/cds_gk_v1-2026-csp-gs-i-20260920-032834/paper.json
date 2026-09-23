@@ -47,7 +47,7 @@
       "passage_text_html": "",
       "question_stem_html": "The artificially fixed rupee-sterling exchange rate prescribed by the Hilton-Young Commission (1926) was adopted by the British Government for which one of the following reasons ?",
       "options": {
-        "a": "Aiding the flow of remittances from India and maintaining India s creditworthiness&nbsp;",
+        "a": "Aiding the flow of remittances from India and maintaining India's creditworthiness&nbsp;",
         "b": "Providing support to Indian importers&nbsp;",
         "c": "Encouraging export of cotton produce from India",
         "d": "Preventing depreciation of the Rupee in terms of gold"
@@ -57,7 +57,7 @@
       "ocr_confidence": 0.88,
       "needs_review": false,
       "review_reason": "",
-      "user_answer": null,
+      "user_answer": "a",
       "explanation_html": "",
       "tags": [],
       "topics": [],
@@ -70,7 +70,7 @@
       "image": "images/q_0003.png",
       "passage_label": "",
       "passage_text_html": "",
-      "question_stem_html": "Consider the following statements&nbsp;<div><br></div><div>I. Pali texts contain the first definite references to coins, e.g , kahapana, nikkha, kamsa, and kakanika.&nbsp;</div><div><br></div><div>II The literary evidence from Pali texts is corroborated by archaeological evidence of punch-marked coins from many sites, most of them made of silver.&nbsp;</div><div><br></div><div>The   above   statements have been  associated with which of the following ?&nbsp;</div><div>1 Emergence of urban life&nbsp;</div><div>2 Transition to money economy<br><br>Select the answer using the code given below</div>",
+      "question_stem_html": "<span style=\"font-weight: normal;\">Consider the following statements&nbsp;</span><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">I. Pali texts contain the first definite references to coins, e.g , kahapana, nikkha, kamsa, and kakanika.&nbsp;</span></div><div><span style=\"font-weight: normal;\">II The literary evidence from Pali texts is corroborated by archaeological evidence of punch-marked coins from many sites, most of them made of silver.&nbsp;</span></div><div><span style=\"font-weight: normal;\"><br></span></div><div><span style=\"font-weight: normal;\">The   above   statements have been  associated with which of the following ?&nbsp;</span></div><div><span style=\"font-weight: normal;\">1 Emergence of urban life&nbsp;</span></div><div><span style=\"font-weight: normal;\">2 Transition to money economy<br><br>Select the answer using the code given below:</span></div>",
       "options": {
         "a": "1 only",
         "b": "2 only&nbsp;",
