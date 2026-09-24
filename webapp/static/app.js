@@ -628,20 +628,53 @@ function registerDisplayModeFormula() {
   Quill.register(DisplayFormula, true);
 }
 
+// Quill ships no icon for the "table" toolbar format (added in 2.0, still
+// icon-less) - draw a plain grid to match the stroke style of the built-in
+// icons (they're styled via the shared .ql-stroke CSS class).
+function registerTableIcon() {
+  const icons = Quill.import("ui/icons");
+  icons.table =
+    '<svg viewBox="0 0 18 18">' +
+    '<rect class="ql-stroke" height="12" width="12" x="3" y="3"></rect>' +
+    '<line class="ql-stroke" x1="3" x2="15" y1="9" y2="9"></line>' +
+    '<line class="ql-stroke" x1="9" x2="9" y1="3" y2="15"></line>' +
+    "</svg>";
+}
+
 function getQuillInstance() {
   if (!quill) {
     registerDisplayModeFormula();
+    registerTableIcon();
     quill = new Quill("#editor", {
       theme: "snow",
       modules: {
-        toolbar: [
-          ["bold", "italic", "underline"],
-          [{ color: [] }],
-          [{ size: ["small", false, "large", "huge"] }],
-          [{ font: [] }],
-          ["formula", "image"],
-          ["clean"],
-        ],
+        table: true,
+        toolbar: {
+          container: [
+            ["bold", "italic", "underline"],
+            [{ color: [] }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ font: [] }],
+            ["formula", "image", "table"],
+            ["clean"],
+          ],
+          handlers: {
+            // Quill's table module only exposes insertTable(rows, cols) -
+            // no toolbar wiring of its own - so prompt for a size and
+            // insert it at the current cursor position ourselves.
+            table: function () {
+              const rowsInput = window.prompt("How many rows?", "3");
+              if (rowsInput === null) return;
+              const colsInput = window.prompt("How many columns?", "3");
+              if (colsInput === null) return;
+              const rows = Math.max(1, parseInt(rowsInput, 10) || 3);
+              const cols = Math.max(1, parseInt(colsInput, 10) || 3);
+              quill.focus();
+              if (!quill.getSelection()) quill.setSelection(quill.getLength(), 0);
+              quill.getModule("table").insertTable(rows, cols);
+            },
+          },
+        },
       },
     });
     quill.on("text-change", (delta, oldDelta, source) => {
@@ -793,7 +826,18 @@ function renderQuestion(qNumber) {
   document.getElementById("clear-answer-btn").hidden = !currentQuestion.user_answer;
 
   const editor = getQuillInstance();
-  editor.setContents(editor.clipboard.convert(currentQuestion.explanation_html || ""));
+  // Not editor.setContents(editor.clipboard.convert(...)): Quill's default
+  // HTML->Delta conversion has no matcher for <table>/<td> and silently
+  // drops table content entirely (converts it to zero ops). dangerouslyPasteHTML
+  // goes through the table module's own parsing and round-trips it correctly.
+  editor.clipboard.dangerouslyPasteHTML(currentQuestion.explanation_html || "");
+  // If the saved HTML ended right at the table (its own trailing blank
+  // paragraph gets dropped by the HTML->Delta conversion above), there's no
+  // line left after it to click into - add one back so the table isn't a
+  // dead end the user can never type past.
+  if (editor.root.lastElementChild && editor.root.lastElementChild.tagName === "TABLE") {
+    editor.insertText(editor.getLength(), "\n", "api");
+  }
   setSaveIndicator("");
 
   renderTags();
