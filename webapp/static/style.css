@@ -124,6 +124,11 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   display: flex;
   gap: 16px;
   align-items: stretch;
+  /* A definite height, not just a cap - otherwise "stretch" only equalizes
+     panes to their tallest CONTENT, not to the viewport, and a pane with
+     little content (a short question, an empty explanation) stops short
+     and leaves the rest of the window blank instead of using it. */
+  height: calc(100vh - 100px);
 }
 
 .pane {
@@ -131,7 +136,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
-  max-height: calc(100vh - 100px);
+  height: 100%;
   overflow-y: auto;
   min-width: 0;
 }
