@@ -1290,6 +1290,9 @@ function initLatexScratchpad() {
   const copyBtn = document.getElementById("latex-copy-btn");
   const copyStatusEl = document.getElementById("latex-copy-status");
 
+  const stitchDropzone = document.getElementById("latex-stitch-dropzone");
+  const stitchThumb = document.getElementById("latex-stitch-thumb");
+  const stitchDropzoneHint = document.getElementById("latex-stitch-dropzone-hint");
   const stitchBtn = document.getElementById("latex-stitch-btn");
   const stitchStatusEl = document.getElementById("latex-stitch-status");
   const stitchErrorEl = document.getElementById("latex-stitch-error");
@@ -1333,6 +1336,12 @@ function initLatexScratchpad() {
       stitchLines = [];
       stitchLinesEl.innerHTML = "";
       stitchPreviewWrapEl.hidden = true;
+      // Box 3 has its own paste/drop target (below) but shares this same
+      // source image - reflect whatever just loaded there too, whichever
+      // box it came in through.
+      stitchThumb.src = img.src;
+      stitchThumb.hidden = false;
+      stitchDropzoneHint.hidden = true;
     };
     img.src = URL.createObjectURL(blob);
   }
@@ -1409,28 +1418,33 @@ function initLatexScratchpad() {
     redrawCanvas();
   });
 
-  dropzone.addEventListener("click", () => dropzone.focus());
-
-  dropzone.addEventListener("paste", (e) => {
-    const items = e.clipboardData && e.clipboardData.items;
-    if (!items) return;
-    const imageItem = Array.from(items).find((item) => item.type && item.type.startsWith("image/"));
-    if (!imageItem) return;
-    e.preventDefault();
-    setImage(imageItem.getAsFile());
-  });
-
-  dropzone.addEventListener("dragover", (e) => {
-    e.preventDefault();
-    dropzone.classList.add("dragover");
-  });
-  dropzone.addEventListener("dragleave", () => dropzone.classList.remove("dragover"));
-  dropzone.addEventListener("drop", (e) => {
-    e.preventDefault();
-    dropzone.classList.remove("dragover");
-    const file = e.dataTransfer.files && e.dataTransfer.files[0];
-    if (file && file.type.startsWith("image/")) setImage(file);
-  });
+  // Box 1's crop tool and box 3's whole-image auto-detect both read from the
+  // one shared sourceImage (see setImage), so either dropzone accepts a
+  // paste/drop - whichever the user reaches for first.
+  function wireDropzone(el) {
+    el.addEventListener("click", () => el.focus());
+    el.addEventListener("paste", (e) => {
+      const items = e.clipboardData && e.clipboardData.items;
+      if (!items) return;
+      const imageItem = Array.from(items).find((item) => item.type && item.type.startsWith("image/"));
+      if (!imageItem) return;
+      e.preventDefault();
+      setImage(imageItem.getAsFile());
+    });
+    el.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      el.classList.add("dragover");
+    });
+    el.addEventListener("dragleave", () => el.classList.remove("dragover"));
+    el.addEventListener("drop", (e) => {
+      e.preventDefault();
+      el.classList.remove("dragover");
+      const file = e.dataTransfer.files && e.dataTransfer.files[0];
+      if (file && file.type.startsWith("image/")) setImage(file);
+    });
+  }
+  wireDropzone(dropzone);
+  wireDropzone(stitchDropzone);
 
   chooseBtn.addEventListener("click", () => fileInput.click());
   fileInput.addEventListener("change", () => {

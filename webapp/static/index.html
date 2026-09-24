@@ -175,50 +175,55 @@
     </section>
 
     <section id="tab-latex" class="tab-panel">
-      <div class="latex-grid">
-        <div class="pane latex-pane">
-          <h4>1. Get a formula image in</h4>
-          <div id="latex-dropzone" class="latex-dropzone" tabindex="0">
-            <canvas id="latex-crop-canvas" hidden></canvas>
-            <span id="latex-dropzone-hint">Click here, then paste (Ctrl+V) a copied formula image - or drag and drop one</span>
+      <div class="latex-columns">
+        <div class="latex-column">
+          <div class="pane latex-pane">
+            <h4>1. Get a formula image in</h4>
+            <div id="latex-dropzone" class="latex-dropzone" tabindex="0">
+              <canvas id="latex-crop-canvas" hidden></canvas>
+              <span id="latex-dropzone-hint">Click here, then paste (Ctrl+V) a copied formula image - or drag and drop one</span>
+            </div>
+            <div id="latex-crop-hint" class="latex-crop-hint" hidden>Drag on the image above to select just the formula (recommended - a full screenshot confuses the converter), then Convert.</div>
+            <input type="file" id="latex-file-input" accept="image/*" hidden>
+            <div class="latex-actions">
+              <button type="button" id="latex-choose-btn">Choose image file...</button>
+              <button type="button" id="latex-reset-crop-btn" hidden>Reset selection</button>
+              <button type="button" id="latex-convert-btn" disabled>Convert to LaTeX</button>
+            </div>
+            <div id="latex-convert-status" class="status" hidden>
+              <div class="spinner"></div>
+              <span>Converting - first run downloads the model, can take a minute...</span>
+            </div>
+            <div id="latex-convert-error" class="error" hidden></div>
           </div>
-          <div id="latex-crop-hint" class="latex-crop-hint" hidden>Drag on the image above to select just the formula (recommended - a full screenshot confuses the converter), then Convert.</div>
-          <input type="file" id="latex-file-input" accept="image/*" hidden>
-          <div class="latex-actions">
-            <button type="button" id="latex-choose-btn">Choose image file...</button>
-            <button type="button" id="latex-reset-crop-btn" hidden>Reset selection</button>
-            <button type="button" id="latex-convert-btn" disabled>Convert to LaTeX</button>
+
+          <div class="pane latex-pane">
+            <h4>2. Check the result</h4>
+            <div id="latex-preview" class="latex-render"></div>
+            <textarea id="latex-output" class="latex-textarea" placeholder="Converted LaTeX source will appear here - edit it if the conversion needs a fix"></textarea>
+            <button type="button" id="latex-copy-btn" disabled>Copy LaTeX</button>
+            <span id="latex-copy-status" class="save-indicator"></span>
           </div>
-          <div id="latex-convert-status" class="status" hidden>
+        </div>
+
+        <div class="pane latex-stitch-pane">
+          <h4>3. Or: auto-detect &amp; stitch the whole image</h4>
+          <div id="latex-stitch-dropzone" class="latex-dropzone" tabindex="0">
+            <img id="latex-stitch-thumb" hidden alt="Pasted image">
+            <span id="latex-stitch-dropzone-hint">Click here, then paste (Ctrl+V) an image - or drag and drop one. Pasting into box 1 works too, since both share the same image.</span>
+          </div>
+          <p class="latex-stitch-hint">
+            Best-effort: each detected line is read as plain text unless it looks like a formula
+            (has "=" and a lot of math/digit characters), in which case it's converted via LaTeX-OCR
+            instead - then everything is stitched back together in order. Works well for a formula
+            written on one line (e.g. "UR = 50-45/50 x 100 = 10%"); a stacked fraction spanning two
+            visual rows will get split into separate text lines instead - use the crop tool above for
+            those. Always check the line list below and fix anything misclassified before copying.
+          </p>
+          <button type="button" id="latex-stitch-btn" disabled>Auto-detect &amp; Stitch</button>
+          <div id="latex-stitch-status" class="status" hidden>
             <div class="spinner"></div>
-            <span>Converting - first run downloads the model, can take a minute...</span>
-          </div>
-          <div id="latex-convert-error" class="error" hidden></div>
-        </div>
-
-        <div class="pane latex-pane">
-          <h4>2. Check the result</h4>
-          <div id="latex-preview" class="latex-render"></div>
-          <textarea id="latex-output" class="latex-textarea" placeholder="Converted LaTeX source will appear here - edit it if the conversion needs a fix"></textarea>
-          <button type="button" id="latex-copy-btn" disabled>Copy LaTeX</button>
-          <span id="latex-copy-status" class="save-indicator"></span>
-        </div>
-      </div>
-
-      <div class="pane latex-stitch-pane">
-        <h4>3. Or: auto-detect &amp; stitch the whole image</h4>
-        <p class="latex-stitch-hint">
-          Best-effort: each detected line is read as plain text unless it looks like a formula
-          (has "=" and a lot of math/digit characters), in which case it's converted via LaTeX-OCR
-          instead - then everything is stitched back together in order. Works well for a formula
-          written on one line (e.g. "UR = 50-45/50 x 100 = 10%"); a stacked fraction spanning two
-          visual rows will get split into separate text lines instead - use the crop tool above for
-          those. Always check the line list below and fix anything misclassified before copying.
-        </p>
-        <button type="button" id="latex-stitch-btn" disabled>Auto-detect &amp; Stitch</button>
-        <div id="latex-stitch-status" class="status" hidden>
-          <div class="spinner"></div>
-          <span>Analyzing...</span>
+            <span>Analyzing...</span>
         </div>
         <div id="latex-stitch-error" class="error" hidden></div>
         <div id="latex-stitch-lines" class="latex-stitch-lines"></div>
@@ -231,6 +236,7 @@
             <span id="latex-stitch-copy-status" class="save-indicator"></span>
           </div>
         </div>
+      </div>
       </div>
     </section>
   </main>

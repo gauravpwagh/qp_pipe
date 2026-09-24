@@ -157,9 +157,19 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
+  min-width: 0;
+}
+
+/* Fill-the-row-height behavior is specific to the Review tab's 3-column
+   layout, not every card that happens to share the .pane class for its
+   background/border/padding (e.g. the LaTeX Scratchpad's panes) - scoped
+   here rather than on .pane itself, or a card outside that grid stretches
+   to its flex-resolved container height and its content gets squeezed
+   into a cramped internal scrollbox instead of flowing normally on the
+   page. */
+.review-grid .pane {
   height: 100%;
   overflow-y: auto;
-  min-width: 0;
 }
 
 /* Question narrower, Explanation/Topics/Tags noticeably wider - the
@@ -293,13 +303,18 @@ option.instruction-option { font-style: italic; color: var(--accent); }
   font-size: 11px; padding: 2px 8px; border-radius: 999px; margin-bottom: 8px;
 }
 
-.latex-grid {
+/* Two columns: (1) get an image in and (2) check the crop-and-convert
+   result stacked on the left, since they're steps of the same flow; (3)
+   auto-detect-the-whole-image on the right, a separate/alternative flow
+   that deserves its own full-height column rather than being squeezed
+   below both. */
+.latex-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 16px;
   align-items: start;
-  max-width: 1000px;
 }
+.latex-column { display: flex; flex-direction: column; gap: 16px; }
 .latex-pane h4 { margin: 0 0 10px; font-size: 13px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
 
 .latex-dropzone {
@@ -316,6 +331,7 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .latex-dropzone:hover, .latex-dropzone:focus { border-color: var(--accent); outline: none; }
 .latex-dropzone.dragover { border-color: var(--accent); background: var(--accent-bg); }
 .latex-dropzone canvas { max-width: 100%; display: block; cursor: crosshair; user-select: none; }
+.latex-dropzone img { max-width: 100%; max-height: 260px; display: block; }
 
 .latex-crop-hint { font-size: 12px; color: var(--muted); margin-top: 6px; }
 
@@ -342,7 +358,6 @@ option.instruction-option { font-style: italic; color: var(--accent); }
   background: var(--card-bg); color: var(--text);
 }
 
-.latex-stitch-pane { max-width: 1000px; margin-top: 16px; }
 .latex-stitch-hint { font-size: 12px; color: var(--muted); margin: 0 0 12px; max-width: 760px; }
 
 .latex-stitch-lines { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
