@@ -284,6 +284,16 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 #editor { min-height: 160px; height: auto; margin-bottom: 12px; background: white; }
 #editor .ql-formula .katex-display { margin: 0.4em 0; }
 
+/* The pane (not #editor) is what scrolls, so the toolbar has to stick to
+   IT, not to the editor - pin it to the pane's own top edge and give it an
+   opaque background so explanation text doesn't show through underneath. */
+.notes-explanation .ql-toolbar.ql-snow {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--card-bg);
+}
+
 #tag-input-row, #topic-input-row { margin-bottom: 8px; }
 #tag-input, #topic-input { width: 100%; padding: 7px; border: 1px solid var(--border); border-radius: 6px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
