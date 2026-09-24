@@ -6,12 +6,21 @@ venv/
 # image crops, and the copied source PDF - which would otherwise make
 # this repo grow unboundedly with normal use (git doesn't diff binary
 # blobs well, so every reprocess/re-crop would add a whole new copy).
+# Diagram crops (src/marks.py) are the one exception: unlike a question
+# crop, which Reprocess/a re-run regenerates from the source PDF, a
+# diagram only exists because it was manually marked in the Edit-image
+# modal - losing it means redrawing the mark, not just re-running
+# something, so it's tracked like paper.json rather than treated as
+# regeneratable.
 output/*
 !output/_vocab/
 !output/*/
 output/*/*
 !output/_vocab/*.json
 !output/*/paper.json
+!output/*/images/
+output/*/images/*
+!output/*/images/diagrams/
 .EasyOCR/
 *.egg-info/
 dev_ocr_cache/
