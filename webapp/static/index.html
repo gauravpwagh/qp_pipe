@@ -9,7 +9,23 @@
 </head>
 <body>
   <header class="topbar">
-    <h1>Question Paper Pipeline</h1>
+    <h1 id="app-title">Question Paper Pipeline</h1>
+    <div class="topbar-review" id="topbar-review-controls" hidden>
+      <label>
+        Paper
+        <select id="paper-select"></select>
+      </label>
+      <label>
+        Question
+        <select id="question-select"></select>
+      </label>
+      <button id="prev-q-btn" title="Previous question">&larr;</button>
+      <button id="next-q-btn" title="Next question">&rarr;</button>
+      <span id="review-meta" class="review-meta">
+        <span id="review-meta-text"></span>
+        <button type="button" id="review-meta-dismiss-btn" class="review-meta-dismiss" hidden title="Mark as reviewed - clears this warning">&times;</button>
+      </span>
+    </div>
     <nav class="tabs">
       <button class="tab-btn active" data-tab="process">Process</button>
       <button class="tab-btn" data-tab="review">Review</button>
@@ -50,23 +66,6 @@
     </section>
 
     <section id="tab-review" class="tab-panel">
-      <div class="review-toolbar">
-        <label>
-          Paper
-          <select id="paper-select"></select>
-        </label>
-        <label>
-          Question
-          <select id="question-select"></select>
-        </label>
-        <button id="prev-q-btn" title="Previous question">&larr;</button>
-        <button id="next-q-btn" title="Next question">&rarr;</button>
-        <span id="review-meta" class="review-meta">
-          <span id="review-meta-text"></span>
-          <button type="button" id="review-meta-dismiss-btn" class="review-meta-dismiss" hidden title="Mark as reviewed - clears this warning">&times;</button>
-        </span>
-      </div>
-
       <div id="review-empty" class="empty-state">No paper selected yet - process one, or pick an existing paper above.</div>
 
       <div id="review-body" class="review-grid" hidden>

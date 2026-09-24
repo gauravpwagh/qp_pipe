@@ -87,6 +87,10 @@ document.querySelectorAll(".tab-btn").forEach((btn) => {
 function switchTab(name) {
   document.querySelectorAll(".tab-btn").forEach((b) => b.classList.toggle("active", b.dataset.tab === name));
   document.querySelectorAll(".tab-panel").forEach((p) => p.classList.toggle("active", p.id === `tab-${name}`));
+  document.body.dataset.activeTab = name;
+  // The Paper/Question controls live in the topbar (saves a whole toolbar row)
+  // but only make sense while reviewing.
+  document.getElementById("topbar-review-controls").hidden = name !== "review";
   if (name === "review") loadPapers();
   if (name === "jobs") loadJobs();
 }

@@ -26,17 +26,29 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 24px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 8px 16px;
   background: var(--card-bg);
   border-bottom: 1px solid var(--border);
 }
 
-.topbar h1 { font-size: 18px; margin: 0; }
+/* Tabs always sit on the right. The title and the Paper/Question toolbar
+   share the left slot (never both visible at once - see the hidden toggles
+   below), each anchored at the left edge; the tabs are the only item that
+   never moves, so - together with them always being last - the prev/next
+   arrows sit at a fixed position as you move between questions instead of
+   drifting with the tab group's width. */
+.topbar h1 { order: 1; font-size: 16px; margin: 0; white-space: nowrap; }
+.topbar-review { order: 2; }
+.tabs { order: 3; display: flex; gap: 8px; }
 
-.tabs { display: flex; gap: 8px; }
+/* Freed up for the Paper/Question controls while reviewing - the title adds
+   nothing there and the room matters more than the reminder of the app name. */
+body[data-active-tab="review"] .topbar h1 { display: none; }
 
 .tab-btn {
-  padding: 8px 16px;
+  padding: 6px 14px;
   border: 1px solid var(--border);
   background: var(--card-bg);
   color: var(--text);
@@ -47,7 +59,7 @@ body {
 
 .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-main { padding: 20px 24px; }
+main { padding: 12px 24px; }
 
 .tab-panel { display: none; }
 .tab-panel.active { display: block; }
@@ -92,15 +104,13 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .success { margin-top: 16px; color: var(--success); font-size: 13px; }
 .success a { color: var(--accent); }
 
-.review-toolbar {
-  display: flex; align-items: center; gap: 16px;
-  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
-  padding: 10px 16px; margin-bottom: 16px; flex-wrap: wrap;
+.topbar-review {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
 }
-.review-toolbar label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
-.review-toolbar select { padding: 6px; border: 1px solid var(--border); border-radius: 6px; }
-.review-toolbar button { padding: 6px 10px; }
-.review-meta { margin-left: auto; font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+.topbar-review label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+.topbar-review select { padding: 5px; border: 1px solid var(--border); border-radius: 6px; }
+.topbar-review button { padding: 5px 9px; }
+.review-meta { font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
 .review-meta.needs-review { color: #b45309; font-weight: 600; }
 .review-meta-dismiss {
   background: none; border: none; color: inherit; font-size: 15px; line-height: 1;
@@ -121,7 +131,7 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   padding: 16px;
-  max-height: calc(100vh - 160px);
+  max-height: calc(100vh - 100px);
   overflow-y: auto;
   min-width: 0;
 }
