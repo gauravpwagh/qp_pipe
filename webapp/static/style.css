@@ -15,11 +15,14 @@
 
 [hidden] { display: none !important; }
 
+html, body { height: 100%; }
 body {
   margin: 0;
   font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
+  display: flex;
+  flex-direction: column;
 }
 
 .topbar {
@@ -59,10 +62,21 @@ body[data-active-tab="review"] .topbar h1 { display: none; }
 
 .tab-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
 
-main { padding: 12px 24px; }
+main {
+  padding: 12px 24px;
+  /* Fills whatever height the (variable-height) header leaves, instead of
+     a guessed pixel offset - the Review tab's panes then stretch to fill
+     this exactly, with no leftover gap and no fixed number to keep in
+     sync with header changes. */
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
 
 .tab-panel { display: none; }
-.tab-panel.active { display: block; }
+.tab-panel.active { display: flex; flex-direction: column; flex: 1 1 auto; min-height: 0; overflow: auto; }
 
 .card {
   background: var(--card-bg);
@@ -124,11 +138,14 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
   display: flex;
   gap: 16px;
   align-items: stretch;
-  /* A definite height, not just a cap - otherwise "stretch" only equalizes
-     panes to their tallest CONTENT, not to the viewport, and a pane with
-     little content (a short question, an empty explanation) stops short
-     and leaves the rest of the window blank instead of using it. */
-  height: calc(100vh - 100px);
+  /* flex: 1 (not just align-items: stretch) - stretch only equalizes panes
+     to their tallest CONTENT, not to the space actually available, so a
+     pane with little content (a short question, an empty explanation)
+     used to stop short and leave the rest of the window blank. min-height:
+     0 lets a flex child be sized by the parent instead of growing to fit
+     its own content. */
+  flex: 1 1 auto;
+  min-height: 0;
 }
 
 .pane {
