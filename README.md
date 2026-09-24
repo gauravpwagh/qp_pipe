@@ -99,8 +99,19 @@ per variant (`output/_vocab/<variant_id>.json`) and suggested back via
 autocomplete on any question of any paper of that same variant - so a
 topic scheme you build up on one paper carries over to the next.
 
-A flagged `⚠ needs review: ...` warning has a small **×** next to it once
-you've checked the question and confirmed it's actually fine - clicking it
+The **Filter** button next to the prev/next arrows narrows the Question
+dropdown (and what prev/next walk) to only questions matching selected
+topics/tags - checking more than one topic (or tag) is OR ("History" or
+"Polity"), while topics and tags together are AND ("History" *and* tagged
+"hard"); an instruction stays listed as long as at least one question it
+covers still matches. The panel only ever lists topics/tags actually used
+somewhere in the current paper, not the full per-variant vocabulary, and
+updates the moment you add or remove one on any question. Clearing the
+filter (or nothing matching) returns to the full list.
+
+The confidence score / `⚠ needs review: ...` warning now sits at the top of
+the Question pane (above the stem) rather than the toolbar - a small **×**
+next to it once you've checked the question and confirmed it's actually fine - clicking it
 clears the flag (and its "⚠" in the Question dropdown) for good; it
 doesn't re-appear on its own unless a later **Reprocess** re-detects the
 same issue. The paper picker's "N flagged" count stays in sync as flags

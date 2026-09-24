@@ -354,6 +354,124 @@ async function deleteJob(p) {
   await loadJobs();
 }
 
+// ---- filter the question list by topic/tag (multi-select, AND across the
+// two categories, OR within each) - narrows buildNavSequence's output, so
+// the dropdown and prev/next only walk the matching questions. State is
+// in-memory only and resets whenever a different paper is loaded. ----
+let questionFilter = { topics: [], tags: [] };
+
+function questionMatchesFilter(q) {
+  const topicsOk = questionFilter.topics.length === 0 || (q.topics || []).some((t) => questionFilter.topics.includes(t));
+  const tagsOk = questionFilter.tags.length === 0 || (q.tags || []).some((t) => questionFilter.tags.includes(t));
+  return topicsOk && tagsOk;
+}
+
+function filterActive() {
+  return questionFilter.topics.length > 0 || questionFilter.tags.length > 0;
+}
+
+function updateFilterButton() {
+  const n = questionFilter.topics.length + questionFilter.tags.length;
+  const btn = document.getElementById("filter-btn");
+  btn.textContent = n ? `Filter (${n})` : "Filter";
+  btn.classList.toggle("active", n > 0);
+}
+
+// (Re)builds the popover's checklists from whichever topics/tags actually
+// appear on some question in the current paper - not the variant's whole
+// vocabulary, which would list things never used in this particular paper.
+// Called on paper load and again after any chip is added/removed, so a
+// freshly-typed topic/tag becomes filterable right away.
+function renderFilterPanel() {
+  if (!currentPaper) return;
+  const topics = new Set();
+  const tags = new Set();
+  for (const q of currentPaper.questions) {
+    for (const t of q.topics || []) topics.add(t);
+    for (const t of q.tags || []) tags.add(t);
+  }
+  // drop selections for anything no longer used anywhere in this paper
+  questionFilter.topics = questionFilter.topics.filter((t) => topics.has(t));
+  questionFilter.tags = questionFilter.tags.filter((t) => tags.has(t));
+
+  const buildList = (containerId, values, selected, onToggle) => {
+    const el = document.getElementById(containerId);
+    el.innerHTML = "";
+    for (const value of [...values].sort((a, b) => a.localeCompare(b))) {
+      const label = document.createElement("label");
+      label.className = "filter-checkbox-row";
+      const box = document.createElement("input");
+      box.type = "checkbox";
+      box.checked = selected.includes(value);
+      box.addEventListener("change", () => onToggle(value, box.checked));
+      label.append(box, document.createTextNode(" " + value));
+      el.appendChild(label);
+    }
+  };
+  buildList("filter-topics-list", topics, questionFilter.topics, (value, checked) => {
+    toggleFilterValue("topics", value, checked);
+  });
+  buildList("filter-tags-list", tags, questionFilter.tags, (value, checked) => {
+    toggleFilterValue("tags", value, checked);
+  });
+  document.getElementById("filter-panel-empty-note").hidden = topics.size > 0 || tags.size > 0;
+  updateFilterButton();
+}
+
+function toggleFilterValue(category, value, checked) {
+  const list = questionFilter[category];
+  const idx = list.indexOf(value);
+  if (checked && idx === -1) list.push(value);
+  if (!checked && idx !== -1) list.splice(idx, 1);
+  updateFilterButton();
+  populateQuestionSelect();
+}
+
+function clearFilter() {
+  questionFilter = { topics: [], tags: [] };
+  renderFilterPanel();
+  populateQuestionSelect();
+}
+
+function openFilterPanel() {
+  const pop = document.getElementById("filter-popover");
+  closeFormulaPopover();
+  closeSymbolPalette();
+  renderFilterPanel();
+  pop.hidden = false;
+  const anchor = document.getElementById("filter-btn").getBoundingClientRect();
+  const w = pop.offsetWidth;
+  const h = pop.offsetHeight;
+  const left = Math.min(Math.max(8, anchor.left), Math.max(8, window.innerWidth - w - 8));
+  let top = anchor.bottom + 6;
+  if (top + h > window.innerHeight - 8) top = Math.max(8, anchor.top - h - 8);
+  pop.style.left = `${left}px`;
+  pop.style.top = `${top}px`;
+}
+
+function closeFilterPanel() {
+  document.getElementById("filter-popover").hidden = true;
+}
+
+function initFilterPanel() {
+  const btn = document.getElementById("filter-btn");
+  btn.addEventListener("click", () => {
+    const pop = document.getElementById("filter-popover");
+    if (pop.hidden) openFilterPanel();
+    else closeFilterPanel();
+  });
+  document.getElementById("filter-clear-btn").addEventListener("click", clearFilter);
+  document.getElementById("filter-no-match-clear-btn").addEventListener("click", clearFilter);
+  document.addEventListener("mousedown", (e) => {
+    const pop = document.getElementById("filter-popover");
+    if (pop.hidden || pop.contains(e.target) || btn.contains(e.target)) return;
+    closeFilterPanel();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeFilterPanel();
+  });
+}
+
 // Interleaves each instruction into the question sequence right before the
 // first question it applies to (e.g. Q7, I1, Q8, Q9) - the natural reading
 // order, instead of listing all instructions separately from questions.
@@ -376,26 +494,51 @@ async function loadPaper(paperId, selectValue) {
   const res = await fetch(`/api/papers/${paperId}`);
   currentPaper = await res.json();
   await loadVocabSuggestions(currentPaper.variant);
+  questionFilter = { topics: [], tags: [] };
+  renderFilterPanel();
+  populateQuestionSelect(selectValue);
+}
 
+// Fills the Question dropdown from buildNavSequence, skipping anything the
+// active topic/tag filter excludes (an instruction is kept if at least one
+// question it applies to still matches). Re-run whenever the filter
+// changes, not just on paper load.
+function populateQuestionSelect(selectValue) {
   const qSelect = document.getElementById("question-select");
   qSelect.innerHTML = "";
   const seq = buildNavSequence(currentPaper);
+  const active = filterActive();
+  const keptQNumbers = new Set(currentPaper.questions.filter(questionMatchesFilter).map((q) => q.q_number));
   for (const item of seq) {
-    const opt = document.createElement("option");
     if (item.type === "instruction") {
+      if (active) {
+        const inst = (currentPaper.instructions || []).find((i) => i.instruction_id === item.id);
+        if (!inst || !inst.applies_to.some((n) => keptQNumbers.has(n))) continue;
+      }
+      const opt = document.createElement("option");
       opt.value = `I:${item.id}`;
       opt.textContent = `${item.id} (Instructions)`;
       opt.className = "instruction-option";
+      qSelect.appendChild(opt);
     } else {
+      if (active && !keptQNumbers.has(item.q_number)) continue;
       const q = currentPaper.questions.find((qq) => qq.q_number === item.q_number);
+      const opt = document.createElement("option");
       opt.value = `Q:${item.q_number}`;
       opt.textContent = `Q${item.q_number}${q.needs_review ? " ⚠" : ""}`;
+      qSelect.appendChild(opt);
     }
-    qSelect.appendChild(opt);
   }
   document.getElementById("review-empty").hidden = true;
+  if (!qSelect.options.length) {
+    document.getElementById("review-body").hidden = true;
+    document.getElementById("filter-no-match").hidden = false;
+    return;
+  }
+  document.getElementById("filter-no-match").hidden = true;
   document.getElementById("review-body").hidden = false;
-  if (seq.length) renderSelection(selectValue || qSelect.options[0].value);
+  const want = selectValue && [...qSelect.options].some((o) => o.value === selectValue) ? selectValue : qSelect.options[0].value;
+  renderSelection(want);
 }
 
 // Every tag/topic ever entered for this paper's variant, so typing a new
@@ -676,10 +819,6 @@ function renderInstruction(instructionId) {
 
   const applies = currentInstruction.applies_to;
   const range = applies.length > 1 ? `Q${applies[0]}-Q${applies[applies.length - 1]}` : `Q${applies[0]}`;
-  const meta = document.getElementById("review-meta");
-  document.getElementById("review-meta-text").textContent = `applies to ${range}`;
-  meta.classList.remove("needs-review");
-  document.getElementById("review-meta-dismiss-btn").hidden = true;
 
   const img = document.getElementById("question-image");
   img.src = currentInstruction.image ? `/api/papers/${currentPaper.paper_id}/${currentInstruction.image}` : "";
@@ -930,12 +1069,14 @@ function addChip(field, value) {
   currentQuestion[field].push(value);
   renderChips(field);
   saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
+  renderFilterPanel();
 }
 
 function removeChip(field, value) {
   currentQuestion[field] = (currentQuestion[field] || []).filter((v) => v !== value);
   renderChips(field);
   saveQuestionField(currentQuestion.q_number, { [field]: currentQuestion[field] });
+  renderFilterPanel();
 }
 
 // ---- "working on it" notice for the slow rebuilds (reading a table, re-reading a question) ----
@@ -2593,4 +2734,5 @@ initImageEditor();
 initFormatToolbar();
 initFormulaEditor();
 initSymbolPalette();
+initFilterPanel();
 initReprocess();

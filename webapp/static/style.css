@@ -124,8 +124,12 @@ button:disabled { opacity: 0.5; cursor: not-allowed; }
 .topbar-review label { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
 .topbar-review select { padding: 5px; border: 1px solid var(--border); border-radius: 6px; }
 .topbar-review button { padding: 5px 9px; }
-.review-meta { font-size: 12px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-.review-meta.needs-review { color: #b45309; font-weight: 600; }
+.review-meta {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 12px; color: var(--muted);
+  background: #f0f2f5; border-radius: 6px; padding: 6px 10px; margin-bottom: 10px;
+}
+.review-meta.needs-review { color: #b45309; font-weight: 600; background: #fef3e2; }
 .review-meta-dismiss {
   background: none; border: none; color: inherit; font-size: 15px; line-height: 1;
   padding: 0 2px; cursor: pointer; opacity: 0.7;
@@ -493,3 +497,18 @@ option.instruction-option { font-style: italic; color: var(--accent); }
 .image-editor-page-label { font-weight: 600; min-width: 140px; }
 .image-editor-allpages { display: inline-flex; align-items: center; gap: 4px; color: var(--muted); font-size: 12px; }
 .page-chip { padding: 1px 7px; font-size: 11px; background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); border-radius: 10px; margin-left: 4px; }
+
+.filter-btn { padding: 5px 9px; }
+.filter-btn.active { background: var(--accent-bg); color: var(--accent); border: 1px solid var(--accent); }
+.filter-popover {
+  position: fixed; z-index: 1200; width: 300px; max-width: calc(100vw - 16px); max-height: min(70vh, 460px); overflow-y: auto;
+  background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.25); padding: 12px; display: flex; flex-direction: column; gap: 10px;
+}
+.filter-popover[hidden] { display: none; }
+.filter-popover-header { display: flex; align-items: center; justify-content: space-between; }
+.filter-popover-header button { padding: 4px 10px; font-size: 12px; }
+.filter-section h5 { margin: 0 0 6px; font-size: 11px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: 0.03em; }
+.filter-checklist { display: flex; flex-direction: column; gap: 4px; max-height: 140px; overflow-y: auto; }
+.filter-checkbox-row { display: flex; align-items: center; gap: 6px; font-size: 13px; cursor: pointer; }
+.filter-empty-note { font-size: 12px; color: var(--muted); }
